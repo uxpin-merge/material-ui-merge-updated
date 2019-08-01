@@ -1,0 +1,470 @@
+[
+    "COMPONENT",
+    "VERSION",
+    "TYPE",
+    "UXP NAME",
+    "UXP STATUS",
+    "CODE",
+    "ACCESSIBILITY"
+]
+
+[{
+		"COMPONENT": "Button",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "ButtonUXP",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Button"
+	},
+	{
+		"COMPONENT": "Banner",
+		"VERSION": "1.0.0",
+		"TYPE": "Organism",
+		"UXP NAME": "BannerUXP",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Banner"
+	},
+	{
+		"COMPONENT": "Bottom Navigation",
+		"VERSION": "1.0.0",
+		"TYPE": "Organism",
+		"UXP NAME": "BottomNavigation",
+		"UXP STATUS": "Alpha",
+		"CODE": "In Progress",
+		"id": "BottomNavigation"
+	},
+	{
+		"COMPONENT": "Buttons: FAB",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "FabRoundUXP",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "ButtonsFAB"
+	},
+	{
+		"COMPONENT": "Card",
+		"VERSION": "1.0.0",
+		"TYPE": "Organism",
+		"UXP NAME": "Card",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Card"
+	},
+	{
+		"COMPONENT": "Chips",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "Chip",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Chips"
+	},
+	{
+		"COMPONENT": "Typography",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "Typography",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Typography"
+	},
+	{
+		"COMPONENT": "AppBar",
+		"VERSION": "1.0.0",
+		"TYPE": "Organism",
+		"UXP NAME": "AppBarUXP",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "AppBar"
+	},
+	{
+		"COMPONENT": "Backdrop",
+		"VERSION": "1.0.0",
+		"TYPE": "Organism",
+		"UXP NAME": "",
+		"UXP STATUS": "",
+		"CODE": "",
+		"id": "Backdrop"
+	},
+	{
+		"COMPONENT": "Dialog",
+		"VERSION": "1.0.0",
+		"TYPE": "Organism",
+		"UXP NAME": "DialogUXP",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Dialog"
+	},
+	{
+		"COMPONENT": "Divider",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "DividerUXP",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Divider"
+	},
+	{
+		"COMPONENT": "List",
+		"VERSION": "1.0.0",
+		"TYPE": "Organism",
+		"UXP NAME": "List",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "List"
+	},
+	{
+		"COMPONENT": "Navigational Drawer",
+		"VERSION": "1.0.0",
+		"TYPE": "Organism",
+		"UXP NAME": "NavigationalDrawerUXP",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "NavigationalDrawer"
+	},
+	{
+		"COMPONENT": "Menu",
+		"VERSION": "1.0.0",
+		"TYPE": "Organism",
+		"UXP NAME": "MenuUXP",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Menu"
+	},
+	{
+		"COMPONENT": "Progress Circular",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "CircularProgress",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "ProgressCircular"
+	},
+	{
+		"COMPONENT": "Progress Linear",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "LinearProgress",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "ProgressLinear"
+	},
+	{
+		"COMPONENT": "Radio Button",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "Radio",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "RadioButton"
+	},
+	{
+		"COMPONENT": "Checkbox",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "Checkbox",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Checkbox"
+	},
+	{
+		"COMPONENT": "Switch",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "Switch",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Switch"
+	},
+	{
+		"COMPONENT": "Tabs",
+		"VERSION": "1.0.0",
+		"TYPE": "Organism",
+		"UXP NAME": "Tabs",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Tabs"
+	},
+	{
+		"COMPONENT": "Textfields",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "TextField",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Textfields"
+	},
+	{
+		"COMPONENT": "Tooltips",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "TooltipsUXP",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Tooltips"
+	},
+	{
+		"COMPONENT": "Slider",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "SliderUXP",
+		"UXP STATUS": "Alpha",
+		"CODE": "In Progress",
+		"id": "Slider"
+	},
+	{
+		"COMPONENT": "Snackbars",
+		"VERSION": "1.0.0",
+		"TYPE": "Organism",
+		"UXP NAME": "Snackbar",
+		"UXP STATUS": "Alpha",
+		"CODE": "In Progress",
+		"id": "Snackbars"
+	},
+	{
+		"COMPONENT": "Selection Control Label",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "",
+		"UXP STATUS": "In Progress",
+		"CODE": "In Progress",
+		"id": "SelectionControlLabel"
+	},
+	{
+		"COMPONENT": "Checkbox Group",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "",
+		"UXP STATUS": "In Progress",
+		"CODE": "In Progress",
+		"id": "CheckboxGroup"
+	},
+	{
+		"COMPONENT": "Radio Group",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "",
+		"UXP STATUS": "In Progress",
+		"CODE": "In Progress",
+		"id": "RadioGroup"
+	},
+	{
+		"COMPONENT": "Avatar Image",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "AvatarImageUXP",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Avatar"
+	},
+	{
+		"COMPONENT": "Avatar Icon",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "AvatarIconUXP",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "AvatarIcon"
+	},
+	{
+		"COMPONENT": "Avatar Letter",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "AvatarLetterUXP",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "AvatarLetter"
+	},
+	{
+		"COMPONENT": "Badges",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "Badges",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Badges"
+	},
+	{
+		"COMPONENT": "Image",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "Image",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Image"
+	},
+	{
+		"COMPONENT": "Grid",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "Grid",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Grid"
+	},
+	{
+		"COMPONENT": "Paper",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "Paper",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Paper"
+	},
+	{
+		"COMPONENT": "Icon",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "Icon",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Icon"
+	},
+	{
+		"COMPONENT": "Icon Button",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "IconButton",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "IconButton"
+	},
+	{
+		"COMPONENT": "Link",
+		"VERSION": "1.0.0",
+		"TYPE": "Atom",
+		"UXP NAME": "Link",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Link"
+	},
+	{
+		"COMPONENT": "Toolbar",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "Toolbar",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Toolbar"
+	},
+	{
+		"COMPONENT": "Tab",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "Tab",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "Tab"
+	},
+	{
+		"COMPONENT": "Bottom Navigation Action",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "BottomNavigationAction",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "BottomNavigationAction"
+	},
+	{
+		"COMPONENT": "Grid List",
+		"VERSION": "1.0.0",
+		"TYPE": "Oraganism",
+		"UXP NAME": "GridList",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "GridList"
+	},
+	{
+		"COMPONENT": "Grid List Tile Bar",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "GridListTileBar",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "GridListTileBar"
+	},
+	{
+		"COMPONENT": "Grid List Tile",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "GridListTile",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "GridListTile"
+	},
+	{
+		"COMPONENT": "List Item Avatar",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "ListItemAvatar",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "ListItemAvatar"
+	},
+	{
+		"COMPONENT": "List Subheader",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "ListSubheader",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "ListSubheader"
+	},
+	{
+		"COMPONENT": "List Item Secondary Action",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "ListItemSecondaryAction",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "ListItemSecondaryAction"
+	},
+	{
+		"COMPONENT": "List Item Text",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "ListItemText",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "ListItemText"
+	},
+	{
+		"COMPONENT": "List Item",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "ListItem",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "ListItem"
+	},
+	{
+		"COMPONENT": "List Item Icon",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "ListItemIcon",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "ListItemIcon"
+	},
+	{
+		"COMPONENT": "MenuList",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "MenuList",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "MenuList"
+	},
+	{
+		"COMPONENT": "Snackbar Content",
+		"VERSION": "1.0.0",
+		"TYPE": "Molecule",
+		"UXP NAME": "SnackbarContent",
+		"UXP STATUS": "Beta",
+		"CODE": "In Progress",
+		"id": "SnackbarContent"
+	}
+]

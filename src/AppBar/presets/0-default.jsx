@@ -1,10 +1,11 @@
 import * as React from "react";
+
 import AppBar from "../AppBar";
-import Toolbar from "../../Toolbar/Toolbar";
-import IconButton from "../../IconButton/IconButton";
-import Icon from "../../Icon/Icon";
-import Typography from "../../Typography/Typography";
 import Button from "../../Button/Button";
+import Icon from "../../Icon/Icon";
+import IconButton from "../../IconButton/IconButton";
+import Toolbar from "../../Toolbar/Toolbar";
+import Typography from "../../Typography/Typography";
 
 export default (
   <AppBar position="static" uxpId="1">
@@ -17,7 +18,7 @@ export default (
         <Icon uxpId="4">menu</Icon>
       </IconButton>
       <Typography variant="h6" color="inherit" uxpId="5">
-        News
+        News123
       </Typography>
       <Button color="inherit" uxpId="6">Login</Button>
     </Toolbar>

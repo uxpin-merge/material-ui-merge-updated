@@ -23,7 +23,7 @@ Input.propTypes = {
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object,
 
   /**
    * The CSS class name of the wrapper element.
@@ -80,7 +80,7 @@ Input.propTypes = {
   /**
    * The width of the legend.
    */
-  labelWidth: PropTypes.number.isRequired,
+  labelWidth: PropTypes.number,
 
   /**
    * If `dense`, will adjust vertical spacing. This is normally obtained via context from

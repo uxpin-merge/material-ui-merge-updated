@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
 import DrawerM from "@material-ui/core/Drawer";
+import PropTypes from "prop-types";
+import React from "react";
 
 function Drawer(props) {
   return <DrawerM {...props}>{props.children}</DrawerM>;

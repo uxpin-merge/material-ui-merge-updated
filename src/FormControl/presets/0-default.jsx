@@ -1,9 +1,10 @@
 import * as React from "react";
+
 import FormControl from "../FormControl";
-import Select from "../../Select/Select";
-import MenuItem from "../../MenuItem/MenuItem";
-import InputLabel from "../../InputLabel/InputLabel";
 import FormHelperText from "../../FormHelperText/FormHelperText";
+import InputLabel from "../../InputLabel/InputLabel";
+import MenuItem from "../../MenuItem/MenuItem";
+import Select from "../../Select/Select";
 
 export default (
   <FormControl uxpId="1" fullWidth>

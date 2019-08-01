@@ -1,43 +1,70 @@
-import React from 'react';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import red from "@material-ui/core/colors/red";
-import pink from "@material-ui/core/colors/pink";
-import purple from "@material-ui/core/colors/purple";
-import deepPurple from "@material-ui/core/colors/deepPurple";
-import indigo from "@material-ui/core/colors/indigo";
-import blue from "@material-ui/core/colors/blue";
-import lightBlue from "@material-ui/core/colors/lightBlue";
-import cyan from "@material-ui/core/colors/cyan";
-import teal from "@material-ui/core/colors/teal";
-import green from "@material-ui/core/colors/green";
-import lightGreen from "@material-ui/core/colors/lightGreen";
-import lime from "@material-ui/core/colors/lime";
-import yellow from "@material-ui/core/colors/yellow";
-import amber from "@material-ui/core/colors/amber";
-import orange from "@material-ui/core/colors/orange";
-import deepOrange from "@material-ui/core/colors/deepOrange";
-import brown from "@material-ui/core/colors/brown";
-import grey from "@material-ui/core/colors/grey";
-import blueGrey from "@material-ui/core/colors/blueGrey";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+
+import CssBaseline from "@material-ui/core/CssBaseline";
+import React from "react";
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: indigo[500] }, 
-    secondary: { main: teal[100]}, 
+    primary: {
+      light: "#5da2fa",
+      main: "#0a74c7",
+      dark: "#004996",
+      contrastText: "#ffffff"
+    },
+    secondary: {
+      light: "#4e4f51",
+      main: "#262729",
+      dark: "#000000",
+      contrastText: "#ffffff"
+    }
   },
-  typography: { useNextVariants: true },
+  typography: {
+    useNextVariants: true,
+    fontFamily: '"Lato", sans-serif',
+    h1: {
+      fontSize: "5rem"
+    },
+    h6: {
+      fontWeight: "700"
+    },
+    subtitle2: {
+      fontWeight: "700"
+    },
+    button: {
+      fontWeight: "700",
+      fontSize: "0.8125rem"
+    },
+    overline: {
+      fontSize: "0.625rem",
+      letterSpacing: "1.5px",
+      fontWeight: "700"
+    }
+  }
 });
 
 export default function UXPinWrapper({ children }) {
-  let icons = document.createElement('link');
-  icons.setAttribute('href', 'https://fonts.googleapis.com/icon?family=Material+Icons');
-  icons.setAttribute('rel', 'stylesheet');
-  document.head.appendChild(icons);
 
-  let roboto = document.createElement('link');
-  roboto.setAttribute('href', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500');
-  roboto.setAttribute('rel', 'stylesheet');
-  document.head.appendChild(roboto);
+  if (!document.getElementById("mui-merge-font")) {
+    let lato = document.createElement("link");
+    lato.setAttribute(
+      "href",
+      "https://fonts.googleapis.com/css?family=Lato:300,400,700"
+    );
+    lato.setAttribute("rel", "stylesheet");
+    lato.setAttribute("id", "mui-merge-font");
+    document.head.appendChild(lato);
+  }
 
-  return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>;
+  if (!document.getElementById("mui-merge-icons")) {
+    let icons = document.createElement("link");
+    icons.setAttribute(
+      "href",
+      "https://fonts.googleapis.com/icon?family=Material+Icons"
+    );
+    icons.setAttribute("rel", "stylesheet");
+    icons.setAttribute("id", "mui-merge-icons");
+    document.head.appendChild(icons);
+  }
+  
+  return <MuiThemeProvider theme={theme}><CssBaseline />{children}</MuiThemeProvider>;
 }

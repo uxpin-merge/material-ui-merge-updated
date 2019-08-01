@@ -2,8 +2,38 @@ module.exports = {
   components: {
     categories: [
       {
+        name: "UXPin Components",
+        include: [
+          // "src/ComponentDemoUXP/ComponentDemoUXP.js",
+          "src/IconUXP/IconUXP.js",
+          "src/FabRoundUXP/FabRoundUXP.js",
+          "src/FabExtendedUXP/FabExtendedUXP.js",
+          "src/ButtonUXP/ButtonUXP.js",
+          "src/AvatarLetterUXP/AvatarLetterUXP.js",
+          "src/AvatarImageUXP/AvatarImageUXP.js",
+          "src/AvatarIconUXP/AvatarIconUXP.js",
+          "src/DividerUXP/DividerUXP.js",
+          // "src/SliderUXP/SliderUXP.js",
+          // "src/TableUXP/TableUXP.js",
+          "src/ThemeTarget/ThemeTarget.js",
+          "src/DrawerModalUXP/DrawerModalUXP.js",
+          "src/DialogUXP/DialogUXP.js",
+          "src/DialogTitle/DialogTitle.js",
+          "src/DialogContentText/DialogContentText.js",
+          "src/DialogContent/DialogContent.js",
+          "src/DialogActions/DialogActions.js",
+          "src/DialogSimpleUXP/DialogSimpleUXP.js",
+          "src/TooltipUXP/TooltipUXP.js",
+          "src/BannerUXP/BannerUXP.js",
+          "src/MenuUXP/MenuUXP.js",
+          "src/MenuExposedUXP/MenuExposedUXP.js",
+          "src/ComponentInspectorUXP/ComponentInspectorUXP.js"
+        ]
+      },
+      {
         name: "General",
-        include: ["src/Icon/Icon.js", "src/Typography/Typography.js"]
+        include: ["src/Icon/Icon.js",
+        "src/Typography/Typography.js"]
       },
       {
         name: "Actions",
@@ -57,6 +87,7 @@ module.exports = {
           "src/Input/Input.js",
           "src/Select/Select.js",
           "src/RadioGroup/RadioGroup.js",
+          "src/Menu/Menu.js",
           "src/MenuItem/MenuItem.js",
           "src/MenuList/MenuList.js",
           "src/OutlinedInput/OutlinedInput.js",

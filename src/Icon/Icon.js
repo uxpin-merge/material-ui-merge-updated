@@ -8,7 +8,7 @@ function Icon(props) {
 
 Icon.propTypes = {
   /**
-   * The name of the icon font ligature.
+   * The name of the icon  font ligature.
    */
   children: PropTypes.node,
 
