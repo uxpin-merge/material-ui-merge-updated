@@ -8,23 +8,15 @@ import MenuItem from "@material-ui/core/MenuItem";
 import PropTypes from "prop-types";
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/core/styles";
 
-const styles = theme => ({
-  menu: {
-    // maxWidth: 280
-  },
-  menuItemIcon: {
-    // marginLeft: 8,
-    // marginRight: 20
-  }
-});
-
-class SimpleMenu extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { anchorEl: null };
-  }
+class MenuUXP extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { anchorEl: null };
+  // }
+  state = {
+    anchorEl: null,
+  };
 
   handleClick = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -67,13 +59,12 @@ class SimpleMenu extends React.Component {
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
-          className={classes.menu}
         >
           {this.props.menuItems.map(item => {
             return (
               <MenuItem onClick={this.handleClose} divider={item.hasDivider}>
                 {item.icon && (
-                  <ListItemIcon className={classes.menuItemIcon}>
+                  <ListItemIcon>
                     <Icon>{item.icon}</Icon>
                   </ListItemIcon>
                 )}
@@ -89,7 +80,7 @@ class SimpleMenu extends React.Component {
   }
 }
 
-SimpleMenu.propTypes = {
+MenuUXP.propTypes = {
   /**
    * Menu items. Can have optional icons and dividers
    * Format:
@@ -131,7 +122,7 @@ SimpleMenu.propTypes = {
   children: PropTypes.node
 };
 
-SimpleMenu.defaultProps = {
+MenuUXP.defaultProps = {
   trigger: "icon",
   label: "More Items",
   icon: "more_vert",
@@ -144,4 +135,4 @@ SimpleMenu.defaultProps = {
   ]
 };
 
-export default withStyles(styles)(SimpleMenu);
+export default MenuUXP;
