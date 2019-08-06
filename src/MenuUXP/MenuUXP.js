@@ -27,7 +27,6 @@ class MenuUXP extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
     const { anchorEl } = this.state;
     let randomID = "menu-container-" + Math.floor(Math.random() * 100000);
     return (
@@ -60,9 +59,9 @@ class MenuUXP extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          {this.props.menuItems.map(item => {
+          {this.props.menuItems.map((item, key) => {
             return (
-              <MenuItem onClick={this.handleClose} divider={item.hasDivider}>
+              <MenuItem onClick={this.handleClose} divider={item.hasDivider} key={key}>
                 {item.icon && (
                   <ListItemIcon>
                     <Icon>{item.icon}</Icon>
