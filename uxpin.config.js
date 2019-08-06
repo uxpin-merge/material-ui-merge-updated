@@ -24,7 +24,7 @@ module.exports = {
           "src/DialogActions/DialogActions.js",
           "src/DialogSimpleUXP/DialogSimpleUXP.js",
           "src/TooltipUXP/TooltipUXP.js",
-          "src/BannerUXP/BannerUXP.js",
+          "src/Banner/Banner.js",
           "src/MenuUXP/MenuUXP.js",
           "src/MenuExposedUXP/MenuExposedUXP.js",
           "src/ComponentInspectorUXP/ComponentInspectorUXP.js"
