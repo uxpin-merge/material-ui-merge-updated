@@ -6,6 +6,7 @@ module.exports = {
         include: [
           // "src/ComponentDemoUXP/ComponentDemoUXP.js",
           "src/IconUXP/IconUXP.js",
+          "src/Box/Box.js",
           "src/FabRoundUXP/FabRoundUXP.js",
           "src/FabExtendedUXP/FabExtendedUXP.js",
           "src/ButtonUXP/ButtonUXP.js",
