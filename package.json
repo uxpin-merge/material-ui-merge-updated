@@ -37,6 +37,6 @@
     "@material-ui/icons": "^4.2.1",
     "@material-ui/styles": "^4.3.0",
     "classnames": "^2.2.6",
-    "clsx": "^1.0.4",
+    "clsx": "^1.0.4"
   }
 }
