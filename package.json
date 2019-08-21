@@ -22,6 +22,7 @@
     "babel-loader": "^8.0.4",
     "docz": "1.2.0",
     "docz-theme-default": "1.2.0",
+    "docz-iframe-playground": "^1.0.9",
     "prop-types": "^15.6.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -37,6 +38,5 @@
     "@material-ui/styles": "^4.3.0",
     "classnames": "^2.2.6",
     "clsx": "^1.0.4",
-    "emotion": "^9.2.12"
   }
 }

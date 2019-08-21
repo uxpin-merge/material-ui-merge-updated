@@ -2238,20 +2238,62 @@
       ]
     },
     {
-      "key": "src/DialogSimpleUXP/DialogSimpleUXP.js",
+      "key": "src/DialogTitle/DialogTitle.js",
       "value": [
         {
           "description": "",
-          "displayName": "DialogSimple",
+          "displayName": "DialogTitle",
           "methods": [],
-          "actualName": "DialogSimple",
+          "actualName": "DialogTitle",
+          "props": {
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "The text of the Dialog Title."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/DialogUXP/DialogUXP.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DialogUXP",
+          "methods": [
+            {
+              "name": "handleClickOpen",
+              "docblock": null,
+              "modifiers": [],
+              "params": [],
+              "returns": null
+            },
+            {
+              "name": "handleClose",
+              "docblock": null,
+              "modifiers": [],
+              "params": [],
+              "returns": null
+            }
+          ],
+          "actualName": "DialogUXP",
           "props": {
             "open": {
               "type": {
                 "name": "bool"
               },
-              "required": false,
+              "required": true,
               "description": "If `true`, the Dialog is open."
+            },
+            "height": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "Height of the dialog. This should equal the height of UXP canvas"
             },
             "fullScreen": {
               "type": {
@@ -2333,62 +2375,20 @@
       ]
     },
     {
-      "key": "src/DialogTitle/DialogTitle.js",
+      "key": "src/DialogSimpleUXP/DialogSimpleUXP.js",
       "value": [
         {
           "description": "",
-          "displayName": "DialogTitle",
+          "displayName": "DialogSimple",
           "methods": [],
-          "actualName": "DialogTitle",
-          "props": {
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "The text of the Dialog Title."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/DialogUXP/DialogUXP.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "DialogUXP",
-          "methods": [
-            {
-              "name": "handleClickOpen",
-              "docblock": null,
-              "modifiers": [],
-              "params": [],
-              "returns": null
-            },
-            {
-              "name": "handleClose",
-              "docblock": null,
-              "modifiers": [],
-              "params": [],
-              "returns": null
-            }
-          ],
-          "actualName": "DialogUXP",
+          "actualName": "DialogSimple",
           "props": {
             "open": {
               "type": {
                 "name": "bool"
               },
-              "required": true,
-              "description": "If `true`, the Dialog is open."
-            },
-            "height": {
-              "type": {
-                "name": "number"
-              },
               "required": false,
-              "description": "Height of the dialog. This should equal the height of UXP canvas"
+              "description": "If `true`, the Dialog is open."
             },
             "fullScreen": {
               "type": {
@@ -3241,6 +3241,86 @@
       ]
     },
     {
+      "key": "src/FabRoundUXP/FabRoundUXP.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FabRoundUXP",
+          "methods": [],
+          "actualName": "FabRoundUXP",
+          "props": {
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "The content of the button."
+            },
+            "color": {
+              "type": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "'default'",
+                    "computed": false
+                  },
+                  {
+                    "value": "'inherit'",
+                    "computed": false
+                  },
+                  {
+                    "value": "'primary'",
+                    "computed": false
+                  },
+                  {
+                    "value": "'secondary'",
+                    "computed": false
+                  }
+                ]
+              },
+              "required": false,
+              "description": "The color of the component. It supports those theme colors that make sense for this component."
+            },
+            "size": {
+              "type": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "'small'",
+                    "computed": false
+                  },
+                  {
+                    "value": "'medium'",
+                    "computed": false
+                  },
+                  {
+                    "value": "'large'",
+                    "computed": false
+                  }
+                ]
+              },
+              "required": false,
+              "description": "The size of the button.\n`small` is equivalent to the dense button styling."
+            },
+            "disabled": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If `true`, the button will be disabled."
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "OnClick event"
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src/FilledInput/FilledInput.js",
       "value": [
         {
@@ -3539,86 +3619,6 @@
               },
               "required": false,
               "description": "The input value, required for a controlled component."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/FabRoundUXP/FabRoundUXP.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "FabRoundUXP",
-          "methods": [],
-          "actualName": "FabRoundUXP",
-          "props": {
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "The content of the button."
-            },
-            "color": {
-              "type": {
-                "name": "enum",
-                "value": [
-                  {
-                    "value": "'default'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'inherit'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'primary'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'secondary'",
-                    "computed": false
-                  }
-                ]
-              },
-              "required": false,
-              "description": "The color of the component. It supports those theme colors that make sense for this component."
-            },
-            "size": {
-              "type": {
-                "name": "enum",
-                "value": [
-                  {
-                    "value": "'small'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'medium'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'large'",
-                    "computed": false
-                  }
-                ]
-              },
-              "required": false,
-              "description": "The size of the button.\n`small` is equivalent to the dense button styling."
-            },
-            "disabled": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If `true`, the button will be disabled."
-            },
-            "onClick": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "OnClick event"
             }
           }
         }
@@ -4893,6 +4893,53 @@
               "description": "The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size."
             }
           }
+        }
+      ]
+    },
+    {
+      "key": "src/IglooAppbar/IglooAppbar.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "IglooAppbar",
+          "methods": [],
+          "actualName": "IglooAppbar"
+        }
+      ]
+    },
+    {
+      "key": "src/IglooSideNavigation/IglooSideNavigation.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "IglooSideNavigation",
+          "methods": [
+            {
+              "name": "handleClick",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "item",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "handler",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "children",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "IglooSideNavigation"
         }
       ]
     },
@@ -6459,6 +6506,75 @@
       ]
     },
     {
+      "key": "src/MenuItem/MenuItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MenuItem",
+          "methods": [],
+          "actualName": "MenuItem",
+          "props": {
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "Menu item contents."
+            },
+            "classes": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "Override or extend the styles applied to the component."
+            },
+            "component": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "The component used for the root node.\nEither a string to use a DOM element or a component."
+            },
+            "disableGutters": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If `true`, the left and right padding is removed."
+            },
+            "role": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "selected": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            },
+            "value": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src/MenuList/MenuList.js",
       "value": [
         {
@@ -6634,75 +6750,6 @@
             "children": {
               "type": {
                 "name": "node"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/MenuItem/MenuItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MenuItem",
-          "methods": [],
-          "actualName": "MenuItem",
-          "props": {
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "Menu item contents."
-            },
-            "classes": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": "Override or extend the styles applied to the component."
-            },
-            "component": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "The component used for the root node.\nEither a string to use a DOM element or a component."
-            },
-            "disableGutters": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If `true`, the left and right padding is removed."
-            },
-            "role": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "selected": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": ""
-            },
-            "value": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "onClick": {
-              "type": {
-                "name": "func"
               },
               "required": false,
               "description": ""
@@ -7016,134 +7063,6 @@
       ]
     },
     {
-      "key": "src/Paper/Paper.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Paper",
-          "methods": [],
-          "actualName": "Paper",
-          "props": {
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "The content of the component."
-            },
-            "classes": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": "Override or extend the styles applied to the component.\nSee [CSS API](#css-api) below for more details."
-            },
-            "className": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "@ignore"
-            },
-            "component": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "The component used for the root node.\nEither a string to use a DOM element or a component."
-            },
-            "elevation": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "Shadow depth, corresponds to `dp` in the spec.\nIt's accepting values between 0 and 24 inclusive."
-            },
-            "square": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If `true`, rounded corners are disabled."
-            },
-            "style": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": "Custom Style Object"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/RadioGroup/RadioGroup.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "RadioGroup",
-          "methods": [],
-          "actualName": "RadioGroup",
-          "props": {
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "The content of the component."
-            },
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "The name used to reference the value of the control."
-            },
-            "onBlur": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "@ignore"
-            },
-            "onChange": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Callback fired when a RadioGroup button is selected.\n\n@param {object} event The event source of the callback.\nYou can pull out the new value by accessing `event.target.value`.\n@param {string} value The `value` of the selected RadioGroup button"
-            },
-            "onKeyDown": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "@ignore"
-            },
-            "value": {
-              "type": {
-                "name": "union",
-                "value": [
-                  {
-                    "name": "string"
-                  },
-                  {
-                    "name": "number"
-                  },
-                  {
-                    "name": "bool"
-                  }
-                ]
-              },
-              "required": false,
-              "description": "Value of the selected RadioGroup button."
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/Radio/Radio.js",
       "value": [
         {
@@ -7283,6 +7202,134 @@
               },
               "required": false,
               "description": "The value of the component."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Paper/Paper.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Paper",
+          "methods": [],
+          "actualName": "Paper",
+          "props": {
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "The content of the component."
+            },
+            "classes": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "Override or extend the styles applied to the component.\nSee [CSS API](#css-api) below for more details."
+            },
+            "className": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "@ignore"
+            },
+            "component": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "The component used for the root node.\nEither a string to use a DOM element or a component."
+            },
+            "elevation": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "Shadow depth, corresponds to `dp` in the spec.\nIt's accepting values between 0 and 24 inclusive."
+            },
+            "square": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If `true`, rounded corners are disabled."
+            },
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "Custom Style Object"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/RadioGroup/RadioGroup.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "RadioGroup",
+          "methods": [],
+          "actualName": "RadioGroup",
+          "props": {
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "The content of the component."
+            },
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "The name used to reference the value of the control."
+            },
+            "onBlur": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "@ignore"
+            },
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Callback fired when a RadioGroup button is selected.\n\n@param {object} event The event source of the callback.\nYou can pull out the new value by accessing `event.target.value`.\n@param {string} value The `value` of the selected RadioGroup button"
+            },
+            "onKeyDown": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "@ignore"
+            },
+            "value": {
+              "type": {
+                "name": "union",
+                "value": [
+                  {
+                    "name": "string"
+                  },
+                  {
+                    "name": "number"
+                  },
+                  {
+                    "name": "bool"
+                  }
+                ]
+              },
+              "required": false,
+              "description": "Value of the selected RadioGroup button."
             }
           }
         }
@@ -8375,213 +8422,6 @@
       ]
     },
     {
-      "key": "src/TabsContainer/TabsContainer.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "TabsContainer",
-          "methods": [
-            {
-              "name": "handleChange",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "event",
-                  "type": null
-                },
-                {
-                  "name": "value",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "renderContent",
-              "docblock": null,
-              "modifiers": [],
-              "params": [],
-              "returns": null
-            }
-          ],
-          "actualName": "TabsContainer",
-          "props": {
-            "classes": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": ""
-            },
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": ""
-            },
-            "containerColor": {
-              "type": {
-                "name": "enum",
-                "value": [
-                  {
-                    "value": "\"inherit\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"primary\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"secondary\"",
-                    "computed": false
-                  }
-                ]
-              },
-              "required": false,
-              "description": ""
-            },
-            "containerStyle": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": ""
-            },
-            "tabs": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "shape",
-                  "value": {
-                    "label": {
-                      "name": "string",
-                      "required": false
-                    },
-                    "classes": {
-                      "name": "string",
-                      "required": false
-                    },
-                    "className": {
-                      "name": "string",
-                      "required": false
-                    },
-                    "disabled": {
-                      "name": "bool",
-                      "required": false
-                    },
-                    "fullWidth": {
-                      "name": "bool",
-                      "required": false
-                    },
-                    "selected": {
-                      "name": "bool",
-                      "required": false
-                    },
-                    "textColor": {
-                      "name": "enum",
-                      "value": [
-                        {
-                          "value": "\"primary\"",
-                          "computed": false
-                        },
-                        {
-                          "value": "\"secondary\"",
-                          "computed": false
-                        },
-                        {
-                          "value": "\"inherit\"",
-                          "computed": false
-                        }
-                      ],
-                      "required": false
-                    }
-                  }
-                }
-              },
-              "required": false,
-              "description": ""
-            },
-            "tabsCentered": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": ""
-            },
-            "tabsFullWidth": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": ""
-            },
-            "tabsScrollable": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": ""
-            },
-            "tabsTextColor": {
-              "type": {
-                "name": "enum",
-                "value": [
-                  {
-                    "value": "\"primary\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"secondary\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"inherit\"",
-                    "computed": false
-                  }
-                ]
-              },
-              "required": false,
-              "description": ""
-            },
-            "tabsVariant": {
-              "type": {
-                "name": "enum",
-                "value": [
-                  {
-                    "value": "\"standard\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"scrollable\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"fullWidth\"",
-                    "computed": false
-                  }
-                ]
-              },
-              "required": false,
-              "description": ""
-            },
-            "tabsValue": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "0",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/Tabs/Tabs.js",
       "value": [
         {
@@ -8784,6 +8624,213 @@
               },
               "required": false,
               "description": "Determines additional display behavior of the Tabss:\n - `scrollable` will invoke scrolling properties and allow for horizontally\n scrolling (or swiping) of the Tabs bar.\n -`fullWidth` will make the Tabss grow to use all the available space,\n which should be used for small views, like on mobile.\n - `standard` will render the default state."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/TabsContainer/TabsContainer.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "TabsContainer",
+          "methods": [
+            {
+              "name": "handleChange",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "event",
+                  "type": null
+                },
+                {
+                  "name": "value",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "renderContent",
+              "docblock": null,
+              "modifiers": [],
+              "params": [],
+              "returns": null
+            }
+          ],
+          "actualName": "TabsContainer",
+          "props": {
+            "classes": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": ""
+            },
+            "containerColor": {
+              "type": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"inherit\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"primary\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"secondary\"",
+                    "computed": false
+                  }
+                ]
+              },
+              "required": false,
+              "description": ""
+            },
+            "containerStyle": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": ""
+            },
+            "tabs": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "shape",
+                  "value": {
+                    "label": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "classes": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "className": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "disabled": {
+                      "name": "bool",
+                      "required": false
+                    },
+                    "fullWidth": {
+                      "name": "bool",
+                      "required": false
+                    },
+                    "selected": {
+                      "name": "bool",
+                      "required": false
+                    },
+                    "textColor": {
+                      "name": "enum",
+                      "value": [
+                        {
+                          "value": "\"primary\"",
+                          "computed": false
+                        },
+                        {
+                          "value": "\"secondary\"",
+                          "computed": false
+                        },
+                        {
+                          "value": "\"inherit\"",
+                          "computed": false
+                        }
+                      ],
+                      "required": false
+                    }
+                  }
+                }
+              },
+              "required": false,
+              "description": ""
+            },
+            "tabsCentered": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            },
+            "tabsFullWidth": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            },
+            "tabsScrollable": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            },
+            "tabsTextColor": {
+              "type": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"primary\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"secondary\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"inherit\"",
+                    "computed": false
+                  }
+                ]
+              },
+              "required": false,
+              "description": ""
+            },
+            "tabsVariant": {
+              "type": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"standard\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"scrollable\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"fullWidth\"",
+                    "computed": false
+                  }
+                ]
+              },
+              "required": false,
+              "description": ""
+            },
+            "tabsValue": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "0",
+                "computed": false
+              }
             }
           }
         }
@@ -9251,6 +9298,111 @@
       ]
     },
     {
+      "key": "src/TooltipUXP/TooltipUXP.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "TooltipUXP",
+          "methods": [],
+          "actualName": "TooltipUXP",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Tooltip title. Zero-length titles string are never displayed."
+            },
+            "placement": {
+              "type": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"bottom-end\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"bottom-start\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"bottom\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"left-end\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"left-start\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"left\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"right-end\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"right-start\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"right\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"top-end\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"top-start\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"top\"",
+                    "computed": false
+                  }
+                ]
+              },
+              "required": false,
+              "description": "Tooltip placement."
+            },
+            "open": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If `true`, the tooltip is shown."
+            },
+            "onClose": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Callback fired when the tooltip requests to be closed.\n\n@param {object} event The event source of the callback"
+            },
+            "onOpen": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Callback fired when the tooltip requests to be open.\n\n@param {object} event The event source of the callback"
+            },
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "Tooltip reference element."
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src/Typography/Typography.js",
       "value": [
         {
@@ -9487,111 +9639,6 @@
       ]
     },
     {
-      "key": "src/TooltipUXP/TooltipUXP.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "TooltipUXP",
-          "methods": [],
-          "actualName": "TooltipUXP",
-          "props": {
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Tooltip title. Zero-length titles string are never displayed."
-            },
-            "placement": {
-              "type": {
-                "name": "enum",
-                "value": [
-                  {
-                    "value": "\"bottom-end\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"bottom-start\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"bottom\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"left-end\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"left-start\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"left\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"right-end\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"right-start\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"right\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"top-end\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"top-start\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"top\"",
-                    "computed": false
-                  }
-                ]
-              },
-              "required": false,
-              "description": "Tooltip placement."
-            },
-            "open": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If `true`, the tooltip is shown."
-            },
-            "onClose": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Callback fired when the tooltip requests to be closed.\n\n@param {object} event The event source of the callback"
-            },
-            "onOpen": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Callback fired when the tooltip requests to be open.\n\n@param {object} event The event source of the callback"
-            },
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "Tooltip reference element."
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/TabsContainer/TabContent/TabContent.js",
       "value": [
         {
@@ -9619,27 +9666,78 @@
       ]
     },
     {
-      "key": "src/IglooAppbar/IglooAppbar.js",
+      "key": "src/ButtonStyled/ButtonStyled.js",
       "value": [
         {
           "description": "",
-          "displayName": "IglooAppbar",
+          "displayName": "ButtonStyled",
           "methods": [],
-          "actualName": "IglooAppbar"
+          "actualName": "ButtonStyled",
+          "props": {
+            "children": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "\"Hello World\"",
+                "computed": false
+              }
+            }
+          }
         }
       ]
     }
   ],
   "entries": [
     {
-      "key": "src/ComponentTest.mdx",
+      "key": "src/ButtonStyled/ButtonStyled.mdx",
       "value": {
-        "name": "Hello world",
-        "id": "5bbe6ae447b595971819199fa43846f0",
-        "filepath": "src/ComponentTest.mdx",
+        "name": "ButtonStyled",
+        "id": "4bc9907d9b3cd6e849f0aaadabaf1f2c",
+        "filepath": "src/ButtonStyled/ButtonStyled.mdx",
         "link": "",
-        "slug": "src-component-test",
-        "route": "/src-component-test",
+        "slug": "src-button-styled-button-styled",
+        "route": "/src-button-styled-button-styled",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "hello-world",
+            "depth": 1,
+            "value": "Hello world"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/IglooAppbar/IglooAppbar.mdx",
+      "value": {
+        "name": "IglooAppBar",
+        "id": "7d56a36b923edb741e009eee4cb9c90e",
+        "filepath": "src/IglooAppbar/IglooAppbar.mdx",
+        "link": "",
+        "slug": "src-igloo-appbar-igloo-appbar",
+        "route": "/src-igloo-appbar-igloo-appbar",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "hello-world",
+            "depth": 1,
+            "value": "Hello world"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/IglooSideNavigation/IglooSideNavigation.mdx",
+      "value": {
+        "name": "IglooSideNavigation",
+        "id": "bd532a2156bd8adedfc42d133ab519a8",
+        "filepath": "src/IglooSideNavigation/IglooSideNavigation.mdx",
+        "link": "",
+        "slug": "src-igloo-side-navigation-igloo-side-navigation",
+        "route": "/src-igloo-side-navigation-igloo-side-navigation",
         "menu": "",
         "headings": [
           {
