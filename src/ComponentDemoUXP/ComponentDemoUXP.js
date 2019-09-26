@@ -94,7 +94,7 @@ const styles = theme => ({
   }
 });
 
-class PersistentDrawerLeft extends React.Component {
+class ComponentDemoUXP extends React.Component {
   state = {
     open: true,
     openlist: true
@@ -333,10 +333,10 @@ class PersistentDrawerLeft extends React.Component {
   }
 }
 
-PersistentDrawerLeft.propTypes = {
+ComponentDemoUXP.propTypes = {
   pageTitle: PropTypes.string,
   pageId: PropTypes.string,
   children: PropTypes.node
 };
 
-export default withStyles(styles, { withTheme: true })(PersistentDrawerLeft);
+export default withStyles(styles, { withTheme: true })(ComponentDemoUXP);
