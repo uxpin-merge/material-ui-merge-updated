@@ -195,7 +195,7 @@ const styles = theme => ({
   }
 });
 
-class EnhancedTable extends React.Component {
+class TableUXP extends React.Component {
   state = {
     order: this.props.order,
     orderBy: this.props.orderBy,
@@ -359,7 +359,7 @@ class EnhancedTable extends React.Component {
   }
 }
 
-EnhancedTable.propTypes = {
+TableUXP.propTypes = {
   // classes: PropTypes.object.isRequired,
   /**
    * Values of columns.
@@ -448,4 +448,4 @@ EnhancedTable.propTypes = {
   
 };
 
-export default withStyles(styles)(EnhancedTable);
+export default withStyles(styles)(TableUXP);

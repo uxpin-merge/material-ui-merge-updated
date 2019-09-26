@@ -17,7 +17,7 @@ module.exports = {
           "src/AvatarIconUXP/AvatarIconUXP.js",
           "src/DividerUXP/DividerUXP.js",
           // "src/SliderUXP/SliderUXP.js",
-          // "src/TableUXP/TableUXP.js",
+          "src/TableUXP/TableUXP.js",
           "src/ThemeTarget/ThemeTarget.js",
           "src/DrawerModalUXP/DrawerModalUXP.js",
           "src/DialogUXP/DialogUXP.js",

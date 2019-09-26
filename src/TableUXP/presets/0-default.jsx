@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import TableSimple from '../TableUXP';
+import TableUXP from '../TableUXP';
 
 const columns = ['Dessert', 'Calories', 'Fat', 'Carbs', 'Protein'];
 const rows = [
@@ -21,7 +21,7 @@ const rows = [
 
 
 export default (
-  <TableSimple
+  <TableUXP
   columns = {columns}
   rows = {rows}
   hasPagination='true'
