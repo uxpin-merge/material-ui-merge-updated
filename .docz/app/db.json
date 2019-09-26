@@ -1175,6 +1175,30 @@
       ]
     },
     {
+      "key": "src/ButtonStyled/ButtonStyled.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ButtonStyled",
+          "methods": [],
+          "actualName": "ButtonStyled",
+          "props": {
+            "children": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "\"Hello World\"",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src/ButtonUXP/ButtonUXP.js",
       "value": [
         {
@@ -1220,33 +1244,6 @@
       ]
     },
     {
-      "key": "src/CardContent/CardContent.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CardContent",
-          "methods": [],
-          "actualName": "CardContent",
-          "props": {
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": ""
-            },
-            "classes": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": "Override or extend the styles applied to the component."
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/CardActions/CardActions.js",
       "value": [
         {
@@ -1275,6 +1272,33 @@
               },
               "required": false,
               "description": "If `true`, the card actions do not have additional margin."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/CardContent/CardContent.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CardContent",
+          "methods": [],
+          "actualName": "CardContent",
+          "props": {
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": ""
+            },
+            "classes": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "Override or extend the styles applied to the component."
             }
           }
         }
@@ -1392,146 +1416,6 @@
               },
               "required": false,
               "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/Checkbox/Checkbox.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Checkbox",
-          "methods": [],
-          "actualName": "Checkbox",
-          "props": {
-            "checked": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If `true`, the component is checked."
-            },
-            "checkedIcon": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "The icon to display when the component is checked."
-            },
-            "classes": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": "Override or extend the styles applied to the component."
-            },
-            "color": {
-              "type": {
-                "name": "enum",
-                "value": [
-                  {
-                    "value": "\"primary\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"secondary\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"default\"",
-                    "computed": false
-                  }
-                ]
-              },
-              "required": false,
-              "description": "The color of the component. It supports those theme colors that make sense for this component."
-            },
-            "disabled": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If `true`, the switch will be disabled."
-            },
-            "disableRipple": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If `true`, the ripple effect will be disabled."
-            },
-            "icon": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "The icon to display when the component is unchecked."
-            },
-            "id": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "The id of the `input` element."
-            },
-            "indeterminate": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If `true`, the component appears indeterminate.\nThis does not set the native input element to indeterminate due\nto inconsistent behavior across browsers.\nHowever, we set a `data-indeterminate` attribute on the input."
-            },
-            "indeterminateIcon": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "The icon to display when the component is indeterminate."
-            },
-            "inputProps": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": "Properties applied to the `input` element."
-            },
-            "inputRef": {
-              "type": {
-                "name": "union",
-                "value": [
-                  {
-                    "name": "func"
-                  },
-                  {
-                    "name": "object"
-                  }
-                ]
-              },
-              "required": false,
-              "description": "Use that property to pass a ref callback to the native input component."
-            },
-            "onChange": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Callback fired when the state is changed."
-            },
-            "type": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "The input component property `type`."
-            },
-            "value": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "The value of the component."
             }
           }
         }
@@ -1675,6 +1559,146 @@
               },
               "required": false,
               "description": "The variant to use."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/Checkbox/Checkbox.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Checkbox",
+          "methods": [],
+          "actualName": "Checkbox",
+          "props": {
+            "checked": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If `true`, the component is checked."
+            },
+            "checkedIcon": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "The icon to display when the component is checked."
+            },
+            "classes": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "Override or extend the styles applied to the component."
+            },
+            "color": {
+              "type": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"primary\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"secondary\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"default\"",
+                    "computed": false
+                  }
+                ]
+              },
+              "required": false,
+              "description": "The color of the component. It supports those theme colors that make sense for this component."
+            },
+            "disabled": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If `true`, the switch will be disabled."
+            },
+            "disableRipple": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If `true`, the ripple effect will be disabled."
+            },
+            "icon": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "The icon to display when the component is unchecked."
+            },
+            "id": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "The id of the `input` element."
+            },
+            "indeterminate": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If `true`, the component appears indeterminate.\nThis does not set the native input element to indeterminate due\nto inconsistent behavior across browsers.\nHowever, we set a `data-indeterminate` attribute on the input."
+            },
+            "indeterminateIcon": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "The icon to display when the component is indeterminate."
+            },
+            "inputProps": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "Properties applied to the `input` element."
+            },
+            "inputRef": {
+              "type": {
+                "name": "union",
+                "value": [
+                  {
+                    "name": "func"
+                  },
+                  {
+                    "name": "object"
+                  }
+                ]
+              },
+              "required": false,
+              "description": "Use that property to pass a ref callback to the native input component."
+            },
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Callback fired when the state is changed."
+            },
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "The input component property `type`."
+            },
+            "value": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "The value of the component."
             }
           }
         }
@@ -2238,62 +2262,20 @@
       ]
     },
     {
-      "key": "src/DialogTitle/DialogTitle.js",
+      "key": "src/DialogSimpleUXP/DialogSimpleUXP.js",
       "value": [
         {
           "description": "",
-          "displayName": "DialogTitle",
+          "displayName": "DialogSimple",
           "methods": [],
-          "actualName": "DialogTitle",
-          "props": {
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "The text of the Dialog Title."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/DialogUXP/DialogUXP.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "DialogUXP",
-          "methods": [
-            {
-              "name": "handleClickOpen",
-              "docblock": null,
-              "modifiers": [],
-              "params": [],
-              "returns": null
-            },
-            {
-              "name": "handleClose",
-              "docblock": null,
-              "modifiers": [],
-              "params": [],
-              "returns": null
-            }
-          ],
-          "actualName": "DialogUXP",
+          "actualName": "DialogSimple",
           "props": {
             "open": {
               "type": {
                 "name": "bool"
               },
-              "required": true,
-              "description": "If `true`, the Dialog is open."
-            },
-            "height": {
-              "type": {
-                "name": "number"
-              },
               "required": false,
-              "description": "Height of the dialog. This should equal the height of UXP canvas"
+              "description": "If `true`, the Dialog is open."
             },
             "fullScreen": {
               "type": {
@@ -2375,20 +2357,62 @@
       ]
     },
     {
-      "key": "src/DialogSimpleUXP/DialogSimpleUXP.js",
+      "key": "src/DialogTitle/DialogTitle.js",
       "value": [
         {
           "description": "",
-          "displayName": "DialogSimple",
+          "displayName": "DialogTitle",
           "methods": [],
-          "actualName": "DialogSimple",
+          "actualName": "DialogTitle",
+          "props": {
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "The text of the Dialog Title."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/DialogUXP/DialogUXP.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "DialogUXP",
+          "methods": [
+            {
+              "name": "handleClickOpen",
+              "docblock": null,
+              "modifiers": [],
+              "params": [],
+              "returns": null
+            },
+            {
+              "name": "handleClose",
+              "docblock": null,
+              "modifiers": [],
+              "params": [],
+              "returns": null
+            }
+          ],
+          "actualName": "DialogUXP",
           "props": {
             "open": {
               "type": {
                 "name": "bool"
               },
-              "required": false,
+              "required": true,
               "description": "If `true`, the Dialog is open."
+            },
+            "height": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "Height of the dialog. This should equal the height of UXP canvas"
             },
             "fullScreen": {
               "type": {
@@ -2850,40 +2874,6 @@
       ]
     },
     {
-      "key": "src/ExpansionPanelActions/ExpansionPanelActions.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ExpansionPanelActions",
-          "methods": [],
-          "actualName": "ExpansionPanelActions",
-          "props": {
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "The content of the component."
-            },
-            "classes": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": "Override or extend the styles applied to the component.\nSee [CSS API](#css-api) below for more details."
-            },
-            "className": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "@ignore"
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/ExpansionPanelDetails/ExpansionPanelDetails.js",
       "value": [
         {
@@ -2985,6 +2975,40 @@
             "onClick": {
               "type": {
                 "name": "func"
+              },
+              "required": false,
+              "description": "@ignore"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/ExpansionPanelActions/ExpansionPanelActions.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ExpansionPanelActions",
+          "methods": [],
+          "actualName": "ExpansionPanelActions",
+          "props": {
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "The content of the component."
+            },
+            "classes": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "Override or extend the styles applied to the component.\nSee [CSS API](#css-api) below for more details."
+            },
+            "className": {
+              "type": {
+                "name": "string"
               },
               "required": false,
               "description": "@ignore"
@@ -4517,61 +4541,6 @@
       ]
     },
     {
-      "key": "src/GridListTile/GridListTile.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "GridListTile",
-          "methods": [],
-          "actualName": "GridListTile",
-          "props": {
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "Theoretically you can pass any node as children, but the main use case is to pass an img,\nin which case GridListTile takes care of making the image \"cover\" available space\n(similar to `background-size: cover` or to `object-fit: cover`)."
-            },
-            "classes": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": "Override or extend the styles applied to the component.\nSee [CSS API](#css-api) below for more details."
-            },
-            "className": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "@ignore"
-            },
-            "cols": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "Width of the tile in number of grid cells."
-            },
-            "component": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "The component used for the root node.\nEither a string to use a DOM element or a component."
-            },
-            "rows": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "Height of the tile in number of grid cells."
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/GridListTileBar/GridListTileBar.js",
       "value": [
         {
@@ -4740,6 +4709,61 @@
               },
               "required": false,
               "description": "The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/GridListTile/GridListTile.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "GridListTile",
+          "methods": [],
+          "actualName": "GridListTile",
+          "props": {
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "Theoretically you can pass any node as children, but the main use case is to pass an img,\nin which case GridListTile takes care of making the image \"cover\" available space\n(similar to `background-size: cover` or to `object-fit: cover`)."
+            },
+            "classes": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "Override or extend the styles applied to the component.\nSee [CSS API](#css-api) below for more details."
+            },
+            "className": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "@ignore"
+            },
+            "cols": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "Width of the tile in number of grid cells."
+            },
+            "component": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "The component used for the root node.\nEither a string to use a DOM element or a component."
+            },
+            "rows": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "Height of the tile in number of grid cells."
             }
           }
         }
@@ -7063,6 +7087,68 @@
       ]
     },
     {
+      "key": "src/Paper/Paper.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Paper",
+          "methods": [],
+          "actualName": "Paper",
+          "props": {
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "The content of the component."
+            },
+            "classes": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "Override or extend the styles applied to the component.\nSee [CSS API](#css-api) below for more details."
+            },
+            "className": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "@ignore"
+            },
+            "component": {
+              "type": {
+                "name": "node"
+              },
+              "required": false,
+              "description": "The component used for the root node.\nEither a string to use a DOM element or a component."
+            },
+            "elevation": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "Shadow depth, corresponds to `dp` in the spec.\nIt's accepting values between 0 and 24 inclusive."
+            },
+            "square": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If `true`, rounded corners are disabled."
+            },
+            "style": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "Custom Style Object"
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src/Radio/Radio.js",
       "value": [
         {
@@ -7202,68 +7288,6 @@
               },
               "required": false,
               "description": "The value of the component."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/Paper/Paper.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Paper",
-          "methods": [],
-          "actualName": "Paper",
-          "props": {
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "The content of the component."
-            },
-            "classes": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": "Override or extend the styles applied to the component.\nSee [CSS API](#css-api) below for more details."
-            },
-            "className": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "@ignore"
-            },
-            "component": {
-              "type": {
-                "name": "node"
-              },
-              "required": false,
-              "description": "The component used for the root node.\nEither a string to use a DOM element or a component."
-            },
-            "elevation": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "Shadow depth, corresponds to `dp` in the spec.\nIt's accepting values between 0 and 24 inclusive."
-            },
-            "square": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If `true`, rounded corners are disabled."
-            },
-            "style": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": "Custom Style Object"
             }
           }
         }
@@ -8220,208 +8244,6 @@
       ]
     },
     {
-      "key": "src/TableUXP/TableUXP.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "EnhancedTable",
-          "methods": [
-            {
-              "name": "handleRequestSort",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "event",
-                  "type": null
-                },
-                {
-                  "name": "property",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "handleSelectAllClick",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "event",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "handleClick",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "event",
-                  "type": null
-                },
-                {
-                  "name": "id",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "handleChangePage",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "event",
-                  "type": null
-                },
-                {
-                  "name": "page",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "handleChangeRowsPerPage",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "event",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "isSelected",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "id",
-                  "type": null
-                }
-              ],
-              "returns": null
-            }
-          ],
-          "actualName": "EnhancedTable",
-          "props": {
-            "columns": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "string"
-                }
-              },
-              "required": false,
-              "description": "Values of columns.\nFormat:\n[\"First Name\", \"Last Name\", \"Address\"]"
-            },
-            "rows": {
-              "type": {
-                "name": "array"
-              },
-              "required": false,
-              "description": "Values of rows in key:value pairs. Key must match column headers. \nMUST include a unique id.\nFormat:\n[\n {\n        \"id\": \"1\",\n        \"First Name\": \"John\",\n        \"Last Name\": \"Doe\",\n        \"Address\": \"123 Main Street\"\n      },\n      {\n        \"id\": \"3\",\n        \"First Name\": \"Jane\",\n        \"Last Name\": \"Doe\",\n        \"Address\": \"14865 Oak Road\"\n      },\n    ]"
-            },
-            "hasHeader": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "Show/Hide the action header"
-            },
-            "headerText": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Title of table displaid in action header"
-            },
-            "hasSorting": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "Enable/disable column sorting"
-            },
-            "hasSelection": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "Enable/disable selection checkboxes"
-            },
-            "orderBy": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Column name to be sorted by default"
-            },
-            "order": {
-              "type": {
-                "name": "enum",
-                "value": [
-                  {
-                    "value": "\"asc\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"desc\"",
-                    "computed": false
-                  }
-                ]
-              },
-              "required": false,
-              "description": "Sorting order"
-            },
-            "hasPagination": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "Enable/disable pagination"
-            },
-            "page": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "The initial page to be loaded"
-            },
-            "rowsPerPage": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "How many records to display per page. Should match a rowsPerPage value."
-            },
-            "rowsPerPageOptions": {
-              "type": {
-                "name": "array"
-              },
-              "required": false,
-              "description": "Options for \"Rows per page\" drop-down.\nFormat:\n[ 5, 10, 25 ]"
-            },
-            "elevation": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "Elevation of table container."
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/Tabs/Tabs.js",
       "value": [
         {
@@ -8624,6 +8446,208 @@
               },
               "required": false,
               "description": "Determines additional display behavior of the Tabss:\n - `scrollable` will invoke scrolling properties and allow for horizontally\n scrolling (or swiping) of the Tabs bar.\n -`fullWidth` will make the Tabss grow to use all the available space,\n which should be used for small views, like on mobile.\n - `standard` will render the default state."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/TableUXP/TableUXP.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "EnhancedTable",
+          "methods": [
+            {
+              "name": "handleRequestSort",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "event",
+                  "type": null
+                },
+                {
+                  "name": "property",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "handleSelectAllClick",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "event",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "handleClick",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "event",
+                  "type": null
+                },
+                {
+                  "name": "id",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "handleChangePage",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "event",
+                  "type": null
+                },
+                {
+                  "name": "page",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "handleChangeRowsPerPage",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "event",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "isSelected",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "id",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "EnhancedTable",
+          "props": {
+            "columns": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "string"
+                }
+              },
+              "required": false,
+              "description": "Values of columns.\nFormat:\n[\"First Name\", \"Last Name\", \"Address\"]"
+            },
+            "rows": {
+              "type": {
+                "name": "array"
+              },
+              "required": false,
+              "description": "Values of rows in key:value pairs. Key must match column headers. \nMUST include a unique id.\nFormat:\n[\n {\n        \"id\": \"1\",\n        \"First Name\": \"John\",\n        \"Last Name\": \"Doe\",\n        \"Address\": \"123 Main Street\"\n      },\n      {\n        \"id\": \"3\",\n        \"First Name\": \"Jane\",\n        \"Last Name\": \"Doe\",\n        \"Address\": \"14865 Oak Road\"\n      },\n    ]"
+            },
+            "hasHeader": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Show/Hide the action header"
+            },
+            "headerText": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Title of table displaid in action header"
+            },
+            "hasSorting": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Enable/disable column sorting"
+            },
+            "hasSelection": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Enable/disable selection checkboxes"
+            },
+            "orderBy": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Column name to be sorted by default"
+            },
+            "order": {
+              "type": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"asc\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"desc\"",
+                    "computed": false
+                  }
+                ]
+              },
+              "required": false,
+              "description": "Sorting order"
+            },
+            "hasPagination": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Enable/disable pagination"
+            },
+            "page": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "The initial page to be loaded"
+            },
+            "rowsPerPage": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "How many records to display per page. Should match a rowsPerPage value."
+            },
+            "rowsPerPageOptions": {
+              "type": {
+                "name": "array"
+              },
+              "required": false,
+              "description": "Options for \"Rows per page\" drop-down.\nFormat:\n[ 5, 10, 25 ]"
+            },
+            "elevation": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "Elevation of table container."
             }
           }
         }
@@ -9660,30 +9684,6 @@
               },
               "required": false,
               "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/ButtonStyled/ButtonStyled.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ButtonStyled",
-          "methods": [],
-          "actualName": "ButtonStyled",
-          "props": {
-            "children": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "\"Hello World\"",
-                "computed": false
-              }
             }
           }
         }

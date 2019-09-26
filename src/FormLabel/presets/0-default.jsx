@@ -2,7 +2,7 @@ import * as React from "react";
 import FormLabel from "../../FormLabel/FormLabel";
 
 export default (
-  <FormLabel>
+  <FormLabel uxpId="1">
     Merge
   </FormLabel>
 );

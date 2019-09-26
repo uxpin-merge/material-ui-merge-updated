@@ -2,5 +2,5 @@ import * as React from 'react';
 import Tab from '../Tab';
 
 export default (
-  <Tab label="Active" />
+  <Tab uxpId="1" label="Active" />
 );
