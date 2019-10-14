@@ -9,11 +9,19 @@ module.exports = {
     },
     resolve: {
       modules: [__dirname, "node_modules"],
-      extensions: ["*", ".js", ".jsx"]
+      extensions: ["*", ".js", ".jsx", '.css']
     },
     devtool: "source-map",
     module: {
       rules: [
+        {
+          test: /(\.s[ac]ss$|\.css$)/,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.(jpe?g|gif|png|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+          loader: 'file-loader?name=images/[name].[ext]',
+        },
         {
           test: /\.svg$/,
           exclude: /node_modules/,

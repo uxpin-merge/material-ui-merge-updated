@@ -1,5 +1,4 @@
 import React from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
@@ -66,5 +65,5 @@ export default function UXPinWrapper({ children }) {
     document.head.appendChild(icons);
   }
   
-  return <ThemeProvider theme={theme}><CssBaseline />{children}</ThemeProvider>;
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }

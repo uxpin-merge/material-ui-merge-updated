@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "uxpin-merge --webpack-config ./webpack.config.js --wrapper ./src/Wrapper/UXPinWrapper.js",
+    "start": "uxpin-merge --disable-tunneling --webpack-config ./webpack.config.js --wrapper ./src/Wrapper/UXPinWrapper.js",
     "docz:dev": "docz dev",
     "docz:build": "docz build"
   },
@@ -37,6 +37,14 @@
     "@material-ui/icons": "^4.2.1",
     "@material-ui/styles": "^4.3.0",
     "classnames": "^2.2.6",
-    "clsx": "^1.0.4"
+    "clsx": "^1.0.4",
+    "css-loader": "^3.2.0",
+    "jss-rtl": "^0.3.0",
+    "react-device-emulator": "^1.0.3",
+    "react-device-simulator": "^1.0.1",
+    "react-frame": "^2.2.21",
+    "react-frame-component": "^4.1.1",
+    "react-jss": "^10.0.0",
+    "style-loader": "^1.0.0"
   }
 }
