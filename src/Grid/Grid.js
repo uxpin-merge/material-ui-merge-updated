@@ -113,8 +113,8 @@ Grid.propTypes = {
    * Defines the space between the type `item` component.
    * It can only be used on a type `container` component.
    */
-  spacing: PropTypes.oneOf(["0", "8", "16", "24", "32", "40"]),
-
+  spacing: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  
   /**
    * Defines the `flex-wrap` style property.
    * It's applied for all screen sizes.
