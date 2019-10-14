@@ -20,8 +20,8 @@ const styles = theme => ({
     flexGrow: 1,
     background: '#eee',
   },
-  uxpCanvas:{
-    borderTop:"2px"
+  uxpIglooCanvas:{
+    borderTop:"0 !important"
   },
   frameStyle: {
     background: '#fff',
@@ -50,7 +50,7 @@ const styles = theme => ({
     maxHeight: "667px"
   },
   canvasContainer:{
-margin:"0 !important"
+  margin:"0 !important"
   }
 });
 
@@ -79,7 +79,8 @@ class IFrame extends React.Component {
   render() {
     if (document.querySelector(".canvas-container")){
     const uxpContainer = document.querySelector(".canvas-container");
-    uxpContainer.className = 'uxpCanvas';
+    // uxpContainer.classList.add('uxpIglooCanvas');
+    uxpContainer.style.marginTop = '0';
   }
 
     let selectedViewClass = "";
