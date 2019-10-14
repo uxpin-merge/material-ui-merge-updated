@@ -21,7 +21,7 @@ const styles = theme => ({
     background: '#eee',
   },
   uxpCanvas:{
-    borderTop:"none !important"
+    borderTop:"2px"
   },
   frameStyle: {
     background: '#fff',
