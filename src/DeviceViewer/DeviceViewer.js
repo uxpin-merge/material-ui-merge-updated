@@ -1,17 +1,9 @@
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import Card from "../Card/Card";
 import Grid from "@material-ui/core/Grid";
-import Icon from "@material-ui/core/Icon";
-import IconButton from "@material-ui/core/IconButton";
-import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
 import React from "react";
-import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import Toolbar from "@material-ui/core/Toolbar";
-import Input from "@material-ui/core/Input";
 import { withStyles } from "@material-ui/core/styles";
 import IFramePlayground from "docz-iframe-playground";
 
@@ -54,7 +46,7 @@ const styles = theme => ({
   }
 });
 
-class IFrame extends React.Component {
+class DeviceViewer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -125,15 +117,15 @@ class IFrame extends React.Component {
     );
   }
 }
-IFrame.propTypes = {
+DeviceViewer.propTypes = {
   children: PropTypes.node,
   responsive: PropTypes.bool,
   defaultView: PropTypes.oneOf(["desktop", "tablet", "mobile"]),
 };
 
-IFrame.defaultProps = {
+DeviceViewer.defaultProps = {
   responsive: true,
   defaultView: "desktop",
 };
 
-export default withStyles(styles)(IFrame);
+export default withStyles(styles)(DeviceViewer);
