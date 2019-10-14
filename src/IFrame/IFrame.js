@@ -18,20 +18,20 @@ import IFramePlayground from "docz-iframe-playground";
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    background: '#eee',
+    background: "#eee"
   },
-  uxpIglooCanvas:{
-    borderTop:"0 !important"
+  uxpIglooCanvas: {
+    borderTop: "0 !important"
   },
   frameStyle: {
-    background: '#fff',
-    border: '1px solid #e0e0e0',
-    display: 'block',
-    margin: '0 auto',
-    overflow: 'auto',
+    background: "#fff",
+    border: "1px solid #e0e0e0",
+    display: "block",
+    margin: "0 auto",
+    overflow: "auto"
     // height: 'fit-content',
   },
-  deviceSelect:{
+  deviceSelect: {
     border: "none"
   },
   desktop: {
@@ -49,8 +49,8 @@ const styles = theme => ({
     height: "667px",
     maxHeight: "667px"
   },
-  canvasContainer:{
-  margin:"0 !important"
+  canvasContainer: {
+    margin: "0 !important"
   }
 });
 
@@ -59,29 +59,27 @@ class IFrame extends React.Component {
     super(props);
 
     this.state = {
-      view: props.defaultView,
+      view: props.defaultView
     };
 
     this.handleChangeSelect = this.handleChangeSelect.bind(this);
   }
 
   handleChangeSelect = event => {
-    this.setState({ view: event.target.value})
+    this.setState({ view: event.target.value });
   };
 
   handleChange(e) {
-    this.setState({view: e.target.value});
+    this.setState({ view: e.target.value });
   }
-
-  
-
 
   render() {
-    if (document.querySelector(".canvas-container")){
-    const uxpContainer = document.querySelector(".canvas-container");
-    // uxpContainer.classList.add('uxpIglooCanvas');
-    uxpContainer.style.marginTop = '0';
-  }
+
+    //Remove top margin of UXP Canvas 
+    if (document.querySelector(".canvas-container")) {
+      const uxpContainer = document.querySelector(".canvas-container");
+      uxpContainer.style.marginTop = "0";
+    }
 
     let selectedViewClass = "";
 
@@ -93,10 +91,7 @@ class IFrame extends React.Component {
       selectedViewClass = this.props.classes.mobile;
     }
 
-    let responsiveFrame = [
-      this.props.classes.frameStyle,
-      selectedViewClass
-    ];
+    let responsiveFrame = [this.props.classes.frameStyle, selectedViewClass];
 
     responsiveFrame = responsiveFrame.join(" ");
 
@@ -104,39 +99,29 @@ class IFrame extends React.Component {
 
     return (
       <div className={classes.root}>
-
-<Grid
-  container
-  direction="row"
-  justify="center"
-  alignItems="center"
->
-
-
-<Grid item>
-
-
-
-<Select
-        onChange={this.handleChangeSelect}
-        value={this.state.view}
-        disableUnderline
-      >
-        
-          <MenuItem key="mobile" value="mobile"><Typography variant="caption">Mobile (375x667)</Typography> </MenuItem>
-          <MenuItem key="tablet" value="tablet"><Typography variant="caption">Tablet (768x1024)</Typography></MenuItem>
-          <MenuItem key="desktop" value="desktop"><Typography variant="caption">Desktop (1280x667)</Typography></MenuItem>
-        </Select>
-        </Grid>
+        <Grid container direction="row" justify="center" alignItems="center">
+          <Grid item>
+            <Select
+              onChange={this.handleChangeSelect}
+              value={this.state.view}
+              disableUnderline
+            >
+              <MenuItem key="mobile" value="mobile">
+                <Typography variant="caption">Mobile (375x667)</Typography>{" "}
+              </MenuItem>
+              <MenuItem key="tablet" value="tablet">
+                <Typography variant="caption">Tablet (768x1024)</Typography>
+              </MenuItem>
+              <MenuItem key="desktop" value="desktop">
+                <Typography variant="caption">Desktop (1280x667)</Typography>
+              </MenuItem>
+            </Select>
+          </Grid>
         </Grid>
         <div className={responsiveFrame}>
-          <IFramePlayground >
-            {this.props.children}
-          </IFramePlayground>
+          <IFramePlayground>{this.props.children}</IFramePlayground>
         </div>
-
-        
-        </div>
+      </div>
     );
   }
 }
@@ -144,18 +129,11 @@ IFrame.propTypes = {
   children: PropTypes.node,
   responsive: PropTypes.bool,
   defaultView: PropTypes.oneOf(["desktop", "tablet", "mobile"]),
-  menuItems: PropTypes.array,
 };
 
 IFrame.defaultProps = {
-   responsive: true,
-   defaultView: "desktop",
-   menuItems: [
-    { label: "Home", value: "1" },
-    { label: "Mobile", value: "2" },
-    { label: "Office", value: "3", hasDivider: "true" },
-    { label: "Emergency", value: "4" }
-  ],
- };
+  responsive: true,
+  defaultView: "desktop",
+};
 
 export default withStyles(styles)(IFrame);
