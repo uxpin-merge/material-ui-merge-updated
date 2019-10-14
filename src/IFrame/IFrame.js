@@ -21,7 +21,7 @@ const styles = theme => ({
     background: '#eee',
   },
   uxpCanvas:{
-border:"none !important"
+    borderTop:"none !important"
   },
   frameStyle: {
     background: '#fff',
@@ -81,7 +81,7 @@ class IFrame extends React.Component {
     const uxpContainer = document.querySelector(".canvas-container");
     uxpContainer.className = 'uxpCanvas';
   }
-  
+
     let selectedViewClass = "";
 
     if (this.state.view === "desktop") {
