@@ -12,7 +12,8 @@ const styles = theme => ({
     flexGrow: 1,
     background: "#cccccc",
     width:"100%",
-    height:"100%"
+    height:"100%",
+    paddingBottom:"35px",
   },
   uxpIglooCanvas: {
     borderTop: "0 !important"
