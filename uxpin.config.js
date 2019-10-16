@@ -6,8 +6,8 @@ module.exports = {
         include: [
           "src/TestComponent/TestComponent.js",
           "src/HiddenTest/HiddenTest.js",
-          "src/DemoSandboxed/DemoSandboxed.js",
           "src/DeviceViewer/DeviceViewer.js",
+          "src/DeviceViewer2/DeviceViewer2.js",
           "src/ButtonStyled/ButtonStyled.js",
           "src/IglooHeader/IglooHeader.js",
           "src/IglooSmallHeader/IglooSmallHeader.js",
