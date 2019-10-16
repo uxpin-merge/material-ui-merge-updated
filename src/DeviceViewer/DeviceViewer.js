@@ -10,7 +10,7 @@ import IFramePlayground from "docz-iframe-playground";
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    background: "#eee",
+    background: "#cccccc",
     width:"100%",
     height:"100%",
     paddingBottom:"35px",
@@ -20,11 +20,11 @@ const styles = theme => ({
   },
   frameStyle: {
     background: "#fff",
-    // border: "1px solid #e0e0e0",
-    // display: "block",
+    border: "1px solid #e0e0e0",
+    display: "block",
     margin: "0 auto",
-    // overflow: "auto",
-    // height: 'fit-content',
+    overflow: "auto",
+    height: 'fit-content',
   },
   deviceSelect: {
     border: "none"
@@ -116,13 +116,13 @@ class DeviceViewer extends React.Component {
 
         {/* <IFramePlayground className={selectedViewClass} >{this.props.children}</IFramePlayground> */}
 
-        <div >
+        <div className={responsiveFrame}>
         {/* <div id="Container"
  style={{paddingBottom: '56.25%', position: 'relative', display: 'block', width: '100%'}}>
    <IFramePlayground width="100%" height="100%" style={{position:'absolute', top:'0', left:'0'}}>{this.props.children}</IFramePlayground>
  
 </div>  */}
-          <IFramePlayground className={responsiveFrame}>{this.props.children}</IFramePlayground>
+          <IFramePlayground>{this.props.children}</IFramePlayground>
         </div>
       </div>
       </>
