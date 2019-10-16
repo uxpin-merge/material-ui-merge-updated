@@ -1,6 +1,6 @@
-import * as React from 'react';
-import DeviceViewer from '../DeviceViewer';
+// import * as React from 'react';
+// import DeviceViewer from '../DeviceViewer';
 
-export default (
-   <DeviceViewer UXPin="1"/>
-);
+// export default (
+//    <DeviceViewer UXPin="1"/>
+// );

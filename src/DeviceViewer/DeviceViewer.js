@@ -90,6 +90,9 @@ class DeviceViewer extends React.Component {
     const { classes } = this.props;
 
     return (
+      <>
+      
+
       <div className={classes.root}>
         <Grid container direction="row" justify="center" alignItems="center">
           <Grid item>
@@ -111,9 +114,15 @@ class DeviceViewer extends React.Component {
           </Grid>
         </Grid>
         <div className={responsiveFrame}>
+        {/* <div id="Container"
+ style={{paddingBottom: '56.25%', position: 'relative', display: 'block', width: '100%'}}>
+   <IFramePlayground width="100%" height="100%" style={{position:'absolute', top:'0', left:'0'}}>{this.props.children}</IFramePlayground>
+ 
+</div> */}
           <IFramePlayground>{this.props.children}</IFramePlayground>
         </div>
       </div>
+      </>
     );
   }
 }

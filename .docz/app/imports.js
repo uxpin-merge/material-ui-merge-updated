@@ -3,9 +3,13 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-button-styled-button-styled" */ 'src/ButtonStyled/ButtonStyled.mdx'
     ),
-  'src/IFrame/IFrame.mdx': () =>
+  'src/DemoFrame/DemoFrame.mdx': () =>
     import(
-      /* webpackPrefetch: true, webpackChunkName: "src-i-frame-i-frame" */ 'src/IFrame/IFrame.mdx'
+      /* webpackPrefetch: true, webpackChunkName: "src-demo-frame-demo-frame" */ 'src/DemoFrame/DemoFrame.mdx'
+    ),
+  'src/DemoSandboxed/IFrame.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-demo-sandboxed-i-frame" */ 'src/DemoSandboxed/IFrame.mdx'
     ),
   'src/IglooAppbar/IglooAppbar.mdx': () =>
     import(
