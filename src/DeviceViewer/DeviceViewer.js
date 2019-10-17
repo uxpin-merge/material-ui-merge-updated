@@ -49,6 +49,9 @@ const styles = theme => ({
   },
   deviceToolbar: {
     minHeight: "35px"
+  },
+  iframeheight:{
+    height: "-webkit-fill-available !important"
   }
 });
 
@@ -59,7 +62,7 @@ class DeviceViewer extends React.Component {
     this.state = {
       view: props.defaultView,
       iframeContained: false,
-      deviceSelect: true,
+      deviceSelect: true
     };
 
     this.handleChangeSelect = this.handleChangeSelect.bind(this);
@@ -88,15 +91,25 @@ class DeviceViewer extends React.Component {
       }
     }
 
-    if (this.props.desktopOption || this.props.tabletOption || this.props.mobileOption){
+    //Remove extra white space from iframe
+    if (document.querySelector(".IFramePlayground_iframe__ggro_")) {
+      const Iframe = document.querySelector(".IFramePlayground_iframe__ggro_");
+      Iframe.classList.add("DeviceViewer-iframeheight-11");
+    }
+    
+
+    if (
+      this.props.desktopOption ||
+      this.props.tabletOption ||
+      this.props.mobileOption
+    ) {
       this.setState({
         deviceSelect: true
       });
-    }else{
+    } else {
       this.setState({
         deviceSelect: false
       });
-
     }
   }
 
@@ -123,7 +136,6 @@ class DeviceViewer extends React.Component {
 
     return (
       <>
-      
         <div className={classes.root}>
           <Grid
             container
@@ -134,7 +146,6 @@ class DeviceViewer extends React.Component {
           >
             {this.state.deviceSelect && (
               <Grid item>
-
                 <Select
                   onChange={this.handleChangeSelect}
                   value={this.state.view}
@@ -167,7 +178,9 @@ class DeviceViewer extends React.Component {
           </Grid>
 
           <div className={responsiveFrame} id="iframeContainer">
-            <IFramePlayground>{this.props.children}</IFramePlayground>
+            <IFramePlayground>
+              {this.props.children}
+            </IFramePlayground>
           </div>
         </div>
       </>
