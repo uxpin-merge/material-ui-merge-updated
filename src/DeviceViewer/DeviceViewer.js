@@ -92,10 +92,10 @@ class DeviceViewer extends React.Component {
     }
 
     //Remove extra white space from iframe
-    if (document.querySelector("#iframeContainer")) {
-      const Iframe = document.querySelector("#iframeContainer iframe");
-      Iframe.classList.add("DeviceViewer-iframeheight-11", "jss11");
-    }
+    // if (document.querySelector("#iframeContainer")) {
+    //   const Iframe = document.querySelector("#iframeContainer iframe");
+    //   Iframe.classList.add("DeviceViewer-iframeheight-11", "jss11");
+    // }
     
 
     if (
