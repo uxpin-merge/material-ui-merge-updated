@@ -10,10 +10,10 @@ import IFramePlayground from "docz-iframe-playground";
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    background: "#cccccc",
-    width:"100%",
-    height:"100%",
-    paddingBottom:"35px",
+    background: "#eeeeee",
+    width: "100%",
+    height: "100%",
+    paddingBottom: "35px"
   },
   uxpIglooCanvas: {
     borderTop: "0 !important"
@@ -24,25 +24,31 @@ const styles = theme => ({
     display: "block",
     margin: "0 auto",
     overflow: "auto",
-    height: 'fit-content',
+    height: "fit-content"
   },
   deviceSelect: {
     border: "none"
   },
   desktop: {
     width: "1280px",
-    height: "100%",
+    height: "100%"
   },
   tablet: {
     width: "768px",
-    height: "1024px",
+    height: "1024px"
   },
   mobile: {
     width: "375px",
-    height: "667px",
+    height: "667px"
   },
   canvasContainer: {
     margin: "0 !important"
+  },
+  fullHeightIframe: {
+    height: "auto !important"
+  },
+  deviceToolbar: {
+    minHeight: "35px"
   }
 });
 
@@ -51,7 +57,9 @@ class DeviceViewer extends React.Component {
     super(props);
 
     this.state = {
-      view: props.defaultView
+      view: props.defaultView,
+      iframeContained: false,
+      deviceSelect: true,
     };
 
     this.handleChangeSelect = this.handleChangeSelect.bind(this);
@@ -65,14 +73,34 @@ class DeviceViewer extends React.Component {
     this.setState({ view: e.target.value });
   }
 
-  render() {
-
-    //Remove top margin of UXP Canvas 
-    if (document.querySelector(".canvas-container")) {
-      const uxpContainer = document.querySelector(".canvas-container");
-      uxpContainer.style.marginTop = "0";
+  componentDidMount() {
+    //If in UXP editor
+    if (document.querySelector("#simplified")) {
+      this.setState({
+        //Sets fixed height for devices in UXP preview
+        inUxpEditor: true
+      });
+    } else {
+      //Remove top margin of UXP Canvas
+      if (document.querySelector(".canvas-container")) {
+        const uxpContainer = document.querySelector(".canvas-container");
+        uxpContainer.style.marginTop = "0";
+      }
     }
 
+    if (this.props.desktopOption || this.props.tabletOption || this.props.mobileOption){
+      this.setState({
+        deviceSelect: true
+      });
+    }else{
+      this.setState({
+        deviceSelect: false
+      });
+
+    }
+  }
+
+  render() {
     let selectedViewClass = "";
 
     if (this.state.view === "desktop") {
@@ -83,7 +111,11 @@ class DeviceViewer extends React.Component {
       selectedViewClass = this.props.classes.mobile;
     }
 
-    let responsiveFrame = [this.props.classes.frameStyle, selectedViewClass];
+    let responsiveFrame = [
+      this.props.classes.frameStyle,
+      selectedViewClass,
+      this.state.inUxpEditor && this.props.classes.fullHeightIframe
+    ];
 
     responsiveFrame = responsiveFrame.join(" ");
 
@@ -92,52 +124,69 @@ class DeviceViewer extends React.Component {
     return (
       <>
       
+        <div className={classes.root}>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            className={classes.deviceToolbar}
+          >
+            {this.state.deviceSelect && (
+              <Grid item>
 
-      <div className={classes.root}>
-        <Grid container direction="row" justify="center" alignItems="center">
-          <Grid item>
-            <Select
-              onChange={this.handleChangeSelect}
-              value={this.state.view}
-              disableUnderline
-            >
-              <MenuItem key="mobile" value="mobile">
-                <Typography variant="caption">Mobile (375x667)</Typography>{" "}
-              </MenuItem>
-              <MenuItem key="tablet" value="tablet">
-                <Typography variant="caption">Tablet (768x1024)</Typography>
-              </MenuItem>
-              <MenuItem key="desktop" value="desktop">
-                <Typography variant="caption">Desktop (1280x667)</Typography>
-              </MenuItem>
-            </Select>
+                <Select
+                  onChange={this.handleChangeSelect}
+                  value={this.state.view}
+                  disableUnderline
+                >
+                  {this.props.mobileOption && (
+                    <MenuItem key="mobile" value="mobile">
+                      <Typography variant="caption">
+                        Mobile (375x667)
+                      </Typography>{" "}
+                    </MenuItem>
+                  )}
+                  {this.props.tabletOption && (
+                    <MenuItem key="tablet" value="tablet">
+                      <Typography variant="caption">
+                        Tablet (768x1024)
+                      </Typography>
+                    </MenuItem>
+                  )}
+                  {this.props.desktopOption && (
+                    <MenuItem key="desktop" value="desktop">
+                      <Typography variant="caption">
+                        Desktop (1280x667)
+                      </Typography>
+                    </MenuItem>
+                  )}
+                </Select>
+              </Grid>
+            )}
           </Grid>
-        </Grid>
 
-        {/* <IFramePlayground className={selectedViewClass} >{this.props.children}</IFramePlayground> */}
-
-        <div className={responsiveFrame}>
-        {/* <div id="Container"
- style={{paddingBottom: '56.25%', position: 'relative', display: 'block', width: '100%'}}>
-   <IFramePlayground width="100%" height="100%" style={{position:'absolute', top:'0', left:'0'}}>{this.props.children}</IFramePlayground>
- 
-</div>  */}
-          <IFramePlayground>{this.props.children}</IFramePlayground>
+          <div className={responsiveFrame} id="iframeContainer">
+            <IFramePlayground>{this.props.children}</IFramePlayground>
+          </div>
         </div>
-      </div>
       </>
     );
   }
 }
 DeviceViewer.propTypes = {
   children: PropTypes.node,
-  responsive: PropTypes.bool,
   defaultView: PropTypes.oneOf(["desktop", "tablet", "mobile"]),
+  desktopOption: PropTypes.bool,
+  tabletOption: PropTypes.bool,
+  mobileOption: PropTypes.bool
 };
 
 DeviceViewer.defaultProps = {
-  responsive: true,
   defaultView: "desktop",
+  desktopOption: true,
+  tabletOption: true,
+  mobileOption: true
 };
 
 export default withStyles(styles)(DeviceViewer);
