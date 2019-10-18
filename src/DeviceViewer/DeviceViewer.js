@@ -11,7 +11,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    background: "#eeeeee",
+    // background: "#eeeeee",
     width: "100%",
     height: "100%",
     paddingBottom: "35px"
@@ -102,14 +102,14 @@ class DeviceViewer extends React.Component {
 
         //Add viewport meta to iframe
         const iframeContent = iframeElement.contentDocument;
-        let meta = document.createElement('meta');
-        meta.name = "viewport";
-        meta.content = "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no";
+        let viewportMeta = document.createElement('meta');
+        viewportMeta.name = "viewport";
+        viewportMeta.content = "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no";
+        iframeElement.contentWindow.document.head.prepend(viewportMeta);
+        
+        //override body bg color
+        iframeElement.contentWindow.document.head.insertAdjacentHTML("beforeend", `<style>body{background-color: #ffffff !important}</style>`);
 
-
-        let doc = iframeElement.contentWindow.document.head;
-
-        doc.prepend(meta);
 
         //Remove any UXP css link added to iframe
         setTimeout(function() {
