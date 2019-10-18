@@ -6,6 +6,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
 import IFramePlayground from "docz-iframe-playground";
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const styles = theme => ({
   root: {
@@ -98,8 +99,19 @@ class DeviceViewer extends React.Component {
       const iframeElement = document.querySelector("#iframeContainer iframe");
 
       iframeElement.onload = function() {
-        const iframeContent = iframeElement.contentDocument;
 
+        //Add viewport meta to iframe
+        const iframeContent = iframeElement.contentDocument;
+        let meta = document.createElement('meta');
+        meta.name = "viewport";
+        meta.content = "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no";
+
+
+        let doc = iframeElement.contentWindow.document.head;
+
+        doc.prepend(meta);
+
+        //Remove any UXP css link added to iframe
         setTimeout(function() {
           for (const item of iframeContent.styleSheets) {
             if (item.href.indexOf("uxpin") > -1 ) {
@@ -152,6 +164,7 @@ class DeviceViewer extends React.Component {
 
     return (
       <>
+      <CssBaseline/>
         <div className={classes.root}>
           <Grid
             container
