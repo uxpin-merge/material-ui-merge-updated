@@ -50,7 +50,7 @@ const styles = theme => ({
   deviceToolbar: {
     minHeight: "35px"
   },
-  iframeheight:{
+  iframeheight: {
     height: "-webkit-fill-available !important"
   }
 });
@@ -77,6 +77,7 @@ class DeviceViewer extends React.Component {
   }
 
   componentDidMount() {
+    
     //If in UXP editor
     if (document.querySelector("#simplified")) {
       this.setState({
@@ -91,12 +92,24 @@ class DeviceViewer extends React.Component {
       }
     }
 
-    //Remove extra white space from iframe
-    // if (document.querySelector("#iframeContainer")) {
-    //   const Iframe = document.querySelector("#iframeContainer iframe");
-    //   Iframe.classList.add("DeviceViewer-iframeheight-11", "jss11");
-    // }
-    
+    //Remove any UXP css link added to iframe
+    if (document.querySelector("#iframeContainer iframe")) {
+
+      const iframeElement = document.querySelector("#iframeContainer iframe");
+
+      iframeElement.onload = function() {
+        const iframeContent = iframeElement.contentDocument;
+
+        setTimeout(function() {
+          for (const item of iframeContent.styleSheets) {
+            if (item.href.indexOf("uxpin") > -1 ) {
+              item.disabled = true;
+            }
+          }
+        }, 500);
+      };
+
+    }
 
     if (
       this.props.desktopOption ||
@@ -133,6 +146,9 @@ class DeviceViewer extends React.Component {
     responsiveFrame = responsiveFrame.join(" ");
 
     const { classes } = this.props;
+
+
+
 
     return (
       <>
@@ -178,9 +194,7 @@ class DeviceViewer extends React.Component {
           </Grid>
 
           <div className={responsiveFrame} id="iframeContainer">
-            <IFramePlayground>
-              {this.props.children}
-            </IFramePlayground>
+            <IFramePlayground>{this.props.children}</IFramePlayground>
           </div>
         </div>
       </>
