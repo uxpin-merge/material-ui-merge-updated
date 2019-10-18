@@ -11,7 +11,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    // background: "#eeeeee",
+    background: "#eeeeee",
     width: "100%",
     height: "100%",
     paddingBottom: "35px"
@@ -21,7 +21,7 @@ const styles = theme => ({
   },
   frameStyle: {
     background: "#fff",
-    border: "1px solid #e0e0e0",
+    // border: "1px solid #e0e0e0",
     display: "block",
     margin: "0 auto",
     overflow: "auto",
