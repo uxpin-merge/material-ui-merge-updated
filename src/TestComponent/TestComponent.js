@@ -1,30 +1,80 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import { green } from '@material-ui/core/colors';
+import React from "react";
+import PropTypes from "prop-types";
+import { create } from "jss";
+import { withStyles, jssPreset } from "@material-ui/core/styles";
+import { StylesProvider } from "@material-ui/styles";
+import NoSsr from "@material-ui/core/NoSsr";
+import rtl from "jss-rtl";
+import Frame from "react-frame-component";
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   root: {
-    padding: theme.spacing(1),
-    [theme.breakpoints.down('xs')]: {
-      backgroundColor: "red",
-    },
-    [theme.breakpoints.up('sm')]: {
-      backgroundColor: "blue",
-    },
-    [theme.breakpoints.up('md')]: {
-      backgroundColor: "green",
-    },
-  },
-}));
+    backgroundColor: theme.palette.background.default,
+    flexGrow: 1,
+    height: 400,
+    border: "none",
+    boxShadow: theme.shadows[1]
+  }
+});
 
-export default function MediaQuery() {
-  const classes = useStyles();
-  return (
-    <div className={classes.root}>
-      <Typography variant="subtitle1">{'down(sm): red'}</Typography>
-      <Typography variant="subtitle1">{'up(md): blue'}</Typography>
-      <Typography variant="subtitle1">{'up(lg): green'}</Typography>
-    </div>
-  );
+class TestComponent extends React.Component {
+  state = {
+    ready: false
+  };
+
+  handleRef = ref => {
+    this.contentDocument = ref ? ref.node.contentDocument : null;
+    this.contentWindow = ref ? ref.node.contentWindow : null;
+  };
+
+  onContentDidMount = () => {
+    this.setState({
+      ready: true,
+      jss: create({
+        insertionPoint: this.contentWindow["demo-frame-jss"]
+      }),
+      sheetsManager: new Map(),
+      container: this.contentDocument.body
+    });
+  };
+
+  onContentDidUpdate = () => {
+    // this.contentDocument.body.dir = this.props.theme.direction;
+  };
+
+  render() {
+    const { children, classes } = this.props;
+
+    // NoSsr fixes a strange concurrency issue with iframe and quick React mount/unmount
+    return (
+      <NoSsr>
+        <Frame
+          ref={this.handleRef}
+          className={classes.root}
+          contentDidMount={this.onContentDidMount}
+          contentDidUpdate={this.onContentDidUpdate}
+        >
+          <div id="demo-frame-jss" />
+          {this.state.ready ? (
+            <StylesProvider
+              jss={this.state.jss}
+              sheetsManager={this.state.sheetsManager}
+            >
+              {React.cloneElement(children, {
+                container: this.state.container
+              })}
+            </StylesProvider>
+          ) : null}
+        </Frame>
+      </NoSsr>
+    );
+  }
 }
+
+TestComponent.propTypes = {
+  children: PropTypes.node,
+  classes: PropTypes.object,
+  theme: PropTypes.object
+};
+
+export default withStyles(styles)(TestComponent);

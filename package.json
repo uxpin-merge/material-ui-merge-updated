@@ -40,12 +40,16 @@
     "clsx": "^1.0.4",
     "css-loader": "^3.2.0",
     "iframe-resizer-react": "^1.0.0",
+    "install": "^0.13.0",
     "jss-rtl": "^0.3.0",
+    "material-ui-layout": "^4.0.0-rc.13",
+    "mui-layout": "^1.2.9",
     "react-device-emulator": "^1.0.3",
     "react-device-simulator": "^1.0.1",
     "react-frame": "^2.2.21",
     "react-frame-component": "^4.1.1",
     "react-jss": "^10.0.0",
-    "style-loader": "^1.0.0"
+    "style-loader": "^1.0.0",
+    "yarn": "^1.19.1"
   }
 }

@@ -7,6 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
 import IFramePlayground from "docz-iframe-playground";
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Backdrop from '@material-ui/core/Backdrop';
 
 const styles = theme => ({
   root: {
@@ -118,7 +119,7 @@ class DeviceViewer extends React.Component {
               item.disabled = true;
             }
           }
-        }, 500);
+        }, 2000);
       };
 
     }
@@ -159,6 +160,11 @@ class DeviceViewer extends React.Component {
 
     const { classes } = this.props;
 
+    const children = React.Children.map(this.props.children, (child) => {
+      return React.cloneElement(child, {
+          inIframe: true,
+      });
+  });
 
 
 
@@ -207,7 +213,8 @@ class DeviceViewer extends React.Component {
           </Grid>
 
           <div className={responsiveFrame} id="iframeContainer">
-            <IFramePlayground>{this.props.children}</IFramePlayground>
+            <div id="insertion"></div>
+            <IFramePlayground>{children}</IFramePlayground>
           </div>
         </div>
       </>
@@ -219,14 +226,14 @@ DeviceViewer.propTypes = {
   defaultView: PropTypes.oneOf(["desktop", "tablet", "mobile"]),
   desktopOption: PropTypes.bool,
   tabletOption: PropTypes.bool,
-  mobileOption: PropTypes.bool
+  mobileOption: PropTypes.bool,
 };
 
 DeviceViewer.defaultProps = {
   defaultView: "desktop",
   desktopOption: true,
   tabletOption: true,
-  mobileOption: true
+  mobileOption: true,
 };
 
 export default withStyles(styles)(DeviceViewer);
