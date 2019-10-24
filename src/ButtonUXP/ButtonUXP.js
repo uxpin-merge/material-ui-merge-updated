@@ -6,7 +6,9 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   button: {
-    margin: theme.spacing.unit
+    margin: theme.spacing.unit,
+    textTransform: "none",
+    fontSize: "1rem"
   },
   leftIcon: {
     marginRight: theme.spacing.unit,
@@ -18,7 +20,7 @@ const styles = theme => ({
 function ButtonUXP(props) {
   let { classes } = props;
   return (
-    <ButtonM {...props} className={ (props.hasMargin ? null : null )}>
+    <ButtonM {...props} className={classes.button}>
       {props.icon ? (
         <Icon className={classes.leftIcon}>{props.icon}</Icon>
       ) : null}

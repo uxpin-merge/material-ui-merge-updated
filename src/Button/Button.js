@@ -1,10 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ButtonM from "@material-ui/core/Button";
+import {
+  makeStyles,
+  createMuiTheme,
+  MuiThemeProvider
+} from "@material-ui/core/styles";
 
+const useStyles = makeStyles({
+  button: {
+    textTransform: "none",
+    fontSize: "1rem"
+  }
+});
 function Button(props) {
+  const classes = useStyles();
   return (
-    <ButtonM {...props} onClick={props.onClick}>
+    <ButtonM {...props} onClick={props.onClick} className={classes.button}>
       {props.children}
     </ButtonM>
   );
