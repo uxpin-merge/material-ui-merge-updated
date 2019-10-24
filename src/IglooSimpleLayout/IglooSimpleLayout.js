@@ -11,7 +11,6 @@ import Hidden from "@material-ui/core/Hidden";
 import Divider from "@material-ui/core/Divider";
 import MenuIcon from "@material-ui/icons/Menu";
 import IglooHeader from "../IglooHeader/IglooHeader";
-// import { mailFolderListItems, otherMailFolderListItems } from "./tileData";
 import Backdrop from "@material-ui/core/Backdrop";
 
 const drawerWidth = 240;
@@ -65,7 +64,8 @@ class IglooSimpleLayout extends React.Component {
   render() {
     const { classes, theme } = this.props;
     let drawerContainer = null;
-    //Checks if this
+    
+    //Checks if drawers should open in iframe or uxpcanvas
     if (this.props.inIframe) {
       drawerContainer = document.querySelector("#iframeContainer iframe").contentWindow.document.body;
     } else if (document.querySelector("[data-id='canvas']")) {
@@ -127,8 +127,8 @@ class IglooSimpleLayout extends React.Component {
         </Hidden>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-         
-          <h1>container: </h1>
+         text here
+          
         </main>
       </div>
     );
@@ -138,6 +138,7 @@ class IglooSimpleLayout extends React.Component {
 IglooSimpleLayout.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  children: PropTypes.node,
 };
 
 export default withStyles(styles, { withTheme: true })(IglooSimpleLayout);
