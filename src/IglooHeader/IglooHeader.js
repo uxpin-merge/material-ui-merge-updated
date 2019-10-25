@@ -11,6 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
 import Divider from "@material-ui/core/Divider";
 import MenuIcon from "@material-ui/icons/Menu";
+import IglooSideNavigation from "../IglooSideNavigation/IglooSideNavigation"
 
 import Backdrop from "@material-ui/core/Backdrop";
 
@@ -53,7 +54,7 @@ const styles = theme => ({
   }
 });
 
-class IglooSimpleLayout extends React.Component {
+class IglooHeader extends React.Component {
   state = {
     mobileOpen: false,
     container: null
@@ -66,6 +67,7 @@ class IglooSimpleLayout extends React.Component {
   render() {
     const { classes, theme } = this.props;
     let drawerContainer = null;
+    console.log(this.props)
     
     //Checks if drawers should open in iframe or uxpcanvas
     if (this.props.inIframe) {
@@ -77,16 +79,17 @@ class IglooSimpleLayout extends React.Component {
     const drawer = (
       <div>
         <div className={classes.toolbar} />
-        <Divider />
+        {/* <Divider />
         <List>LIST1</List>
         <Divider />
-        <List>LIST2</List>
+        <List>LIST2</List> */}
+        <IglooSideNavigation/>
       </div>
     );
 
     return (
-      <div className={classes.root}>
-        <Backdrop open={false} />
+      <div >
+
         <AppBar position="absolute" className={classes.appBar}>
           <Toolbar>
             <IconButton
@@ -98,7 +101,7 @@ class IglooSimpleLayout extends React.Component {
               <MenuIcon />
             </IconButton>
            
-              Responsive drawer
+              from iglooheader
             
           </Toolbar>
         </AppBar>
@@ -127,20 +130,15 @@ class IglooSimpleLayout extends React.Component {
             {drawer}
           </Drawer>
         </Hidden>
-        <main className={classes.content}>
-          {/* <div className={classes.toolbar} /> */}
-         {this.props.children}
-          
-        </main>
       </div>
     );
   }
 }
 
-IglooSimpleLayout.propTypes = {
+IglooHeader.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
   children: PropTypes.node,
 };
 
-export default withStyles(styles, { withTheme: true })(IglooSimpleLayout);
+export default withStyles(styles, { withTheme: true })(IglooHeader);
