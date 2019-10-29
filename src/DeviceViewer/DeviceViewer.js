@@ -7,7 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
 import IFramePlayground from "docz-iframe-playground";
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Backdrop from '@material-ui/core/Backdrop';
+
 
 const styles = theme => ({
   root: {
@@ -140,87 +140,79 @@ class DeviceViewer extends React.Component {
   }
 
   render() {
-    let selectedViewClass = "";
+             let selectedViewClass = "";
 
-    if (this.state.view === "desktop") {
-      selectedViewClass = this.props.classes.desktop;
-    } else if (this.state.view === "tablet") {
-      selectedViewClass = this.props.classes.tablet;
-    } else {
-      selectedViewClass = this.props.classes.mobile;
-    }
+             if (this.state.view === "desktop") {
+               selectedViewClass = this.props.classes.desktop;
+             } else if (this.state.view === "tablet") {
+               selectedViewClass = this.props.classes.tablet;
+             } else {
+               selectedViewClass = this.props.classes.mobile;
+             }
 
-    let responsiveFrame = [
-      this.props.classes.frameStyle,
-      selectedViewClass,
-      this.state.inUxpEditor && this.props.classes.fullHeightIframe
-    ];
+             let responsiveFrame = [
+               this.props.classes.frameStyle,
+               selectedViewClass,
+               this.state.inUxpEditor && this.props.classes.fullHeightIframe
+             ];
 
-    responsiveFrame = responsiveFrame.join(" ");
+             responsiveFrame = responsiveFrame.join(" ");
 
-    const { classes } = this.props;
-    
-    //Add inIframe prop to children to handle drawer/modal container
-    const children = React.Children.map(this.props.children, (child) => {
-      return React.cloneElement(child, {
-          inIframe: true,
-      });
-  });
+             const { classes } = this.props;
 
 
+             return (
+               <>
+                 <CssBaseline />
+                 <div className={classes.root}>
+                   <Grid
+                     container
+                     direction="row"
+                     justify="center"
+                     alignItems="center"
+                     className={classes.deviceToolbar}
+                   >
+                     {this.state.deviceSelect && (
+                       <Grid item>
+                         <Select
+                           onChange={this.handleChangeSelect}
+                           value={this.state.view}
+                           disableUnderline
+                         >
+                           {this.props.mobileOption && (
+                             <MenuItem key="mobile" value="mobile">
+                               <Typography variant="caption">
+                                 Mobile (375x667)
+                               </Typography>{" "}
+                             </MenuItem>
+                           )}
+                           {this.props.tabletOption && (
+                             <MenuItem key="tablet" value="tablet">
+                               <Typography variant="caption">
+                                 Tablet (768x1024)
+                               </Typography>
+                             </MenuItem>
+                           )}
+                           {this.props.desktopOption && (
+                             <MenuItem key="desktop" value="desktop">
+                               <Typography variant="caption">
+                                 Desktop (1280x667)
+                               </Typography>
+                             </MenuItem>
+                           )}
+                         </Select>
+                       </Grid>
+                     )}
+                   </Grid>
 
-    return (
-      <>
-      <CssBaseline/>
-        <div className={classes.root}>
-          <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            className={classes.deviceToolbar}
-          >
-            {this.state.deviceSelect && (
-              <Grid item>
-                <Select
-                  onChange={this.handleChangeSelect}
-                  value={this.state.view}
-                  disableUnderline
-                >
-                  {this.props.mobileOption && (
-                    <MenuItem key="mobile" value="mobile">
-                      <Typography variant="caption">
-                        Mobile (375x667)
-                      </Typography>{" "}
-                    </MenuItem>
-                  )}
-                  {this.props.tabletOption && (
-                    <MenuItem key="tablet" value="tablet">
-                      <Typography variant="caption">
-                        Tablet (768x1024)
-                      </Typography>
-                    </MenuItem>
-                  )}
-                  {this.props.desktopOption && (
-                    <MenuItem key="desktop" value="desktop">
-                      <Typography variant="caption">
-                        Desktop (1280x667)
-                      </Typography>
-                    </MenuItem>
-                  )}
-                </Select>
-              </Grid>
-            )}
-          </Grid>
-
-          <div className={responsiveFrame} id="iframeContainer">
-            <div id="insertion"></div>
-            <IFramePlayground>{children}</IFramePlayground>
-          </div>
-        </div>
-      </>
-    );
-  }
+                   <div className={responsiveFrame} id="iframeContainer">
+                     <div id="insertion"></div>
+                     <IFramePlayground>{this.props.children}</IFramePlayground>
+                   </div>
+                 </div>
+               </>
+             );
+           }
 }
 DeviceViewer.propTypes = {
   children: PropTypes.node,

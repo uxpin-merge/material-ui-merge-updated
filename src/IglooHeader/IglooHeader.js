@@ -5,7 +5,6 @@ import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
 import Divider from "@material-ui/core/Divider";
@@ -78,18 +77,16 @@ class IglooHeader extends React.Component {
 
     //Checks if drawers should open in iframe or uxpcanvas
     let drawerContainer = null;
-    if (this.props.inIframe) {
-      alert("iframe");
+
+    if(document.querySelector("#iframeContainer iframe")){
       drawerContainer = document.querySelector("#iframeContainer iframe").contentWindow.document.body;
     } else if (document.querySelector("[data-id='canvas']")) {
       drawerContainer = document.querySelector("[data-id='canvas']");
     }
 
-
-    console.log("test", this.props);
-
     const drawer = (
       <div>
+        <Backdrop open={false}/>
         <Hidden smDown implementation="css">
           <div className={classes.toolbar} />
         </Hidden>
