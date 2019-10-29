@@ -22,40 +22,18 @@ import Image from '../Image/Image';
 
 
 const useStyles = makeStyles(({ transitions, palette, spacing }) => ({
-  appBarBg: {
-    zIndex: 1098,
-  },
-  searchBox: ({ trigger }) => ({
-    transition: transitions.create('top', {
-      easing: transitions.easing.sharp,
-    }),
-    top: trigger ? 0 : 56,
-    zIndex: 1099,
-  }),
-  searchInput: {
-    color: palette.common.white,
-    margin: spacing(1),
-    padding: spacing(1),
-    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-  },
   listItemText: {
     letterSpacing: '1px',
     fontWeight: 500,
   },
   subList: {
     backgroundColor: '#f8f8f8',
-  },
-  logo:{
-    height: '48px',
-    maxWidth: '175px'
-
   }
 }));
 
 const IglooSideNavigation = ({ menus, ...props }) => {
   const trigger = useScrollTrigger();
   const classes = useStyles({ trigger });
-  const [opened, setOpened] = useState(false);
   const [collapsedIndex, setCollapsedIndex] = useState([null, null, null]);
   const updateByIndex = (val, level) => {
     setCollapsedIndex(
@@ -100,7 +78,7 @@ const IglooSideNavigation = ({ menus, ...props }) => {
           }
         >
           {icon && (
-            <Icon size={'small'} push={'right'}>
+            <Icon fontSize={'small'} push={'right'}>
               {icon}
             </Icon>
           )}
@@ -125,21 +103,8 @@ const IglooSideNavigation = ({ menus, ...props }) => {
     );
   };
   return (
-    <>
-
-        
-        <Box minWidth={320}>
-          <ListItem>
-            <ListItemIcon>
-              <IconButton onClick={() => setOpened(false)}>
-              <Icon>close</Icon>
-              </IconButton>
-            </ListItemIcon>
-          </ListItem>
-          <Divider light />
+    <> 
           {menus.map(renderItem(0))}
-        </Box>
-
     </>
   );
 };
@@ -152,74 +117,49 @@ IglooSideNavigation.propTypes = {
       children: PropTypes.arrayOf(PropTypes.shape({})),
     }),
   ),
-  logoSrc: PropTypes.string,
-  logoAlt: PropTypes.string
 };
 IglooSideNavigation.defaultProps = {
   menus: [
     {
-      label: 'NEW RELEASES',
+      label: 'Marketing Services',
       children: [
         {
-          label: 'Shoes',
+          label: 'Branding',
           children: [
             {
-              label: 'Lifestyle',
+              label: 'Brochures',
             },
             {
-              label: 'Running',
+              label: 'Business Cards',
             },
             {
-              label: 'Training',
-            },
-            {
-              label: 'Basketball',
-            },
-            {
-              label: 'Footer',
-            },
-            {
-              label: 'Soccer',
-            },
-            {
-              label: 'Tennis',
+              label: 'Logos',
             },
           ],
         },
         {
-          label: 'Clothing',
+          label: 'Variable Printing',
           children: [
             {
-              label: 'Shorts',
+              label: 'Igen',
             },
             {
-              label: 'Polos',
-            },
-            {
-              label: 'Jacket & Sweatshirts',
+              label: '1-to-1',
             },
           ],
         },
         {
-          label: 'Sale',
-          children: [
-            {
-              label: 'Shoes',
-            },
-            {
-              label: 'Clothing',
-            },
-          ],
+          label: 'Loyalty',
+        },
+        {
+          label: 'Social Media',
         },
       ],
     },
-    { label: 'MEN', icon: 'far fa-male' },
-    { label: 'WOMEN', icon: 'far fa-female' },
-    { label: 'KIDS', icon: 'far fa-child' },
+    { label: 'Data Solutions', icon: 'data_usage' },
+    { label: 'Technology', icon: 'widgets' },
+    { label: 'Labeling & Packaging', icon: 'bookmark' },
   ],
-  logoSrc: "https://uc.uxpin.com/files/732773/730600/image-6d6f68.png",
-  logoAlt: "IGLOO Design System"
-
 };
 
 export default IglooSideNavigation;

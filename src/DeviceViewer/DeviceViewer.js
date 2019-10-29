@@ -159,7 +159,8 @@ class DeviceViewer extends React.Component {
     responsiveFrame = responsiveFrame.join(" ");
 
     const { classes } = this.props;
-
+    
+    //Add inIframe prop to children to handle drawer/modal container
     const children = React.Children.map(this.props.children, (child) => {
       return React.cloneElement(child, {
           inIframe: true,

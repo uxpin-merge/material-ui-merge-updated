@@ -1,17 +1,19 @@
-
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
+import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
 import Divider from "@material-ui/core/Divider";
 import MenuIcon from "@material-ui/icons/Menu";
-import IglooSideNavigation from "../IglooSideNavigation/IglooSideNavigation"
+import IglooSideNavigation from "../IglooSideNavigation/IglooSideNavigation";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Icon from "@material-ui/core/Icon";
 
 import Backdrop from "@material-ui/core/Backdrop";
 
@@ -55,6 +57,11 @@ const styles = theme => ({
 });
 
 class IglooHeader extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
+  }
+
   state = {
     mobileOpen: false,
     container: null
@@ -64,32 +71,46 @@ class IglooHeader extends React.Component {
     this.setState(state => ({ mobileOpen: !state.mobileOpen }));
   };
 
+
   render() {
     const { classes, theme } = this.props;
-    let drawerContainer = null;
-    console.log(this.props)
     
+
     //Checks if drawers should open in iframe or uxpcanvas
+    let drawerContainer = null;
     if (this.props.inIframe) {
+      alert("iframe");
       drawerContainer = document.querySelector("#iframeContainer iframe").contentWindow.document.body;
     } else if (document.querySelector("[data-id='canvas']")) {
       drawerContainer = document.querySelector("[data-id='canvas']");
     }
 
+
+    console.log("test", this.props);
+
     const drawer = (
       <div>
-        <div className={classes.toolbar} />
-        {/* <Divider />
-        <List>LIST1</List>
-        <Divider />
-        <List>LIST2</List> */}
-        <IglooSideNavigation/>
+        <Hidden smDown implementation="css">
+          <div className={classes.toolbar} />
+        </Hidden>
+        <Box minWidth={320}>
+          <Hidden mdUp implementation="css">
+            <ListItem>
+              <ListItemIcon>
+                <IconButton onClick={this.handleDrawerToggle}>
+                  <Icon>close</Icon>
+                </IconButton>
+              </ListItemIcon>
+            </ListItem>
+            <Divider light />
+          </Hidden>
+          <IglooSideNavigation />
+        </Box>
       </div>
     );
 
     return (
-      <div >
-
+      <div>
         <AppBar position="absolute" className={classes.appBar}>
           <Toolbar>
             <IconButton
@@ -100,9 +121,7 @@ class IglooHeader extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-           
-              from iglooheader
-            
+            {this.props.children}
           </Toolbar>
         </AppBar>
         <Hidden lgUp implementation="css">
@@ -136,8 +155,8 @@ class IglooHeader extends React.Component {
 }
 
 IglooHeader.propTypes = {
-  classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+  classes: PropTypes.object,
+  theme: PropTypes.object,
   children: PropTypes.node,
 };
 
