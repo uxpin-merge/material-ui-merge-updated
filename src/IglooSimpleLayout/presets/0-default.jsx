@@ -1,8 +1,8 @@
-import * as React from "react";
-import IglooSimpleLayout from "../IglooSimpleLayout";
+import * as React from 'react';
+import Icon from '../IglooSimpleLayout';
 
 export default (
-  <IglooSimpleLayout uxpId="1">
-    <h2>content here</h2>
-  </IglooSimpleLayout>
+  <Icon uxpId="1">
+    Drop content here
+  </Icon>
 );

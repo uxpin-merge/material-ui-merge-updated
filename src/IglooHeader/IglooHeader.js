@@ -1,79 +1,80 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Box from "@material-ui/core/Box";
-import IconButton from "@material-ui/core/IconButton";
-import Hidden from "@material-ui/core/Hidden";
-import Divider from "@material-ui/core/Divider";
-import MenuIcon from "@material-ui/icons/Menu";
-import IglooSideNavigation from "../IglooSideNavigation/IglooSideNavigation";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import Icon from "@material-ui/core/Icon";
+import React from 'react';
+import PropTypes from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import IglooSideNavigation from '../IglooSideNavigation/IglooSideNavigation'
+import SearchIcon from '@material-ui/icons/Search';
+import MailIcon from '@material-ui/icons/Mail';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import MoreIcon from '@material-ui/icons/MoreVert';
+import Badge from '@material-ui/core/Badge';
 
-import Backdrop from "@material-ui/core/Backdrop";
 
 const drawerWidth = 240;
-
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
+    display: 'flex',
+    minHeight: '667px',
+  },
+  grow: {
     flexGrow: 1,
-    height: 430,
-    zIndex: 1,
-    overflow: "hidden",
-    position: "relative",
-    display: "flex",
-    width: "100%",
-    height: "100%"
+  },
+  drawer: {
+    [theme.breakpoints.up('md')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
   },
   appBar: {
-    position: "absolute",
-    marginLeft: drawerWidth,
-    [theme.breakpoints.up("md")]: {
-      zIndex: theme.zIndex.drawer + 1
-    }
+    zIndex: theme.zIndex.drawer + 1,
   },
-  navIconHide: {
-    [theme.breakpoints.up("md")]: {
-      display: "none"
-    }
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
   },
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
-    width: drawerWidth,
-    [theme.breakpoints.up("md")]: {
-      position: "relative"
-    }
+    width: drawerWidth
   },
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing * 3
+    padding: theme.spacing(3),
+  },
+  closeMenuButton: {
+    marginRight: 'auto',
+    marginLeft: 0,
+  },
+  sectionDesktop: {
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'flex',
+    },
+  },
+  iconSection: {
+    display: 'flex',
   }
-});
+}));
+function IglooHeader() {
 
-class IglooHeader extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
+  const classes = useStyles();
+  const theme = useTheme();
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  function handleDrawerToggle() {
+    setMobileOpen(!mobileOpen)
   }
-
-  state = {
-    mobileOpen: false,
-    container: null
-  };
-
-  handleDrawerToggle = () => {
-    this.setState(state => ({ mobileOpen: !state.mobileOpen }));
-  };
-
-
-  render() {
-    const { classes, theme } = this.props;
-    
 
     //Checks if drawers should open in iframe or uxpcanvas
     let drawerContainer = null;
@@ -84,77 +85,80 @@ class IglooHeader extends React.Component {
       drawerContainer = document.querySelector("[data-id='canvas']");
     }
 
-    const drawer = (
-      <div>
-        <Backdrop open={false}/>
-        <Hidden smDown implementation="css">
-          <div className={classes.toolbar} />
-        </Hidden>
-        <Box minWidth={320}>
-          <Hidden mdUp implementation="css">
-            <ListItem>
-              <ListItemIcon>
-                <IconButton onClick={this.handleDrawerToggle}>
-                  <Icon>close</Icon>
-                </IconButton>
-              </ListItemIcon>
-            </ListItem>
-            <Divider light />
-          </Hidden>
-          <IglooSideNavigation />
-        </Box>
-      </div>
-    );
-
-    return (
-      <div>
-        <AppBar position="absolute" className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              onClick={this.handleDrawerToggle}
-              className={classes.navIconHide}
-            >
-              <MenuIcon />
+return (
+    <>
+      <AppBar position="fixed" className={classes.appBar}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="Open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            className={classes.menuButton}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap>
+            Responsive drawer
+          </Typography>
+          <div className={classes.grow} />
+          <div className={classes.iconSection}>
+            
+            <IconButton aria-label="show 4 new mails" color="inherit">
+              <Badge badgeContent={4} color="secondary">
+                <MailIcon />
+              </Badge>
             </IconButton>
-            {this.props.children}
-          </Toolbar>
-        </AppBar>
-        <Hidden lgUp implementation="css">
+            <IconButton aria-label="show 17 new notifications" color="inherit">
+              <Badge badgeContent={17} color="secondary">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+            
+          </div>
+
+        </Toolbar>
+      </AppBar>
+      
+      <nav className={classes.drawer}>
+        <Hidden smUp implementation="css">
           <Drawer
             variant="temporary"
-            anchor="left"
-            open={this.state.mobileOpen}
-            onClose={this.handleDrawerToggle}
+            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
             classes={{
-              paper: classes.drawerPaper
+              paper: classes.drawerPaper,
+            }}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
             }}
             container={drawerContainer}
           >
-            {drawer}
+            <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}>
+              <CloseIcon/>
+            </IconButton>
+            <IglooSideNavigation />
           </Drawer>
         </Hidden>
-        <Hidden smDown implementation="css">
+<Hidden smDown implementation="css">
           <Drawer
+            className={classes.drawer}
             variant="permanent"
-            open
             classes={{
-              paper: classes.drawerPaper
+              paper: classes.drawerPaper,
             }}
           >
-            {drawer}
-          </Drawer>
+            <div className={classes.toolbar} />
+            <IglooSideNavigation />
+          </Drawer>  
         </Hidden>
-      </div>
-    );
-  }
+      </nav>
+      
+    </>
+  );
 }
-
 IglooHeader.propTypes = {
-  classes: PropTypes.object,
-  theme: PropTypes.object,
-  children: PropTypes.node,
-};
 
-export default withStyles(styles, { withTheme: true })(IglooHeader);
+};
+export default IglooHeader;
