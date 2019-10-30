@@ -15,7 +15,9 @@ const styles = theme => ({
     background: "#eeeeee",
     width: "100%",
     height: "100%",
-    paddingBottom: "35px"
+    paddingBottom: "35px",
+    minHeight:"702px",
+    minWidth:"1280px"
   },
   uxpIglooCanvas: {
     borderTop: "0 !important"
@@ -207,7 +209,7 @@ class DeviceViewer extends React.Component {
 
                    <div className={responsiveFrame} id="iframeContainer">
                      <div id="insertion"></div>
-                     <IFramePlayground>{this.props.children}</IFramePlayground>
+                     <IFramePlayground minHeight={667}>{this.props.children}</IFramePlayground>
                    </div>
                  </div>
                </>

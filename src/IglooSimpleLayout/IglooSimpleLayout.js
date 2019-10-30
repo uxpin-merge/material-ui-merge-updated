@@ -63,4 +63,47 @@ IglooSimpleLayout.propTypes = {
   ),
   jackProp: PropTypes.string
 };
+IglooSimpleLayout.defaultProps = {
+  menus: [
+    {
+      label: 'Marketing',
+      children: [
+        {
+          label: 'Branding',
+          children: [
+            {
+              label: 'Brochures',
+            },
+            {
+              label: 'Business Cards',
+            },
+            {
+              label: 'Logos',
+            },
+          ],
+        },
+        {
+          label: 'Variable Printing',
+          children: [
+            {
+              label: 'Igen',
+            },
+            {
+              label: '1-to-1',
+            },
+          ],
+        },
+        {
+          label: 'Loyalty',
+        },
+        {
+          label: 'Social Media',
+        },
+      ],
+    },
+    { label: 'Data Solutions', icon: 'data_usage' },
+    { label: 'Technology', icon: 'widgets' },
+    { label: 'Labeling & Packaging', icon: 'bookmark' },
+  ],
+};
 export default IglooSimpleLayout;
