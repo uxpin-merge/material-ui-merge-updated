@@ -44,7 +44,7 @@ function IglooSimpleLayout(props) {
 
 return (
     <div className={classes.root}>  
-      <IglooHeader/>
+      <IglooHeader menus={props.menus}/>
       <div className={classes.content}>
         <div className={classes.toolbar} />
         {props.children}
@@ -54,5 +54,13 @@ return (
 }
 IglooSimpleLayout.propTypes = {
   children: PropTypes.node,
+  menus: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.string,
+      label: PropTypes.string,
+      children: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+  ),
+  jackProp: PropTypes.string
 };
 export default IglooSimpleLayout;

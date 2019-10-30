@@ -67,7 +67,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
   }
 }));
-function IglooHeader() {
+function IglooHeader(props) {
 
   const classes = useStyles();
   const theme = useTheme();
@@ -150,7 +150,7 @@ return (
             }}
           >
             <div className={classes.toolbar} />
-            <IglooSideNavigation />
+            <IglooSideNavigation menus={props.menus}/>
           </Drawer>  
         </Hidden>
       </nav>
@@ -159,6 +159,12 @@ return (
   );
 }
 IglooHeader.propTypes = {
-
+  menus: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.string,
+      label: PropTypes.string,
+      children: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+  ),
 };
 export default IglooHeader;
