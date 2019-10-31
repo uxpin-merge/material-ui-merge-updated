@@ -5,11 +5,8 @@ module.exports = {
         name: "UXPin Components",
         include: [
           "src/IglooSimpleLayout/IglooSimpleLayout.js",
-          "src/Layout/Layout.js",
           "src/TestComponent/TestComponent.js",
-          "src/HiddenTest/HiddenTest.js",
           "src/DeviceViewer/DeviceViewer.js",
-          // "src/DeviceViewer2/DeviceViewer2.js",
           "src/ButtonStyled/ButtonStyled.js",
           "src/IglooHeader/IglooHeader.js",
           "src/IglooSmallHeader/IglooSmallHeader.js",
