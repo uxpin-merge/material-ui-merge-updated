@@ -7,6 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
 import IFramePlayground from "docz-iframe-playground";
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Menu from '@material-ui/core/menu'
 
 
 const styles = theme => ({
@@ -165,7 +166,7 @@ class DeviceViewer extends React.Component {
 
              return (
                <>
-                 <CssBaseline />
+                 <Menu/>
                  <div className={classes.root}>
                    <Grid
                      container

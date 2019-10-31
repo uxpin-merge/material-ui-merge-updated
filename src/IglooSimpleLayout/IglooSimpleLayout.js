@@ -44,7 +44,7 @@ function IglooSimpleLayout(props) {
 
 return (
     <div className={classes.root}>  
-      <IglooHeader menus={props.menus}/>
+      <IglooHeader menus={props.menus} accountMenu={props.accountMenu} hasAccountIcon={props.hasAccountIcon}/>
       <div className={classes.content}>
         <div className={classes.toolbar} />
         {props.children}
@@ -61,7 +61,8 @@ IglooSimpleLayout.propTypes = {
       children: PropTypes.arrayOf(PropTypes.shape({})),
     }),
   ),
-  jackProp: PropTypes.string
+  hasAccountIcon: PropTypes.bool,
+  accountMenu: PropTypes.array,
 };
 IglooSimpleLayout.defaultProps = {
   menus: [
@@ -105,5 +106,11 @@ IglooSimpleLayout.defaultProps = {
     { label: 'Technology', icon: 'widgets' },
     { label: 'Labeling & Packaging', icon: 'bookmark' },
   ],
+  hasAccountIcon: true,
+  accountMenu: [
+    { label: "Favorites", icon: "favorite" },
+    { label: "Orders", icon: "receipt", hasDivider: "true" },
+    { label: "Logout" }
+  ]
 };
 export default IglooSimpleLayout;
