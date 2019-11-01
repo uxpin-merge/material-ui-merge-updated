@@ -18,7 +18,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import Badge from '@material-ui/core/Badge';
 import IglooHeader from '../IglooHeader/IglooHeader'
 
 const useStyles = makeStyles(theme => ({
@@ -29,24 +28,25 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
   },
 }));
 
 function IglooSimpleLayout(props) {
 
   const classes = useStyles();
-  const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  function handleDrawerToggle() {
-    setMobileOpen(!mobileOpen)
-  }
+
 
 return (
     <div className={classes.root}>  
-      <IglooHeader menus={props.menus} accountMenu={props.accountMenu} hasAccountIcon={props.hasAccountIcon}/>
+      <IglooHeader {...props}/>
       <div className={classes.content}>
         <div className={classes.toolbar} />
+        {(props.desktopNavigationVariant=="horizontal") && (
+          <Hidden smDown implementation="css">
+          <div className={classes.toolbar} />
+          </Hidden>
+        )}
         {props.children}
       </div>
     </div>
@@ -63,6 +63,15 @@ IglooSimpleLayout.propTypes = {
   ),
   hasAccountIcon: PropTypes.bool,
   accountMenu: PropTypes.array,
+  logoSrc: PropTypes.string,
+  logoAlt: PropTypes.string,
+  /**
+  * The type of navigation to render at desktop breakpoint
+  * `horizontal` Horizontal tab navigation 
+  * (only 1 level supported)
+  * `vertical` will never present them
+  */
+  desktopNavigationVariant: PropTypes.oneOf(['horizontal', 'vertical']),
 };
 IglooSimpleLayout.defaultProps = {
   menus: [
@@ -104,13 +113,16 @@ IglooSimpleLayout.defaultProps = {
     },
     { label: 'Data Solutions', icon: 'data_usage' },
     { label: 'Technology', icon: 'widgets' },
-    { label: 'Labeling & Packaging', icon: 'bookmark' },
+    { label: 'from layout', icon: 'bookmark' },
   ],
   hasAccountIcon: true,
   accountMenu: [
     { label: "Favorites", icon: "favorite" },
     { label: "Orders", icon: "receipt", hasDivider: "true" },
     { label: "Logout" }
-  ]
+  ],
+  logoSrc: "https://uc.uxpin.com/files/732773/730600/image-6d6f68.png",
+  logoAlt: "IGLOO Design System",
+  desktopNavigationVariant:"vertical",
 };
 export default IglooSimpleLayout;

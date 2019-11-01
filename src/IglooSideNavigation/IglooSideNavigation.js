@@ -30,8 +30,7 @@ const useStyles = makeStyles(({ transitions, palette, spacing }) => ({
     backgroundColor: '#f8f8f8',
   }
 }));
-
-const IglooSideNavigation = ({ menus, ...props }) => {
+function IglooSideNavigation(props) {
   const trigger = useScrollTrigger();
   const classes = useStyles({ trigger });
   const [collapsedIndex, setCollapsedIndex] = useState([null, null, null]);
@@ -40,6 +39,8 @@ const IglooSideNavigation = ({ menus, ...props }) => {
       collapsedIndex.map((item, i) => (i === level ? val : item)),
     );
   };
+  console.log("iglooSideProps: ", props.menus);
+
   // eslint-disable-next-line react/prop-types
   const renderItem = (level = 0) => ({ icon, label, children }, index) => {
     const collapsed = collapsedIndex[level];
@@ -104,7 +105,7 @@ const IglooSideNavigation = ({ menus, ...props }) => {
   };
   return (
     <> 
-          {menus.map(renderItem(0))}
+          {props.menus.map(renderItem(0))}
     </>
   );
 };
@@ -158,7 +159,7 @@ IglooSideNavigation.defaultProps = {
     },
     { label: 'Data Solutions', icon: 'data_usage' },
     { label: 'Technology', icon: 'widgets' },
-    { label: 'Labeling & Packaging', icon: 'bookmark' },
+    { label: 'From Side', icon: 'bookmark' },
   ],
 };
 
