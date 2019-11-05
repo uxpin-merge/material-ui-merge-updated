@@ -16,12 +16,11 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import Icon from "@material-ui/core/Icon";
 import Badge from "@material-ui/core/Badge";
 import MenuUXP from "../MenuUXP/MenuUXP";
-import SearchIcon from '@material-ui/icons/Search';
-import Image from '../Image/Image';
+import SearchIcon from "@material-ui/icons/Search";
+import Image from "../Image/Image";
 import Tabs from "../Tabs/Tabs";
 import Tab from "../Tab/Tab";
-import { withStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
+import Grid from "@material-ui/core/Grid";
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -65,85 +64,70 @@ const useStyles = makeStyles(theme => ({
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "flex"
-    },
-  },
-  iconSection: {
-    display: "flex",
-    marginRight: -theme.spacing(2),
-  },
-  logo:{
-    height: '36px',
-    [theme.breakpoints.down("sm")]: {
-      maxHeight: '36px',
-      maxWidth: '100px',
     }
   },
-  
+  iconSection: {
+    display: "flex"
+  },
+  logo: {
+    height: "56px",
+    maxWidth: "175px",
+    [theme.breakpoints.down("sm")]: {
+      maxHeight: "36px",
+      maxWidth: "100px"
+    }
+  },
+
   search: {
-    position: 'relative',
+    position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade("#cccccc", 0.15),
-    '&:hover': {
-      backgroundColor: fade("#cccccc", 0.25),
+    "&:hover": {
+      backgroundColor: fade("#cccccc", 0.25)
     },
-    height: '40px',
     marginLeft: 0,
-    marginTop: theme.spacing(1)/2,
-    marginRight: theme.spacing(2),
+    marginTop: theme.spacing(1),
     // marginTop: theme.spacing(1),
-    width: '100%',
-    [theme.breakpoints.down('xs')]: {
+    width: "100%",
+    [theme.breakpoints.up("xs")]: {
       marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      marginTop: 0,
-      marginTop: 0,
-      width: '100%',
-      alignSelf: 'baseline',
-    },
+      marginRight: theme.spacing(2),
+      width: "auto"
+    }
   },
   searchIcon: {
     width: theme.spacing(5),
-    height: '100%',
-    position: 'absolute',
-    right:0,
-    top:0,
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: "100%",
+    position: "absolute",
+    right: 0,
+    top: 0,
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
   inputRoot: {
-    color: 'inherit',
+    color: "inherit"
   },
   inputInput: {
     padding: theme.spacing(1, 5, 1, 2),
-    fontSize: '.875em',
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.down('xs')]: {
-      height: '-webkit-fill-available',
-    },
-    [theme.breakpoints.up('sm')]: {
+    fontSize: ".875em",
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
       width: 120,
-      '&:focus': {
-        width: 300,
-      },
-      
-    },
+      "&:focus": {
+        width: 300
+      }
+    }
   },
-
+  branding: {
+    width: drawerWidth,
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "175px"
+    }
+  }
 }));
-
-const StyledBadge = withStyles(theme => ({
-  badge: {
-    right: -3,
-    top: 2,
-    border: "1px solid #fff",
-    // padding: '0 ',
-  },
-}))(Badge)
-
-
 function IglooHeader(props) {
   const classes = useStyles();
   const theme = useTheme();
@@ -152,9 +136,20 @@ function IglooHeader(props) {
   function handleDrawerToggle() {
     setMobileOpen(!mobileOpen);
   }
-  
 
-
+  function logo() {
+    return (
+      <div className={classes.logo}>
+        <Image
+          src={props.logoSrc}
+          alt={classes.logoAlt}
+          height="100%"
+          width="auto"
+          objectFit="scale-down"
+        />
+      </div>
+    );
+  }
   //Checks if drawers should open in iframe or uxpcanvas
   let drawerContainer = null;
 
@@ -164,6 +159,7 @@ function IglooHeader(props) {
   } else if (document.querySelector("[data-id='canvas']")) {
     drawerContainer = document.querySelector("[data-id='canvas']");
   }
+  console.log("iglooHeaderProps: ", props);
 
   return (
     <>
@@ -173,6 +169,91 @@ function IglooHeader(props) {
         color="inherit"
         elevation={2}
       >
+        <Grid container alignItems="center"
+        >
+          <Grid item className={classes.branding} 
+          >
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="Open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                className={classes.menuButton}
+              >
+                <MenuIcon />
+              </IconButton>
+              {logo()}
+            </Toolbar>
+          </Grid>
+          <Grid
+            item
+            // style={{ border: "blue 1px solid" }}
+            className={classes.grow}
+          >
+            <Toolbar variant="dense">
+              <div className={classes.grow} />
+              <div className={classes.iconSection}>
+                <Hidden xsDown implementation="css">
+                  <div className={classes.search}>
+                    <InputBase
+                      placeholder="Search…"
+                      classes={{
+                        root: classes.inputRoot,
+                        input: classes.inputInput
+                      }}
+                      inputProps={{ "aria-label": "search" }}
+                    />
+                    <div className={classes.searchIcon}>
+                      <SearchIcon />
+                    </div>
+                  </div>
+                </Hidden>
+
+                <IconButton aria-label="show 4 new mails" color="primary">
+                  <Badge badgeContent={4} color="secondary">
+                    <MailIcon />
+                  </Badge>
+                </IconButton>
+                <IconButton
+                  aria-label="show 17 new notifications"
+                  color="primary"
+                >
+                  <Badge badgeContent={17} color="secondary">
+                    <NotificationsIcon />
+                  </Badge>
+                </IconButton>
+                {props.hasAccountIcon && (
+                  <MenuUXP
+                    trigger="icon"
+                    label="My Account"
+                    icon="account_circle"
+                    menuItems={props.accountMenu}
+                    color="primary"
+                    open={true}
+                  />
+                )}
+              </div>
+            </Toolbar>
+            {props.desktopNavigationVariant == "horizontal" && (
+          <Hidden smDown implementation="css">
+            <Toolbar variant="dense" disableGutters>
+              <Tabs
+                indicatorColor="primary"
+                textColor="primary"
+                uxpId="1"
+                defaultValue={1}
+              >
+                <Tab label="Active" fullWidth />
+                <Tab label="Disabled" ullWidth />
+                <Tab label="Active" fullWidth />
+              </Tabs>
+            </Toolbar>
+          </Hidden>
+        )}
+          </Grid>
+        </Grid>
+
         <Toolbar>
           <IconButton
             color="inherit"
@@ -191,11 +272,10 @@ function IglooHeader(props) {
               width="auto"
               objectFit="scale-down"
             />
-          </div>
+          </div>         
           <div className={classes.grow} />
-
-          <Hidden xsDown implementation="css">
-
+          <div className={classes.iconSection}>
+            <Hidden xsDown implementation="css">
               <div className={classes.search}>
                 <InputBase
                   placeholder="Search…"
@@ -209,21 +289,17 @@ function IglooHeader(props) {
                   <SearchIcon />
                 </div>
               </div>
-              
             </Hidden>
-            
-          <div className={classes.iconSection}>
-            
 
             <IconButton aria-label="show 4 new mails" color="primary">
-            <StyledBadge badgeContent={3} max={9} color="secondary" >
+              <Badge badgeContent={4} color="secondary">
                 <MailIcon />
-              </StyledBadge>
+              </Badge>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="primary">
-              <StyledBadge badgeContent={17} max={9} color="secondary" >
+              <Badge badgeContent={17} color="secondary">
                 <NotificationsIcon />
-              </StyledBadge>
+              </Badge>
             </IconButton>
             {props.hasAccountIcon && (
               <MenuUXP
@@ -232,53 +308,30 @@ function IglooHeader(props) {
                 icon="account_circle"
                 menuItems={props.accountMenu}
                 color="primary"
-                open={false}
+                open={true}
               />
             )}
-           
           </div>
-
-
         </Toolbar>
-        <Hidden smUp implementation="css">
-        <Toolbar variant="dense" disableGutters>
-        
-              <div className={classes.search}>
-                <InputBase
-                  placeholder="Search…"
-                  classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput
-                  }}
-                  inputProps={{ "aria-label": "search" }}
-                />
-                <div className={classes.searchIcon}>
-                  <SearchIcon />
-                </div>
-              </div>
-        </Toolbar>
-        </Hidden>
-        {(props.desktopNavigationVariant=="horizontal") && (
+        {props.desktopNavigationVariant == "horizontal" && (
           <Hidden smDown implementation="css">
-        <Toolbar variant="dense" disableGutters>
-        <Tabs
-          indicatorColor="primary"
-          textColor="primary"
-          uxpId="1"
-          defaultValue={1}
-        >
-          <Tab label="Active" fullWidth />
-          <Tab label="Disabled" ullWidth />
-          <Tab label="Active" fullWidth />
-        </Tabs>
-      </Toolbar>
-      </Hidden>
+            <Toolbar variant="dense">
+              <Tabs
+                indicatorColor="primary"
+                textColor="primary"
+                uxpId="1"
+                defaultValue={1}
+              >
+                <Tab label="Active" fullWidth />
+                <Tab label="Disabled" ullWidth />
+                <Tab label="Active" fullWidth />
+              </Tabs>
+            </Toolbar>
+          </Hidden>
         )}
-        
       </AppBar>
-<Hidden smUp implementation="css">
-      <nav className={classes.drawer}>
-        
+      <Hidden smUp implementation="css">
+        <nav className={classes.drawer}>
           <Drawer
             variant="temporary"
             anchor={theme.direction === "rtl" ? "right" : "left"}
@@ -298,30 +351,27 @@ function IglooHeader(props) {
             >
               <CloseIcon />
             </IconButton>
-            <IglooSideNavigation {...props}/>
-          </Drawer>
-          </nav>
-        </Hidden>
-
-
-        {(props.desktopNavigationVariant=="vertical") && (
-          
-        <Hidden smDown implementation="css">
-          <nav className={classes.drawer}>
-          <Drawer
-            className={classes.drawer}
-            variant="permanent"
-            classes={{
-              paper: classes.drawerPaper
-            }}
-          >
-            <div className={classes.toolbar} />
             <IglooSideNavigation {...props} />
           </Drawer>
+        </nav>
+      </Hidden>
+      {props.desktopNavigationVariant == "vertical" && (
+        <Hidden smDown implementation="css">
+          <nav className={classes.drawer}>
+            <Drawer
+              className={classes.drawer}
+              variant="permanent"
+              classes={{
+                paper: classes.drawerPaper
+              }}
+            >
+              <div className={classes.toolbar} />
+              <IglooSideNavigation {...props} />
+            </Drawer>
           </nav>
         </Hidden>
-        )};
-      
+      )}
+      ;
     </>
   );
 }
@@ -337,13 +387,13 @@ IglooHeader.propTypes = {
   accountMenu: PropTypes.array,
   logoSrc: PropTypes.string,
   logoAlt: PropTypes.string,
-    /**
+  /**
    * The type of navigation to render at desktop breakpoint
-   * `horizontal` Tabbed header navigation 
+   * `horizontal` Tabbed header navigation
    * (only 1 level supported)
    * `vertical` Sidebar navigation
    */
-  desktopNavigationVariant: PropTypes.oneOf(['horizontal', 'vertical']),
+  desktopNavigationVariant: PropTypes.oneOf(["horizontal", "vertical"])
 };
 IglooHeader.defaultProps = {
   hasAccountIcon: true,
@@ -356,48 +406,48 @@ IglooHeader.defaultProps = {
   ],
   logoSrc: "https://uc.uxpin.com/files/732773/730600/image-6d6f68.png",
   logoAlt: "IGLOO Design System",
-  desktopNavigationVariant:"vertical",
+  desktopNavigationVariant: "vertical",
   menus: [
     {
-      label: 'Marketing',
+      label: "Marketing",
       children: [
         {
-          label: 'Branding',
+          label: "Branding",
           children: [
             {
-              label: 'Brochures',
+              label: "Brochures"
             },
             {
-              label: 'Business Cards',
+              label: "Business Cards"
             },
             {
-              label: 'Logos',
-            },
-          ],
+              label: "Logos"
+            }
+          ]
         },
         {
-          label: 'Variable Printing',
+          label: "Variable Printing",
           children: [
             {
-              label: 'Igen',
+              label: "Igen"
             },
             {
-              label: '1-to-1',
-            },
-          ],
+              label: "1-to-1"
+            }
+          ]
         },
         {
-          label: 'Loyalty',
+          label: "Loyalty"
         },
         {
-          label: 'Social Media',
-        },
-      ],
+          label: "Social Media"
+        }
+      ]
     },
-    { label: 'Data Solutions', icon: 'data_usage' },
-    { label: 'Technology', icon: 'widgets' },
-    { label: 'from header', icon: 'bookmark' },
-  ],
-}
+    { label: "Data Solutions", icon: "data_usage" },
+    { label: "Technology", icon: "widgets" },
+    { label: "from header", icon: "bookmark" }
+  ]
+};
 
 export default IglooHeader;
