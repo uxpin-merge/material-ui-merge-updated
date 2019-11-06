@@ -6,9 +6,8 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
 import IFramePlayground from "docz-iframe-playground";
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Menu from '@material-ui/core/menu'
-
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Menu from "@material-ui/core/menu";
 
 const styles = theme => ({
   root: {
@@ -17,8 +16,8 @@ const styles = theme => ({
     width: "100%",
     height: "100%",
     paddingBottom: "35px",
-    minHeight:"702px",
-    minWidth:"1280px"
+    minHeight: "702px",
+    minWidth: "1280px"
   },
   uxpIglooCanvas: {
     borderTop: "0 !important"
@@ -82,7 +81,6 @@ class DeviceViewer extends React.Component {
   }
 
   componentDidMount() {
-    
     //If in UXP editor
     if (document.querySelector("#simplified")) {
       this.setState({
@@ -99,32 +97,32 @@ class DeviceViewer extends React.Component {
 
     //Remove any UXP css link added to iframe
     if (document.querySelector("#iframeContainer iframe")) {
-
       const iframeElement = document.querySelector("#iframeContainer iframe");
 
       iframeElement.onload = function() {
-
         //Add viewport meta to iframe
         const iframeContent = iframeElement.contentDocument;
-        let viewportMeta = document.createElement('meta');
+        let viewportMeta = document.createElement("meta");
         viewportMeta.name = "viewport";
-        viewportMeta.content = "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no";
+        viewportMeta.content =
+          "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no";
         iframeElement.contentWindow.document.head.prepend(viewportMeta);
-        
-        //override body bg color
-        iframeElement.contentWindow.document.head.insertAdjacentHTML("beforeend", `<style>body{background-color: #ffffff !important}</style>`);
 
+        //override body bg color
+        iframeElement.contentWindow.document.head.insertAdjacentHTML(
+          "beforeend",
+          `<style>body{background-color: #ffffff !important}</style>`
+        );
 
         //Remove any UXP css link added to iframe
         setTimeout(function() {
           for (const item of iframeContent.styleSheets) {
-            if (item.href.indexOf("uxpin") > -1 ) {
+            if (item.href.indexOf("uxpin") > -1) {
               item.disabled = true;
             }
           }
         }, 2000);
       };
-
     }
 
     if (
@@ -143,93 +141,100 @@ class DeviceViewer extends React.Component {
   }
 
   render() {
-             let selectedViewClass = "";
+    let selectedViewClass = "";
 
-             if (this.state.view === "desktop") {
-               selectedViewClass = this.props.classes.desktop;
-             } else if (this.state.view === "tablet") {
-               selectedViewClass = this.props.classes.tablet;
-             } else {
-               selectedViewClass = this.props.classes.mobile;
-             }
+    if (this.state.view === "desktop") {
+      selectedViewClass = this.props.classes.desktop;
+    } else if (this.state.view === "tablet") {
+      selectedViewClass = this.props.classes.tablet;
+    } else {
+      selectedViewClass = this.props.classes.mobile;
+    }
 
-             let responsiveFrame = [
-               this.props.classes.frameStyle,
-               selectedViewClass,
-               this.state.inUxpEditor && this.props.classes.fullHeightIframe
-             ];
+    let responsiveFrame = [
+      this.props.classes.frameStyle,
+      selectedViewClass,
+      this.state.inUxpEditor && this.props.classes.fullHeightIframe
+    ];
 
-             responsiveFrame = responsiveFrame.join(" ");
+    responsiveFrame = responsiveFrame.join(" ");
 
-             const { classes } = this.props;
+    const { classes } = this.props;
 
+    const children = React.Children.map(this.props.children, (child) => {
+      return React.cloneElement(child, {
+          inIframe: true,
+      });
+    });
 
-             return (
-               <>
-                 <Menu/>
-                 <div className={classes.root}>
-                   <Grid
-                     container
-                     direction="row"
-                     justify="center"
-                     alignItems="center"
-                     className={classes.deviceToolbar}
-                   >
-                     {this.state.deviceSelect && (
-                       <Grid item>
-                         <Select
-                           onChange={this.handleChangeSelect}
-                           value={this.state.view}
-                           disableUnderline
-                         >
-                           {this.props.mobileOption && (
-                             <MenuItem key="mobile" value="mobile">
-                               <Typography variant="caption">
-                                 Mobile (375x667)
-                               </Typography>{" "}
-                             </MenuItem>
-                           )}
-                           {this.props.tabletOption && (
-                             <MenuItem key="tablet" value="tablet">
-                               <Typography variant="caption">
-                                 Tablet (768x1024)
-                               </Typography>
-                             </MenuItem>
-                           )}
-                           {this.props.desktopOption && (
-                             <MenuItem key="desktop" value="desktop">
-                               <Typography variant="caption">
-                                 Desktop (1280x667)
-                               </Typography>
-                             </MenuItem>
-                           )}
-                         </Select>
-                       </Grid>
-                     )}
-                   </Grid>
+    return (
+      <>
+        <Menu />
+        <div className={classes.root}>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            className={classes.deviceToolbar}
+          >
+            {this.state.deviceSelect && (
+              <Grid item>
+                <Select
+                  onChange={this.handleChangeSelect}
+                  value={this.state.view}
+                  disableUnderline
+                >
+                  {this.props.mobileOption && (
+                    <MenuItem key="mobile" value="mobile">
+                      <Typography variant="caption">
+                        Mobile (375x667)
+                      </Typography>{" "}
+                    </MenuItem>
+                  )}
+                  {this.props.tabletOption && (
+                    <MenuItem key="tablet" value="tablet">
+                      <Typography variant="caption">
+                        Tablet (768x1024)
+                      </Typography>
+                    </MenuItem>
+                  )}
+                  {this.props.desktopOption && (
+                    <MenuItem key="desktop" value="desktop">
+                      <Typography variant="caption">
+                        Desktop (1280x667)
+                      </Typography>
+                    </MenuItem>
+                  )}
+                </Select>
+              </Grid>
+            )}
+          </Grid>
 
-                   <div className={responsiveFrame} id="iframeContainer">
-                     <div id="insertion"></div>
-                     <IFramePlayground minHeight={667}>{this.props.children}</IFramePlayground>
-                   </div>
-                 </div>
-               </>
-             );
-           }
+          <div className={responsiveFrame} id="iframeContainer">
+            <div id="insertion"></div>
+            <IFramePlayground minHeight={667}>
+              {children}
+            </IFramePlayground>
+          </div>
+        </div>
+      </>
+    );
+  }
 }
 DeviceViewer.propTypes = {
   children: PropTypes.node,
   defaultView: PropTypes.oneOf(["desktop", "tablet", "mobile"]),
   desktopOption: PropTypes.bool,
   tabletOption: PropTypes.bool,
-  mobileOption: PropTypes.bool,
+  mobileOption: PropTypes.bool
 };
 
 DeviceViewer.defaultProps = {
   defaultView: "desktop",
   desktopOption: true,
   tabletOption: true,
-  mobileOption: true,
+  mobileOption: true
 };
 
 export default withStyles(styles)(DeviceViewer);

@@ -194,8 +194,8 @@ function IglooHeader(props) {
           </div>
           <div className={classes.grow} />
 
+{props.hasSearch && 
           <Hidden xsDown implementation="css">
-
               <div className={classes.search}>
                 <InputBase
                   placeholder="Search…"
@@ -208,10 +208,9 @@ function IglooHeader(props) {
                 <div className={classes.searchIcon}>
                   <SearchIcon />
                 </div>
-              </div>
-              
+              </div>      
             </Hidden>
-            
+}
           <div className={classes.iconSection}>
             
 
@@ -240,6 +239,7 @@ function IglooHeader(props) {
 
 
         </Toolbar>
+        {props.hasSearch && 
         <Hidden smUp implementation="css">
         <Toolbar variant="dense" disableGutters>
         
@@ -258,6 +258,7 @@ function IglooHeader(props) {
               </div>
         </Toolbar>
         </Hidden>
+        }
         {(props.desktopNavigationVariant=="horizontal") && (
           <Hidden smDown implementation="css">
         <Toolbar variant="dense" disableGutters>
@@ -340,10 +341,11 @@ IglooHeader.propTypes = {
     /**
    * The type of navigation to render at desktop breakpoint
    * `horizontal` Tabbed header navigation 
-   * (only 1 level supported)
+   * (only 1 level currently supported)
    * `vertical` Sidebar navigation
    */
   desktopNavigationVariant: PropTypes.oneOf(['horizontal', 'vertical']),
+  hasSearch: PropTypes.bool,
 };
 IglooHeader.defaultProps = {
   hasAccountIcon: true,
@@ -398,6 +400,7 @@ IglooHeader.defaultProps = {
     { label: 'Technology', icon: 'widgets' },
     { label: 'from header', icon: 'bookmark' },
   ],
+  hasSearch: true,
 }
 
 export default IglooHeader;
