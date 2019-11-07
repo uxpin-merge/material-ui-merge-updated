@@ -8,16 +8,19 @@ const theme = createMuiTheme({
       light: "#5da2fa",
       main: "#0a74c7",
       dark: "#004996",
-      contrastText: "#ffffff"
+      contrastText: "#ffffff",
     },
     secondary: {
       light: "#4e4f51",
       main: "#262729",
       dark: "#000000",
-      contrastText: "#ffffff"
+      contrastText: "#ffffff",
     },
     decoration:{
       main: "#1EAEED",
+    },
+    headerBadges:{
+      main: "red",
     }
   },
   typography: {

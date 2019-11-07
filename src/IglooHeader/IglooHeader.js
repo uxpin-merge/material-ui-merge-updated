@@ -70,7 +70,16 @@ const useStyles = makeStyles(theme => ({
   iconSection: {
     display: "flex",
     marginRight: -theme.spacing(2),
+    '& .MuiBadge-badge': {
+      backgroundColor: theme.palette.headerBadges.main,
+      color: theme.palette.common.white,
+      right: -3,
+      top: 2,
+      border: "1px solid #fff",  
+    }
   },
+
+
   logo:{
     height: '36px',
     [theme.breakpoints.down("sm")]: {
@@ -88,14 +97,13 @@ const useStyles = makeStyles(theme => ({
     },
     height: '40px',
     marginLeft: 0,
-    marginTop: theme.spacing(1)/2,
-    marginRight: theme.spacing(2),
+    // marginTop: theme.spacing(1)/2,
+    marginRight: theme.spacing(4),
     // marginTop: theme.spacing(1),
     width: '100%',
     [theme.breakpoints.down('xs')]: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
-      marginTop: 0,
       marginTop: 0,
       width: '100%',
       alignSelf: 'baseline',
@@ -131,6 +139,9 @@ const useStyles = makeStyles(theme => ({
       
     },
   },
+
+  
+
 
 }));
 
@@ -195,6 +206,7 @@ function IglooHeader(props) {
 
 {props.hasSearch && 
           <Hidden xsDown implementation="css">
+            <Box>
               <div className={classes.search}>
                 <InputBase
                   placeholder="Search…"
@@ -207,7 +219,8 @@ function IglooHeader(props) {
                 <div className={classes.searchIcon}>
                   <SearchIcon />
                 </div>
-              </div>      
+              </div>
+              </Box>      
             </Hidden>
 }
           <div className={classes.iconSection}>
@@ -215,21 +228,21 @@ function IglooHeader(props) {
             {props.children && 
         <Box>
             {React.Children.map(props.children, child => (
-                React.cloneElement(child, {style: {...child.props.style, opacity: 0.5}})
+                React.cloneElement(child, {})
             ))}
         </Box>
     }
 
-            <IconButton aria-label="show 4 new mails" color="primary">
+             {/* <IconButton aria-label="show 4 new mails" color="primary">
             <StyledBadge badgeContent={3} max={9} color="secondary" >
                 <MailIcon />
               </StyledBadge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="primary">
+           <IconButton aria-label="show 17 new notifications" color="primary">
               <StyledBadge badgeContent={17} max={9} color="secondary" >
                 <NotificationsIcon />
               </StyledBadge>
-            </IconButton>
+            </IconButton> */}
             {props.hasAccountIcon && (
               <MenuUXP
                 trigger="icon"
