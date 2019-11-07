@@ -34,28 +34,18 @@ const useStyles = makeStyles(theme => ({
 
 function IglooSimpleLayout(props) {
   const classes = useStyles(props);
+  const { children, ...newProps } = props;
+  // console.log(...newProps);
 
   return (
     <div className={classes.root}>
-      <IglooHeader {...props} />
-      <div className={classes.content}>
-        <div className={classes.toolbar} />
+      {/* <IglooHeader {...props} /> */}
+      {React.Children.map(props.children, child => (
+                React.cloneElement(child, {...newProps})
+            ))}
 
-        {props.desktopNavigationVariant == "horizontal" && (
-          <Hidden smDown implementation="css">
-            <div className={classes.toolbar} />
-          </Hidden>
-        )}
-
-        {props.hasSearch && (
-          <Hidden smUp implementation="css">
-            <div className={classes.toolbar} />
-          </Hidden>
-        )}
-
-        {props.children}
+        {/* {props.children} */}
       </div>
-    </div>
   );
 }
 IglooSimpleLayout.propTypes = {

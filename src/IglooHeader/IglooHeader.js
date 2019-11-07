@@ -143,7 +143,6 @@ const StyledBadge = withStyles(theme => ({
   },
 }))(Badge)
 
-
 function IglooHeader(props) {
   const classes = useStyles();
   const theme = useTheme();
@@ -213,6 +212,13 @@ function IglooHeader(props) {
 }
           <div className={classes.iconSection}>
             
+            {props.children && 
+        <Box>
+            {React.Children.map(props.children, child => (
+                React.cloneElement(child, {style: {...child.props.style, opacity: 0.5}})
+            ))}
+        </Box>
+    }
 
             <IconButton aria-label="show 4 new mails" color="primary">
             <StyledBadge badgeContent={3} max={9} color="secondary" >
@@ -346,6 +352,7 @@ IglooHeader.propTypes = {
    */
   desktopNavigationVariant: PropTypes.oneOf(['horizontal', 'vertical']),
   hasSearch: PropTypes.bool,
+  children: PropTypes.node,
 };
 IglooHeader.defaultProps = {
   hasAccountIcon: true,

@@ -1,15 +1,15 @@
-import * as React from 'react';
+import * as React from "react";
 import TestComponent from "../TestComponent";
-import Button from '@material-ui/core/Button'
-
+import Icon from "../../Icon/Icon";
+import IconButton from "../../IconButton/IconButton";
 
 export default (
-  <>
-
-        <TestComponent UXPid="1">
-          <Button variant="contained" color="primary" UXPid="2">
-            I'm inside the frame
-          </Button>
-        </TestComponent>
-</>
+  <TestComponent uxpId="1">
+    <IconButton aria-label="Add to favorites" uxpId="1.4.1">
+        <Icon uxpId="1.4.1.1">favorite</Icon>
+    </IconButton>
+    <IconButton aria-label="Add to favorites" uxpId="2">
+        <Icon uxpId="3">home</Icon>
+    </IconButton>
+  </TestComponent>
 );
