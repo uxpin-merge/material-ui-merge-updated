@@ -29,6 +29,16 @@ class MenuUXP extends React.Component {
   render() {
     const { anchorEl } = this.state;
     let randomID = "menu-container-" + Math.floor(Math.random() * 100000);
+    //Checks if drawers should open in iframe or uxpcanvas
+let drawerContainer = null;
+
+if (document.querySelector("#iframeContainer iframe")) {
+  drawerContainer = document.querySelector("#iframeContainer iframe")
+    .contentWindow.document.body;
+} else if (document.querySelector("[data-id='canvas']")) {
+  drawerContainer = document.querySelector("[data-id='canvas']");
+}
+
     return (
       <div>
         {this.props.trigger === "icon" ? (
@@ -58,6 +68,7 @@ class MenuUXP extends React.Component {
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
+          container={drawerContainer}
         >
           {this.props.menuItems.map((item, key) => {
             return (

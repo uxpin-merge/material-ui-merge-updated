@@ -4,6 +4,7 @@ module.exports = {
       {
         name: "UXPin Components",
         include: [
+          "src/DemoSandboxed/DemoSandboxed.js",
           "src/IglooSimpleLayoutContent/IglooSimpleLayoutContent.js",
           "src/IglooSimpleLayout/IglooSimpleLayout.js",
           "src/TestComponent/TestComponent.js",

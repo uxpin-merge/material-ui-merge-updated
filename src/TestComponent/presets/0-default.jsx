@@ -1,15 +1,6 @@
-import * as React from "react";
-import TestComponent from "../TestComponent";
-import Icon from "../../Icon/Icon";
-import IconButton from "../../IconButton/IconButton";
+// import * as React from "react";
+// import TestComponent from "../TestComponent";
 
-export default (
-  <TestComponent uxpId="1">
-    <IconButton aria-label="Add to favorites" uxpId="1.4.1">
-        <Icon uxpId="1.4.1.1">favorite</Icon>
-    </IconButton>
-    <IconButton aria-label="Add to favorites" uxpId="2">
-        <Icon uxpId="3">home</Icon>
-    </IconButton>
-  </TestComponent>
-);
+// export default (
+//   <TestComponent name="jack" uxpId="1"/>
+// );

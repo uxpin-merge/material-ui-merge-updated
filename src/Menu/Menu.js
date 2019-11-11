@@ -2,8 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import MenuM from "@material-ui/core/Menu";
 
+//Checks if drawers should open in iframe or uxpcanvas
+let drawerContainer = null;
+
+if (document.querySelector("#iframeContainer iframe")) {
+  drawerContainer = document.querySelector("#iframeContainer iframe")
+    .contentWindow.document.body;
+} else if (document.querySelector("[data-id='canvas']")) {
+  drawerContainer = document.querySelector("[data-id='canvas']");
+}
+
 function Menu(props) {
-  return <MenuM {...props}>{props.children}</MenuM>;
+  return <MenuM {...props}
+  containe=""
+  container={drawerContainer}
+  >{props.children}</MenuM>;
 }
 
 Menu.propTypes = {

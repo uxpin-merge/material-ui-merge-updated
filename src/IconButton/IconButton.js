@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import IconButtonM from "@material-ui/core/IconButton";
 
 function IconButton(props) {
-  
+  console.log("env", process.env.NODE_ENV);
   return <IconButtonM {...props} aria-label={props.ariaLabel}>{props.children}</IconButtonM>;
 }
 

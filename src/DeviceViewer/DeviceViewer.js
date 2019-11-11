@@ -6,8 +6,14 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
 import IFramePlayground from "docz-iframe-playground";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Menu from "@material-ui/core/menu";
+import List from "@material-ui/core/CssBaseline";
+import Menu from "@material-ui/core/Menu";
+import Paper from "@material-ui/core/Paper";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Hidden from "@material-ui/core/Hidden";
+import Backdrop from "@material-ui/core/Backdrop";
+import Popover from "@material-ui/core/Popover";
 
 const styles = theme => ({
   root: {
@@ -121,8 +127,11 @@ class DeviceViewer extends React.Component {
               item.disabled = true;
             }
           }
+          
         }, 2000);
+        
       };
+      
     }
 
     if (
@@ -169,7 +178,7 @@ class DeviceViewer extends React.Component {
 
     return (
       <>
-        <Menu />
+
         <div className={classes.root}>
           <Grid
             container
@@ -217,6 +226,17 @@ class DeviceViewer extends React.Component {
               {children}
             </IFramePlayground>
           </div>
+          <div>
+        <Menu />
+        <Paper/>
+        <List/>
+        <ListItem/>
+        <ListItemIcon/>
+        <MenuItem/>
+        <Backdrop/>
+        <Popover/>
+        </div>
+
         </div>
       </>
     );
