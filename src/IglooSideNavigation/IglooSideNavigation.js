@@ -96,7 +96,7 @@ function IglooSideNavigation(props) {
 
           selected={(active && level > 0) ? true : false}
         >
-          {level}
+          {/* {level} */}
           {icon && (
             <Icon fontSize={'small'} push={'right'}>
               {icon}
