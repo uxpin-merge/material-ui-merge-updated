@@ -318,7 +318,7 @@ function IglooHeader(props) {
             >
               <CloseIcon />
             </IconButton>
-            <IglooSideNavigation {...props}/>
+            <IglooSideNavigation menus={props.menus} {...props}/>
           </Drawer>
           </nav>
         </Hidden>

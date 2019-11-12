@@ -21,7 +21,16 @@ import Typography from '@material-ui/core/Typography';
 import Image from '../Image/Image';
 
 
-const useStyles = makeStyles(({ transitions, palette, spacing }) => ({
+const useStyles = makeStyles(theme => ({
+  listItem:{
+    '&.Mui-selected': {
+      borderLeft: "3px solid",
+      borderLeftColor: theme.palette.decoration.main
+    }
+  },
+  selected: {
+    border: "red 1px solid"
+  },
   listItemText: {
     letterSpacing: '1px',
     fontWeight: 500,
@@ -42,7 +51,7 @@ function IglooSideNavigation(props) {
   console.log("iglooSideProps: ", props.menus);
 
   // eslint-disable-next-line react/prop-types
-  const renderItem = (level = 0) => ({ icon, label, children }, index) => {
+  const renderItem = (level = 0) => ({ icon, label, children, active }, index) => {
     const collapsed = collapsedIndex[level];
     const listItemText = (
       <ListItemText
@@ -51,14 +60,20 @@ function IglooSideNavigation(props) {
           paddingLeft: (level - 1) * 20 + (level === 0 ? 0 : 28),
           marginLeft: level === 0 && !icon ? 28 : 0,
         }}
+        selected={(active && level > 0) ? true : false}
         classes={{ primary: classes.listItemText }}
         primary={label}
+        
       />
     );
     if (!children) {
       return (
         <>
-          <ListItem button key={label}>
+          <ListItem button key={label}
+          className={classes.listItem} 
+          selected={active ? true : false}
+          >
+
             {icon && (
               <Icon size={'small'} push={'right'}>
                 {icon}
@@ -77,7 +92,11 @@ function IglooSideNavigation(props) {
           onClick={() =>
             updateByIndex(collapsed === index ? null : index, level)
           }
+          className={classes.listItem}
+
+          selected={(active && level > 0) ? true : false}
         >
+          {level}
           {icon && (
             <Icon fontSize={'small'} push={'right'}>
               {icon}
@@ -115,6 +134,7 @@ IglooSideNavigation.propTypes = {
     PropTypes.shape({
       icon: PropTypes.string,
       label: PropTypes.string,
+      active: PropTypes.bool,
       children: PropTypes.arrayOf(PropTypes.shape({})),
     }),
   ),
@@ -123,12 +143,14 @@ IglooSideNavigation.defaultProps = {
   menus: [
     {
       label: 'Marketing Services',
+      active: true,
       children: [
         {
           label: 'Branding',
           children: [
             {
               label: 'Brochures',
+              active: true
             },
             {
               label: 'Business Cards',
@@ -157,7 +179,7 @@ IglooSideNavigation.defaultProps = {
         },
       ],
     },
-    { label: 'Data Solutions', icon: 'data_usage' },
+    { label: 'Data Solutions', icon: 'data_usage', active: true },
     { label: 'Technology', icon: 'widgets' },
     { label: 'From Side', icon: 'bookmark' },
   ],
