@@ -7,10 +7,81 @@ import Icon from "../../Icon/Icon";
 import IconButton from "../../IconButton/IconButton";
 import Badge from "../../Badge/Badge";
 
+let menus = 
+  [
+    {
+        "active": true,
+        "opened": true,
+        "label": "Marketing Services",
+        "submenu": [
+            {
+                "label": "Branding",
+                "submenu": [
+                    {
+                        "active": true,
+                        "label": "Brochures"
+                    },
+                    {
+                        "label": "Business Cards"
+                    },
+                    {
+                        "label": "Logos"
+                    }
+                ]
+            },
+            {
+                "label": "Variable Printing",
+                "submenu": [
+                    {
+                        "label": "Igen"
+                    },
+                    {
+                        "label": "1-to-1"
+                    }
+                ]
+            },
+            {
+                "label": "Loyalty",
+            },
+            {
+                "label": "Social Media"
+            }
+        ]
+    },
+    {
+        "icon": "data_usage",
+        "label": "Data Solutions"
+    },
+    {
+        "icon": "widgets",
+        "label": "Technology"
+    },
+    {
+        "icon": "bookmarkss",
+        "label": "From Side"
+    }
+]
+
+let accountMenu = [
+    { label: "Profile" },
+    { label: "Favorites" },
+    { label: "Marketing Lists" },
+    { label: "All Orders", hasDivider: true },
+    { label: "Logout", icon: "cancel" }
+  ]
 
 export default (
   <IglooSimpleLayout uxpId="1">
-    <IglooHeader uxpId="2">
+    <IglooHeader uxpId="2"
+    menus={menus}
+    logoSrc = "https://uc.uxpin.com/files/732773/730600/image-6d6f68.png"
+    logoAlt = "IGLOO Design System"
+    desktopNavigationVariant = "vertical"
+    hasAccountIcon = {true}
+    accountMenu= {accountMenu}
+    hasSearch = {true}
+    >
+    
     <IconButton
       arialabel="Notifications"
       color="primary"

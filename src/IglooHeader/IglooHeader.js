@@ -23,7 +23,7 @@ import Tab from "../Tab/Tab";
 import { withStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 
-const drawerWidth = 240;
+const drawerWidth = 275;
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -36,6 +36,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("md")]: {
       width: drawerWidth,
       flexShrink: 0
+    },
+    "& .MuiDrawer-paper": {
+      backgroundColor: "#f9fafc",
     }
   },
   appBar: {
@@ -51,7 +54,8 @@ const useStyles = makeStyles(theme => ({
   },
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
-    width: drawerWidth
+    width: drawerWidth,
+    backgroundColor: "#f9fafc",
   },
   content: {
     flexGrow: 1,
@@ -367,60 +371,60 @@ IglooHeader.propTypes = {
   hasSearch: PropTypes.bool,
   children: PropTypes.node,
 };
-IglooHeader.defaultProps = {
-  hasAccountIcon: true,
-  accountMenu: [
-    { label: "Profile" },
-    { label: "Favorites" },
-    { label: "Marketing Lists" },
-    { label: "All Orders", hasDivider: "true" },
-    { label: "Logout", icon: "cancel" }
-  ],
-  logoSrc: "https://uc.uxpin.com/files/732773/730600/image-6d6f68.png",
-  logoAlt: "IGLOO Design System",
-  desktopNavigationVariant:"vertical",
-  menus: [
-    {
-      label: 'Marketing',
-      children: [
-        {
-          label: 'Branding',
-          children: [
-            {
-              label: 'Brochures',
-            },
-            {
-              label: 'Business Cards',
-            },
-            {
-              label: 'Logos',
-            },
-          ],
-        },
-        {
-          label: 'Variable Printing',
-          children: [
-            {
-              label: 'Igen',
-            },
-            {
-              label: '1-to-1',
-            },
-          ],
-        },
-        {
-          label: 'Loyalty',
-        },
-        {
-          label: 'Social Media',
-        },
-      ],
-    },
-    { label: 'Data Solutions', icon: 'data_usage' },
-    { label: 'Technology', icon: 'widgets' },
-    { label: 'from header', icon: 'bookmark' },
-  ],
-  hasSearch: true,
-}
+// IglooHeader.defaultProps = {
+//   hasAccountIcon: true,
+//   accountMenu: [
+//     { label: "Profile" },
+//     { label: "Favorites" },
+//     { label: "Marketing Lists" },
+//     { label: "All Orders", hasDivider: "true" },
+//     { label: "Logout", icon: "cancel" }
+//   ],
+//   logoSrc: "https://uc.uxpin.com/files/732773/730600/image-6d6f68.png",
+//   logoAlt: "IGLOO Design System",
+//   desktopNavigationVariant:"vertical",
+//   menus: [
+//     {
+//       label: 'Marketing',
+//       children: [
+//         {
+//           label: 'Branding',
+//           children: [
+//             {
+//               label: 'Brochures',
+//             },
+//             {
+//               label: 'Business Cards',
+//             },
+//             {
+//               label: 'Logos',
+//             },
+//           ],
+//         },
+//         {
+//           label: 'Variable Printing',
+//           children: [
+//             {
+//               label: 'Igen',
+//             },
+//             {
+//               label: '1-to-1',
+//             },
+//           ],
+//         },
+//         {
+//           label: 'Loyalty',
+//         },
+//         {
+//           label: 'Social Media',
+//         },
+//       ],
+//     },
+//     { label: 'Data Solutions', icon: 'data_usage' },
+//     { label: 'Technology', icon: 'widgets' },
+//     { label: 'from header', icon: 'bookmark' },
+//   ],
+//   hasSearch: true,
+// }
 
 export default IglooHeader;
