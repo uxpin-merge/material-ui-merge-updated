@@ -29,8 +29,12 @@ const useStyles = makeStyles(theme => ({
     '&.Mui-selected': {
       borderLeft: "3px solid",
       borderLeftColor: theme.palette.decoration.main,
-      backgroundColor: "#ffffff"
+      backgroundColor: "#ffffff",
+      color: "#000000"
     },
+    '&.MuiPaper-root':{
+      
+    }
   },
 
   icon:{
@@ -45,13 +49,18 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#ffffff",
     "& .MuiButtonBase-root":{
       color: "#5f6368",
+      "&.Mui-selected":{
+        color: "#000000"
+      }
     },
+
     // borderBottom: "#e8e8e8 1px solid",
     "&.withIcon .MuiButtonBase-root":{
       paddingLeft: "36px",
     },
     "&.MuiList-root":{
       borderBottom: "#e8e8e8 1px solid",
+      paddingBottom: "24px",
     },
     "& .MuiListItem-root": {
       paddingTop: "4px",

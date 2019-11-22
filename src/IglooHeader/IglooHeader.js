@@ -316,7 +316,7 @@ function IglooHeader(props) {
               }}
             >
               <div className={classes.toolbar} />
-              <Box paddingTop={0}>
+              <Box paddingTop={2}>
               <IglooSideNavigation {...props} />
               </Box>
             </Drawer>

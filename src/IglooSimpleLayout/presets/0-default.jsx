@@ -18,7 +18,6 @@ let menus =
                 "label": "Branding",
                 "submenu": [
                     {
-                        "active": true,
                         "label": "Brochures"
                     },
                     {
@@ -30,18 +29,11 @@ let menus =
                 ]
             },
             {
-                "label": "Variable Printing",
-                "submenu": [
-                    {
-                        "label": "Igen"
-                    },
-                    {
-                        "label": "1-to-1"
-                    }
-                ]
+                "label": "Variable Printing"
             },
             {
                 "label": "Loyalty",
+                "active": true
             },
             {
                 "label": "Social Media"
@@ -57,8 +49,8 @@ let menus =
         "label": "Technology"
     },
     {
-        "icon": "bookmarkss",
-        "label": "From Side"
+        "icon": "bar_chart",
+        "label": "Analysis"
     }
 ]
 
