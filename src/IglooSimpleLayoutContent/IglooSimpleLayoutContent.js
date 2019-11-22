@@ -23,6 +23,7 @@ import IglooHeader from "../IglooHeader/IglooHeader";
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
+    flexGrow: 1,
   },
   toolbar: theme.mixins.toolbar,
   toolbarMargin:{
@@ -33,28 +34,6 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2)
   },
 }));
-
-function IglooContent(props){
-  return (
-    <div className={classes.content}>
-        <div className={classes.toolbar} />
-
-        {props.desktopNavigationVariant == "horizontal" && (
-          <Hidden smDown implementation="css">
-            <div className={classes.toolbar} />
-          </Hidden>
-        )}
-
-        {props.hasSearch && (
-          <Hidden smUp implementation="css">
-            <div className={classes.toolbar} />
-          </Hidden>
-        )}
-
-        {props.children}
-      </div>
-  )
-}
 
 function IglooSimpleLayoutContent(props) {
   const classes = useStyles(props);

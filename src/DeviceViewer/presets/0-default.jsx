@@ -2,5 +2,9 @@ import * as React from 'react';
 import DeviceViewer from '../DeviceViewer';
 
 export default (
-   <DeviceViewer UXPin="1"/>
+   <DeviceViewer defaultView="desktop" uxpId="1"
+   desktopOption = {true}
+   tabletOption = {true}
+  mobileOption = {true}
+  />
 );
