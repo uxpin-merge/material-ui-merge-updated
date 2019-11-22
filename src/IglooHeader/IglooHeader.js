@@ -328,13 +328,7 @@ function IglooHeader(props) {
   );
 }
 IglooHeader.propTypes = {
-  menus: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.string,
-      label: PropTypes.string,
-      children: PropTypes.arrayOf(PropTypes.shape({}))
-    })
-  ),
+  menus: PropTypes.array,
   hasAccountIcon: PropTypes.bool,
   accountMenu: PropTypes.array,
   logoSrc: PropTypes.string,

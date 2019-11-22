@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     '&.Mui-selected': {
       borderLeft: "3px solid",
       borderLeftColor: theme.palette.decoration.main,
-      backgroundColor: "transparent"
+      backgroundColor: "#ffffff"
     },
   },
 
