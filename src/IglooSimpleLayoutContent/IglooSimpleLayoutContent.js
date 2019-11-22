@@ -25,6 +25,9 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
   },
   toolbar: theme.mixins.toolbar,
+  toolbarMargin:{
+    borderTop: "#ffffff 3px solid"
+  },
   content: {
     flexGrow: 1,
     padding: theme.spacing(2)

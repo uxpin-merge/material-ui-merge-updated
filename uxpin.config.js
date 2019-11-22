@@ -14,6 +14,7 @@ module.exports = {
           "src/IglooSmallHeader/IglooSmallHeader.js",
           "src/IglooLargeHeader/IglooLargeHeader.js",
           "src/IglooSideNavigation/IglooSideNavigation.js",
+          "src/IglooTopNavigation/IglooTopNavigation.js",
           "src/ComponentDemoUXP/ComponentDemoUXP.js",
           "src/IconUXP/IconUXP.js",
           "src/Box/Box.js",

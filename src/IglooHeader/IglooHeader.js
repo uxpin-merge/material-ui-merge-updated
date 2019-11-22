@@ -16,12 +16,13 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import Icon from "@material-ui/core/Icon";
 import Badge from "@material-ui/core/Badge";
 import MenuUXP from "../MenuUXP/MenuUXP";
-import SearchIcon from '@material-ui/icons/Search';
-import Image from '../Image/Image';
+import SearchIcon from "@material-ui/icons/Search";
+import Image from "../Image/Image";
 import Tabs from "../Tabs/Tabs";
 import Tab from "../Tab/Tab";
-import { withStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
+import { withStyles } from "@material-ui/core/styles";
+import Box from "../Box/Box";
+import IglooTopNavigation from "../IglooTopNavigation/IglooTopNavigation";
 
 const drawerWidth = 275;
 const useStyles = makeStyles(theme => ({
@@ -38,7 +39,7 @@ const useStyles = makeStyles(theme => ({
       flexShrink: 0
     },
     "& .MuiDrawer-paper": {
-      backgroundColor: "#f9fafc",
+      backgroundColor: "#f9fafc"
     }
   },
   appBar: {
@@ -55,7 +56,7 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: "#f9fafc",
+    backgroundColor: "#f9fafc"
   },
   content: {
     flexGrow: 1,
@@ -69,94 +70,88 @@ const useStyles = makeStyles(theme => ({
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "flex"
-    },
+    }
   },
   iconSection: {
     display: "flex",
     marginRight: -theme.spacing(2),
-    '& .MuiBadge-badge': {
+    "& .MuiBadge-badge": {
       backgroundColor: theme.palette.headerBadges.main,
       color: theme.palette.common.white,
       right: -3,
       top: 2,
-      border: "1px solid #fff",  
+      border: "1px solid #fff"
     }
   },
 
-
-  logo:{
-    height: '36px',
+  logo: {
+    height: "36px",
     [theme.breakpoints.down("sm")]: {
-      maxHeight: '36px',
-      maxWidth: '100px',
+      maxHeight: "36px",
+      maxWidth: "100px"
     }
   },
-  
+
   search: {
-    position: 'relative',
+    position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade("#cccccc", 0.15),
-    '&:hover': {
-      backgroundColor: fade("#cccccc", 0.25),
+    "&:hover": {
+      backgroundColor: fade("#cccccc", 0.25)
     },
-    height: '40px',
+    height: "40px",
     marginLeft: 0,
     // marginTop: theme.spacing(1)/2,
     marginRight: theme.spacing(4),
     // marginTop: theme.spacing(1),
-    width: '100%',
-    [theme.breakpoints.down('xs')]: {
+    width: "100%",
+    [theme.breakpoints.down("xs")]: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
       marginTop: 0,
-      width: '100%',
-      alignSelf: 'baseline',
-    },
+      width: "100%",
+      alignSelf: "baseline"
+    }
   },
   searchIcon: {
     width: theme.spacing(5),
-    height: '100%',
-    position: 'absolute',
-    right:0,
-    top:0,
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: "100%",
+    position: "absolute",
+    right: 0,
+    top: 0,
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
   inputRoot: {
-    color: 'inherit',
+    color: "inherit"
   },
   inputInput: {
     padding: theme.spacing(1, 5, 1, 2),
-    fontSize: '.875em',
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.down('xs')]: {
-      height: '-webkit-fill-available',
+    fontSize: ".875em",
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.down("xs")]: {
+      height: "-webkit-fill-available"
     },
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up("sm")]: {
       width: 120,
-      '&:focus': {
-        width: 300,
-      },
-      
-    },
-  },
-
-  
-
-
+      "&:focus": {
+        width: 300
+      }
+    }
+  }
 }));
 
 const StyledBadge = withStyles(theme => ({
   badge: {
     right: -3,
     top: 2,
-    border: "1px solid #fff",
+    border: "1px solid #fff"
     // padding: '0 ',
-  },
-}))(Badge)
+  }
+}))(Badge);
 
 function IglooHeader(props) {
   const classes = useStyles();
@@ -166,8 +161,6 @@ function IglooHeader(props) {
   function handleDrawerToggle() {
     setMobileOpen(!mobileOpen);
   }
-  
-
 
   //Checks if drawers should open in iframe or uxpcanvas
   let drawerContainer = null;
@@ -208,36 +201,35 @@ function IglooHeader(props) {
           </div>
           <div className={classes.grow} />
 
-{props.hasSearch && 
-          <Hidden xsDown implementation="css">
-            <Box>
-              <div className={classes.search}>
-                <InputBase
-                  placeholder="Search…"
-                  classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput
-                  }}
-                  inputProps={{ "aria-label": "search" }}
-                />
-                <div className={classes.searchIcon}>
-                  <SearchIcon />
+          {props.hasSearch && (
+            <Hidden xsDown implementation="css">
+              <Box paddingRight={1}>
+                <div className={classes.search}>
+                  <InputBase
+                    placeholder="Search…"
+                    classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput
+                    }}
+                    inputProps={{ "aria-label": "search" }}
+                  />
+                  <div className={classes.searchIcon}>
+                    <SearchIcon />
+                  </div>
                 </div>
-              </div>
-              </Box>      
+              </Box>
             </Hidden>
-}
+          )}
           <div className={classes.iconSection}>
-            
-            {props.children && 
-        <Box>
-            {React.Children.map(props.children, child => (
-                React.cloneElement(child, {})
-            ))}
-        </Box>
-    }
+            {props.children && (
+              <Box>
+                {React.Children.map(props.children, child =>
+                  React.cloneElement(child, {})
+                )}
+              </Box>
+            )}
 
-             {/* <IconButton aria-label="show 4 new mails" color="primary">
+            {/* <IconButton aria-label="show 4 new mails" color="primary">
             <StyledBadge badgeContent={3} max={9} color="secondary" >
                 <MailIcon />
               </StyledBadge>
@@ -257,15 +249,11 @@ function IglooHeader(props) {
                 open={false}
               />
             )}
-           
           </div>
-
-
         </Toolbar>
-        {props.hasSearch && 
-        <Hidden smUp implementation="css">
-        <Toolbar variant="dense" disableGutters>
-        
+        {props.hasSearch && (
+          <Hidden smUp implementation="css">
+            <Toolbar variant="dense" disableGutters>
               <div className={classes.search}>
                 <InputBase
                   placeholder="Search…"
@@ -279,30 +267,19 @@ function IglooHeader(props) {
                   <SearchIcon />
                 </div>
               </div>
-        </Toolbar>
-        </Hidden>
-        }
-        {(props.desktopNavigationVariant=="horizontal") && (
-          <Hidden smDown implementation="css">
-        <Toolbar variant="dense" disableGutters>
-        <Tabs
-          indicatorColor="primary"
-          textColor="primary"
-          uxpId="1"
-          defaultValue={1}
-        >
-          <Tab label="Active" fullWidth />
-          <Tab label="Disabled" ullWidth />
-          <Tab label="Active" fullWidth />
-        </Tabs>
-      </Toolbar>
-      </Hidden>
+            </Toolbar>
+          </Hidden>
         )}
-        
+        {props.desktopNavigationVariant == "horizontal" && (
+          <Hidden smDown implementation="css">
+            <Toolbar variant="dense" disableGutters>
+              <IglooTopNavigation menus={props.menus}/>
+            </Toolbar>
+          </Hidden>
+        )}
       </AppBar>
-<Hidden smUp implementation="css">
-      <nav className={classes.drawer}>
-        
+      <Hidden smUp implementation="css">
+        <nav className={classes.drawer}>
           <Drawer
             variant="temporary"
             anchor={theme.direction === "rtl" ? "right" : "left"}
@@ -322,30 +299,31 @@ function IglooHeader(props) {
             >
               <CloseIcon />
             </IconButton>
-            <IglooSideNavigation menus={props.menus} {...props}/>
+            
+              <IglooSideNavigation menus={props.menus} {...props} />
+            
           </Drawer>
-          </nav>
-        </Hidden>
-
-
-        {(props.desktopNavigationVariant=="vertical") && (
-          
+        </nav>
+      </Hidden>
+      {props.desktopNavigationVariant == "vertical" && (
         <Hidden smDown implementation="css">
           <nav className={classes.drawer}>
-          <Drawer
-            className={classes.drawer}
-            variant="permanent"
-            classes={{
-              paper: classes.drawerPaper
-            }}
-          >
-            <div className={classes.toolbar} />
-            <IglooSideNavigation {...props} />
-          </Drawer>
+            <Drawer
+              className={classes.drawer}
+              variant="permanent"
+              classes={{
+                paper: classes.drawerPaper
+              }}
+            >
+              <div className={classes.toolbar} />
+              <Box paddingTop={0}>
+              <IglooSideNavigation {...props} />
+              </Box>
+            </Drawer>
           </nav>
         </Hidden>
-        )};
-      
+      )}
+      ;
     </>
   );
 }
@@ -361,15 +339,15 @@ IglooHeader.propTypes = {
   accountMenu: PropTypes.array,
   logoSrc: PropTypes.string,
   logoAlt: PropTypes.string,
-    /**
+  /**
    * The type of navigation to render at desktop breakpoint
-   * `horizontal` Tabbed header navigation 
+   * `horizontal` Tabbed header navigation
    * (only 1 level currently supported)
    * `vertical` Sidebar navigation
    */
-  desktopNavigationVariant: PropTypes.oneOf(['horizontal', 'vertical']),
+  desktopNavigationVariant: PropTypes.oneOf(["horizontal", "vertical"]),
   hasSearch: PropTypes.bool,
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 // IglooHeader.defaultProps = {
 //   hasAccountIcon: true,
