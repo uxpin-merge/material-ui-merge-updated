@@ -83,7 +83,7 @@ export default (
       <Icon uxpId="2.1.1">notifications</Icon>
     </IconButton>
     <IconButton arialabel="Shopping Cart" color="primary" uxpId="2.2" >
-      <Badge badgeContent={3} max={9} uxpId="2.2.1">
+      <Badge badgeContent="3" max="9" uxpId="2.2.1">
         <Icon uxpId="2.2.1.1">shopping_cart</Icon>
       </Badge>
     </IconButton>
