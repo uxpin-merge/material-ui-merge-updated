@@ -128,7 +128,7 @@ class DeviceViewer extends React.Component {
         setTimeout(function() {
           for (const item of iframeContent.styleSheets) {
             if (item.href.indexOf("uxpin") > -1) {
-              item.disabled = true;
+              // item.disabled = true;
             }
           }
           
