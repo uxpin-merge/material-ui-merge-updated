@@ -3,7 +3,7 @@ import React from "react";
 import TooltipM from "@material-ui/core/Tooltip";
 
 function TooltipUXP(props) {
-  return <TooltipM {...props}>{props.children}</TooltipM>;
+  return <TooltipM {...props} PopperProps={{ keepMounted: true, disablePortal: true }}>{props.children}</TooltipM>;
 }
 
 export default TooltipUXP;

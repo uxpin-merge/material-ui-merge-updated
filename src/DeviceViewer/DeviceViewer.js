@@ -11,9 +11,13 @@ import Menu from "@material-ui/core/Menu";
 import Paper from "@material-ui/core/Paper";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import Hidden from "@material-ui/core/Hidden";
+import Button from "@material-ui/core/Button";
 import Backdrop from "@material-ui/core/Backdrop";
 import Popover from "@material-ui/core/Popover";
+import Modal from '@material-ui/core/Modal';
+import Popper from '@material-ui/core/Popper';
+import Tooltip from '@material-ui/core/Tooltip';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const styles = theme => ({
   root: {
@@ -224,9 +228,11 @@ class DeviceViewer extends React.Component {
             <div id="insertion"></div>
             <IFramePlayground minHeight={667}>
               {children}
+             
             </IFramePlayground>
           </div>
           <div>
+        {/* <CssBaseline/> */}
         <Menu />
         <Paper/>
         <List/>
@@ -235,6 +241,9 @@ class DeviceViewer extends React.Component {
         <MenuItem/>
         <Backdrop/>
         <Popover/>
+        <Popper/>
+        <Modal/>
+        
         </div>
 
         </div>

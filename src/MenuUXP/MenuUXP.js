@@ -69,6 +69,8 @@ if (document.querySelector("#iframeContainer iframe")) {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
           container={drawerContainer}
+          // keepMounted={true}
+          // disablePortal={true}
         >
           {this.props.menuItems.map((item, key) => {
             return (

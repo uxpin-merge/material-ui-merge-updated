@@ -1,55 +1,64 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
+import React from "react";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
 
-// Like https://github.com/brunobertolini/styled-by
-const styledBy = (property, mapping) => props => mapping[props[property]];
-
-const styles = {
+const useStyles = makeStyles(theme => ({
   root: {
-    background: styledBy('color', {
-      default: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-      blue: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
-    }),
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    boxShadow: styledBy('color', {
-      default: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-      blue: '0 3px 5px 2px rgba(33, 203, 243, .3)',
-    }),
+    // flexGrow: 1,
+    // background: "#eeeeee",
+    // width: "100%",
+    // height: "100%",
+    // paddingBottom: "35px",
+    // minHeight: "702px",
+    // minWidth: "1280px"
   },
-};
 
-const StyledButton = withStyles(styles)(({ classes, color, ...other }) => (
-  <Button className={classes.root} {...other} />
-));
+}));
 
-export default function DynamicCSS() {
-  const [color, setColor] = React.useState('default');
+export default function TestComponent(props) {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorTop, setAnchorTop] = React.useState(100);
+  const [anchorLeft, setAnchorLeft] = React.useState(100);
 
-  const handleChange = event => {
-    setColor(event.target.checked ? 'blue' : 'default');
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+    setAnchorTop(event.target.getBoundingClientRect().top);
+    setAnchorLeft(event.target.getBoundingClientRect().left);
   };
 
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const classes = useStyles(props);
+
   return (
-    <React.Fragment>
-      <FormControlLabel
-        control={
-          <Switch
-            checked={color === 'blue'}
-            onChange={handleChange}
-            color="primary"
-            value="dynamic-class-name"
-          />
-        }
-        label="Blue"
-      />
-      <StyledButton color={color}>Dynamic CSS</StyledButton>
-    </React.Fragment>
+    <div className={classes.root}>
+            <Button
+              // aria-controls="simple-menu"
+              aria-haspopup="true"
+              onClick={handleClick}
+            >
+              Open Menu
+            </Button>
+            <Menu
+              // id="simple-menu"
+              anchorEl={anchorEl}
+              keepMounted={true}
+              disablePortal={true}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+              anchorPosition={{ left: anchorLeft, top: anchorTop }}
+              anchorReference="anchorPosition"
+            >
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem onClick={handleClose}>My account</MenuItem>
+              <MenuItem onClick={handleClose}>Logout</MenuItem>
+            </Menu>
+            top:{anchorTop} left:{anchorLeft}
+    </div>
   );
 }

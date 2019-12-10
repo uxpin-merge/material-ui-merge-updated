@@ -5,7 +5,7 @@ import IconButton from "../../IconButton/IconButton";
 import SimpleTooltips from "../TooltipUXP";
 
 export default (
-  <SimpleTooltips title="Delete" uxpId="tooltip0">
+  <SimpleTooltips title="jacktool" uxpId="tooltip0" PopperProps={{ keepMounted: true }}>
     <IconButton uxpId="IconButton0">
         <Icon uxpId="Icon0">
           delete
