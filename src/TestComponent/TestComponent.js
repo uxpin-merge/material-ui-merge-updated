@@ -38,17 +38,17 @@ export default function TestComponent(props) {
   return (
     <div className={classes.root}>
             <Button
-              // aria-controls="simple-menu"
+              aria-controls="simple-menu"
               aria-haspopup="true"
               onClick={handleClick}
             >
               Open Menu
             </Button>
             <Menu
-              // id="simple-menu"
+              id="simple-menu"
               anchorEl={anchorEl}
-              keepMounted={true}
-              disablePortal={true}
+              // keepMounted={true}
+              // disablePortal={true}
               open={Boolean(anchorEl)}
               onClose={handleClose}
               anchorPosition={{ left: anchorLeft, top: anchorTop }}
