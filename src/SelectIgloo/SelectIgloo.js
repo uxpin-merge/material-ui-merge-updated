@@ -12,6 +12,8 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function MenuNew(props) {
+export default function SelectIgloo(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -68,7 +70,22 @@ export default function MenuNew(props) {
     <div className={classes.root}>
       
       <div>
-      {props.trigger === "icon" ? (
+      <TextField
+      aria-label={props.label}
+      ref={anchorRef}
+      aria-haspopup="true"
+      onClick={handleToggle}
+      variant="outlined"
+      helperText="enter somethng"
+      label={props.label}
+      InputProps={{
+        endAdornment: <InputAdornment position="end"><Icon fontSize="medium" color='inherit'>arrow_drop_down</Icon></InputAdornment>,
+      }}
+      />
+      
+
+
+      {/* {props.trigger === "icon" ? (
           <IconButton
             aria-label={props.label}
             ref={anchorRef}
@@ -79,15 +96,7 @@ export default function MenuNew(props) {
             <Icon>{props.icon}</Icon>
           </IconButton>
         ) : (
-          // <Button
-          //   aria-owns={anchorEl ? randomID : undefined}
-          //   aria-haspopup="true"
-          //   onClick={this.handleClick}
-          //   variant={this.props.buttonVariant}
-          //   color={this.props.color}
-          // >
-          //   {this.props.label}
-          // </Button>
+          
           <Button
           ref={anchorRef}
           aria-haspopup="true"
@@ -97,7 +106,7 @@ export default function MenuNew(props) {
         >
           {props.label}
         </Button>
-        )}
+        )} */}
 
 
 
@@ -149,7 +158,7 @@ export default function MenuNew(props) {
   );
 }
 
-MenuNew.propTypes = {
+SelectIgloo.propTypes = {
   /**
    * Menu items. Can have optional icons and dividers
    * Format:
@@ -191,7 +200,7 @@ MenuNew.propTypes = {
   children: PropTypes.node
 };
 
-MenuNew.defaultProps = {
+SelectIgloo.defaultProps = {
   trigger: "icon",
   label: "More Items",
   icon: "more_vert",

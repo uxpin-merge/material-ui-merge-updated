@@ -1,64 +1,52 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Popover from '@material-ui/core/Popover';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    // flexGrow: 1,
-    // background: "#eeeeee",
-    // width: "100%",
-    // height: "100%",
-    // paddingBottom: "35px",
-    // minHeight: "702px",
-    // minWidth: "1280px"
+  typography: {
+    padding: theme.spacing(2),
   },
-
 }));
 
-export default function TestComponent(props) {
+export default function SimplePopover() {
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [anchorTop, setAnchorTop] = React.useState(100);
-  const [anchorLeft, setAnchorLeft] = React.useState(100);
+  const anchorRef = React.useRef(null);
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
-    setAnchorTop(event.target.getBoundingClientRect().top);
-    setAnchorLeft(event.target.getBoundingClientRect().left);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
   };
 
-  const classes = useStyles(props);
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
   return (
-    <div className={classes.root}>
-            <Button
-              aria-controls="simple-menu"
-              aria-haspopup="true"
-              onClick={handleClick}
-            >
-              Open Menu
-            </Button>
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              // keepMounted={true}
-              // disablePortal={true}
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-              anchorPosition={{ left: anchorLeft, top: anchorTop }}
-              anchorReference="anchorPosition"
-            >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
-              <MenuItem onClick={handleClose}>Logout</MenuItem>
-            </Menu>
-            top:{anchorTop} left:{anchorLeft}
+    <div>
+      <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick} ref={anchorRef}>
+        Open Popover
+      </Button>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorRef.current} 
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Typography className={classes.typography}>The content of the Popover.</Typography>
+      </Popover>
     </div>
   );
 }
