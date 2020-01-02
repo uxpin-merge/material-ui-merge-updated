@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import Button from "../../Button/Button";
+import Button from "../../ButtonUXP/ButtonUXP";
 import DialogActions from "../../DialogActions/DialogActions"
 import DialogContent from "../../DialogContent/DialogContent";
 import DialogContentText from "../../DialogContentText/DialogContentText";
@@ -8,7 +8,7 @@ import DialogTitle from "../../DialogTitle/DialogTitle";
 import DialogUXP from "../DialogUXP";
 
 export default (
-  <DialogUXP open={true} height="400" uxpId="1">
+  <DialogUXP open="true" height="400" uxpId="1">
     <DialogTitle uxpId="2">Dialog Title</DialogTitle>
     <DialogContent uxpId="3">
       <DialogContentText uxpId="4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend viverra urna non lacinia. Curabitur sed euismod tortor. Vestibulum ultricies enim at quam finibus ultricies ut non lorem.</DialogContentText>
