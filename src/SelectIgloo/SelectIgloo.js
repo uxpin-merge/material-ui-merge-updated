@@ -37,7 +37,7 @@ export default function SelectIgloo(props) {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-
+    setAge(event.target.value);
     setOpen(false);
   };
 
@@ -47,6 +47,10 @@ export default function SelectIgloo(props) {
       setOpen(false);
     }
   }
+
+  // const handleChange = event => {
+  //   setAge(event.target.value);
+  // };
 
   // let drawerContainer = null;
 
@@ -59,6 +63,9 @@ export default function SelectIgloo(props) {
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
+
+  const [age, setAge] = React.useState('');
+
   React.useEffect(() => {
     if (prevOpen.current === true && open === false) {
       anchorRef.current.focus();
@@ -81,6 +88,8 @@ export default function SelectIgloo(props) {
       InputProps={{
         endAdornment: <InputAdornment position="end"><Icon fontSize="medium" color='inherit'>arrow_drop_down</Icon></InputAdornment>,
       }}
+      value={age}      
+
       />
       
 
@@ -133,7 +142,7 @@ export default function SelectIgloo(props) {
                     <MenuItem onClick={handleClose}>Logout</MenuItem> */}
                     {props.menuItems.map((item, key) => {
             return (
-              <MenuItem onClick={handleClose} divider={item.hasDivider} key={key}>
+              <MenuItem onClick={handleClose} divider={item.hasDivider} key={key} value={item.label}>
                 {item.icon && (
                   <ListItemIcon>
                     <Icon>{item.icon}</Icon>

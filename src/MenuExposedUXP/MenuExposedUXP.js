@@ -54,6 +54,7 @@ class MenuExposedUXP extends React.Component {
           InputProps={{
             startAdornment: this.renderAdornment()
           }}
+          disablePortal={true}
         >
           {this.props.menuItems.map(option => (
             <MenuItem
