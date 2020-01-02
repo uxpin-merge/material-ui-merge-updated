@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 
-class MenuExposedUXP extends React.Component {
+class SelectUXP extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -71,10 +71,11 @@ class MenuExposedUXP extends React.Component {
   }
 }
 
-MenuExposedUXP.propTypes = {
+SelectUXP.propTypes = {
   /**
    * The variant to use.
    */
+  /** @uxpinignoreprop */
   variant: PropTypes.oneOf(["standard", "outlined", "filled"]),
 
   /**
@@ -155,7 +156,7 @@ MenuExposedUXP.propTypes = {
   adornmentIcon: PropTypes.string
 };
 
-MenuExposedUXP.defaultProps = {
+SelectUXP.defaultProps = {
   menuItems: [
     { label: "Home", value: "1" },
     { label: "Mobile", value: "2" },
@@ -167,4 +168,4 @@ MenuExposedUXP.defaultProps = {
   variant: "outlined"
 };
 
-export default MenuExposedUXP;
+export default SelectUXP;

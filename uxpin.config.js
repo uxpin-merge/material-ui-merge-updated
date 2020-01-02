@@ -1,18 +1,53 @@
 module.exports = {
   components: {
     categories: [
+{
+  name: "Layout",
+  include:[
+    "src/Box/Box.js",
+    "src/Grid/Grid.js",
+    "src/GridList/GridList.js",
+    "src/Hidden/Hidden.js",
+  ]
+},
+{
+  name: "Inputs",
+  include:[
+    "src/ButtonUXP/ButtonUXP.js",
+    "src/Checkbox/Checkbox.js",
+    "src/FabRoundUXP/FabRoundUXP.js",
+    "src/FabExtendedUXP/FabExtendedUXP.js",
+    "src/Radio/Radio.js",
+    "src/RadioGroup/RadioGroup.js",
+    "src/SelectUXP/SelectUXP.js",
+    "src/TextField/TextField.js",
+
+
+  ]
+},
+
+{
+  name: "Parts",
+  include:[
+    "src/GridListTile/GridListTile.js",
+    "src/GridListTileBar/GridListTileBar.js"
+  ]
+},
+
+
+
       {
         name: "UXPin Components",
         include: [
           "src/SelectIgloo/SelectIgloo.js",
           "src/MenuNew/MenuNew.js",
           "src/ClickAwayListener/ClickAwayListener.js",
-          "src/Hidden/Hidden.js",
+          // "src/Hidden/Hidden.js",
           "src/IglooSimpleLayoutContent/IglooSimpleLayoutContent.js",
           "src/IglooSimpleLayout/IglooSimpleLayout.js",
           "src/TestComponent/TestComponent.js",
           "src/DeviceViewer/DeviceViewer.js",
-          "src/ButtonStyled/ButtonStyled.js",
+          // "src/ButtonStyled/ButtonStyled.js",
           "src/IglooHeader/IglooHeader.js",
           "src/IglooSmallHeader/IglooSmallHeader.js",
           "src/IglooLargeHeader/IglooLargeHeader.js",
@@ -20,10 +55,10 @@ module.exports = {
           "src/IglooTopNavigation/IglooTopNavigation.js",
           "src/ComponentDemoUXP/ComponentDemoUXP.js",
           "src/IconUXP/IconUXP.js",
-          "src/Box/Box.js",
-          "src/FabRoundUXP/FabRoundUXP.js",
-          "src/FabExtendedUXP/FabExtendedUXP.js",
-          "src/ButtonUXP/ButtonUXP.js",
+          // "src/Box/Box.js",
+          // "src/FabRoundUXP/FabRoundUXP.js",
+          // "src/FabExtendedUXP/FabExtendedUXP.js",
+          // "src/ButtonUXP/ButtonUXP.js",
           "src/AvatarLetterUXP/AvatarLetterUXP.js",
           "src/AvatarImageUXP/AvatarImageUXP.js",
           "src/AvatarIconUXP/AvatarIconUXP.js",
@@ -41,7 +76,7 @@ module.exports = {
           "src/TooltipUXP/TooltipUXP.js",
           "src/Banner/Banner.js",
           "src/MenuUXP/MenuUXP.js",
-          "src/MenuExposedUXP/MenuExposedUXP.js",
+          // "src/MenuExposedUXP/MenuExposedUXP.js",
           "src/ComponentInspectorUXP/ComponentInspectorUXP.js"
         ]
       },
@@ -53,7 +88,7 @@ module.exports = {
       {
         name: "Actions",
         include: [
-          "src/Button/Button.js",
+          // "src/Button/Button.js",
           "src/IconButton/IconButton.js",
           "src/Fab/Fab.js",
           "src/Link/Link.js"
@@ -73,15 +108,15 @@ module.exports = {
           "src/Drawer/Drawer.js"
         ]
       },
-      {
-        name: "Layout",
-        include: [
-          "src/Grid/Grid.js",
-          "src/GridList/GridList.js",
-          "src/GridListTile/GridListTile.js",
-          "src/GridListTileBar/GridListTileBar.js"
-        ]
-      },
+      // {
+      //   name: "Layout",
+      //   include: [
+      //     "src/Grid/Grid.js",
+      //     "src/GridList/GridList.js",
+      //     "src/GridListTile/GridListTile.js",
+      //     "src/GridListTileBar/GridListTileBar.js"
+      //   ]
+      // },
       {
         name: "Card",
         include: [
@@ -95,13 +130,13 @@ module.exports = {
       {
         name: "Form",
         include: [
-          "src/Checkbox/Checkbox.js",
-          "src/Radio/Radio.js",
+          // "src/Checkbox/Checkbox.js",
+          // "src/Radio/Radio.js",
           "src/Switch/Switch.js",
-          "src/TextField/TextField.js",
+          // "src/TextField/TextField.js",
           "src/Input/Input.js",
           "src/Select/Select.js",
-          "src/RadioGroup/RadioGroup.js",
+          // "src/RadioGroup/RadioGroup.js",
           "src/Menu/Menu.js",
           "src/MenuItem/MenuItem.js",
           "src/MenuList/MenuList.js",
@@ -113,7 +148,7 @@ module.exports = {
           "src/FormGroup/FormGroup.js",
           "src/FormControlLabel/FormControlLabel.js",
           "src/FormLabel/FormLabel.js",
-          "src/RadioGroup/RadioGroup.js"
+          // "src/RadioGroup/RadioGroup.js"
         ]
       },
       {

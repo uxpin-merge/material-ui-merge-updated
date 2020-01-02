@@ -169,6 +169,7 @@ TextField.propTypes = {
   /**
    * The variant to use.
    */
+  /** @uxpinignoreprop */
   variant: PropTypes.oneOf(["standard", "outlined", "filled"])
 };
 
