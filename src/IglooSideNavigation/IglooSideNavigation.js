@@ -104,7 +104,7 @@ function IglooSideNavigation(props) {
 
   // eslint-disable-next-line react/prop-types
   const renderItem = (level = 0) => (
-    { icon, label, submenu, active, opened },
+    { icon, label, url, submenu, active, opened },
     index
   ) => {
     const collapsed = collapsedIndex[level];
@@ -131,12 +131,17 @@ function IglooSideNavigation(props) {
             key={label}
             className={classes.listItem}
             selected={active ? true : false}
+            component="a"
+            href={url}
+            target="_parent"
+
           >
             {icon && (
               <Icon fontSize="small" className={classes.icon}>
                 {icon}
               </Icon>
-            )}
+            )
+            }
             {listItemText}
           </ListItem>
           {level === 0 && <Divider light />}
@@ -223,6 +228,7 @@ IglooSideNavigation.propTypes = {
     PropTypes.shape({
       icon: PropTypes.string,
       label: PropTypes.string,
+      url: PropTypes.string,
       active: PropTypes.bool,
       submenu: PropTypes.arrayOf(PropTypes.shape({}))
     })

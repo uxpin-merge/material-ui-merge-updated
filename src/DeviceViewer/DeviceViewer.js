@@ -108,7 +108,7 @@ class DeviceViewer extends React.Component {
     //Remove any UXP css link added to iframe
     if (document.querySelector("#iframeContainer iframe")) {
       const iframeElement = document.querySelector("#iframeContainer iframe");
-
+      iframeElement.sandbox = 'allow-same-origin allow-top-navigation allow-top-navigation-by-user-activation';
       iframeElement.onload = function() {
         //Add viewport meta to iframe
         const iframeContent = iframeElement.contentDocument;

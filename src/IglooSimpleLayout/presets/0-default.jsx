@@ -42,15 +42,18 @@ let menus =
     },
     {
         "icon": "data_usage",
-        "label": "Data Solutions"
+        "label": "Data Solutions",
+        "url": "http://www.google.com",
     },
     {
         "icon": "widgets",
-        "label": "Technology"
+        "label": "Technology",
+        "url": "http://www.google.com",
     },
     {
         "icon": "bar_chart",
-        "label": "Analysis"
+        "label": "Analysis",
+        "url": "http://www.google.com",
     }
 ]
 
