@@ -259,11 +259,11 @@ DeviceViewer.propTypes = {
   mobileOption: PropTypes.bool
 };
 
-// DeviceViewer.defaultProps = {
-//   defaultView: "desktop",
-//   desktopOption: true,
-//   tabletOption: true,
-//   mobileOption: true
-// };
+DeviceViewer.defaultProps = {
+  defaultView: "desktop",
+  desktopOption: true,
+  tabletOption: true,
+  mobileOption: true
+};
 
 export default withStyles(styles)(DeviceViewer);

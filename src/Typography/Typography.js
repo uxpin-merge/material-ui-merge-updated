@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import TypographyM from "@material-ui/core/Typography";
 
 function Typography(props) {
-  return <TypographyM {...props}>{props.children}</TypographyM>;
+  return <TypographyM {...props} component={props.component}>{props.children}</TypographyM>;
 }
 
 Typography.propTypes = {
@@ -70,6 +70,13 @@ Typography.propTypes = {
    */
   paragraph: PropTypes.bool,
 
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   * By default, it maps the variant to a good default headline component.
+   */
+  component: PropTypes.string,
+  
   /**
    * Applies the theme typography styles.
    * Use `body1` as the default value with the legacy implementation and `body2` with the new one.
