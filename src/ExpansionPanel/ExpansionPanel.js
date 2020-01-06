@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import ExpansionPanelM from "@material-ui/core/ExpansionPanel";
 
 function ExpansionPanel(props) {
-  return <ExpansionPanelM {...props}>{props.children}</ExpansionPanelM>;
+  return <ExpansionPanelM {...props}
+  elevation={props.IsElevated ? 1 : 0}
+  >{props.children}</ExpansionPanelM>;
 }
 
 ExpansionPanel.propTypes = {
@@ -43,6 +45,11 @@ ExpansionPanel.propTypes = {
    * Setting this prop enables control over the panel.
    */
   expanded: PropTypes.bool,
+  
+  /**
+   * If `true` will elevate to level 1
+   */
+  IsElevated: PropTypes.bool,
 
   /**
    * Callback fired when the expand/collapse state is changed.

@@ -22,7 +22,8 @@ module.exports = {
           "src/RadioGroup/RadioGroup.js",
           "src/SelectUXP/SelectUXP.js",
           "src/TextField/TextField.js",
-          "src/Switch/Switch.js"
+          "src/Switch/Switch.js",
+          "src/Collapse/Collapse.js"
         ]
       },
       {
@@ -32,7 +33,8 @@ module.exports = {
           "src/DrawerModalUXP/DrawerModalUXP.js",
           "src/Link/Link.js",
           "src/MenuNew/MenuNew.js",
-          "src/Tabs/Tabs.js"
+          "src/Tabs/Tabs.js",
+          "src/ExpansionPanel/ExpansionPanel.js",
         ]
       },
 
@@ -42,7 +44,6 @@ module.exports = {
           "src/IglooHeader/IglooHeader.js",
           "src/Paper/Paper.js",
           "src/Card/Card.js",
-          "src/Collapse/Collapse.js"
         ]
       },
 
@@ -106,7 +107,10 @@ module.exports = {
           "src/FormHelperText/FormHelperText.js",
           "src/FormGroup/FormGroup.js",
           "src/FormControlLabel/FormControlLabel.js",
-          "src/FormLabel/FormLabel.js"
+          "src/FormLabel/FormLabel.js",
+          "src/ExpansionPanelActions/ExpansionPanelActions.js",
+          "src/ExpansionPanelDetails/ExpansionPanelDetails.js",
+          "src/ExpansionPanelSummary/ExpansionPanelSummary.js",
         ]
       },
       {

@@ -1,10 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ExpansionPanelSummaryM from "@material-ui/core/ExpansionPanelSummary";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 function ExpansionPanelSummary(props) {
   return (
-    <ExpansionPanelSummaryM {...props} style={{fontSize: "20px", fontWeight: "regular"}}>{props.children}</ExpansionPanelSummaryM>
+    <ExpansionPanelSummaryM {...props}
+    style={{fontSize: "20px", fontWeight: "regular"}}
+    expandIcon={<ExpandMoreIcon />}
+    >{props.children}</ExpansionPanelSummaryM>
   );
 }
 
