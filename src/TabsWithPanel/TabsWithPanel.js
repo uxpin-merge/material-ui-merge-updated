@@ -50,7 +50,6 @@ export default function TabsWithPanel(props) {
 
   function handleChange(event, newValue) {
     setValue(newValue);
-    alert("yes")
   }
 
 
