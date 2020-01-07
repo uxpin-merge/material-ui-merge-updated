@@ -70,6 +70,7 @@ Tabs.propTypes = {
    * If `true`, the Tabss will grow to use all the available space.
    * This property is intended for small views, like on mobile.
    */
+  /** @uxpinignoreprop */
   fullWidth: PropTypes.bool,
 
   /**

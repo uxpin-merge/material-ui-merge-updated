@@ -33,7 +33,7 @@ module.exports = {
           "src/DrawerModalUXP/DrawerModalUXP.js",
           "src/Link/Link.js",
           "src/MenuNew/MenuNew.js",
-          "src/Tabs/Tabs.js",
+          "src/TabsWithPanel/TabsWithPanel.js",
           "src/ExpansionPanel/ExpansionPanel.js",
         ]
       },
@@ -53,7 +53,7 @@ module.exports = {
           "src/CircularProgress/CircularProgress.js",
           "src/LinearProgress/LinearProgress.js",
           "src/DialogUXP/DialogUXP.js",
-          "src/Banner/Banner.js"
+          "src/Banner/Banner.js",
         ]
       },
       {
@@ -97,7 +97,9 @@ module.exports = {
           "src/ListSubheader/ListSubheader.js",
           "src/IglooSimpleLayoutContent/IglooSimpleLayoutContent.js",
           "src/BottomNavigationAction/BottomNavigationAction.js",
+          "src/Tabs/Tabs.js",
           "src/Tab/Tab.js",
+          "src/TabContent/TabContent.js",
           "src/Toolbar/Toolbar.js",
           "src/AppBar/AppBar.js",
           "src/MenuItem/MenuItem.js",
