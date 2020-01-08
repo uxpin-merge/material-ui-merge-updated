@@ -40,15 +40,19 @@ function a11yProps(index) {
 const useStyles = makeStyles(theme => ({
   root: {
     borderBottom: '1px solid #e8e8e8',
+    
   },
   tab: {
+    fontSize: "0.95rem",
+    textTransform: 'none',
+    marginRight: theme.spacing(4),
     fontWeight: theme.typography.fontWeightRegular,
     minWidth: 100,
     '&:hover': {
       // color: theme.palette.secondary.dark,
     },
-    '&.Mui-selected': {
-      fontWeight: theme.typography.fontWeightMedium,
+    '&.Mui-selected:hover': {
+      // color: "inherit",
     },
   }
   
