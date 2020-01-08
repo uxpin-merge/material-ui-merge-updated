@@ -5,7 +5,7 @@ import Icon from "@material-ui/core/Icon";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
+import Box from "../Box/Box";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -19,7 +19,7 @@ function TabPanel(props) {
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
-      <Box p={3}>{children}</Box>
+      <Box paddingTop={3} paddingBottom={3} paddingLeft={3} paddingRight={3}>{children}</Box>
     </Typography>
   );
 }
@@ -39,8 +39,19 @@ function a11yProps(index) {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    // display: 'flex',
+    borderBottom: '1px solid #e8e8e8',
+  },
+  tab: {
+    fontWeight: theme.typography.fontWeightRegular,
+    minWidth: 100,
+    '&:hover': {
+      // color: theme.palette.secondary.dark,
+    },
+    '&.Mui-selected': {
+      fontWeight: theme.typography.fontWeightMedium,
+    },
   }
+  
 }));
 
 export default function TabsWithPanel(props) {
@@ -54,14 +65,13 @@ export default function TabsWithPanel(props) {
 
 
   return (
-    <div className={classes.root}>
-
-      
+    <div >
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="full width tabs example"
           {...props}
+          className={classes.root}
         >
 
             {props.tabs.map((item, index) => {
@@ -73,6 +83,7 @@ export default function TabsWithPanel(props) {
                         {...item.icon && {'icon' : <Icon> {item.icon} </Icon>}}
                         {...a11yProps(index)}
                         {...props}
+                        className={classes.tab}
                     />
                 );
             })}
