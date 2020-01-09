@@ -8,7 +8,7 @@ export default (
     size="medium" 
     variant="contained" 
     color="primary" 
-    fullWidth>
+    >
     Button
   </ButtonUXP>
 );
