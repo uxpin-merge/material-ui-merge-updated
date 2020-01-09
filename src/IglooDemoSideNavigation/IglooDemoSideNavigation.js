@@ -61,13 +61,13 @@ class IglooDemoSideNavigation extends React.Component {
   render() {
     const { classes, theme } = this.props;
     const { open } = this.state;
-    const uxpPreviewLink =
-      "https://preview.uxpin.com/a2f9d05a1c84bf435e071793892ffa291d27d18f#/pages/";
+    const uxpPreviewLink = this.props.previewUrl;
     const uxpPreviewOptions = "?mode=cvhidfm";
     const navItems = [
       {
         label: "Typography",
-        pageId: "111024058"
+        pageId: "111024058",
+        previewUrl: "https://preview.uxpin.com/ec1a05430ba8dead2702ed9f36c37b92b769577c#/pages/"
       },
       {
         label: "Avatars",
@@ -197,9 +197,7 @@ class IglooDemoSideNavigation extends React.Component {
                   <ListItem
                     button
                     component="a"
-                    href={`${uxpPreviewLink}${
-                      navItem.pageId
-                    }${uxpPreviewOptions}`}
+                    href={`${navItem.previewUrl}${navItem.pageId}${uxpPreviewOptions}`}
                     key={index}
                     selected={this.props.pageId === navItem.pageId}
                     onClick={event => this.handleListItemClick(event, index)}
