@@ -94,7 +94,8 @@ class IglooDemoSideNavigation extends React.Component {
       },
       {
         label: "Buttons",
-        pageId: "110582426"
+        pageId: "122142765",
+        previewUrl: "https://preview.uxpin.com/ec1a05430ba8dead2702ed9f36c37b92b769577c#/pages/"
       },
       {
         label: "Buttons: FAB",
