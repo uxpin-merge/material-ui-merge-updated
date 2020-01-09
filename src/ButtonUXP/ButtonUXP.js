@@ -48,6 +48,8 @@ ButtonUXP.propTypes = {
   /**
    * The color of the button.
    */
+  /** @uxpinignoreprop */
+
   color: PropTypes.oneOf(["primary", "secondary", "inherit"]),
 
   /**
