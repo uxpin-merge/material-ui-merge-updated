@@ -10,7 +10,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
-import IglooSideNavigation from "../IglooSideNavigation/IglooSideNavigation";
+import IglooDemoSideNavigation from "../IglooDemoSideNavigation/IglooDemoSideNavigation";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import Icon from "@material-ui/core/Icon";
@@ -267,7 +267,7 @@ function IglooDemoHeader(props) {
               <CloseIcon />
             </IconButton>
             
-              <IglooSideNavigation menus={props.menus} {...props} />
+              <IglooDemoSideNavigation menus={props.menus} {...props} />
             
           </Drawer>
         </nav>
@@ -284,7 +284,7 @@ function IglooDemoHeader(props) {
             >
               <div className={classes.toolbar} />
               <Box paddingTop={2}>
-              <IglooSideNavigation {...props} />
+              <IglooDemoSideNavigation {...props} />
               </Box>
             </Drawer>
           </nav>
@@ -295,20 +295,8 @@ function IglooDemoHeader(props) {
   );
 }
 IglooDemoHeader.propTypes = {
-  menus: PropTypes.array,
-  hasAccountIcon: PropTypes.bool,
-  accountMenu: PropTypes.array,
-  logoSrc: PropTypes.string,
-  logoAlt: PropTypes.string,
-  /**
-   * The type of navigation to render at desktop breakpoint
-   * `horizontal` Tabbed header navigation
-   * (only 1 level currently supported)
-   * `vertical` Sidebar navigation
-   */
-  desktopNavigationVariant: PropTypes.oneOf(["horizontal", "vertical"]),
-  hasSearch: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
+  pageId: PropTypes.string,
 };
 
 export default IglooDemoHeader;

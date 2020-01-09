@@ -72,12 +72,10 @@ let accountMenu = [
 
 export default (
   <IglooDemoHeader uxpId="1"
-  menus={menus}
   logoSrc = "https://uc.uxpin.com/files/732773/730600/image-6d6f68.png"
   logoAlt = "IGLOO Design System"
   desktopNavigationVariant = "vertical"
   hasAccountIcon = {true}
-  accountMenu= {accountMenu}
   hasSearch = {true}
   >
     <IconButton
