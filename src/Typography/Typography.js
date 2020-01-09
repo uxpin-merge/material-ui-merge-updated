@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TypographyM from "@material-ui/core/Typography";
+import ReactHtmlParser from 'react-html-parser'; 
+
 
 function Typography(props) {
-  return <TypographyM {...props} component={props.component}>{props.children}</TypographyM>;
+  return <TypographyM {...props} component={props.component}>
+    { ReactHtmlParser (props.children) } </TypographyM>;
 }
 
 Typography.propTypes = {
@@ -19,8 +22,9 @@ Typography.propTypes = {
   ]),
 
   /**
-   * The content of the component.
-   */
+  * The content of the component.
+  * @uxpinpropname  Text/HTML
+  * */
   children: PropTypes.node,
 
   /**
@@ -97,13 +101,6 @@ Typography.propTypes = {
     "overline",
     "srOnly",
     "inherit",
-    "display4",
-    "display3",
-    "display2",
-    "display1",
-    "headline",
-    "title",
-    "subheading"
   ])
 };
 
