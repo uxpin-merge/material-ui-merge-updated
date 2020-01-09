@@ -67,17 +67,17 @@ class IglooDemoSideNavigation extends React.Component {
       {
         label: "Avatars",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Badges",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Box",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Buttons",
@@ -87,97 +87,97 @@ class IglooDemoSideNavigation extends React.Component {
       {
         label: "Cards",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Checkboxes",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Chips",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Dialogs",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Dividers",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Drawers",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Expansion Panels",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Hidden",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Paper",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Progress",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Radio Buttons",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Select",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Snackbars",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Switches",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Tables",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Tabs",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Text Fields",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Tooltips",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
       {
         label: "Typography",
         layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "122142765", 
+        pageId: "11111111111", 
       },
     ];
     return (
