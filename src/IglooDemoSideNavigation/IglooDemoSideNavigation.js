@@ -61,114 +61,124 @@ class IglooDemoSideNavigation extends React.Component {
   render() {
     const { classes, theme } = this.props;
     const { open } = this.state;
-    const uxpPreviewLink = this.props.previewUrl;
+    const uxpPreviewLink = `https://preview.uxpin.com/${this.props.layoutId}/pages/`;
     const uxpPreviewOptions = "?mode=cvhidfm";
     const navItems = [
       {
-        label: "Typography",
-        pageId: "111024058",
-        previewUrl: "https://preview.uxpin.com/ec1a05430ba8dead2702ed9f36c37b92b769577c#/pages/"
-      },
-      {
         label: "Avatars",
-        pageId: "113231558"
-      },
-      {
-        label: "App Bars",
-        pageId: "110945767"
-      },
-      {
-        label: "Backdrop",
-        pageId: "111486035"
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
         label: "Badges",
-        pageId: "113231555"
-      },      {
-        label: "Banner",
-        pageId: "111155707"
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
-        label: "Bottom Navigation",
-        pageId: "110951907"
+        label: "Box",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
         label: "Buttons",
-        pageId: "122142765",
-        previewUrl: "https://preview.uxpin.com/ec1a05430ba8dead2702ed9f36c37b92b769577c#/pages/"
-      },
-      {
-        label: "Buttons: FAB",
-        pageId: "110806303"
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765",        
       },
       {
         label: "Cards",
-        pageId: "110955235"
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
+      },
+      {
+        label: "Checkboxes",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
         label: "Chips",
-        pageId: "110924901"
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
-        label: "Data Tables",
-        pageId: "111487067"
+        label: "Dialogs",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
-        label: "Dialog",
-        pageId: "111245769"
+        label: "Dividers",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
-        label: "Divider",
-        pageId: "111320317"
+        label: "Drawers",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
-        label: "Grid",
-        pageId: "113231959"
+        label: "Expansion Panels",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
-        label: "Lists",
-        pageId: "110997001"
-      },
-      {
-        label: "Navigational Drawer",
-        pageId: "111212661"
-      },
-      {
-        label: "Menu",
-        pageId: "111478479"
+        label: "Hidden",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
         label: "Paper",
-        pageId: "113231957"
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
-        label: "Progress Indicators",
-        pageId: "111017118"
+        label: "Progress",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
-        label: "Selection Controls",
-        pageId: "111009917"
+        label: "Radio Buttons",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
+      },
+      {
+        label: "Select",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
+      },
+      {
+        label: "Snackbars",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
+      },
+      {
+        label: "Switches",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
+      },
+      {
+        label: "Tables",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
         label: "Tabs",
-        pageId: "111136735"
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
         label: "Text Fields",
-        pageId: "111013038"
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
         label: "Tooltips",
-        pageId: "111153670"
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
       {
-        label: "Slider",
-        pageId: "111469707"
+        label: "Typography",
+        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
+        pageId: "122142765", 
       },
-      {
-        label: "Snackbar",
-        pageId: "111158502"
-      }
     ];
     return (
       <div className={classes.root}>
@@ -198,7 +208,8 @@ class IglooDemoSideNavigation extends React.Component {
                   <ListItem
                     button
                     component="a"
-                    href={`${navItem.previewUrl}${navItem.pageId}${uxpPreviewOptions}`}
+                    href={`https://preview.uxpin.com/${navItem.layoutId}/pages/${navItem.pageId}${uxpPreviewOptions}`}
+                    // href={`${navItem.previewUrl}${navItem.pageId}${uxpPreviewOptions}`}
                     key={index}
                     selected={this.props.pageId === navItem.pageId}
                     onClick={event => this.handleListItemClick(event, index)}
