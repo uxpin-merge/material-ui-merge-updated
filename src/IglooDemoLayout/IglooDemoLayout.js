@@ -1,24 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Paper from "@material-ui/core/Paper";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import IconButton from "@material-ui/core/IconButton";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import MenuIcon from "@material-ui/icons/Menu";
-import CloseIcon from "@material-ui/icons/Close";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import IglooSideNavigation from "../IglooSideNavigation/IglooSideNavigation";
-import SearchIcon from "@material-ui/icons/Search";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import MoreIcon from "@material-ui/icons/MoreVert";
-import IglooHeader from "../IglooHeader/IglooHeader";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,17 +18,11 @@ const useStyles = makeStyles(theme => ({
 function IglooDemoLayout(props) {
   const classes = useStyles(props);
   const { children, ...newProps } = props;
-  // console.log(...newProps);
 
   return (
     <div className={classes.root}>
-      {/* <IglooHeader {...props} /> */}
-      {/* {React.Children.map(props.children, child => (
-                React.cloneElement(child)
-            ))} */}
-
-        {props.children}
-      </div>
+      {props.children}
+    </div>
   );
 }
 IglooDemoLayout.propTypes = {

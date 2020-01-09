@@ -120,6 +120,7 @@ module.exports = {
         include: [
           "src/IglooSimpleLayout/IglooSimpleLayout.js",
           "src/IglooDemoLayout/IglooDemoLayout.js",
+          "src/IglooDemoHeader/IglooDemoHeader.js",
           "src/ComponentDemoUXP/ComponentDemoUXP.js",
         ]
       },
