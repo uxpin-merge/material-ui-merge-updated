@@ -33,10 +33,12 @@ function ButtonUXP(props) {
 // *********************
 
 ButtonUXP.propTypes = {
+
   /**
    * The label or content of the button.
-   */
-  children: PropTypes.node,
+   * @uxpinpropname  Label
+   * */
+  children: PropTypes.string,
 
   /**
    * The type of button.
