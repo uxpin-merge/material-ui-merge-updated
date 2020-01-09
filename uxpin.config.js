@@ -119,6 +119,7 @@ module.exports = {
         name: "Templates",
         include: [
           "src/IglooSimpleLayout/IglooSimpleLayout.js",
+          "src/IglooDemoLayout/IglooDemoLayout.js",
           "src/ComponentDemoUXP/ComponentDemoUXP.js",
         ]
       },
