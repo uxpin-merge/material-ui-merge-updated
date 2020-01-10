@@ -19,7 +19,7 @@ const styles = theme => ({
     boxShadow: "none"
   },
   responsiveContainer: {
-    margin: theme.spacing.unit * 0
+    margin: theme.spacing.unit * 3
   },
   desktop: {
     width: "1024px",
@@ -102,21 +102,11 @@ class ComponentInspector extends React.Component {
 
     return (
       <div>
-        <Toolbar
-          className={classes.inspectorToolbar}
-          variant="dense"
-          disableGutters
-        >
+        <Toolbar className={classes.inspectorToolbar} variant="dense">
           <Grid container spacing={0} alignItems="center">
             <Grid item xs>
               <Typography variant="h6">{this.props.title}</Typography>
-              <Typography variant="overline" color="textSecondary">
-                COMPONENT:{" "}
-              </Typography>
-              <Typography variant="overline" color="textSecondary">
-                {" "}
-                {this.props.componentName}
-              </Typography>
+              <Typography variant="caption">Component: {this.props.componentName}</Typography>
             </Grid>
             <Grid item>
               {this.props.responsive && (
@@ -158,9 +148,9 @@ class ComponentInspector extends React.Component {
                 textColor="primary"
                 onChange={this.handleTabChange}
               >
-                <Tab label="UXPin Props" />
-                {/* <Tab label="JSX" disabled/>
-<Tab label="HTML/CSS" disabled/> */}
+                <Tab label="JSX" />
+                <Tab label="HTML/CSS" />
+                <Tab label="Props" />
               </Tabs>
               {this.state.tabValue === 0 && (
                 <Typography component="div" className={classes.codeWindow}>
@@ -206,14 +196,14 @@ ComponentInspector.propTypes = {
   jsxCode: PropTypes.node,
   cssHtmlCode: PropTypes.node,
   propsCode: PropTypes.node,
-  componentName: PropTypes.string
+  componentName: PropTypes.string,
 };
 
 ComponentInspector.defaultProps = {
-  responsive: true,
-  jsxCode: "Coming soon...",
-  cssHtmlCode: "Coming soon...",
-  propsCode: "Coming soon..."
-};
+   responsive: true,
+   jsxCode: "Coming soon...",
+   cssHtmlCode: "Coming soon...",
+   propsCode: "Coming soon...",
+ };
 
 export default withStyles(styles)(ComponentInspector);
