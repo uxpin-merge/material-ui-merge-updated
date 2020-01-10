@@ -113,6 +113,7 @@ module.exports = {
           "src/ExpansionPanelActions/ExpansionPanelActions.js",
           "src/ExpansionPanelDetails/ExpansionPanelDetails.js",
           "src/ExpansionPanelSummary/ExpansionPanelSummary.js",
+          "src/CollapsePanel/CollapsePanel.js",
         ]
       },
       {
