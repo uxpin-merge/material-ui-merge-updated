@@ -121,6 +121,8 @@ module.exports = {
           "src/IglooSimpleLayout/IglooSimpleLayout.js",
           "src/IglooDemoLayout/IglooDemoLayout.js",
           "src/IglooDemoHeader/IglooDemoHeader.js",
+          "src/ComponentDemoInspector/ComponentDemoInspector.js",
+          "src/ComponentDemoInspectorWrapper/ComponentDemoInspectorWrapper.js",
           "src/IglooDemoSideNavigation/IglooDemoSideNavigation.js",
           "src/ComponentDemoUXP/ComponentDemoUXP.js",
         ]
