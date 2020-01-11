@@ -35,7 +35,7 @@ function ButtonUXP(props) {
 ButtonUXP.propTypes = {
 
   /**
-   * The label or content of the button.
+   * The label of the button.
    * @uxpinpropname  Label
    * */
   children: PropTypes.string,
@@ -69,15 +69,13 @@ ButtonUXP.propTypes = {
   fullWidth: PropTypes.bool,
 
   /**
-   * Applies margins to the button
-   */
-  // hasMargin: PropTypes.bool,
-
-  /**
    * If `true`, the button will be disabled.
    */
-  disabled: PropTypes.bool,
 
+  disabled: PropTypes.bool,
+    /**
+   * On click event to use with UXPin interactions.
+   */
   onClick: PropTypes.func
 };
 
