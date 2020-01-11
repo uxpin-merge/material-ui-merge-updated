@@ -120,12 +120,6 @@ module.exports = {
         name: "Templates",
         include: [
           "src/IglooSimpleLayout/IglooSimpleLayout.js",
-          "src/IglooDemoLayout/IglooDemoLayout.js",
-          "src/IglooDemoHeader/IglooDemoHeader.js",
-          "src/ComponentDemoInspector/ComponentDemoInspector.js",
-          "src/ComponentDemoInspectorWrapper/ComponentDemoInspectorWrapper.js",
-          "src/IglooDemoSideNavigation/IglooDemoSideNavigation.js",
-          "src/ComponentDemoUXP/ComponentDemoUXP.js",
         ]
       },
       {
@@ -134,7 +128,14 @@ module.exports = {
           "src/DeviceViewer/DeviceViewer.js",
           "src/TestComponent/TestComponent.js",
           "src/ThemeTarget/ThemeTarget.js",
-          "src/ComponentInspectorUXP/ComponentInspectorUXP.js"
+          "src/ComponentInspectorUXP/ComponentInspectorUXP.js",
+          "src/IglooDemoLayout/IglooDemoLayout.js",
+          "src/IglooDemoHeader/IglooDemoHeader.js",
+          "src/ComponentDemoInspector/ComponentDemoInspector.js",
+          "src/ComponentDemoInspectorWrapper/ComponentDemoInspectorWrapper.js",
+          "src/IglooDemoSideNavigation/IglooDemoSideNavigation.js",
+          "src/ComponentDemoUXP/ComponentDemoUXP.js",
+          "src/ComponentDemoPropsTable/ComponentDemoPropsTable.js"
         ]
       }
     ]
