@@ -211,6 +211,7 @@ class IglooDemoSideNavigation extends React.Component {
                     href={`https://preview.uxpin.com/${navItem.layoutId}/pages/${navItem.pageId}${uxpPreviewOptions}`}
                     // href={`${navItem.previewUrl}${navItem.pageId}${uxpPreviewOptions}`}
                     key={index}
+                    target="_parent"
                     selected={this.props.pageId === navItem.pageId}
                     onClick={event => this.handleListItemClick(event, index)}
                     className={classes.nested}
