@@ -29,8 +29,8 @@ function ComponentDemoPropsTable(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Description</TableCell>
+            <TableCell>NAME</TableCell>
+            <TableCell>DESCRIPTION</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -49,12 +49,6 @@ function ComponentDemoPropsTable(props) {
 }
 
 ComponentDemoPropsTable.propTypes = {
-   /**
-    * The content of the expansion panel.
-    */
-   children: PropTypes.node,
-   collapsed: PropTypes.bool,
-   toggleText: PropTypes.string,
    menus: PropTypes.array,
  };
  
