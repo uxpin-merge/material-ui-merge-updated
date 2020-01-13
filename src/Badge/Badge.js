@@ -3,15 +3,15 @@ import PropTypes from "prop-types";
 import BadgeM from "@material-ui/core/Badge";
 
 function Badge(props) {
-  return <BadgeM {...props}>{props.children}</BadgeM>;
+  return <BadgeM {...props} >{props.children}</BadgeM>;
 }
 
 Badge.propTypes = {
   /**
-   * The count within the badge.
+   * The number within the badge.
+   * @uxpinpropname  Count
    */
-  /**  @uxpinpropname  badgeCount*/
-  BadgeContent: PropTypes.node,
+  badgeContent: PropTypes.node,
 
   /**
    * If `true`, the badge will be invisible.
