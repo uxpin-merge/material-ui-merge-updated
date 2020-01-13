@@ -14,10 +14,10 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Button from "@material-ui/core/Button";
 import Backdrop from "@material-ui/core/Backdrop";
 import Popover from "@material-ui/core/Popover";
-import Modal from '@material-ui/core/Modal';
-import Popper from '@material-ui/core/Popper';
-import Tooltip from '@material-ui/core/Tooltip';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import Modal from "@material-ui/core/Modal";
+import Popper from "@material-ui/core/Popper";
+import Tooltip from "@material-ui/core/Tooltip";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const styles = theme => ({
   root: {
@@ -108,7 +108,8 @@ class DeviceViewer extends React.Component {
     //Remove any UXP css link added to iframe
     if (document.querySelector("#iframeContainer iframe")) {
       const iframeElement = document.querySelector("#iframeContainer iframe");
-      iframeElement.sandbox = 'allow-same-origin allow-top-navigation allow-top-navigation-by-user-activation';
+      iframeElement.sandbox =
+        "allow-same-origin allow-top-navigation allow-top-navigation-by-user-activation";
       iframeElement.onload = function() {
         //Add viewport meta to iframe
         const iframeContent = iframeElement.contentDocument;
@@ -131,11 +132,8 @@ class DeviceViewer extends React.Component {
               // item.disabled = true;
             }
           }
-          
         }, 2000);
-        
       };
-      
     }
 
     if (
@@ -174,16 +172,16 @@ class DeviceViewer extends React.Component {
 
     const { classes } = this.props;
 
-    const children = React.Children.map(this.props.children, (child) => {
+    const children = React.Children.map(this.props.children, child => {
       return React.cloneElement(child, {
-          inIframe: true,
+        inIframe: true
       });
     });
 
     return (
       <>
-
         <div className={classes.root}>
+        {this.props.active ? 
           <Grid
             container
             direction="row"
@@ -223,29 +221,28 @@ class DeviceViewer extends React.Component {
               </Grid>
             )}
           </Grid>
+          : null }
 
           <div className={responsiveFrame} id="iframeContainer">
-            <div id="insertion"></div>
-            <IFramePlayground minHeight={667}>
-              {children}
-             
-            </IFramePlayground>
+            {this.props.active ? (
+              <IFramePlayground minHeight={667}>{children}</IFramePlayground>
+            ) : (
+              <div>{children}</div>
+            )}
           </div>
           <div>
-        {/* <CssBaseline/> */}
-        <Menu />
-        <Paper/>
-        <List/>
-        <ListItem/>
-        <ListItemIcon/>
-        <MenuItem/>
-        <Backdrop/>
-        <Popover/>
-        <Popper/>
-        <Modal/>
-        
-        </div>
-
+            {/* <CssBaseline/> */}
+            <Menu />
+            <Paper />
+            <List />
+            <ListItem />
+            <ListItemIcon />
+            <MenuItem />
+            <Backdrop />
+            <Popover />
+            <Popper />
+            <Modal />
+          </div>
         </div>
       </>
     );
@@ -253,6 +250,7 @@ class DeviceViewer extends React.Component {
 }
 DeviceViewer.propTypes = {
   children: PropTypes.node,
+  active: PropTypes.bool,
   defaultView: PropTypes.oneOf(["desktop", "tablet", "mobile"]),
   desktopOption: PropTypes.bool,
   tabletOption: PropTypes.bool,
@@ -263,7 +261,8 @@ DeviceViewer.defaultProps = {
   defaultView: "desktop",
   desktopOption: true,
   tabletOption: true,
-  mobileOption: true
+  mobileOption: true,
+  active: true
 };
 
 export default withStyles(styles)(DeviceViewer);

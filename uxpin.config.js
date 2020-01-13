@@ -135,7 +135,8 @@ module.exports = {
           "src/ComponentDemoInspectorWrapper/ComponentDemoInspectorWrapper.js",
           "src/IglooDemoSideNavigation/IglooDemoSideNavigation.js",
           "src/ComponentDemoUXP/ComponentDemoUXP.js",
-          "src/ComponentDemoPropsTable/ComponentDemoPropsTable.js"
+          "src/ComponentDemoPropsTable/ComponentDemoPropsTable.js",
+          "src/TestComponent/TestComponent.js"
         ]
       }
     ]
