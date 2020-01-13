@@ -5,13 +5,25 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(2, 2),
+    padding: theme.spacing(2, 2)
   },
+  outlined: {
+    border: `1px solid ${theme.palette.divider}`
+  }
 }));
 
 function Paper(props) {
   const classes = useStyles();
-  return <PaperM {...props} className={classes.root}>{props.children}</PaperM>;
+  return (
+    <PaperM
+      {...props}
+      className={`${classes.root} ${
+        props.elevation == 0 ? (props.outlined ? classes.outlined : null) : null
+      }`}
+    >
+      {props.children}
+    </PaperM>
+  );
 }
 
 Paper.propTypes = {
@@ -26,12 +38,16 @@ Paper.propTypes = {
   elevation: PropTypes.number,
 
   /**
+   * Applies border if {true} and elevation = '0'.
+   */
+  outlined: PropTypes.bool,
+
+  /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
    * @uxpinignoreprop
    */
   classes: PropTypes.object,
-
 
   /**
    * The component used for the root node.
@@ -51,7 +67,6 @@ Paper.propTypes = {
    * @uxpinignoreprop
    */
   style: PropTypes.object
-
 };
 
 export { Paper as default };
