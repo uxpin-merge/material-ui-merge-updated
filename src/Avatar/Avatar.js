@@ -20,82 +20,108 @@ import brown from "@material-ui/core/colors/brown";
 import grey from "@material-ui/core/colors/grey";
 import blueGrey from "@material-ui/core/colors/blueGrey";
 import AvatarM from "@material-ui/core/Avatar";
+import Icon from "@material-ui/core/icon";
 
-function colorSelector(shade, hue) {
-  if(hue !== undefined) {
-    switch (shade) {
-      case "white":
-        return "white";
-      case "red":
-        return red[hue];
-      case "pink":
-        return pink[hue];
-      case "purple":
-        return purple[hue];
-      case "deepPurple":
-        return deepPurple[hue];
-      case "indigo":
-        return indigo[hue];
-      case "blue":
-        return blue[hue];
-      case "lightBlue":
-        return lightBlue[hue];
-      case "cyan":
-        return cyan[hue];
-      case "teal":
-        return teal[hue];
-      case "green":
-        return green[hue];
-      case "lightGreen":
-        return lightGreen[hue];
-      case "lime":
-        return lime[hue];
-      case "yellow":
-        return yellow[hue];
-      case "amber":
-        return amber[hue];
-      case "orange":
-        return orange[hue];
-      case "deepOrange":
-        return deepOrange[hue];
-      case "brown":
-        return brown[hue];
-      case "grey":
-        return grey[hue];
-      case "blueGrey":
-        return blueGrey[hue];
-      default:
-        return red;
-        break;
-    }
-  }
-  else {
-    return shade;
-  }
+
+// function colorSelector(shade, hue) {
+//   if(hue !== undefined) {
+//     switch (shade) {
+//       case "white":
+//         return "white";
+//       case "red":
+//         return red[hue];
+//       case "pink":
+//         return pink[hue];
+//       case "purple":
+//         return purple[hue];
+//       case "deepPurple":
+//         return deepPurple[hue];
+//       case "indigo":
+//         return indigo[hue];
+//       case "blue":
+//         return blue[hue];
+//       case "lightBlue":
+//         return lightBlue[hue];
+//       case "cyan":
+//         return cyan[hue];
+//       case "teal":
+//         return teal[hue];
+//       case "green":
+//         return green[hue];
+//       case "lightGreen":
+//         return lightGreen[hue];
+//       case "lime":
+//         return lime[hue];
+//       case "yellow":
+//         return yellow[hue];
+//       case "amber":
+//         return amber[hue];
+//       case "orange":
+//         return orange[hue];
+//       case "deepOrange":
+//         return deepOrange[hue];
+//       case "brown":
+//         return brown[hue];
+//       case "grey":
+//         return grey[hue];
+//       case "blueGrey":
+//         return blueGrey[hue];
+//       default:
+//         return red;
+//         break;
+//     }
+//   }
+//   else {
+//     return shade;
+//   }
   
-}
+// }
 
 function Avatar(props) {
   return (
-    <AvatarM
-      {...props}
-      style={{
-        backgroundColor: colorSelector(
-          props.backgroundShade,
-          props.backgroundHue
-        ),
-        color: colorSelector(props.contentShade, props.contentHue)
-      }}
-    >
-      {props.children}
+    <AvatarM {...props} >
+      {props.icon ?
+      <Icon>{props.icon}</Icon>
+      :
+      props.children
+      }
     </AvatarM>
   );
 }
 
 Avatar.propTypes = {
+
+
+
+  /**
+   * Letters for initial icons
+   */
+  /** @uxpinpropname  Initials */
+  children: PropTypes.string,
+
+  /**
+  * The name of the icon from https://material.io/resources/icons.
+  */
+  icon: PropTypes.string,
+
+  /**
+   * The `src` attribute for the `img` element.
+   */
+  src: PropTypes.string,
+
+  /**
+   * Used in combination with `src` or `srcSet` to
+   * provide an alt attribute for the rendered `img` element.
+   */
+  alt: PropTypes.string,
+
+
+
+
   /**
    * Color of the background of the avatar. Visible unless there's an image inside of the circle.
    */
+  /** @uxpinignoreprop */
   backgroundShade: PropTypes.oneOf([
     "white",
     "red",
@@ -121,6 +147,7 @@ Avatar.propTypes = {
   /**
    * Hue of the background of the avatar. Visible unless there's an image inside of the circle.
    */
+  /** @uxpinignoreprop */
   backgroundHue: PropTypes.oneOf([
     "50",
     "100",
@@ -140,6 +167,7 @@ Avatar.propTypes = {
   /**
    * Color of the content of the avatar. Visible unless there's an image inside of the circle.
    */
+  /** @uxpinignoreprop */
   contentShade: PropTypes.oneOf([
     "white",
     "red",
@@ -165,6 +193,7 @@ Avatar.propTypes = {
   /**
    * Hue of the content of the avatar. Visible unless there's an image inside of the circle.
    */
+  /** @uxpinignoreprop */
   contentHue: PropTypes.oneOf([
     "50",
     "100",
@@ -181,46 +210,33 @@ Avatar.propTypes = {
     "A400",
     "A700"
   ]),
-  /**
-   * Used in combination with `src` or `srcSet` to
-   * provide an alt attribute for the rendered `img` element.
-   */
-  alt: PropTypes.string,
+
 
   /**
-   * Used to render icon or text elements inside the Avatar.
-   * `src` and `alt` props will not be used and no `img` will
-   * be rendered by default.
-   *
-   * This can be an element, or just a string.
+   * The `srcSet` attribute for the `img` element.
    */
-  children: PropTypes.node,
+  /** @uxpinignoreprop */
+  srcSet: PropTypes.string,
 
-  /**
+    /**
    * Override or extend the styles applied to the component.
    */
+  /** @uxpinignoreprop */
   classes: PropTypes.object,
 
   /**
    * Attributes applied to the `img` element if the component
    * is used to display an image.
    */
+  /** @uxpinignoreprop */
   imgProps: PropTypes.object,
-
   /**
-   * The `sizes` attribute for the `img` element.
-   */
+  * The `sizes` attribute for the `img` element.
+  */
+  /** @uxpinignoreprop */
   sizes: PropTypes.string,
 
-  /**
-   * The `src` attribute for the `img` element.
-   */
-  src: PropTypes.string,
 
-  /**
-   * The `srcSet` attribute for the `img` element.
-   */
-  srcSet: PropTypes.string
 };
 
 export { Avatar as default };
