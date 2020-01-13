@@ -8,18 +8,22 @@ function Icon(props) {
 
 Icon.propTypes = {
   /**
-   * The name of the icon  font ligature.
-   */
+  * The icon to display.
+  * Use the name of the icon from https://material.io/tools/icons.
+  * @uxpinpropname  Icon
+  */
   children: PropTypes.node,
 
   /**
-   * Override or extend the styles applied to the component.
+   * The icon size
+   * @uxpinpropname  Size
+   * @uxpinignoreprop
    */
-  classes: PropTypes.object,
-  className: PropTypes.string,
+  fontSize: PropTypes.oneOf(["inherit", "default", "small", "large"]),
 
   /**
-   * The color of the component. It supports those theme colors that make sense for this component.
+   * The color of the icon.
+   * @uxpinignoreprop
    */
   color: PropTypes.oneOf([
     "inherit",
@@ -31,9 +35,13 @@ Icon.propTypes = {
   ]),
 
   /**
-   * The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size.
+   * Override or extend the styles applied to the component.
    */
-  fontSize: PropTypes.oneOf(["inherit", "default", "small", "large"])
+  /** @uxpinignoreprop */
+  classes: PropTypes.object,
+  
+  /** @uxpinignoreprop */
+  className: PropTypes.string,
 };
 
 export { Icon as default };
