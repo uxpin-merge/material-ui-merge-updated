@@ -105,14 +105,16 @@ Avatar.propTypes = {
   icon: PropTypes.string,
 
   /**
-   * The `src` attribute for the `img` element.
+   * The image URL source.
    */
+  /** @uxpinpropname  Image URL */
   src: PropTypes.string,
 
   /**
    * Used in combination with `src` or `srcSet` to
    * provide an alt attribute for the rendered `img` element.
    */
+  /** @uxpinignoreprop */
   alt: PropTypes.string,
 
 
