@@ -17,13 +17,11 @@ Icon.propTypes = {
   /**
    * The icon size
    * @uxpinpropname  Size
-   * @uxpinignoreprop
    */
   fontSize: PropTypes.oneOf(["inherit", "default", "small", "large"]),
 
   /**
    * The color of the icon.
-   * @uxpinignoreprop
    */
   color: PropTypes.oneOf([
     "inherit",
