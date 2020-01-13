@@ -84,6 +84,11 @@ class IglooDemoSideNavigation extends React.Component {
         layoutId:"262d7341ef39647872c5c6ff0d44bb39643f9a6b#",
         pageId: "122225134",        
       },
+      {
+        label: "Paper",
+        layoutId:"43e2ca5e5084dddeb22e0d59c1a888dbaa7633e7#",
+        pageId: "122226364",        
+      },
     ];
     return (
       <div className={classes.root}>
