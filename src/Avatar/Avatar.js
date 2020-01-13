@@ -96,7 +96,7 @@ Avatar.propTypes = {
   /**
    * Letters for initial icons
    */
-  /** @uxpinpropname  Initials */
+  /** @uxpinpropname  Letters */
   children: PropTypes.string,
 
   /**
