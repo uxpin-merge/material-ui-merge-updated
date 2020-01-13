@@ -107,7 +107,7 @@ Avatar.propTypes = {
   /**
    * The image URL source.
    */
-  /** @uxpinpropname  Image URL */
+  /** @uxpinpropname  ImageURL */
   src: PropTypes.string,
 
   /**
