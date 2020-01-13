@@ -8,7 +8,7 @@ function Badge(props) {
 
 Badge.propTypes = {
   /**
-   * The number within the badge.
+   * The number to display in badge
    * @uxpinpropname  Count
    */
   badgeContent: PropTypes.node,
