@@ -8,29 +8,35 @@ function Badge(props) {
 
 Badge.propTypes = {
   /**
-   * The content rendered within the badge.
+   * The count within the badge.
    */
-  badgeContent: PropTypes.node,
+  /**  @uxpinpropname  badgeCount*/
+  BadgeContent: PropTypes.node,
 
   /**
-   * The badge will be added relative to this node.
+   * If `true`, the badge will be invisible.
    */
+  invisible: PropTypes.bool,
+
+  /**
+  * The badge will be added relative to this node.
+  */
+  /** @uxpinignoreprop */
   children: PropTypes.node,
 
+
   /**
-   * Override or extend the styles applied to the component.
-   */
+  * Override or extend the styles applied to the component.
+  */
+  /** @uxpinignoreprop */
   classes: PropTypes.object,
 
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
+  /** @uxpinignoreprop */
   color: PropTypes.oneOf(["default", "primary", "secondary", "error"]),
 
-  /**
-   * If `true`, the badge will be invisible.
-   */
-  invisible: PropTypes.bool
 };
 
 export { Badge as default };

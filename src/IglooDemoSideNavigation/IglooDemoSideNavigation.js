@@ -66,13 +66,13 @@ class IglooDemoSideNavigation extends React.Component {
     const navItems = [
       {
         label: "Avatars",
-        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "11111111111", 
+        layoutId:"038f4b57fe984680349599d44fd3eb149449f931#",
+        pageId: "122221601", 
       },
       {
         label: "Badges",
-        layoutId:"ec1a05430ba8dead2702ed9f36c37b92b769577c#",
-        pageId: "11111111111", 
+        layoutId:"317f9ab17bfb7e5510ea6c6dce0def1fd244ca52#",
+        pageId: "122223204", 
       },
       {
         label: "Box",
