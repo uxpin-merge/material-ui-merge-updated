@@ -136,7 +136,8 @@ module.exports = {
           "src/IglooDemoSideNavigation/IglooDemoSideNavigation.js",
           "src/ComponentDemoUXP/ComponentDemoUXP.js",
           "src/ComponentDemoPropsTable/ComponentDemoPropsTable.js",
-          "src/TestComponent/TestComponent.js"
+          "src/TestComponent/TestComponent.js",
+          "src/TypographyResponsiveChart/TypographyResponsiveChart.js"
         ]
       }
     ]
