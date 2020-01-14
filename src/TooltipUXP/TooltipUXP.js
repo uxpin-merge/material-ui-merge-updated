@@ -11,6 +11,7 @@ export default TooltipUXP;
 TooltipUXP.propTypes = {
   /**
    * Tooltip title. Zero-length titles string are never displayed.
+   * @uxpinpropname  Tooltip Text
    */
   title: PropTypes.string,
   
@@ -34,6 +35,7 @@ TooltipUXP.propTypes = {
 
   /**
    * If `true`, the tooltip is shown.
+   * @uxpinignoreprop
    */
   open: PropTypes.bool,
 
@@ -41,6 +43,7 @@ TooltipUXP.propTypes = {
    * Callback fired when the tooltip requests to be closed.
    *
    * @param {object} event The event source of the callback
+   * @uxpinignoreprop
    */
   onClose: PropTypes.func,
 
@@ -48,11 +51,12 @@ TooltipUXP.propTypes = {
    * Callback fired when the tooltip requests to be open.
    *
    * @param {object} event The event source of the callback
+   * @uxpinignoreprop
    */
   onOpen: PropTypes.func,
 
   /**
-   * Tooltip reference element.
+   * Elements contained by Tooltip. 
    */
   children: PropTypes.node
 
