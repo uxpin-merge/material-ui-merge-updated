@@ -1,8 +1,8 @@
 import React from "react";
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   palette: {
     primary: {
       light: "#5da2fa",
@@ -37,7 +37,8 @@ const theme = createMuiTheme({
     },
     button: {
       fontWeight: "700",
-      fontSize: "0.8125rem"
+      textTransform: "none",
+      fontSize: "1rem"
     },
     overline: {
       fontSize: "0.625rem",
@@ -46,6 +47,8 @@ const theme = createMuiTheme({
     }
   }
 });
+
+theme = responsiveFontSizes(theme);
 
 export default function UXPinWrapper({ children }) {
 

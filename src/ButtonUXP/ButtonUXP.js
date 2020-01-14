@@ -6,8 +6,8 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   button: {
-    textTransform: "none",
-    fontSize: "1rem"
+    // textTransform: "none",
+    // fontSize: "1rem"
   },
   leftIcon: {
     marginRight: theme.spacing.unit,
