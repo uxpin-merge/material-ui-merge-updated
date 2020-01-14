@@ -33,7 +33,7 @@ Paper.propTypes = {
   children: PropTypes.node,
 
   /**
-   * The shadow depth of paper surface. Accepts values between 0 and 24.
+   * The shadow depth of paper surface. Accepts values between 0 and 16.
    */
   elevation: PropTypes.number,
 
