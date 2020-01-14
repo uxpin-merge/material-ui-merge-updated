@@ -93,6 +93,7 @@ module.exports = {
           "src/ListItemAvatar/ListItemAvatar.js",
           "src/ListItemIcon/ListItemIcon.js",
           "src/ListItemSecondaryAction/ListItemSecondaryAction.js",
+          "src/ListItemPrimaryAction/ListItemPrimaryAction.js",
           "src/ListItemText/ListItemText.js",
           "src/ListSubheader/ListSubheader.js",
           "src/IglooSimpleLayoutContent/IglooSimpleLayoutContent.js",

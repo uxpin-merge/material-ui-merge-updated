@@ -3,6 +3,6 @@ import AvatarM from '../Avatar';
 
 export default (
   <AvatarM uxpId="1">
-    M
+    JB
   </AvatarM>
 );

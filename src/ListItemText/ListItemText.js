@@ -7,29 +7,18 @@ function ListItemText(props) {
 }
 
 ListItemText.propTypes = {
-  /**
-   * Alias for the `primary` property.
-   */
-  children: PropTypes.node,
 
   /**
-   * Override or extend the styles applied to the component.
-   * See [CSS API](#css-api) below for more details.
+   * The main copy.
+   * @uxpinpropname  Primary Text
    */
-  classes: PropTypes.object,
+  primary: PropTypes.node,
 
   /**
-   * @ignore
+   * The secondary content element.
+   * @uxpinpropname  Secondary Text
    */
-  className: PropTypes.string,
-
-  /**
-   * If `true`, the children won't be wrapped by a Typography component.
-   * This can be useful to render an alternative Typography variant by wrapping
-   * the `children` (or `primary`) text, and optional `secondary` text
-   * with the Typography component.
-   */
-  disableTypography: PropTypes.bool,
+  secondary: PropTypes.node,
 
   /**
    * If `true`, the children will be indented.
@@ -38,29 +27,57 @@ ListItemText.propTypes = {
   inset: PropTypes.bool,
 
   /**
-   * The main content element.
+   * PROPS BELOW NOT USED
    */
-  primary: PropTypes.node,
+
+  /**
+   * Alias for the `primary` property.
+   * @uxpinignoreprop
+   */
+  children: PropTypes.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   * @uxpinignoreprop
+   */
+  classes: PropTypes.object,
+
+  /**
+   * @ignore
+   * @uxpinignoreprop
+   */
+  className: PropTypes.string,
+
+  /**
+   * If `true`, the children won't be wrapped by a Typography component.
+   * This can be useful to render an alternative Typography variant by wrapping
+   * the `children` (or `primary`) text, and optional `secondary` text
+   * with the Typography component.
+   * @uxpinignoreprop
+   */
+  disableTypography: PropTypes.bool,
+
 
   /**
    * These props will be forwarded to the primary typography component
    * (as long as disableTypography is not `true`).
+   * @uxpinignoreprop
    */
   primaryTypographyProps: PropTypes.object,
 
-  /**
-   * The secondary content element.
-   */
-  secondary: PropTypes.node,
+
 
   /**
    * These props will be forwarded to the secondary typography component
    * (as long as disableTypography is not `true`).
+   * @uxpinignoreprop
    */
   secondaryTypographyProps: PropTypes.object,
 
   /**
    * @ignore
+   * @uxpinignoreprop
    */
   theme: PropTypes.object
 };

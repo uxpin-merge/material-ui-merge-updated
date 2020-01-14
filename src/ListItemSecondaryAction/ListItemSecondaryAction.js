@@ -8,18 +8,20 @@ function ListItemSecondaryAction(props) {
 
 ListItemSecondaryAction.propTypes = {
   /**
-   * The content of the component, normally an `IconButton` or selection control.
+   * The action component. Normally an `IconButton` or selection control.
    */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
+   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
   /**
    * @ignore
+   * @uxpinignoreprop
    */
   className: PropTypes.string 
 };

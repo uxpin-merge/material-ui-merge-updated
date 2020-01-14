@@ -22,7 +22,6 @@ import blueGrey from "@material-ui/core/colors/blueGrey";
 import AvatarM from "@material-ui/core/Avatar";
 import Icon from "@material-ui/core/icon";
 
-
 // function colorSelector(shade, hue) {
 //   if(hue !== undefined) {
 //     switch (shade) {
@@ -74,25 +73,18 @@ import Icon from "@material-ui/core/icon";
 //   else {
 //     return shade;
 //   }
-  
+
 // }
 
 function Avatar(props) {
   return (
-    <AvatarM {...props} >
-      {props.icon ?
-      <Icon>{props.icon}</Icon>
-      :
-      props.children
-      }
+    <AvatarM {...props}>
+      {props.icon ? <Icon>{props.icon}</Icon> : props.children}
     </AvatarM>
   );
 }
 
 Avatar.propTypes = {
-
-
-
   /**
    * Letters for initial icons
    */
@@ -100,8 +92,8 @@ Avatar.propTypes = {
   children: PropTypes.string,
 
   /**
-  * The name of the icon from https://material.io/resources/icons.
-  */
+   * The name of the icon from https://material.io/resources/icons.
+   */
   icon: PropTypes.string,
 
   /**
@@ -116,9 +108,6 @@ Avatar.propTypes = {
    */
   /** @uxpinignoreprop */
   alt: PropTypes.string,
-
-
-
 
   /**
    * Color of the background of the avatar. Visible unless there's an image inside of the circle.
@@ -213,14 +202,13 @@ Avatar.propTypes = {
     "A700"
   ]),
 
-
   /**
    * The `srcSet` attribute for the `img` element.
    */
   /** @uxpinignoreprop */
   srcSet: PropTypes.string,
 
-    /**
+  /**
    * Override or extend the styles applied to the component.
    */
   /** @uxpinignoreprop */
@@ -233,12 +221,10 @@ Avatar.propTypes = {
   /** @uxpinignoreprop */
   imgProps: PropTypes.object,
   /**
-  * The `sizes` attribute for the `img` element.
-  */
+   * The `sizes` attribute for the `img` element.
+   */
   /** @uxpinignoreprop */
-  sizes: PropTypes.string,
-
-
+  sizes: PropTypes.string
 };
 
 export { Avatar as default };

@@ -63,3 +63,7 @@ Divider.propTypes = {
    */
   classes: PropTypes.object
 };
+Divider.defaultProps = {
+  marginBottom: 0,
+  marginTop: 0
+}
