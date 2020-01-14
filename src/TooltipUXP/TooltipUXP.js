@@ -10,13 +10,13 @@ export default TooltipUXP;
 
 TooltipUXP.propTypes = {
   /**
-   * Tooltip title. Zero-length titles string are never displayed.
+   * Text to display in the Tooltip.
    * @uxpinpropname  Tooltip Text
    */
   title: PropTypes.string,
   
   /**
-   * Tooltip placement.
+   * Where the Tooltip should display in relation to its nested element.
    */
   placement: PropTypes.oneOf([
     "bottom-end",
@@ -56,7 +56,8 @@ TooltipUXP.propTypes = {
   onOpen: PropTypes.func,
 
   /**
-   * Elements contained by Tooltip. 
+   * Elements contained by Tooltip.
+   * @uxpinignoreprop 
    */
   children: PropTypes.node
 
