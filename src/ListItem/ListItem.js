@@ -1,15 +1,51 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ListItemM from "@material-ui/core/ListItem";
+import ListItemIcon from "../ListItemIcon/ListItemIcon";
+import ListItemText from "../ListItemText/ListItemText";
+import ListItemSecondaryAction from "../ListItemSecondaryAction/ListItemSecondaryAction";
+import Divider from "../DividerUXP/DividerUXP";
 
 function ListItem(props) {
-  return <ListItemM {...props}>{props.children}</ListItemM>;
+  return (
+    <>
+      <ListItemM {...props}>
+        {props.icon ? <ListItemIcon>{props.icon}</ListItemIcon> : null}
+        <ListItemText
+          primary={props.primary}
+          secondary={props.secondary}
+          inset={props.inset}
+        />
+        {props.children ? (
+          <ListItemSecondaryAction>{props.children}</ListItemSecondaryAction>
+        ) : null}
+      </ListItemM>
+      {props.hasDivider ? <Divider marginTop={1} marginBottom={1} /> : null}
+    </>
+  );
 }
 
 ListItem.propTypes = {
+  /**
+   * The main text.
+   * @uxpinpropname  Primary Text
+   */
+  primary: PropTypes.string,
 
   /**
-   * If `true`, the list item will be a button (using `ButtonBase`).
+   * The secondary text.
+   * @uxpinpropname  Secondary Text
+   */
+  secondary: PropTypes.string,
+
+  /**
+   * The icon to display.
+   * Use the name of the icon from https://material.io/tools/icons.
+   */
+  icon: PropTypes.string,
+
+  /**
+   * If `true`, the list item will be clickable.
    */
   button: PropTypes.bool,
 
@@ -24,28 +60,48 @@ ListItem.propTypes = {
   disabled: PropTypes.bool,
 
   /**
-   * If `true`, a 1px light border is added to the bottom of the list item.
+   * If `true`, a border is added to the bottom of the list item.
    */
-  divider: PropTypes.bool,
+  hasDivider: PropTypes.bool,
 
   /**
    * If `true`, the left and right padding is removed.
    */
   disableGutters: PropTypes.bool,
-  
-  /**
-   * Defines the `align-items` style property.
-   */
-  alignItems: PropTypes.oneOf(["flex-start", "center"]),
 
   /**
-   * The content of the component.
+   * If `true`, text will be indented.
+   * This should be used on an item without icon when siblings have icon.
    */
-  children: PropTypes.node,
+  inset: PropTypes.bool,
+
+  /**
+   * On click event to use with UXPin interactions.
+   */
+  onClick: PropTypes.func,
+
 
   /**
    * PROPS BELOW NOT USED
    */
+  
+   /**
+   * The content of the component.
+   * @uxpinignoreprop
+   */
+  children: PropTypes.node,
+
+  /**
+   * If `true`, a 1px light border is added to the bottom of the list item.
+   * @uxpinignoreprop
+   */
+  divider: PropTypes.bool,
+
+  /**
+   * Defines the `align-items` style property.
+   * @uxpinignoreprop
+   */
+  alignItems: PropTypes.oneOf(["flex-start", "center"]),
 
   /**
    * Override or extend the styles applied to the component.

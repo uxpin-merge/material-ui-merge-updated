@@ -19,11 +19,6 @@ List.propTypes = {
   subheadText: PropTypes.string,
 
   /**
-   * The content of the component.
-   */
-  children: PropTypes.node,
-
-  /**
    * The content of the subheader, normally `ListSubheader`.
    *  @uxpinignoreprop  Subhead Text
    */
@@ -62,7 +57,13 @@ List.propTypes = {
    * `dense` context.
    * @uxpinignoreprop
    */
-  dense: PropTypes.bool
+  dense: PropTypes.bool,
+
+  /**
+   * The content of the component.
+   * @uxpinignoreprop
+   */
+  children: PropTypes.node
 };
 
 export { List as default };
