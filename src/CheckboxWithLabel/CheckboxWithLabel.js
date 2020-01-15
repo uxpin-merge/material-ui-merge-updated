@@ -41,6 +41,7 @@ CheckboxWithLabel.propTypes = {
 
   /**
    * The position of the label.
+   * @uxpinignoreprop
    */
   labelPlacement: PropTypes.oneOf(["end", "start"]),
 
