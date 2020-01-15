@@ -25,30 +25,30 @@ function CheckboxWithLabel(props) {
 
 CheckboxWithLabel.propTypes = {
   /**
-   * If `true`, the checkbox appears selected.
+   * If `true`, the checkbox is checked.
    */
   checked: PropTypes.bool,
 
-  /**
+    /**
    * If `true`, the checkbox will be disabled.
    */
   disabled: PropTypes.bool,
 
   /**
-   * The label text.
-   */
-  label: PropTypes.string,
+  * The value of the component.
+  */
+  value: PropTypes.string,
+
+  /**
+  * Change event to use with UXPin interactions.
+  */
+  onChange: PropTypes.func,
 
   /**
    * The position of the label.
    * @uxpinignoreprop
    */
   labelPlacement: PropTypes.oneOf(["end", "start"]),
-
-  /**
-   * Change event to use with UXPin interactions.
-   */
-  onChange: PropTypes.func,
 
   /**
    * A control element. For instance, it can be be a `Radio`, a `Switch` or a `Checkbox`.

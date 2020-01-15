@@ -18,6 +18,11 @@ Checkbox.propTypes = {
   disabled: PropTypes.bool,
 
   /**
+  * The value of the component.
+  */
+  value: PropTypes.string,
+
+  /**
   * Change event to use with UXPin interactions.
   */
   onChange: PropTypes.func,
@@ -93,11 +98,7 @@ Checkbox.propTypes = {
    */
   type: PropTypes.string,
 
-  /**
-   * The value of the component.
-   * @uxpinignoreprop
-   */
-  value: PropTypes.string
+
 };
 
 export { Checkbox as default };

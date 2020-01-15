@@ -16,6 +16,11 @@ Switch.propTypes = {
    * If `true`, the switch will be disabled.
    */
   disabled: PropTypes.bool,
+ 
+  /**
+  * The value of the component.
+  */
+ value: PropTypes.string,
 
   /**
   * Change event to use with UXPin interactions.

@@ -38,6 +38,11 @@ RadioWithLabel.propTypes = {
    * The label text.
    */
   label: PropTypes.string,
+  
+  /**
+  * The value of the component.
+  */
+ value: PropTypes.string,
 
   /**
    * The position of the label.

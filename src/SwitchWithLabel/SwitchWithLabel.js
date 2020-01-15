@@ -44,6 +44,11 @@ SwitchWithLabel.propTypes = {
    * @uxpinignoreprop
    */
   labelPlacement: PropTypes.oneOf(["end", "start"]),
+  
+  /**
+   * The value of the component.
+   */
+  value: PropTypes.string,
 
   /**
    * Change event to use with UXPin interactions.

@@ -7,7 +7,7 @@ function Radio(props) {
 }
 
 Radio.propTypes = {
-  /**
+    /**
    * If `true`, the radio is checked.
    */
   checked: PropTypes.bool,
@@ -16,6 +16,11 @@ Radio.propTypes = {
    * If `true`, the radio will be disabled.
    */
   disabled: PropTypes.bool,
+
+  /**
+  * The value of the component.
+  */
+  value: PropTypes.string,
 
   /**
   * Change event to use with UXPin interactions.
