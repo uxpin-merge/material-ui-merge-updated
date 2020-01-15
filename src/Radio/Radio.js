@@ -8,84 +8,19 @@ function Radio(props) {
 
 Radio.propTypes = {
   /**
-   * If `true`, the component is checked.
+   * If `true`, the radio is checked.
    */
-  checked: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string
-  ]),
+  checked: PropTypes.bool,
 
-  /**
-   * The icon to display when the component is checked.
-   */
-  checkedIcon: PropTypes.node,
-
-  /**
-   * Override or extend the styles applied to the component.
-   * See [CSS API](#css-api) below for more details.
-   */
-  classes: PropTypes.object.isRequired,
-
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   */
-  color: PropTypes.oneOf(["primary", "secondary", "default"]),
-
-  /**
-   * If `true`, the switch will be disabled.
+    /**
+   * If `true`, the radio will be disabled.
    */
   disabled: PropTypes.bool,
 
   /**
-   * If `true`, the ripple effect will be disabled.
-   */
-  disableRipple: PropTypes.bool,
-
-  /**
-   * The icon to display when the component is unchecked.
-   */
-  icon: PropTypes.node,
-
-  /**
-   * The id of the `input` element.
-   */
-  id: PropTypes.string,
-
-  /**
-   * Attributes applied to the `input` element.
-   */
-  inputProps: PropTypes.object,
-
-  /**
-   * Use that property to pass a ref callback to the native input component.
-   */
-  inputRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.object
-  ]),
-
-  /**
-   * Callback fired when the state is changed.
-   *
-   * @param {object} event The event source of the callback.
-   * You can pull out the new value by accessing `event.target.value`.
-   * @param {boolean} checked The `checked` value of the switch
-   */
+  * Change event to use with UXPin interactions.
+  */
   onChange: PropTypes.func,
-
-  /**
-   * The input component property `type`.
-   */
-  type: PropTypes.string,
-
-  /**
-   * The value of the component.
-   */
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.bool
-  ])
 };
 
 export { Radio as default };

@@ -16,13 +16,16 @@ module.exports = {
           "src/ButtonUXP/ButtonUXP.js",
           "src/IconButton/IconButton.js",
           "src/Checkbox/Checkbox.js",
+          "src/CheckboxWithLabel/CheckboxWithLabel.js",
           "src/FabRoundUXP/FabRoundUXP.js",
           "src/FabExtendedUXP/FabExtendedUXP.js",
           "src/Radio/Radio.js",
+          "src/RadioWithLabel/RadioWithLabel.js",
           "src/RadioGroup/RadioGroup.js",
           "src/SelectUXP/SelectUXP.js",
           "src/TextField/TextField.js",
           "src/Switch/Switch.js",
+          "src/SwitchWithLabel/SwitchWithLabel.js",
           "src/Collapse/Collapse.js"
         ]
       },
