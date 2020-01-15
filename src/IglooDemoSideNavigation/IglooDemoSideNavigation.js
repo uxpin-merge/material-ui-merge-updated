@@ -80,9 +80,19 @@ class IglooDemoSideNavigation extends React.Component {
         pageId: "122177476",        
       },
       {
+        label: "Divider",
+        layoutId:"cfd8a1902e686055df8062450695b1c28c7eca98#",
+        pageId: "122233118",        
+      },
+      {
         label: "Icon",
         layoutId:"262d7341ef39647872c5c6ff0d44bb39643f9a6b#",
         pageId: "122225134",        
+      },
+      {
+        label: "List",
+        layoutId:"7bfff3533eba4d8a91d65747d91db8b2689094f9#",
+        pageId: "122265320",        
       },
       {
         label: "Paper",
@@ -90,20 +100,16 @@ class IglooDemoSideNavigation extends React.Component {
         pageId: "122226364",        
       },
       {
-        label: "Divider",
-        layoutId:"cfd8a1902e686055df8062450695b1c28c7eca98#",
-        pageId: "122233118",        
+        label: "Tooltip",
+        layoutId:"5a3c4e7a2d7b07897d0565a3dcebb150ad459112#",
+        pageId: "122252437",        
       },
       {
         label: "Typography",
         layoutId:"775102d75377d654c2ecdc69c6aad2833798d50d#",
         pageId: "122233578",        
       },
-      {
-        label: "Tooltip",
-        layoutId:"5a3c4e7a2d7b07897d0565a3dcebb150ad459112#",
-        pageId: "122252437",        
-      },
+
     ];
     return (
       <div className={classes.root}>
