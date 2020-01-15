@@ -39,7 +39,7 @@ ListItem.propTypes = {
   secondary: PropTypes.string,
 
   /**
-   * The icon to display.
+   * if set, Icon will display.
    * Use the name of the icon from https://material.io/tools/icons.
    */
   icon: PropTypes.string,
@@ -76,7 +76,7 @@ ListItem.propTypes = {
   inset: PropTypes.bool,
 
   /**
-   * On click event to use with UXPin interactions.
+   * Click event to use with UXPin interactions.
    */
   onClick: PropTypes.func,
 

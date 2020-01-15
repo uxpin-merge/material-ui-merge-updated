@@ -14,7 +14,7 @@ function List(props) {
 
 List.propTypes = {
   /**
-   * The content of the subheader, normally `ListSubheader`.
+   * The content of the list subhead.
    */
   subheadText: PropTypes.string,
 
