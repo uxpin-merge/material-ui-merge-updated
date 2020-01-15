@@ -33,6 +33,11 @@ CheckboxWithLabel.propTypes = {
    * If `true`, the checkbox will be disabled.
    */
   disabled: PropTypes.bool,
+  
+  /**
+   * The label text.
+   */
+  label: PropTypes.string,
 
   /**
   * The value of the component.

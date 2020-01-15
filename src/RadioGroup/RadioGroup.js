@@ -37,7 +37,8 @@ RadioGroup.propTypes = {
   onKeyDown: PropTypes.func,
 
   /**
-   * Value of the selected RadioGroup button.
+   * Value of the selected radio.
+   * @uxpinpropname  Selected Value
    */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
 };
