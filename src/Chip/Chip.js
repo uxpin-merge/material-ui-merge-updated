@@ -7,8 +7,10 @@ import Icon from "../Icon/Icon"
 const useStyles = makeStyles(theme => ({
   root:{
     backgroundColor: theme.palette.grey[200],
-    margin: props => props.hasMargins ? theme.spacing(0.5) : null,
-    },
+  },
+  chipMargin: {
+    margin: theme.spacing(0.5),
+  },
 }));
 
 function Chip(props) {
@@ -34,6 +36,8 @@ function Chip(props) {
             : null
           }
           className = {classes.root}
+          style={{ margin: props.hasMargins ? '4px': '0'}}
+
         />
       ) : null}
     </>
