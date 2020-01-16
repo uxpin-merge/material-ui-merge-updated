@@ -5,16 +5,14 @@ import ChipM from "@material-ui/core/Chip";
 import Icon from "../Icon/Icon"
 
 const useStyles = makeStyles(theme => ({
-  chipMargin: {
-    margin: theme.spacing(0.5),
-  },
+  root:{
+    backgroundColor: theme.palette.grey[200],
+    margin: props => props.hasMargins ? theme.spacing(0.5) : null,
+    },
 }));
 
 function Chip(props) {
-  const classes = useStyles();
-  function handleDelete() {
-    alert("You clicked the delete icon.");
-  }
+  const classes = useStyles(props);
 
   const [chipDeleted, setChipDeleted] = React.useState(false);
 
@@ -35,7 +33,7 @@ function Chip(props) {
             <Icon>{props.icon}</Icon>
             : null
           }
-          className={ props.hasMargins ? classes.chipMargin : null }
+          className = {classes.root}
         />
       ) : null}
     </>
