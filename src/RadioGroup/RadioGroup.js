@@ -7,40 +7,37 @@ function RadioGroup(props) {
 }
 
 RadioGroup.propTypes = {
+
+    /**
+   * Value of the selected radio. This is the value specified in nested RadioWithLabel components.
+   * @uxpinpropname  Selected Value
+   */
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
+
+  /**
+  * Change event to use with UXPin interactions.
+  */
+ onChange: PropTypes.func,
+
   /**
    * The content of the component.
+   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
   /**
    * The name used to reference the value of the control.
+   * @uxpinignoreprop
    */
   name: PropTypes.string,
 
   /**
    * @ignore
-   */
-  onBlur: PropTypes.func,
-
-  /**
-   * Callback fired when a RadioGroup button is selected.
-   *
-   * @param {object} event The event source of the callback.
-   * You can pull out the new value by accessing `event.target.value`.
-   * @param {string} value The `value` of the selected RadioGroup button
-   */
-  onChange: PropTypes.func,
-
-  /**
-   * @ignore
+   * @uxpinignoreprop
    */
   onKeyDown: PropTypes.func,
 
-  /**
-   * Value of the selected radio.
-   * @uxpinpropname  Selected Value
-   */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+
 };
 
 export { RadioGroup as default };
