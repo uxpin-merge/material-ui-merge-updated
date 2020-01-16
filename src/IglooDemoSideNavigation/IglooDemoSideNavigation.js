@@ -110,6 +110,16 @@ class IglooDemoSideNavigation extends React.Component {
         pageId: "122252437",        
       },
       {
+        label: "Radio Button",
+        layoutId:"d72b9094706b9a28e1f41eef645c834530bc84d2#",
+        pageId: "122350047",        
+      },
+      {
+        label: "Switch",
+        layoutId:"582245b9ac698acd8fa331eff168693695648ee7#",
+        pageId: "122349836",        
+      },
+      {
         label: "Typography",
         layoutId:"775102d75377d654c2ecdc69c6aad2833798d50d#",
         pageId: "122233578",        
