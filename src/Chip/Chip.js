@@ -36,6 +36,7 @@ function Chip(props) {
             : null
           }
           className={ props.hasMargins ? classes.chipMargin : null }
+          variant = "outlined"
         />
       ) : null}
     </>
@@ -43,15 +44,18 @@ function Chip(props) {
 }
 
 Chip.propTypes = {
+
+  /**
+   * The text of the chip.
+   */
+  label: PropTypes.string,
+
+
   /**
    * If set, icon will display. Use the name of the icon from https://material.io/tools/icons.
    */
   icon: PropTypes.string,
 
-  /**
-   * The content of the label.
-   */
-  label: PropTypes.string,
 
   /**
    * If true, the chip will appear clickable.
