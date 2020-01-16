@@ -36,7 +36,6 @@ function Chip(props) {
             : null
           }
           className={ props.hasMargins ? classes.chipMargin : null }
-          variant = "outlined"
         />
       ) : null}
     </>
