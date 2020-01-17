@@ -67,29 +67,36 @@ DrawerModalUXP.propTypes = {
   open: PropTypes.bool,
 
   /**
-   * The variant to use.
-   */
-  variant: PropTypes.oneOf(["permanent", "persistent", "temporary"]),
-
-  /**
    * Side from which the drawer will appear.
    */
   anchor: PropTypes.oneOf(["left", "top", "right", "bottom"]),
 
   /**
-   * Needed to display in UXP editor if variant is `permanent` or `persistent`
+   * The width of the drawer.
    */
-  minHeight: PropTypes.number,
+  width: PropTypes.string,
 
   /**
-   * Callback fired when the component requests to be closed.
+   * Close event to use with UXPin interactions.
    */
   onClose: PropTypes.func,
 
   /**
    * The contents of the drawer.
    */
-  children: PropTypes.node
+  children: PropTypes.node,
+
+    /**
+   * The variant to use.
+   * @uxpinignoreprop
+   */
+  variant: PropTypes.oneOf(["permanent", "persistent", "temporary"]),
+
+  /**
+   * Needed to display in UXP editor if variant is `permanent` or `persistent`
+   * @uxpinignoreprop
+   */
+  minHeight: PropTypes.number,
 };
 
 export default withStyles(styles)(DrawerModalUXP);
