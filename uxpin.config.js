@@ -35,7 +35,7 @@ module.exports = {
           "src/BottomNavigation/BottomNavigation.js",
           "src/DrawerModalUXP/DrawerModalUXP.js",
           "src/Link/Link.js",
-          "src/MenuNew/MenuNew.js",
+          "src/Menu/Menu.js",
           "src/TabsWithPanel/TabsWithPanel.js",
           "src/ExpansionPanel/ExpansionPanel.js",
         ]
