@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 import TextFieldM from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
@@ -11,21 +11,36 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1),
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1)
-  },
+  }
 }));
 function TextField(props) {
   const classes = useStyles();
-  return <TextFieldM margin="dense" {...props}
-  InputProps={{
-    startAdornment: (
-      props.icon ?
-      <InputAdornment position="start">
-        <Icon>{props.icon}</Icon>
-      </InputAdornment>
-      : null
-    ),
-  }}
-  className={classes.textField}/>;
+  return (
+    <TextFieldM
+      margin="dense"
+      {...props}
+      InputProps={
+        props.icon
+          ? props.iconPosition == "end"
+            ? {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Icon>{props.icon}</Icon>
+                  </InputAdornment>
+                )
+              }
+            : {
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Icon>{props.icon}</Icon>
+                  </InputAdornment>
+                )
+              }
+          : null
+      }
+      className={classes.textField}
+    />
+  );
 }
 
 TextField.propTypes = {
@@ -49,10 +64,15 @@ TextField.propTypes = {
    */
   placeholder: PropTypes.string,
 
-    /**
+  /**
    * If set, icon will display. Use the name of the icon from https://material.io/tools/icons.
    */
   icon: PropTypes.string,
+
+  /**
+   * Where to display the icon within the textfield.
+   */
+  iconPosition: PropTypes.oneOf(["start", "end"]),
 
   /**
    * If `true`, the textfield will take up the full width of its container.
@@ -216,12 +236,11 @@ TextField.propTypes = {
    */
   type: PropTypes.string,
 
-    /**
+  /**
    * If `dense` or `normal`, will adjust vertical spacing of this and contained components.
    * @uxpinignoreprop
    */
-  margin: PropTypes.oneOf(["none", "dense", "normal"]),
-
+  margin: PropTypes.oneOf(["none", "dense", "normal"])
 };
 
 export { TextField as default };
