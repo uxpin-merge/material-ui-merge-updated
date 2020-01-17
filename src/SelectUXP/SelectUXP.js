@@ -3,7 +3,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import MenuItem from "@material-ui/core/MenuItem";
 import PropTypes from "prop-types";
 import React from "react";
-import TextField from "@material-ui/core/TextField";
+import TextField from "../TextField/TextField";
 
 class SelectUXP extends React.Component {
   constructor(props) {
@@ -55,6 +55,7 @@ class SelectUXP extends React.Component {
             startAdornment: this.renderAdornment()
           }}
           disablePortal={true}
+          variant="outlined"
         >
           {this.props.menuItems.map(option => (
             <MenuItem
@@ -72,16 +73,6 @@ class SelectUXP extends React.Component {
 }
 
 SelectUXP.propTypes = {
-  /**
-   * The variant to use.
-   */
-  /** @uxpinignoreprop */
-  variant: PropTypes.oneOf(["standard", "outlined", "filled"]),
-
-  /**
-   * The label content.
-   */
-  label: PropTypes.string,
 
   /**
    * List of menu items.
@@ -97,63 +88,76 @@ SelectUXP.propTypes = {
   menuItems: PropTypes.array,
 
   /**
-   * The initially selected menu item.
+   * The label text.
    */
-  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  label: PropTypes.string,
 
   /**
-   * The helper text content.
+   * The default value of the textfield.
+   */
+  defaultValue: PropTypes.string,
+
+  /**
+   * The helper text.
    */
   helperText: PropTypes.string,
 
   /**
-   * If `true`, the input will take up the full width of its container.
+   * The short hint displayed in the input before the user enters a value.
+   */
+  placeholder: PropTypes.string,
+
+  /**
+   * If set, icon will display. Use the name of the icon from https://material.io/tools/icons.
+   */
+  icon: PropTypes.string,
+
+  /**
+   * Where to display the icon within the textfield.
+   */
+  iconPosition: PropTypes.oneOf(["start", "end"]),
+
+  /**
+   * If `true`, the textfield will take up the full width of its container.
    */
   fullWidth: PropTypes.bool,
 
   /**
-   * If `true`, the input will be disabled.
+   * If `true`, the textfield will be disabled.
    */
   disabled: PropTypes.bool,
 
   /**
-   * If `true`, the label is displayed as required and the input will be required.
+   * If `true`, the label is displayed as required.
    */
   required: PropTypes.bool,
 
   /**
-   * If `true`, the label will be displayed in an error state.
+   * If `true`, the textfield will be displayed in an error state.
    */
   error: PropTypes.bool,
 
   /**
-   * If `true`, the input will be focused during the first mount.
+   * If `true`, the textfield will be focused during the first mount.
    */
   autoFocus: PropTypes.bool,
 
-  /**
-   * If `dense` or `normal`, will adjust vertical spacing of this and contained components.
-   */
-  margin: PropTypes.oneOf(["none", "dense", "normal"]),
-
-  onBlur: PropTypes.func,
 
   /**
-   * Callback fired when the value is changed.
+   * Focus event to use with UXPin interactions.
    */
-  onChange: PropTypes.func,
-
   onFocus: PropTypes.func,
 
   /**
-   * Prefix text added to the input.
+   * Blur event to use with UXPin interactions.
    */
-  adornmentText: PropTypes.string,
+  onBlur: PropTypes.func,
 
   /**
-   * Prefix icon added to the input if adornmentText was not provided.
+   * Change event to use with UXPin interactions.
    */
-  adornmentIcon: PropTypes.string
+  onChange: PropTypes.func,
+ 
 };
 
 SelectUXP.defaultProps = {
@@ -165,7 +169,6 @@ SelectUXP.defaultProps = {
   ],
   fullWidth: "true",
   label: "Phone Type",
-  variant: "outlined"
 };
 
 export default SelectUXP;
