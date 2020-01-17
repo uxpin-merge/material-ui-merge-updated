@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import TableUXP from '../TableUXP';
 
-const columns = ['Dessert', 'Calories', 'Fat', 'Carbs', 'Protein'];
-const rows = [
+let columns = ['Dessert', 'Calories', 'Fat', 'Carbs', 'Protein'];
+let rows = [
   {id: '1', 'Dessert': 'Cupcake', 'Calories': '305', 'Fat': '3.7', 'Carbs': '67', 'Protein': '4.3'},
   {id: '2', 'Dessert': 'Donut', 'Calories': '452', 'Fat': '25.0', 'Carbs': '51', 'Protein': '4.9'},
   {id: '3', 'Dessert': 'Eclair', 'Calories': '262', 'Fat': '16.0', 'Carbs': '24', 'Protein': '6.0'},
@@ -24,17 +24,17 @@ export default (
   <TableUXP
   columns = {columns}
   rows = {rows}
-  hasPagination='true'
+  hasPagination={true}
   rowsPerPageOptions={[5, 10, 25]}
   rowsPerPage={5}
   page={0}
   uxpId='table1'
-  hasSelection='true'
-  hasHeader='true'
+  hasSelection={true}
+  hasHeader={false}
   headerText='Nutrition'
-  hasSorting='true'
+  hasSorting={true}
   orderBy='Dessert'
   order='asc'
-  elevation={2}
+  elevation={0}
   />
 );

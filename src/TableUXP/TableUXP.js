@@ -185,7 +185,7 @@ EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 const styles = theme => ({
   root: {
     width: "100%",
-    marginTop: theme.spacing.unit * 3
+    // marginTop: theme.spacing.unit * 3
   },
   table: {
     // minWidth: 1020,
@@ -360,7 +360,7 @@ class TableUXP extends React.Component {
 }
 
 TableUXP.propTypes = {
-  // classes: PropTypes.object.isRequired,
+
   /**
    * Values of columns.
    * Format:
@@ -369,7 +369,7 @@ TableUXP.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.string),
 
   /**
-   * Values of rows in key:value pairs. Key must match column headers. 
+   * Values of rows in (key : value) pairs. Key must match column headers. 
    * MUST include a unique id.
    * Format:
    * [
@@ -389,25 +389,14 @@ TableUXP.propTypes = {
   */
   rows: PropTypes.array,
 
-  /**
-   * Show/Hide the action header
-  */
-  hasHeader: PropTypes.bool,
 
-  /**
-   * Title of table displaid in action header
-  */
-  headerText: PropTypes.string,
 
   /**
   * Enable/disable column sorting
   */
   hasSorting: PropTypes.bool,
   
-  /**
-  * Enable/disable selection checkboxes
-  */
-  hasSelection: PropTypes.bool,
+
 
   /**
   * Column name to be sorted by default
@@ -442,9 +431,26 @@ TableUXP.propTypes = {
   rowsPerPageOptions: PropTypes.array,
 
   /**
+  * Enable/disable selection checkboxes
+  */
+ hasSelection: PropTypes.bool,
+
+  /**
   * Elevation of table container.  
   */
   elevation: PropTypes.number,
+
+    /**
+   * Show/Hide the action header
+   * @uxpinignoreprop
+  */
+ hasHeader: PropTypes.bool,
+
+ /**
+  * Title of table displaid in action header
+  * @uxpinignoreprop
+ */
+ headerText: PropTypes.string,
   
 };
 
