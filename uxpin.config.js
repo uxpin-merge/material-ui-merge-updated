@@ -37,7 +37,7 @@ module.exports = {
           "src/Link/Link.js",
           "src/Menu/Menu.js",
           "src/TabsWithPanel/TabsWithPanel.js",
-          "src/ExpansionPanel/ExpansionPanel.js",
+          "src/CollapsePanel/CollapsePanel.js",
         ]
       },
 
@@ -47,6 +47,7 @@ module.exports = {
           "src/IglooHeader/IglooHeader.js",
           "src/Paper/Paper.js",
           "src/Card/Card.js",
+          "src/Box/Box.js",
         ]
       },
 
@@ -65,16 +66,13 @@ module.exports = {
           "src/Avatar/Avatar.js",
           "src/Badge/Badge.js",
           "src/Chip/Chip.js",
-          // "src/AvatarLetterUXP/AvatarLetterUXP.js",
-          // "src/AvatarImageUXP/AvatarImageUXP.js",
-          // "src/AvatarIconUXP/AvatarIconUXP.js",
           "src/DividerUXP/DividerUXP.js",
           "src/Icon/Icon.js",
           "src/Image/Image.js",
           "src/List/List.js",
           "src/TableUXP/TableUXP.js",
           "src/TooltipUXP/TooltipUXP.js",
-          "src/Typography/Typography.js"
+          "src/Typography/Typography.js",
         ]
       },
       {
@@ -117,8 +115,7 @@ module.exports = {
           "src/ExpansionPanelActions/ExpansionPanelActions.js",
           "src/ExpansionPanelDetails/ExpansionPanelDetails.js",
           "src/ExpansionPanelSummary/ExpansionPanelSummary.js",
-          "src/CollapsePanel/CollapsePanel.js",
-          "src/Box/Box.js",
+
         ]
       },
       {

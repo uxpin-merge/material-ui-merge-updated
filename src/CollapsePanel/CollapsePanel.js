@@ -6,9 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import Paper from '@material-ui/core/Paper';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import DividerUXP from '../DividerUXP/DividerUXP';
+import Icon from '@material-ui/core/Icon';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,6 +27,7 @@ function CollapsePanel(props) {
   }
 
   return (
+    <Paper elevation={0}>
     <List
       component="nav"
       aria-labelledby="nested-list-subheader"
@@ -37,27 +36,34 @@ function CollapsePanel(props) {
     >
 
       <ListItem button onClick={handleClick}>
-        <ListItemText primary={props.toggleText} />
-        {open ? <ExpandLess /> : <ExpandMore />}
+        <ListItemText primary={props.toggleText}/>
+        {open ? <Icon>expand_less</Icon> : <Icon>expand_more</Icon> }
       </ListItem>
       
       <Collapse in={open} timeout="auto" unmountOnExit>
-      {/* <DividerUXP light variant="middle"/> */}
         <Paper elevation={0} className={classes.nested}>
           {props.children}
         </Paper> 
       </Collapse>
     </List>
+    </Paper>
   );
 }
 
 CollapsePanel.propTypes = {
   /**
-   * The content of the expansion panel.
+   * If `true` the panel will be collapsed.
    */
-  children: PropTypes.node,
   collapsed: PropTypes.bool,
-  toggleText: PropTypes.string
+  /**
+   * The text to display as the collapse trigger.
+   */
+  toggleText: PropTypes.string,
+
+  /**
+  * The content of the panel.
+  */
+  children: PropTypes.node,
 };
 
 CollapsePanel.defaultProps = {
