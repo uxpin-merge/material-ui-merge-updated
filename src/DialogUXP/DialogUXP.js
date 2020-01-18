@@ -50,16 +50,19 @@ DialogUXP.propTypes = {
 
   /**
    * If `true`, the dialog will be full-screen
+   * @uxpinignoreprop
    */
   fullScreen: PropTypes.bool,
 
   /**
    * If `true`, clicking the backdrop will not fire the `onClose` callback.
+   * @uxpinignoreprop
    */
   disableBackdropClick: PropTypes.bool,
 
   /**
    * If `true`, the dialog stretches to `maxWidth`.
+   * @uxpinignoreprop
    */
   fullWidth: PropTypes.bool,
 
@@ -68,19 +71,23 @@ DialogUXP.propTypes = {
    * The dialog width grows with the size of the screen, this property is useful
    * on the desktop where you might need some coherent different width size across your
    * application. Set to `false` to disable `maxWidth`.
+   * @uxpinignoreprop
    */
   maxWidth: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl", false]),
 
   /**
-   * Callback fired before the dialog enters.
+   * Enter event to use with UXPin interactions.
    */
   onEnter: PropTypes.func,
 
   /**
-   * Callback fired before the dialog exits.
+   * Exit event to use with UXPin interactions.
    */
   onExit: PropTypes.func,
 
+  /**
+   * @uxpinignoreprop
+   */
   children: PropTypes.node
 };
 
