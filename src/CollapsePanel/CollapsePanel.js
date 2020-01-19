@@ -51,17 +51,21 @@ function CollapsePanel(props) {
 }
 
 CollapsePanel.propTypes = {
-  /**
-   * If `true` the panel will be collapsed.
-   */
-  collapsed: PropTypes.bool,
+
+
   /**
    * The text to display as the collapse trigger.
    */
   toggleText: PropTypes.string,
 
+    /**
+   * If `true` the panel will be collapsed.
+   */
+  collapsed: PropTypes.bool,
+
   /**
   * The content of the panel.
+  * @uxpinignoreprop
   */
   children: PropTypes.node,
 };
