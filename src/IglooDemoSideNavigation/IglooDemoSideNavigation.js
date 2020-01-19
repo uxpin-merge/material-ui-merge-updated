@@ -100,6 +100,11 @@ class IglooDemoSideNavigation extends React.Component {
         pageId: "122233118",        
       },
       {
+        label: "Header",
+        layoutId:"4ca080daba4dc4056d1a12fe35b239a62d3faa09#",
+        pageId: "122416283",        
+      },
+      {
         label: "Icon",
         layoutId:"262d7341ef39647872c5c6ff0d44bb39643f9a6b#",
         pageId: "122225134",        
@@ -138,6 +143,11 @@ class IglooDemoSideNavigation extends React.Component {
         label: "Switch",
         layoutId:"582245b9ac698acd8fa331eff168693695648ee7#",
         pageId: "122349836",        
+      },
+      {
+        label: "Style Box",
+        layoutId:"cb8ad98485f8e8f87401aacb144514dc7e8708bd#",
+        pageId: "122415872",        
       },
       {
         label: "Typography",

@@ -75,6 +75,7 @@ export default (
     hasAccountIcon = {true}
     accountMenu= {accountMenu}
     hasSearch = {true}
+    hasNavigation = {true}
     >
     
     <IconButton

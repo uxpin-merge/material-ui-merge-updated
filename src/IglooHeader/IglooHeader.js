@@ -144,15 +144,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const StyledBadge = withStyles(theme => ({
-  badge: {
-    right: -3,
-    top: 2,
-    border: "1px solid #fff"
-    // padding: '0 ',
-  }
-}))(Badge);
-
 function IglooHeader(props) {
   const classes = useStyles();
   const theme = useTheme();
@@ -175,7 +166,7 @@ function IglooHeader(props) {
   return (
     <>
       <AppBar
-        position="fixed"
+        {...(props.inline ? { position: "static" } : { position: "fixed" } )}
         className={classes.appBar}
         color="inherit"
         elevation={2}
@@ -228,17 +219,6 @@ function IglooHeader(props) {
                 )}
               </Box>
             )}
-
-            {/* <IconButton aria-label="show 4 new mails" color="primary">
-            <StyledBadge badgeContent={3} max={9} color="secondary" >
-                <MailIcon />
-              </StyledBadge>
-            </IconButton>
-           <IconButton aria-label="show 17 new notifications" color="primary">
-              <StyledBadge badgeContent={17} max={9} color="secondary" >
-                <NotificationsIcon />
-              </StyledBadge>
-            </IconButton> */}
             {props.hasAccountIcon && (
               <MenuUXP
                 trigger="icon"
@@ -270,14 +250,19 @@ function IglooHeader(props) {
             </Toolbar>
           </Hidden>
         )}
-        {props.desktopNavigationVariant == "horizontal" && (
+
+        {props.hasNavigation ? 
+        props.desktopNavigationVariant == "horizontal" && (
           <Hidden smDown implementation="css">
             <Toolbar variant="dense" disableGutters>
-              <IglooTopNavigation menus={props.menus}/>
+              <IglooTopNavigation menus={props.menus} />
             </Toolbar>
           </Hidden>
-        )}
+        ) : null }
       </AppBar>
+
+{props.hasNavigation ? 
+
       <Hidden smUp implementation="css">
         <nav className={classes.drawer}>
           <Drawer
@@ -299,13 +284,17 @@ function IglooHeader(props) {
             >
               <CloseIcon />
             </IconButton>
-            
-              <IglooSideNavigation menus={props.menus} {...props} />
-            
+
+            <IglooSideNavigation menus={props.menus} {...props} />
           </Drawer>
-        </nav>
+        </nav>  
       </Hidden>
-      {props.desktopNavigationVariant == "vertical" && (
+      : null }
+
+
+
+      { props.hasNavigation ?
+      props.desktopNavigationVariant == "vertical" && (
         <Hidden smDown implementation="css">
           <nav className={classes.drawer}>
             <Drawer
@@ -317,86 +306,67 @@ function IglooHeader(props) {
             >
               <div className={classes.toolbar} />
               <Box paddingTop={2}>
-              <IglooSideNavigation {...props} />
+                <IglooSideNavigation {...props} />
               </Box>
             </Drawer>
           </nav>
         </Hidden>
-      )}
-      ;
+      )
+      : null }
     </>
   );
 }
 IglooHeader.propTypes = {
-  menus: PropTypes.array,
-  hasAccountIcon: PropTypes.bool,
-  accountMenu: PropTypes.array,
-  logoSrc: PropTypes.string,
-  logoAlt: PropTypes.string,
   /**
-   * The type of navigation to render at desktop breakpoint
-   * `horizontal` Tabbed header navigation
-   * (only 1 level currently supported)
-   * `vertical` Sidebar navigation
+   * the URL of the logo
+   */
+  logoSrc: PropTypes.string,
+  
+  /**
+   * At text for the logo
+   */
+  logoAlt: PropTypes.string,
+
+  /**
+   * If `true` search box will display
+   */
+  hasSearch: PropTypes.bool,
+
+  /**
+  * If `true` account icon will display
+  */
+  hasAccountIcon: PropTypes.bool,
+  
+    /**
+  * Account menu array if "Account Icon" = `true`
+  */
+  accountMenu: PropTypes.array,
+
+  /**
+  * If `true` will show navigation
+  */
+  hasNavigation: PropTypes.bool,
+
+  /**
+  * Menu array if "Navigation" = `true`
+  */
+  menus: PropTypes.array,
+  
+  /**
+   * The type of navigation to render at desktop breakpoint. Horizontal currently only supports one level
    */
   desktopNavigationVariant: PropTypes.oneOf(["horizontal", "vertical"]),
-  hasSearch: PropTypes.bool,
+  
+  /**
+   * Changes the placement of the header
+   */
+  inline: PropTypes.bool,
+  
+/**
+ * @uxpinignoreprop
+ */
   children: PropTypes.node
 };
-// IglooHeader.defaultProps = {
-//   hasAccountIcon: true,
-//   accountMenu: [
-//     { label: "Profile" },
-//     { label: "Favorites" },
-//     { label: "Marketing Lists" },
-//     { label: "All Orders", hasDivider: "true" },
-//     { label: "Logout", icon: "cancel" }
-//   ],
-//   logoSrc: "https://uc.uxpin.com/files/732773/730600/image-6d6f68.png",
-//   logoAlt: "IGLOO Design System",
-//   desktopNavigationVariant:"vertical",
-//   menus: [
-//     {
-//       label: 'Marketing',
-//       children: [
-//         {
-//           label: 'Branding',
-//           children: [
-//             {
-//               label: 'Brochures',
-//             },
-//             {
-//               label: 'Business Cards',
-//             },
-//             {
-//               label: 'Logos',
-//             },
-//           ],
-//         },
-//         {
-//           label: 'Variable Printing',
-//           children: [
-//             {
-//               label: 'Igen',
-//             },
-//             {
-//               label: '1-to-1',
-//             },
-//           ],
-//         },
-//         {
-//           label: 'Loyalty',
-//         },
-//         {
-//           label: 'Social Media',
-//         },
-//       ],
-//     },
-//     { label: 'Data Solutions', icon: 'data_usage' },
-//     { label: 'Technology', icon: 'widgets' },
-//     { label: 'from header', icon: 'bookmark' },
-//   ],
-//   hasSearch: true,
-// }
+
 
 export default IglooHeader;

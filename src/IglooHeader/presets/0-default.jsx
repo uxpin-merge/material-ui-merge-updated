@@ -18,7 +18,6 @@ let menus =
                 "label": "Branding",
                 "submenu": [
                     {
-                        "active": true,
                         "label": "Brochures"
                     },
                     {
@@ -42,6 +41,7 @@ let menus =
             },
             {
                 "label": "Loyalty",
+                "active": true,
             },
             {
                 "label": "Social Media"
@@ -79,6 +79,8 @@ export default (
   hasAccountIcon = {true}
   accountMenu= {accountMenu}
   hasSearch = {true}
+  inline = {true}
+  hasNavigation = {false}
   >
     <IconButton
       arialabel="Notifications"
