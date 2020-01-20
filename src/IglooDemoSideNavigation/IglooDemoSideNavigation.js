@@ -212,6 +212,7 @@ class IglooDemoSideNavigation extends React.Component {
             <ListItem
               button
               component="a"
+              target="_parent"
               href="https://preview.uxpin.com/72c685350e0bef557db9a2e1b0d34c9edaf2379a#/pages/122479651?mode=cvhidfm"
               key="componentStatus"
               selected={this.props.pageId === "122479651" ? true : false}
