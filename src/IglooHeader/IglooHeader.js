@@ -323,7 +323,7 @@ IglooHeader.propTypes = {
   logoSrc: PropTypes.string,
   
   /**
-   * At text for the logo
+   * Alt text for the logo
    */
   logoAlt: PropTypes.string,
 

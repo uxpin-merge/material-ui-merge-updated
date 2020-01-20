@@ -107,7 +107,7 @@ export default function Menu(props) {
 
 
         <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal 
-        placement="bottom-start">
+        placement="bottom-start" style={{zIndex: 9999}}>
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
