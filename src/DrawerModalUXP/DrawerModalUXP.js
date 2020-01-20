@@ -62,7 +62,7 @@ class DrawerModalUXP extends React.Component {
 
 DrawerModalUXP.propTypes = {
   /**
-   * Show/Hide the drawer.
+   * if `true` shows the drawer.
    */
   open: PropTypes.bool,
 
@@ -83,6 +83,7 @@ DrawerModalUXP.propTypes = {
 
   /**
    * The contents of the drawer.
+   * @uxpinignoreprop
    */
   children: PropTypes.node,
 

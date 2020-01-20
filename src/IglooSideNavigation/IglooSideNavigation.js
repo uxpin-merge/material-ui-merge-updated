@@ -224,6 +224,9 @@ function IglooSideNavigation(props) {
 }
 
 IglooSideNavigation.propTypes = {
+  /**
+   * Array of navigation items to display. See below for array structure and information.
+   */
   menus: PropTypes.arrayOf(
     PropTypes.shape({
       icon: PropTypes.string,
