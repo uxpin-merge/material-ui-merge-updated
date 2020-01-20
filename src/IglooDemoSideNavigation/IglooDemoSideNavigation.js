@@ -3,7 +3,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Collapse from "@material-ui/core/Collapse";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Divider from "@material-ui/core/Divider";
+import Divider from "../DividerUXP/DividerUXP";
 import Drawer from "@material-ui/core/Drawer";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
@@ -212,13 +212,44 @@ class IglooDemoSideNavigation extends React.Component {
             <ListItem
               button
               component="a"
+              href="https://preview.uxpin.com/72c685350e0bef557db9a2e1b0d34c9edaf2379a#/pages/122479651?mode=cvhidfm"
+              key="componentStatus"
+              selected={this.props.pageId === "122479651" ? true : false}
+            >
+              <ListItemText primary="Component Status" />
+            </ListItem>
+        
+            <ListItem
+              button
+              component="a"
               href={`${uxpPreviewLink}113011865${uxpPreviewOptions}`}
               key="componentStatus"
               selected={this.props.pageId === "113011865" ? true : false}
             >
-              <ListItemText primary="Component Status" />
+              <ListItemText primary="Getting Started" />
             </ListItem>
 
+        <ListItem
+              button
+              component="a"
+              href="https://preview.uxpin.com/72c685350e0bef557db9a2e1b0d34c9edaf2379a#/pages/122479651?mode=cvhidfm"
+              key="componentStatus"
+              selected={this.props.pageId === "22222" ? true : false}
+            >
+              <ListItemText primary="Using Grids" />
+            </ListItem>
+
+            <ListItem
+              button
+              component="a"
+              href={`${uxpPreviewLink}113011865${uxpPreviewOptions}`}
+              key="componentStatus"
+              selected={this.props.pageId === "113011865" ? true : false}
+            >
+              <ListItemText primary="Using Device Viewer" />
+            </ListItem>
+          
+<Divider marginTop={1} marginBottom={1}/>
             <ListItem button onClick={this.handleNestedList}>
               <ListItemText primary="Components" />
               {this.state.openlist ? <ExpandLess /> : <ExpandMore />}
