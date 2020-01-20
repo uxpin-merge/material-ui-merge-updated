@@ -95,6 +95,11 @@ class IglooDemoSideNavigation extends React.Component {
         pageId: "122356199", 
       },
       {
+        label: "Data Table",
+        layoutId:"8961a2c0517a0af1743d98be4410c444646b7aac#",
+        pageId: "122434193",        
+      },
+      {
         label: "Divider",
         layoutId:"cfd8a1902e686055df8062450695b1c28c7eca98#",
         pageId: "122233118",        

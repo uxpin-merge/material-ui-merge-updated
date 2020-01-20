@@ -399,7 +399,7 @@ TableUXP.propTypes = {
 
 
   /**
-  * Column name to be sorted by default
+  * Column name to be sorted by default when sorting is enabled.
   */
   orderBy: PropTypes.string,
 
@@ -409,12 +409,12 @@ TableUXP.propTypes = {
   order: PropTypes.oneOf(["asc", "desc"]),
 
   /**
-  * Enable/disable pagination
+  * if `true` the table will be have pagination controls.
   */
   hasPagination: PropTypes.bool,
 
   /**
-  * The initial page to be loaded
+  * The initial page to be loaded if pagination is enabled.
   */
   page: PropTypes.number,
 
