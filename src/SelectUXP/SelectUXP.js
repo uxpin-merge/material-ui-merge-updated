@@ -56,6 +56,8 @@ class SelectUXP extends React.Component {
           }}
           disablePortal={true}
           variant="outlined"
+          keepMounted
+          style={{ zIndex: 9999 }}
         >
           {this.props.menuItems.map(option => (
             <MenuItem
