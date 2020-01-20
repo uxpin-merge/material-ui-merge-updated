@@ -95,9 +95,19 @@ class IglooDemoSideNavigation extends React.Component {
         pageId: "122356199", 
       },
       {
+        label: "Device Viewer **",
+        layoutId:"af6d95333b1b707c0f4cab87fe0798b89addf409#",
+        pageId: "122468692",        
+      },
+      {
         label: "Data Table",
         layoutId:"8961a2c0517a0af1743d98be4410c444646b7aac#",
         pageId: "122434193",        
+      },
+      {
+        label: "Dialog",
+        layoutId:"cfa8b00ecfbad283d13de1729bfe9b2440bcf5fa#",
+        pageId: "122450520",        
       },
       {
         label: "Divider",
@@ -108,6 +118,16 @@ class IglooDemoSideNavigation extends React.Component {
         label: "Drawer",
         layoutId:"7333fc3af7b99962bb1fba88017d0e711b975806#",
         pageId: "122437824",        
+      },
+      {
+        label: "Hidden",
+        layoutId:"5c4c936b5d75bf36c90137b551a96cdff7109038#",
+        pageId: "122461204",        
+      },
+      {
+        label: "Grid",
+        layoutId:"23d248f9b358eb1ea608b2876437431ba9a5f878#",
+        pageId: "122448119",        
       },
       {
         label: "Header **",
