@@ -1,25 +1,29 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import Button from "@material-ui/core/Button";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
+import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+import Icon from "@material-ui/core/Icon";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
+    display: "flex"
   },
   paper: {
     // marginRight: theme.spacing(2),
   },
+  icon: {
+    marginRight: "8px",
+    marginLeft: "-4px"
+  }
 }));
 
 export default function Menu(props) {
@@ -40,7 +44,7 @@ export default function Menu(props) {
   };
 
   function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
+    if (event.key === "Tab") {
       event.preventDefault();
       setOpen(false);
     }
@@ -66,9 +70,8 @@ export default function Menu(props) {
 
   return (
     <div className={classes.root}>
-      
       <div>
-      {props.trigger === "icon" ? (
+        {props.trigger === "icon" ? (
           <IconButton
             aria-label={props.label}
             ref={anchorRef}
@@ -89,55 +92,56 @@ export default function Menu(props) {
           //   {this.props.label}
           // </Button>
           <Button
-          ref={anchorRef}
-          aria-haspopup="true"
-          variant={props.buttonVariant}
-          color={props.color}
-          onClick={handleToggle}
-        >
-          {props.label}
-        </Button>
+            ref={anchorRef}
+            aria-haspopup="true"
+            variant={props.buttonVariant}
+            color={props.color}
+            onClick={handleToggle}
+          >
+            {props.label}
+          </Button>
         )}
 
-
-
-        
-
-
-
-
-        <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal 
-        placement="bottom-start" style={{zIndex: 9999}}>
+        <Popper
+          open={open}
+          anchorEl={anchorRef.current}
+          role={undefined}
+          transition
+          disablePortal
+          placement="bottom-start"
+          style={{ zIndex: 9999 }}
+        >
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
               // style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-              // container={drawerContainer} 
+              // container={drawerContainer}
             >
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList
-                  // id="menu-list-grow"
-                  onKeyDown={handleListKeyDown}>
+                    // id="menu-list-grow"
+                    onKeyDown={handleListKeyDown}
+                  >
                     {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
                     <MenuItem onClick={handleClose}>My account</MenuItem>
                     <MenuItem onClick={handleClose}>Logout</MenuItem> */}
                     {props.menuItems.map((item, key) => {
-            return (
-              <MenuItem onClick={handleClose} divider={item.hasDivider} key={key}>
-                {item.icon && (
-                  <ListItemIcon>
-                    <Icon>{item.icon}</Icon>
-                  </ListItemIcon>
-                )}
-                <Typography variant="inherit" noWrap>
-                  {item.label}
-                </Typography>
-              </MenuItem>
-            );
-          })}
-
-
+                      return (
+                        <MenuItem
+                          onClick={handleClose}
+                          divider={item.hasDivider}
+                          key={key}
+                        >
+                          {item.icon && (
+                            <Icon className={classes.icon}>{item.icon}</Icon>
+                          )}
+                          <Typography variant="inherit" noWrap>
+                            {item.label}
+                          </Typography>
+                        </MenuItem>
+                      );
+                    })}
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
@@ -187,9 +191,9 @@ Menu.propTypes = {
    * The color of the button or icon.
    */
   color: PropTypes.oneOf(["primary", "secondary", "inherit"]),
-/**
- * @uxpinignoreprop
- */
+  /**
+   * @uxpinignoreprop
+   */
   children: PropTypes.node
 };
 
