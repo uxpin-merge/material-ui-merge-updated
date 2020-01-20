@@ -227,7 +227,7 @@ class IglooDemoSideNavigation extends React.Component {
               key="componentStatus"
               selected={this.props.pageId === "113011865" ? true : false}
             >
-              <ListItemText primary="Getting Started" />
+              <ListItemText primary="Guide: Getting Started" />
             </ListItem>
 
         <ListItem
@@ -237,7 +237,7 @@ class IglooDemoSideNavigation extends React.Component {
               key="componentStatus"
               selected={this.props.pageId === "22222" ? true : false}
             >
-              <ListItemText primary="Using Grids" />
+              <ListItemText primary="Guide: Using Grids" />
             </ListItem>
 
             <ListItem
@@ -247,7 +247,7 @@ class IglooDemoSideNavigation extends React.Component {
               key="componentStatus"
               selected={this.props.pageId === "113011865" ? true : false}
             >
-              <ListItemText primary="Using Device Viewer" />
+              <ListItemText primary="Guide: Using Device Viewer" />
             </ListItem>
           
 <Divider marginTop={1} marginBottom={1}/>
