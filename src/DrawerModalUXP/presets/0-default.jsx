@@ -57,7 +57,7 @@ var menus =
     }
 ]
 export default (
-  <Drawer minHeight="600" anchor="left" open={true} variant="temporary" uxpId="1">
+  <Drawer minHeight="600" anchor="left" open={true} variant="temporary" width={256} uxpId="1">
     <IglooSideNavigation menus={menus} uxpId="2"/>
   </Drawer>
 );

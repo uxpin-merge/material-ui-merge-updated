@@ -8,8 +8,8 @@ const styles = theme => ({
     display: "flex"
   },
   drawerPaperSide: {
-    width: "256px",
-    flexShrink: 0
+    minWidth: "256px",
+    // flexShrink: 0
   },
   drawerPaperBottom: {
     width: "100%",
@@ -37,8 +37,14 @@ class DrawerModalUXP extends React.Component {
         ? classes.drawerPaperBottom
         : classes.drawerPaperSide;
 
-    const uxpContainer = document.querySelector("[data-id='canvas']");
+  const uxpContainer = document.querySelector("[data-id='canvas']");
+  let drawerContainer = null;
 
+  if (document.querySelector("#iframeContainer iframe")) {
+    drawerContainer = document.querySelector("#iframeContainer iframe").contentWindow.document.body;
+  } else if (document.querySelector("[data-id='canvas']")) {
+    drawerContainer = document.querySelector("[data-id='canvas']");
+  }
     return (
       <Drawer
         {...this.props}
@@ -47,14 +53,17 @@ class DrawerModalUXP extends React.Component {
         variant={this.props.variant}
         anchor={this.props.anchor}
         SlideProps={uxpContainer ? { tabIndex: "null" } : null}
-        container={uxpContainer ? uxpContainer : this.props.container}
+        container={drawerContainer}
         classes={{
           paper: drawerWidth
         }}
         minHeight={this.props.minHeight}
-        style={{ minHeight: this.props.minHeight }}
+        style={{ minHeight: this.props.minHeight}}
+        disableEnforceFocus
       >
+        <div style={{minWidth: this.props.width}}>
         {this.props.children}
+        </div>
       </Drawer>
     );
   }
@@ -74,7 +83,7 @@ DrawerModalUXP.propTypes = {
   /**
    * The width of the drawer.
    */
-  width: PropTypes.string,
+  width: PropTypes.number,
 
   /**
    * Close event to use with UXPin interactions.

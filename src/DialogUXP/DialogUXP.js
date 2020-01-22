@@ -17,18 +17,23 @@ class DialogUXP extends React.Component {
 
   render() {
     const uxpContainer = document.querySelector("[data-id='canvas']");
+    let drawerContainer = null;
 
+    if (document.querySelector("#iframeContainer iframe")) {
+      drawerContainer = document.querySelector("#iframeContainer iframe").contentWindow.document.body;
+    } else if (document.querySelector("[data-id='canvas']")) {
+      drawerContainer = document.querySelector("[data-id='canvas']");
+    }
     return (
       
         <Dialog
-          fullScreen={this.props.fullScreen}
+          
           TransitionProps={uxpContainer ? { tabIndex: "null" } : null}
-          fullWidth={this.props.fullScreen}
-          maxWidth={this.props.maxWidth}
-          disableBackdropClick={this.props.disableBackdropClick}
+          
           open={this.state.open}
           onClose={this.handleClose}
-          container={uxpContainer ? uxpContainer : this.props.container}
+          container={drawerContainer}
+          disableEnforceFocus
         >
           {this.props.children}
         </Dialog>
@@ -45,6 +50,7 @@ DialogUXP.propTypes = {
 
   /**
    * Height of the dialog. This should equal the height of UXP canvas
+   * @uxpinignoreprop
    */
   height: PropTypes.number,
 
