@@ -1,6 +1,13 @@
 import Dialog from "@material-ui/core/Dialog";
 import PropTypes from "prop-types";
 import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = theme => ({
+  scrollPaper: {
+    alignItems: "flex-start"
+  }
+});
 
 class DialogUXP extends React.Component {
   constructor(props) {
@@ -18,6 +25,7 @@ class DialogUXP extends React.Component {
   render() {
     const uxpContainer = document.querySelector("[data-id='canvas']");
     let drawerContainer = null;
+    const { classes } = this.props;
 
     if (document.querySelector("#iframeContainer iframe")) {
       drawerContainer = document.querySelector("#iframeContainer iframe").contentWindow.document.body;
@@ -26,14 +34,16 @@ class DialogUXP extends React.Component {
     }
     return (
       
-        <Dialog
-          
+        <Dialog      
           TransitionProps={uxpContainer ? { tabIndex: "null" } : null}
-          
+          classes={{
+            scrollPaper: classes.scrollPaper
+          }}
           open={this.state.open}
           onClose={this.handleClose}
           container={drawerContainer}
           disableEnforceFocus
+          keepMounted      
         >
           {this.props.children}
         </Dialog>
@@ -97,4 +107,5 @@ DialogUXP.propTypes = {
   children: PropTypes.node
 };
 
-export default DialogUXP;
+export default withStyles(styles)(DialogUXP);
+
