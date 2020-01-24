@@ -129,7 +129,7 @@ module.exports = {
         include: [
           "src/DeviceViewer/DeviceViewer.js",
           "src/TestComponent/TestComponent.js",
-          "src/ThemeTarget/ThemeTarget.js",
+          "src/ThemeSwitcher/ThemeSwitcher.js",
           "src/ComponentInspectorUXP/ComponentInspectorUXP.js",
           "src/IglooDemoLayout/IglooDemoLayout.js",
           "src/IglooDemoHeader/IglooDemoHeader.js",
