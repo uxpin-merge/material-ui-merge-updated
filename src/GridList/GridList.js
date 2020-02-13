@@ -1,9 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import GridListM from "@material-ui/core/GridList";
+import Hidden from "@material-ui/core/Hidden";
 
 function GridList(props) {
-  return <GridListM {...props}>{props.children}</GridListM>;
+  return (
+    <div>
+      <Hidden implementation="css" smUp>
+        <GridListM {...props} cols={1}>
+          {props.children}
+        </GridListM>
+      </Hidden>
+      <Hidden implementation="css" xsDown>
+        <GridListM {...props}>{props.children}</GridListM>
+      </Hidden>
+    </div>
+  );
 }
 
 GridList.propTypes = {
@@ -11,7 +23,10 @@ GridList.propTypes = {
    * Number of px for one cell height.
    * You can set `'auto'` if you want to let the children determine the height.
    */
-  cellHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(['auto'])]),
+  cellHeight: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf(["auto"])
+  ]),
 
   /**
    * Grid Tiles that will be in Grid List.
@@ -48,7 +63,7 @@ GridList.propTypes = {
   /**
    * @ignore
    */
-  style: PropTypes.object 
+  style: PropTypes.object
 };
 
 export { GridList as default };
