@@ -19,9 +19,7 @@ function TabPanel(props) {
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
-      <Box paddingTop={3} paddingBottom={3} paddingLeft={3} paddingRight={3}>
         {children}
-      </Box>
     </Typography>
   );
 }
@@ -67,6 +65,14 @@ const useStyles = makeStyles(theme => ({
     "&.Mui-selected:hover": {
       // color: "inherit",
     }
+  },
+  tabPanel:{
+    [theme.breakpoints.up("sm")]: {
+      padding: theme.spacing(3),
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: theme.spacing(1),
+    },
   }
 }));
 
@@ -106,7 +112,7 @@ export default function TabsWithPanel(props) {
       </Tabs>
 
       {React.Children.map(props.children, (child, index) => (
-        <TabPanel value={value} index={index} dir={theme.direction}>
+        <TabPanel value={value} index={index} dir={theme.direction} className={classes.tabPanel}>
           {React.cloneElement(child, { value: value })}
         </TabPanel>
       ))}

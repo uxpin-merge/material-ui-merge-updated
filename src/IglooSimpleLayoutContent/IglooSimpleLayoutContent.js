@@ -31,7 +31,12 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(4)
+    [theme.breakpoints.up("sm")]: {
+      padding: theme.spacing(4),
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: theme.spacing(1),
+    },
   },
 }));
 
@@ -43,6 +48,9 @@ function IglooSimpleLayoutContent(props) {
       
       <div className={classes.content}>
         <div className={classes.toolbar} />
+        <Hidden smUp implementation="css">
+            <div className={classes.toolbar} >2</div>
+        </Hidden>
 
         {props.desktopNavigationVariant == "horizontal" && (
           <Hidden smDown implementation="css">
@@ -50,11 +58,12 @@ function IglooSimpleLayoutContent(props) {
           </Hidden>
         )}
 
-        {props.hasSearch && (
+        {/* {props.hasSearch && (
           <Hidden smUp implementation="css">
-            <div className={classes.toolbar} />
+            <div className={classes.toolbar} >1</div>
+            <div className={classes.toolbar} >2</div>
           </Hidden>
-        )}
+        )} */}
 
         {props.children}
       </div>
