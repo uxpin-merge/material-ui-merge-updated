@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
   tab: {
     fontSize: "0.95rem",
     textTransform: "none",
-    marginRight: theme.spacing(4),
+    marginRight: theme.spacing(1),
     fontWeight: theme.typography.fontWeightRegular,
     minWidth: 100,
     "&:hover": {
