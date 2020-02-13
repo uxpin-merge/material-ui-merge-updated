@@ -7,7 +7,7 @@ function GridList(props) {
   return (
     <div>
       <Hidden implementation="css" smUp>
-        <GridListM {...props} cols={1}>
+        <GridListM {...props} cols={1} rows={1}>
           {props.children}
         </GridListM>
       </Hidden>
