@@ -69,9 +69,13 @@ const useStyles = makeStyles(theme => ({
   tabPanel:{
     [theme.breakpoints.up("sm")]: {
       padding: theme.spacing(3),
+      paddingLeft: 0,
+      paddingRight: 0
     },
     [theme.breakpoints.down("xs")]: {
-      padding: theme.spacing(1),
+      padding: theme.spacing(2),
+      paddingLeft: 0,
+      paddingRight: 0
     },
   }
 }));
