@@ -6,17 +6,22 @@ import {
   createMuiTheme,
   MuiThemeProvider
 } from "@material-ui/core/styles";
-
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   button: {
-    textTransform: "none",
+    textTransform: "uppercase",
     fontSize: "1rem"
+  },
+  buttonMargin: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
   }
-});
+}));
+
+
 function Button(props) {
   const classes = useStyles();
   return (
-    <ButtonM {...props} onClick={props.onClick} className={classes.button}>
+    <ButtonM {...props} onClick={props.onClick} className={`${classes.button} ${classes.buttonMargin}`}>
       {props.children}
     </ButtonM>
   );

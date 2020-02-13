@@ -13,13 +13,16 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
     marginLeft: -theme.spacing.unit / 2,
     fontSize: 18
+  },
+  buttonMargin: {
+    margin: theme.spacing(1/2),
   }
 });
 
 function ButtonUXP(props) {
   let { classes } = props;
   return (
-    <ButtonM {...props} className={classes.button}>
+    <ButtonM {...props} className={`${classes.button} ${classes.buttonMargin}`}>
       {props.icon ? (
         <Icon className={classes.leftIcon}>{props.icon}</Icon>
       ) : null}
