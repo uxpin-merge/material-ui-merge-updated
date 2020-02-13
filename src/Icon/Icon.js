@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import IconM from "@material-ui/core/Icon";
 
 function Icon(props) {
-  return <IconM {...props}>{props.children}</IconM>;
+  return <IconM {...props} style={{color: props.colorHex}}>{props.children}</IconM>;
 }
 
 Icon.propTypes = {
@@ -32,6 +32,11 @@ Icon.propTypes = {
     "disabled"
   ]),
 
+  /**
+   * Overrides color.
+   */
+  colorHex: PropTypes.string,
+  
   /**
    * Override or extend the styles applied to the component.
    */
