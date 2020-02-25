@@ -195,24 +195,12 @@ class DeviceViewer extends React.Component {
 
           <div className={responsiveFrame} id="iframeContainer">
             {this.props.active ? (
-              <IFrame className={classes.iframeheight} minHeight={667}><div>{this.props.children}</div></IFrame>
-              // <IFramePlayground minHeight={667}>{children}</IFramePlayground>
+                    
+              <IFrame className={classes.iframeheight} minHeight={667}><div style={{overflowX: "hidden"}}>{this.props.children}</div></IFrame>
+              
             ) : (
-              <div className={classes.iframeheight}>{children}</div>
+              <div className={classes.iframeheight}>{this.props.children}</div>
             )}
-          </div>
-          <div>
-            {/* <CssBaseline/> */}
-            {/* <Menu />
-            <Paper />
-            <List />
-            <ListItem />
-            <ListItemIcon />
-            <MenuItem />
-            <Backdrop />
-            <Popover />
-            <Popper />
-            <Modal /> */}
           </div>
         </div>
       </>
