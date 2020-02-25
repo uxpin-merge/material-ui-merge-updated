@@ -5,7 +5,7 @@ const igloo = createMuiTheme({
     primary: {
       light: "#5da2fa",
       main: "#0a74c7",
-      dark: "#004996",
+      dark: "red",
       contrastText: "#ffffff"
     },
     secondary: {
@@ -18,7 +18,7 @@ const igloo = createMuiTheme({
       main: "#1EAEED"
     },
     headerBadges: {
-      main: "red"
+      main: "red",
     }
   },
   typography: {

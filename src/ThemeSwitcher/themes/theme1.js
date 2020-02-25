@@ -4,8 +4,13 @@ import igloo from "./igloo";
 const theme1 = createMuiTheme({
   ...igloo,
   palette: {
+    ...igloo.palette,
     primary: {
-      main: "#2b2b2b"
+      main: "#2b2b2b",
+      dark: "#eeeeee"
+    },
+    decoration: {
+      main: "green"
     }
   },
   overrides: {

@@ -1,9 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import BadgeM from "@material-ui/core/Badge";
+import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  customBadge: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.headerBadges.main
+  }
+}));
 
 function Badge(props) {
-  return <BadgeM {...props} >{props.children}</BadgeM>;
+  const classes = useStyles();
+  const theme = useTheme();
+
+  return <BadgeM {...props} classes={{ badge: classes.customBadge }} >{props.children}</BadgeM>;
 }
 
 Badge.propTypes = {

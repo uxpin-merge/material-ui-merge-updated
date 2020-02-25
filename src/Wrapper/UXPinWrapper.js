@@ -2,6 +2,7 @@ import React from "react";
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import igloo from "../ThemeSwitcher/themes/igloo";
+import Button from "@material-ui/core/Button";
 
 let theme = createMuiTheme(igloo);
 

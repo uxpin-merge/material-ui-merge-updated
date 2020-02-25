@@ -4,14 +4,12 @@ import { jssPreset } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider, StylesProvider } from "@material-ui/core/styles";
 import Frame, { FrameContextConsumer } from "react-frame-component";
-import Button from '../ButtonUXP/ButtonUXP';
 import PropTypes from "prop-types";
-import styled from "styled-components";
 import Box from "@material-ui/core/Box";
 import igloo from "../ThemeSwitcher/themes/igloo";
 import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-
+import NoSsr from "@material-ui/core/NoSsr";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,28 +41,20 @@ const CustomHead = props => {
   );
 };
 
-const PreviewFrame = ({ children, ...props }) => {
+const IFrame = ({ children, ...props }) => {
   
-  
-// const StyledButton = styled(Button)`
-// color: white;
-// background-color: blue;
-// height: 80px;
-// `
-
 const classes = useStyles();
 
-
   return (
+   <NoSsr>
     <Frame frameBorder={0} {...props} head={<CustomHead />}
     style={{
       width: "100%",
-      // height: "100%",
       border: "1px solid #ccc",
-      backgroundColor: "#ffffff"
     }}
     sandbox =
         "allow-same-origin allow-top-navigation allow-top-navigation-by-user-activation allow-scripts"
+    className={classes.root}
     >
       <FrameContextConsumer>
         {({ document, window }) => {
@@ -84,24 +74,17 @@ const classes = useStyles();
         }}
       </FrameContextConsumer>
     </Frame>
+    </NoSsr>
   );
 };
 
-export default PreviewFrame;
+export default IFrame
 
-PreviewFrame.propTypes = {
+IFrame.propTypes = {
   children: PropTypes.node,
   frameWidth: PropTypes.number,
   frameHeight: PropTypes.number
 }
 
-// PreviewFrame.propTypes = {
-//   children: PropTypes.node,
-//   active: PropTypes.bool,
-//   defaultView: PropTypes.oneOf(["desktop", "tablet", "mobile"]),
-//   desktopOption: PropTypes.bool,
-//   tabletOption: PropTypes.bool,
-//   mobileOption: PropTypes.bool
-// };
 
 

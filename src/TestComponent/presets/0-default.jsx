@@ -1,6 +1,11 @@
 // import * as React from "react";
-// import TestComponent from "../TestComponent";
+// import PreviewFrame from "../TestComponent";
+// import Button from "@material-ui/core/Button"
+// // import { Badge } from "@material-ui/core";
 
 // export default (
-//   <TestComponent name="jack" uxpId="1"/>
+//   <PreviewFrame uxpId="1" >
+//      <Button uxpId="2" variant="contained">from preset</Button>
+//   </PreviewFrame>
 // );
+ 

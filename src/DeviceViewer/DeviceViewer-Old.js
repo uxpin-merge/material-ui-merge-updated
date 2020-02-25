@@ -18,7 +18,6 @@ import Modal from "@material-ui/core/Modal";
 import Popper from "@material-ui/core/Popper";
 import Tooltip from "@material-ui/core/Tooltip";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import IFrame from "../IFrame/IFrame";
 
 const styles = theme => ({
   root: {
@@ -104,6 +103,37 @@ class DeviceViewer extends React.Component {
         const uxpContainer = document.querySelector(".canvas-container");
         uxpContainer.style.marginTop = "0";
       }
+    }
+
+    //Remove any UXP css link added to iframe
+    if (document.querySelector("#iframeContainer iframe")) {
+      const iframeElement = document.querySelector("#iframeContainer iframe");
+      iframeElement.sandbox =
+        "allow-same-origin allow-top-navigation allow-top-navigation-by-user-activation";
+      iframeElement.onload = function() {
+        //Add viewport meta to iframe
+        const iframeContent = iframeElement.contentDocument;
+        let viewportMeta = document.createElement("meta");
+        viewportMeta.name = "viewport";
+        viewportMeta.content =
+          "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no";
+        iframeElement.contentWindow.document.head.prepend(viewportMeta);
+
+        //override body bg color
+        iframeElement.contentWindow.document.head.insertAdjacentHTML(
+          "beforeend",
+          `<style>body{background-color: #ffffff !important}</style>`
+        );
+
+        //Remove any UXP css link added to iframe
+        setTimeout(function() {
+          for (const item of iframeContent.styleSheets) {
+            if (item.href.indexOf("uxpin") > -1) {
+              // item.disabled = true;
+            }
+          }
+        }, 2000);
+      };
     }
 
     if (
@@ -195,15 +225,14 @@ class DeviceViewer extends React.Component {
 
           <div className={responsiveFrame} id="iframeContainer">
             {this.props.active ? (
-              <IFrame className={classes.iframeheight} minHeight={667}><div>{this.props.children}</div></IFrame>
-              // <IFramePlayground minHeight={667}>{children}</IFramePlayground>
+              <IFramePlayground minHeight={667}>{children}</IFramePlayground>
             ) : (
-              <div className={classes.iframeheight}>{children}</div>
+              <div>{children}</div>
             )}
           </div>
           <div>
             {/* <CssBaseline/> */}
-            {/* <Menu />
+            <Menu />
             <Paper />
             <List />
             <ListItem />
@@ -212,7 +241,7 @@ class DeviceViewer extends React.Component {
             <Backdrop />
             <Popover />
             <Popper />
-            <Modal /> */}
+            <Modal />
           </div>
         </div>
       </>

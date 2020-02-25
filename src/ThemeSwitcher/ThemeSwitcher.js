@@ -22,6 +22,16 @@ console.log("selected theme: ", selectedTheme)
           main: props.secondaryColor
             ? props.secondaryColor
             : selectedTheme.palette.secondary.main
+        },
+        decoration: {
+          main: props.decorationColor
+            ? props.decorationColor
+            : selectedTheme.palette.decoration.main
+        },
+        headerBadges: {
+          main: props.headerBadgesColor
+            ? props.headerBadgesColor
+            : selectedTheme.palette.headerBadges.main
         }
       },
     });
@@ -65,6 +75,8 @@ ThemeSwitcher.propTypes = {
   themeProfile: PropTypes.oneOf(["theme1", "theme2", "custom"]),
   primaryColor: PropTypes.string,
   secondaryColor: PropTypes.string,
+  decorationColor: PropTypes.string,
+  headerBadgesColor: PropTypes.string,
   children: PropTypes.node
 };
 
