@@ -1,20 +1,63 @@
 import * as React from "react";
-import Drawer from "../Drawer";
-import List from "../../List/List";
-import ListItem from "../../ListItem/ListItem";
-import ListItemText from "../../ListItemText/ListItemText";
 
+import Drawer from "../Drawer";
+import IglooSideNavigation from "../../IglooSideNavigation/IglooSideNavigation"
+var menus = 
+  [
+    {
+        "active": true,
+        "opened": true,
+        "label": "Marketing Services",
+        "submenu": [
+            {
+                "label": "Branding",
+                "submenu": [
+                    {
+                        "label": "Brochures"
+                    },
+                    {
+                        "label": "Business Cards"
+                    },
+                    {
+                        "label": "Logos"
+                    }
+                ]
+            },
+            {
+                "label": "Variable Printing",
+                "submenu": [
+                    {
+                        "label": "Igen"
+                    },
+                    {
+                        "label": "1-to-1"
+                    }
+                ]
+            },
+            {
+                "label": "Loyalty",
+                "active": true,
+            },
+            {
+                "label": "Social Media"
+            }
+        ]
+    },
+    {
+        "icon": "data_usage",
+        "label": "Data Solutions"
+    },
+    {
+        "icon": "widgets",
+        "label": "Technology"
+    },
+    {
+        "icon": "bookmarks",
+        "label": "From Side"
+    }
+]
 export default (
-  <Drawer uxpId="1">
-    <List uxpId="2">
-      <ListItem uxpId="2.1">
-        <ListItemText uxpId="2.2">Send</ListItemText>
-      </ListItem>
-    </List>
-    <List uxpId="3">
-      <ListItem uxpId="3.1">
-        <ListItemText uxpId="3.2">Drafts</ListItemText>
-      </ListItem>
-    </List>
+  <Drawer  anchor="left" open={true} variant="temporary" width={256} uxpId="1">
+    <IglooSideNavigation menus={menus} uxpId="2"/>
   </Drawer>
 );

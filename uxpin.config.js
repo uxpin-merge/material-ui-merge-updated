@@ -33,7 +33,7 @@ module.exports = {
         name: "Navigation",
         include: [
           "src/BottomNavigation/BottomNavigation.js",
-          "src/DrawerModalUXP/DrawerModalUXP.js",
+          "src/Drawer/Drawer.js",
           "src/Link/Link.js",
           "src/Menu/Menu.js",
           "src/TabsWithPanel/TabsWithPanel.js",

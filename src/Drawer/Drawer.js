@@ -1,83 +1,101 @@
 import DrawerM from "@material-ui/core/Drawer";
 import PropTypes from "prop-types";
 import React from "react";
+import { withStyles } from "@material-ui/core/styles";
 
-function Drawer(props) {
-  return <DrawerM {...props}>{props.children}</DrawerM>;
+const styles = theme => ({
+  root: {
+    display: "flex"
+  },
+  drawerPaperSide: {
+    minWidth: "256px",
+    // flexShrink: 0
+  },
+  drawerPaperBottom: {
+    width: "100%",
+    flexShrink: 0
+  }
+});
+
+class Drawer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { open: this.props.open };
+  }
+
+  toggleDrawer = () => () => {
+    this.setState({
+      open: false
+    });
+  };
+
+  render() {
+    const { classes } = this.props;
+
+    const drawerWidth =
+      this.props.anchor === "bottom" || this.props.anchor === "top"
+        ? classes.drawerPaperBottom
+        : classes.drawerPaperSide;
+
+
+    return (
+      <DrawerM
+        {...this.props}
+        onClose={this.toggleDrawer()}
+        open={this.state.open}
+        classes={{
+          paper: drawerWidth
+        }}
+        disableEnforceFocus
+        disablePortal={true}
+      >
+        <div style={{minWidth: this.props.width}}>
+        {this.props.children}
+        </div>
+      </DrawerM>
+    );
+  }
 }
 
 Drawer.propTypes = {
-   /**
-   * Side from which the drawer will appear.
-   */
-  anchor: PropTypes.oneOf(['left', 'top', 'right', 'bottom']),
-
   /**
-   * The contents of the drawer.
-   */
-  children: PropTypes.node,
-
-  /**
-   * Override or extend the styles applied to the component.
-   * See [CSS API](#css-api) below for more details.
-   */
-  classes: PropTypes.object,
-
-  /**
-   * @ignore
-   */
-  className: PropTypes.string,
-
-  /**
-   * The elevation of the drawer.
-   */
-  elevation: PropTypes.number,
-
-  /**
-   * Properties applied to the [`Modal`](/api/modal/) element.
-   */
-  ModalProps: PropTypes.object,
-
-  /**
-   * Callback fired when the component requests to be closed.
-   *
-   * @param {object} event The event source of the callback
-   */
-  onClose: PropTypes.func,
-
-  /**
-   * If `true`, the drawer is open.
+   * if `true` shows the drawer.
    */
   open: PropTypes.bool,
 
   /**
-   * Properties applied to the [`Paper`](/api/paper/) element.
-   */
-  PaperProps: PropTypes.object,
-
-  /**
-   * Properties applied to the [`Slide`](/api/slide/) element.
-   */
-  SlideProps: PropTypes.object,
-
-  /**
-   * @ignore
-   */
-  theme: PropTypes.object,
-
-  /**
-   * The duration for the transition, in milliseconds.
-   * You may specify a single timeout for all transitions, or individually with an object.
-   */
-  transitionDuration: PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
-    enter: PropTypes.number,
-    exit: PropTypes.number
-  })]),
-
-  /**
    * The variant to use.
+   * 
    */
-  variant: PropTypes.oneOf(['permanent', 'persistent', 'temporary'])
+  variant: PropTypes.oneOf(["permanent", "persistent", "temporary"]),
+
+  /**
+   * Side from which the drawer will appear.
+   */
+  anchor: PropTypes.oneOf(["left", "top", "right", "bottom"]),
+
+  /**
+   * The width of the drawer.
+   */
+  width: PropTypes.number,
+
+  /**
+   * Close event to use with UXPin interactions.
+   */
+  onClose: PropTypes.func,
+
+
+  /**
+  * The contents of the drawer.
+  * @uxpinignoreprop
+  */
+  children: PropTypes.node,
+
+  /**
+   * Needed to display in UXP editor if variant is `permanent` or `persistent`
+   * @uxpinignoreprop
+   */
+  // minHeight: PropTypes.number,
 };
 
-export { Drawer as default };
+export default withStyles(styles)(Drawer);

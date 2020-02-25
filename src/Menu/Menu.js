@@ -11,7 +11,6 @@ import PropTypes from "prop-types";
 import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -50,15 +49,6 @@ export default function Menu(props) {
     }
   }
 
-  // let drawerContainer = null;
-
-  // if (document.querySelector("#iframeContainer iframe")) {
-  //   drawerContainer = document.querySelector("#iframeContainer iframe")
-  //     .contentWindow.document.body;
-  // } else if (document.querySelector("[data-id='canvas']")) {
-  //   drawerContainer = document.querySelector("[data-id='canvas']");
-  // }
-
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
@@ -82,15 +72,6 @@ export default function Menu(props) {
             <Icon>{props.icon}</Icon>
           </IconButton>
         ) : (
-          // <Button
-          //   aria-owns={anchorEl ? randomID : undefined}
-          //   aria-haspopup="true"
-          //   onClick={this.handleClick}
-          //   variant={this.props.buttonVariant}
-          //   color={this.props.color}
-          // >
-          //   {this.props.label}
-          // </Button>
           <Button
             ref={anchorRef}
             aria-haspopup="true"
@@ -114,18 +95,12 @@ export default function Menu(props) {
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
-              // style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-              // container={drawerContainer}
             >
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList
-                    // id="menu-list-grow"
                     onKeyDown={handleListKeyDown}
                   >
-                    {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem> */}
                     {props.menuItems.map((item, key) => {
                       return (
                         <MenuItem
