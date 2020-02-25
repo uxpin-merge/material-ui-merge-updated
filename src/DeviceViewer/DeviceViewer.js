@@ -26,7 +26,7 @@ const styles = theme => ({
     background: "#eeeeee",
     width: "100%",
     height: "100%",
-    paddingBottom: "35px",
+    paddingBottom: "75px",
     minHeight: "702px",
     minWidth: "1280px"
   },
