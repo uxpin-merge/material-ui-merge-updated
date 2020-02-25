@@ -14,7 +14,7 @@ import NoSsr from "@material-ui/core/NoSsr";
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    minHeight: "667px"
+    minHeight: "200px"
   }
 }));
 
@@ -47,9 +47,10 @@ const classes = useStyles();
 
   return (
    <NoSsr>
-    <Frame frameBorder={0} {...props} head={<CustomHead />}
+    <Frame frameBorder={0} head={<CustomHead />}
     style={{
       width: "100%",
+      height: "inherit",
       border: "1px solid #ccc",
     }}
     sandbox =

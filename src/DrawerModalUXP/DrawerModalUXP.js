@@ -50,16 +50,17 @@ class DrawerModalUXP extends React.Component {
         {...this.props}
         onClose={this.toggleDrawer()}
         open={this.state.open}
-        variant={this.props.variant}
+        variant="temporary"
         anchor={this.props.anchor}
         SlideProps={uxpContainer ? { tabIndex: "null" } : null}
-        container={drawerContainer}
+        // container={drawerContainer}
         classes={{
           paper: drawerWidth
         }}
         minHeight={this.props.minHeight}
         style={{ minHeight: this.props.minHeight}}
         disableEnforceFocus
+        disablePortal={true}
       >
         <div style={{minWidth: this.props.width}}>
         {this.props.children}
