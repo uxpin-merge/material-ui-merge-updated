@@ -51,6 +51,7 @@ const classes = useStyles();
     style={{
       width: "100%",
       height: "inherit",
+      minHeight: "667px",
       border: "1px solid #ccc",
     }}
     sandbox =
