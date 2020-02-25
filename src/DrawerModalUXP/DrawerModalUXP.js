@@ -37,28 +37,15 @@ class DrawerModalUXP extends React.Component {
         ? classes.drawerPaperBottom
         : classes.drawerPaperSide;
 
-  const uxpContainer = document.querySelector("[data-id='canvas']");
-  let drawerContainer = null;
 
-  if (document.querySelector("#iframeContainer iframe")) {
-    drawerContainer = document.querySelector("#iframeContainer iframe").contentWindow.document.body;
-  } else if (document.querySelector("[data-id='canvas']")) {
-    drawerContainer = document.querySelector("[data-id='canvas']");
-  }
     return (
       <Drawer
         {...this.props}
         onClose={this.toggleDrawer()}
         open={this.state.open}
-        variant="temporary"
-        anchor={this.props.anchor}
-        SlideProps={uxpContainer ? { tabIndex: "null" } : null}
-        // container={drawerContainer}
         classes={{
           paper: drawerWidth
         }}
-        minHeight={this.props.minHeight}
-        style={{ minHeight: this.props.minHeight}}
         disableEnforceFocus
         disablePortal={true}
       >
@@ -91,23 +78,23 @@ DrawerModalUXP.propTypes = {
    */
   onClose: PropTypes.func,
 
-  /**
-   * The contents of the drawer.
-   * @uxpinignoreprop
-   */
-  children: PropTypes.node,
-
     /**
    * The variant to use.
-   * @uxpinignoreprop
+   * 
    */
   variant: PropTypes.oneOf(["permanent", "persistent", "temporary"]),
+
+  /**
+  * The contents of the drawer.
+  * @uxpinignoreprop
+  */
+  children: PropTypes.node,
 
   /**
    * Needed to display in UXP editor if variant is `permanent` or `persistent`
    * @uxpinignoreprop
    */
-  minHeight: PropTypes.number,
+  // minHeight: PropTypes.number,
 };
 
 export default withStyles(styles)(DrawerModalUXP);
