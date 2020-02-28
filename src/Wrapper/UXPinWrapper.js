@@ -2,7 +2,9 @@ import React from "react";
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import igloo from "../ThemeSwitcher/themes/igloo";
-import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
+import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
+
 
 let theme = createMuiTheme(igloo);
 
@@ -32,5 +34,5 @@ export default function UXPinWrapper({ children }) {
     document.head.appendChild(icons);
   }
   
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return <ThemeProvider theme={theme}><Paper elevation={0}>{children}</Paper></ThemeProvider>;
 }
