@@ -90,7 +90,8 @@ const IframeContentDidMount = () => {
     iframeElement.style.height = iframeElement.contentWindow.document.body.scrollHeight + 'px';
     console.log(iframeElement.contentWindow.document.body.scrollHeight)
   } else{
-    // iframeElement.style.height = 'inherit'
+    const iframeElement = document.querySelector("#target");
+    iframeElement.style.removeProperty('height');
   }
 };
 
@@ -100,7 +101,8 @@ const IframeContentDidUpdate = () => {
     iframeElement.style.height = iframeElement.contentWindow.document.body.scrollHeight + 'px';
     console.log(iframeElement.contentWindow.document.body.scrollHeight)
   } else{
-    // iframeElement.style.height = 'inherit'
+    const iframeElement = document.querySelector("#target");
+    iframeElement.style.removeProperty('height');
   }
 };
 
