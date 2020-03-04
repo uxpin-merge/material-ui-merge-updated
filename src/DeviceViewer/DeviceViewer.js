@@ -17,12 +17,13 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     background: "#eeeeee"
   },
-  deviceSelect: {
-    border: "none"
-  },
+  // deviceSelect: {
+  //   border: "none"
+  // },
   formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120
+    margin: 0,
+    minWidth: 120,
+    border: "none"
   }
 }));
 
@@ -37,9 +38,25 @@ function DeviceViewer(props) {
   React.useEffect(() => {
     console.log("useeffect");
     setViewportDimensions();
+
+        //If in UXP editor
+    if (document.querySelector("#simplified")) {
+      const uxpContainer = document.querySelector("#deviceSelector");
+      uxpContainer.style.visibility = "hidden";
+
+      // alert("in editor")
+    } else {
+      //Remove top margin of UXP Canvas
+      if (document.querySelector(".canvas-container")) {
+        // const uxpContainer = document.querySelector(".canvas-container");
+        // uxpContainer.style.marginTop = "0";
+      }
+    }
+
+
+
   });
 
-  // alert(iframeContainer.current.inner)
   const handleChange = event => {
     setdeviceView(event.target.value);
   };
@@ -49,7 +66,6 @@ function DeviceViewer(props) {
     switch (deviceView) {
       case "desktop":
         setframeWidth(1280);
-        // setframeHeight(600);
         return;
       case "tablet":
         setframeWidth(768);
@@ -96,13 +112,13 @@ function DeviceViewer(props) {
         className={classes.deviceToolbar}
       >
         <Grid item>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} id="deviceSelector">
             <Select
-              id="demo-simple-select-outlined"
               value={deviceView}
               onChange={handleChange}
               framewidth={frameWidth}
               frameheight={frameHeight}
+              className={classes.deviceSelect}
             >
               {props.desktopOption && (
                 <MenuItem value={"desktop"}>

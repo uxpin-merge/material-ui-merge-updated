@@ -82,7 +82,9 @@ function IFrame(props) {
             sandbox="allow-same-origin allow-top-navigation allow-top-navigation-by-user-activation allow-scripts"
             className={classes.iframe}
             // ref={handleRef}
-            {...props}
+            // {...props}
+            contentDidMount={props.contentDidMount}
+          contentDidUpdate={props.contentDidMount}
 
           >
             <FrameContextConsumer>
