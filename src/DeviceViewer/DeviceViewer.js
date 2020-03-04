@@ -8,12 +8,14 @@ import Grid from "@material-ui/core/Grid";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100%",
-    height: "100%"
+    flexGrow: 1,
+    minWidth: "1280px",
+    height: "100%",
+    background: "#eeeeee"
   },
   deviceSelect: {
     border: "none"
@@ -33,33 +35,78 @@ function DeviceViewer(props) {
   const [deviceView, setdeviceView] = React.useState(props.defaultView);
   const [active, setActive] = React.useState(props.active);
 
-  const inputLabel = React.useRef(null);
 
   React.useEffect(() => {
+console.log('useeffect');
+
     switch (deviceView) {
+      
       case "desktop":
         setframeWidth(1280);
-        setframeHeight(667);
+        // setframeHeight(600);
         return;
       case "tablet":
         setframeWidth(768);
         setframeHeight(1024);
         return;
+      case "tablet-landscape":
+        setframeWidth(1024);
+        setframeHeight(768);
+        return;
       case "mobile":
         setframeWidth(375);
         setframeHeight(667);
         return;
+      case "mobile-landscape":
+        setframeWidth(667);
+        setframeHeight(375);
+        return;
       default:
         return;
     }
-  }, [deviceView]);
 
+
+
+  });
+
+
+  // alert(iframeContainer.current.inner)
   const handleChange = event => {
     setdeviceView(event.target.value);
   };
 
+  setTimeout(function() {
+  // const iframeElement = document.querySelector("#target");
+  // iframeElement.style.height = iframeElement.contentWindow.document.body.scrollHeight + 'px' 
+  // alert(iframeContainer.current)
+}, 2000);
+
+
+const IframeContentDidMount = () => {
+  console.log("mount")
+
+  if (deviceView === "desktop") {
+    const iframeElement = document.querySelector("#target");
+    iframeElement.style.height = iframeElement.contentWindow.document.body.scrollHeight + 'px';
+    console.log(iframeElement.contentWindow.document.body.scrollHeight)
+  } else{
+    // iframeElement.style.height = 'inherit'
+  }
+};
+
+const IframeContentDidUpdate = () => {
+  if (deviceView === "desktop"){
+    const iframeElement = document.querySelector("#target");
+    iframeElement.style.height = iframeElement.contentWindow.document.body.scrollHeight + 'px';
+    console.log(iframeElement.contentWindow.document.body.scrollHeight)
+  } else{
+    // iframeElement.style.height = 'inherit'
+  }
+};
+
+
   return (
-    <>
+    <div className={classes.root}>
       <Grid
         container
         direction="row"
@@ -68,29 +115,59 @@ function DeviceViewer(props) {
         className={classes.deviceToolbar}
       >
         <Grid item>
-          <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel ref={inputLabel} id="demo-simple-select-outlined-label">
-              Age
-            </InputLabel>
+          <FormControl className={classes.formControl}>
             <Select
-              labelId="demo-simple-select-outlined-label"
               id="demo-simple-select-outlined"
               value={deviceView}
               onChange={handleChange}
               framewidth={frameWidth}
               frameheight={frameHeight}
             >
-              <MenuItem value={"desktop"}>Desktop</MenuItem>
-              <MenuItem value={"tablet"}>Tablet</MenuItem>
-              <MenuItem value={"mobile"}>Mobile</MenuItem>
+              {props.desktopOption && (
+                <MenuItem value={"desktop"}>
+                  <Typography variant="caption">Desktop (1280x667)</Typography>
+                </MenuItem>
+              )}
+              {props.tabletOption && (
+                <MenuItem value={"tablet"}>
+                  <Typography variant="caption">Tablet (668x1024)</Typography>
+                </MenuItem>
+              )}
+              {props.tabletOption && (
+                <MenuItem value={"tablet-landscape"}>
+                  <Typography variant="caption">Tablet Landscape (1024x668)</Typography>
+                </MenuItem>
+              )}
+              {props.mobileOption && (
+                <MenuItem value={"mobile"}>
+                  <Typography variant="caption">Mobile (375x667)</Typography>
+                </MenuItem>
+              )}
+              {props.mobileOption && (
+                <MenuItem value={"mobile-landscape"}>
+                  <Typography variant="caption">
+                    Mobile Landscape (667x375)
+                  </Typography>
+                </MenuItem>
+              )}
+              
             </Select>
           </FormControl>
         </Grid>
       </Grid>
-      <IFrame active={active} frameWidth={frameWidth} frameHeight={frameHeight}>
-        <div style={{ overflowX: "hidden" }}>{props.children}</div>
-      </IFrame>
-    </>
+      <Box pb={3} >
+        <IFrame
+          active={active}
+          frameWidth={frameWidth}
+          frameHeight={frameHeight}
+          id="target"
+          contentDidMount={IframeContentDidMount}
+          contentDidUpdate={IframeContentDidUpdate}
+        >
+          <div style={{ overflowX: "hidden" }}>{props.children}</div>
+        </IFrame>
+      </Box>
+    </div>
   );
 }
 

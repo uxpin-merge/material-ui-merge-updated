@@ -17,16 +17,16 @@ const useStyles = makeStyles(theme => ({
     height: "100%"
   },
   iframe: props => ({
-    display: "flex",
+    //  display: "flex",
     margin: "0 auto",
     border: "1px solid #ccc",
     height: props.frameHeight,
     width: props.frameWidth
   }),
   inactiveDiv: props => ({
-    display: "flex",
+    //  display: "flex",
     margin: "0 auto",
-    border: "1px solid red",
+    border: "1px dashed blue",
     width: props.frameWidth
   })
 }));
@@ -56,9 +56,20 @@ const CustomHead = props => {
   );
 };
 
-
 function IFrame(props) {
   const classes = useStyles(props);
+
+
+  
+  React.useLayoutEffect(() => {
+
+  });
+
+  const onContentDidMount = (document, window) => {
+// alert(document.body);
+
+
+};
 
   return (
     <NoSsr>
@@ -70,15 +81,22 @@ function IFrame(props) {
             id="target"
             sandbox="allow-same-origin allow-top-navigation allow-top-navigation-by-user-activation allow-scripts"
             className={classes.iframe}
+            // ref={handleRef}
+            {...props}
+
           >
             <FrameContextConsumer>
               {({ document, window }) => {
+                 
+               //   onContentDidMount(document, window);
+
                 const jss = create({
                   plugins: [...jssPreset().plugins],
                   insertionPoint: document.head
                 });
 
-                document.body.style.backgroundColor = "#ffffff";
+               //  document.body.style.backgroundColor = "#ffffff";
+            
 
                 return (
                   <StylesProvider jss={jss}>
@@ -92,7 +110,9 @@ function IFrame(props) {
             </FrameContextConsumer>
           </Frame>
         ) : (
-          <Paper className={classes.inactiveDiv} elevation={0} square>{props.children}</Paper>
+          <Paper className={classes.inactiveDiv} elevation={0} square>
+            {props.children}
+          </Paper>
         )}
       </div>
     </NoSsr>
@@ -105,7 +125,7 @@ IFrame.propTypes = {
   children: PropTypes.node,
   frameWidth: PropTypes.number,
   frameHeight: PropTypes.number,
-  active: PropTypes.bool
+  active: PropTypes.bool,
 };
 
 IFrame.defaultProps = {
