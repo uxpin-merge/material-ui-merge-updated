@@ -29,18 +29,24 @@ const useStyles = makeStyles(theme => ({
 function DeviceViewer(props) {
   const classes = useStyles(props);
 
-  // Declare a new state variable, which we'll call "count"
   const [frameWidth, setframeWidth] = React.useState(800);
   const [frameHeight, setframeHeight] = React.useState(800);
   const [deviceView, setdeviceView] = React.useState(props.defaultView);
   const [active, setActive] = React.useState(props.active);
 
-
   React.useEffect(() => {
-console.log('useeffect');
+    console.log("useeffect");
+    setViewportDimensions();
+  });
 
+  // alert(iframeContainer.current.inner)
+  const handleChange = event => {
+    setdeviceView(event.target.value);
+  };
+
+
+  const setViewportDimensions = () => {
     switch (deviceView) {
-      
       case "desktop":
         setframeWidth(1280);
         // setframeHeight(600);
@@ -64,47 +70,20 @@ console.log('useeffect');
       default:
         return;
     }
-
-
-
-  });
-
-
-  // alert(iframeContainer.current.inner)
-  const handleChange = event => {
-    setdeviceView(event.target.value);
   };
 
-  setTimeout(function() {
-  // const iframeElement = document.querySelector("#target");
-  // iframeElement.style.height = iframeElement.contentWindow.document.body.scrollHeight + 'px' 
-  // alert(iframeContainer.current)
-}, 2000);
-
-
-const IframeContentDidMount = () => {
-  console.log("mount")
-
-  if (deviceView === "desktop") {
+  const IFrameResize = () => {
+    setViewportDimensions();
     const iframeElement = document.querySelector("#target");
-    iframeElement.style.height = iframeElement.contentWindow.document.body.scrollHeight + 'px';
-    console.log(iframeElement.contentWindow.document.body.scrollHeight)
-  } else{
-    const iframeElement = document.querySelector("#target");
-    iframeElement.style.removeProperty('height');
-  }
-};
 
-const IframeContentDidUpdate = () => {
-  if (deviceView === "desktop"){
-    const iframeElement = document.querySelector("#target");
-    iframeElement.style.height = iframeElement.contentWindow.document.body.scrollHeight + 'px';
-    console.log(iframeElement.contentWindow.document.body.scrollHeight)
-  } else{
-    const iframeElement = document.querySelector("#target");
-    iframeElement.style.removeProperty('height');
-  }
-};
+    if (deviceView === "desktop") {
+      iframeElement.style.height =
+        iframeElement.contentWindow.document.body.scrollHeight + "px";
+    } else {
+      iframeElement.style.removeProperty("height");
+    }
+  };
+
 
 
   return (
@@ -137,7 +116,9 @@ const IframeContentDidUpdate = () => {
               )}
               {props.tabletOption && (
                 <MenuItem value={"tablet-landscape"}>
-                  <Typography variant="caption">Tablet Landscape (1024x668)</Typography>
+                  <Typography variant="caption">
+                    Tablet Landscape (1024x668)
+                  </Typography>
                 </MenuItem>
               )}
               {props.mobileOption && (
@@ -152,19 +133,18 @@ const IframeContentDidUpdate = () => {
                   </Typography>
                 </MenuItem>
               )}
-              
             </Select>
           </FormControl>
         </Grid>
       </Grid>
-      <Box pb={3} >
+      <Box pb={3}>
         <IFrame
           active={active}
           frameWidth={frameWidth}
           frameHeight={frameHeight}
           id="target"
-          contentDidMount={IframeContentDidMount}
-          contentDidUpdate={IframeContentDidUpdate}
+          contentDidMount={IFrameResize}
+          contentDidUpdate={IFrameResize}
         >
           <div style={{ overflowX: "hidden" }}>{props.children}</div>
         </IFrame>
