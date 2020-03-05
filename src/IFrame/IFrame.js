@@ -56,20 +56,12 @@ const CustomHead = props => {
   );
 };
 
+/**
+ * @uxpinwrappers
+ * SkipContainerWrapper
+ */
 function IFrame(props) {
   const classes = useStyles(props);
-
-
-  
-  React.useLayoutEffect(() => {
-
-  });
-
-  const onContentDidMount = (document, window) => {
-// alert(document.body);
-
-
-};
 
   return (
     <NoSsr>
@@ -84,7 +76,7 @@ function IFrame(props) {
             // ref={handleRef}
             // {...props}
             contentDidMount={props.contentDidMount}
-          contentDidUpdate={props.contentDidMount}
+            contentDidUpdate={props.contentDidMount}
 
           >
             <FrameContextConsumer>
