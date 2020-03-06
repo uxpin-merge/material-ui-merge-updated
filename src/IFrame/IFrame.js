@@ -73,24 +73,17 @@ function IFrame(props) {
             id="target"
             sandbox="allow-same-origin allow-top-navigation allow-top-navigation-by-user-activation allow-scripts"
             className={classes.iframe}
-            // ref={handleRef}
-            // {...props}
             contentDidMount={props.contentDidMount}
             contentDidUpdate={props.contentDidMount}
 
           >
             <FrameContextConsumer>
               {({ document, window }) => {
-                 
-               //   onContentDidMount(document, window);
 
                 const jss = create({
                   plugins: [...jssPreset().plugins],
                   insertionPoint: document.head
                 });
-
-               //  document.body.style.backgroundColor = "#ffffff";
-            
 
                 return (
                   <StylesProvider jss={jss}>
