@@ -3,32 +3,53 @@ import Icon from "@material-ui/core/Icon";
 import PropTypes from "prop-types";
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
-const styles = theme => ({
-  button: {
-    // textTransform: "none",
-    // fontSize: "1rem"
+// const styles = theme => ({
+//   startIcon: {
+//     marginRight: theme.spacing.unit,
+//     marginLeft: -theme.spacing.unit / 2,
+//     fontSize: 18
+//   },
+//   buttonMargin: {
+//     margin: theme.spacing(1 / 2)
+//   }
+// });
+
+const useStyles = makeStyles(theme => ({
+  startIcon: {
+    // marginRight: theme.spacing(1),
+    // marginLeft: -theme.spacing(1/2),
+    // fontSize: 18
   },
-  leftIcon: {
-    marginRight: theme.spacing.unit,
-    marginLeft: -theme.spacing.unit / 2,
-    fontSize: 18
-  },
-  buttonMargin: {
-    margin: theme.spacing(1/2),
+  root: {
+    margin: theme.spacing(1 / 2)
   }
-});
+}));
+
 
 function ButtonUXP(props) {
-  let { classes } = props;
+  
+  const classes = useStyles(props);
+
   return (
-    <ButtonM {...props} className={`${classes.button} ${classes.buttonMargin}`}>
-      {props.icon ? (
-        <Icon className={classes.leftIcon}>{props.icon}</Icon>
-      ) : null}
+    <ButtonM {...props}
+    className={classes.root}
+    startIcon={
+      props.startIcon && (
+        <Icon >{props.startIcon}</Icon>
+      ) 
+    }
+    endIcon={
+      props.endIcon && (
+        <Icon >{props.endIcon}</Icon>
+      ) 
+    }
+    >
+      
       {props.children}
     </ButtonM>
-  );
+  )
 }
 
 // *********************
@@ -36,7 +57,6 @@ function ButtonUXP(props) {
 // *********************
 
 ButtonUXP.propTypes = {
-
   /**
    * The label of the button.
    * @uxpinpropname  Label
@@ -51,7 +71,6 @@ ButtonUXP.propTypes = {
   /**
    * The color of the button.
    */
-  /** @uxpinignoreprop */
 
   color: PropTypes.oneOf(["primary", "secondary", "inherit"]),
 
@@ -61,25 +80,37 @@ ButtonUXP.propTypes = {
   size: PropTypes.oneOf(["small", "medium", "large"]),
 
   /**
-   * If set, icon will display.
+   * If set, icon will display to the left.
    * Use the name of the icon from https://material.io/tools/icons.
    */
-  icon: PropTypes.string,
+  startIcon: PropTypes.string,
+
+  /**
+   * If set, icon will display to the right.
+   * Use the name of the icon from https://material.io/tools/icons.
+   */
+  endIcon: PropTypes.string,
 
   /**
    * If `true`, the button will take up the full width of its container.
    */
   fullWidth: PropTypes.bool,
 
+    /**
+   * If `true`, the button will have no elevation.
+   */
+
+  disableElevation: PropTypes.bool,
+  
   /**
    * If `true`, the button will be disabled.
    */
 
   disabled: PropTypes.bool,
-    /**
+  /**
    * On click event to use with UXPin interactions.
    */
   onClick: PropTypes.func
 };
 
-export default withStyles(styles)(ButtonUXP);
+export default ButtonUXP;

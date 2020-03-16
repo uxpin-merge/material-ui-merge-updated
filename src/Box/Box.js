@@ -16,16 +16,7 @@ function Box(props) {
   
 return (
      <BoxM {...props}
-      style={{
-        paddingTop: pt,
-        paddingRight: pr,
-        paddingBottom: pb,
-        paddingLeft: pl,
-        marginTop: mt,
-        marginRight: mr,
-        marginBottom: mb,
-        marginLeft: ml,
-      }} >
+       >
        {props.children}
      </BoxM>
    );
