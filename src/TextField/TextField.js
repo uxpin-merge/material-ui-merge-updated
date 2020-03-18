@@ -4,42 +4,52 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextFieldM from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
+import { Paper } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles(theme => ({
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1)
+    // marginLeft: theme.spacing(1),
+    // marginRight: theme.spacing(1),
+    // marginTop: theme.spacing(1),
+    // marginBottom: theme.spacing(1)
   }
 }));
+
+/**
+ * @uxpinwrappers
+ * SkipContainerWrapper
+ */
 function TextField(props) {
   const classes = useStyles();
+  console.log(props.uxpinRef);
   return (
-    <TextFieldM
-      margin="dense"
-      {...props}
-      InputProps={
-        props.icon
-          ? props.iconPosition == "end"
-            ? {
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <Icon>{props.icon}</Icon>
-                  </InputAdornment>
-                )
-              }
-            : {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Icon>{props.icon}</Icon>
-                  </InputAdornment>
-                )
-              }
-          : null
-      }
-      className={classes.textField}
-    />
+    <Box ref={props.uxpinRef}>
+      <TextFieldM
+        margin="dense"
+        {...props}
+        InputProps={
+          props.icon
+            ? props.iconPosition == "end"
+              ? {
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <Icon>{props.icon}</Icon>
+                    </InputAdornment>
+                  )
+                }
+              : {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <Icon>{props.icon}</Icon>
+                    </InputAdornment>
+                  )
+                }
+            : null
+        }
+        className={classes.textField}
+      />
+    </Box>
   );
 }
 
@@ -175,6 +185,11 @@ TextField.propTypes = {
    * @uxpinignoreprop
    */
   inputProps: PropTypes.object,
+  
+  /**
+   * @uxpinignoreprop
+   */
+  uxpinRef: PropTypes.object,
 
   /**
    * Use that property to pass a ref callback to the native input component.

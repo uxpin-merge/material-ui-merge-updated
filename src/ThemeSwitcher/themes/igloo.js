@@ -45,11 +45,11 @@ const igloo = createMuiTheme({
   },
   overrides: {
     // Name of the component
-    MuiButton: {
+    MuiOutlinedInput: {
       // Name of the rule
-      label: {
+      root: {
         // Some CSS
-        // color: "green" 
+        backgroundColor: "#ffffff" 
       }
     }
   }

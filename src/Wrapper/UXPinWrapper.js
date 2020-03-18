@@ -34,5 +34,5 @@ export default function UXPinWrapper({ children }) {
     document.head.appendChild(icons);
   }
   
-  return <ThemeProvider theme={theme}><Paper elevation={0}>{children}</Paper></ThemeProvider>;
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }
