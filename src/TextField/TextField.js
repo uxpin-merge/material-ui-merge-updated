@@ -23,11 +23,12 @@ const useStyles = makeStyles(theme => ({
 function TextField(props) {
   const classes = useStyles();
   console.log(props.uxpinRef);
+  const { uxpinRef, disableTransformation, iconPosition, ...other } = props;
   return (
     <Box ref={props.uxpinRef}>
       <TextFieldM
         margin="dense"
-        {...props}
+        {...other}
         InputProps={
           props.icon
             ? props.iconPosition == "end"
