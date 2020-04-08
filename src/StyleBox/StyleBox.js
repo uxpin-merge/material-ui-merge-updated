@@ -1,30 +1,62 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
-
-import {
-  compose,
-  spacing,
-  palette,
-  borders,
-  typography
-} from "@material-ui/system";
-
-const StyledBox = styled("div")(compose(spacing, palette, borders, typography));
+import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
 
 export default function StyleBox(props) {
   return (
-    <Paper elevation={0}>
-      <StyledBox {...props} style={{borderColor: "rgba(0, 0, 0, 0.12)" }}>{props.children}</StyledBox>
-    </Paper>
+    <>
+  <Box
+ 
+          {...props}
+        >
+          
+          {!props.children ? (
+              <span>
+                <center>
+                  <p>Drag components into this wrapper</p>
+                </center>
+              </span>
+            ) : (
+              props.children
+            )}
+        </Box>
+
+      {/* <Box {...props} >
+        {!props.children ? (
+              <span>
+                <center>
+                  <p>Drag components into this wrapper</p>
+                </center>
+              </span>
+            ) : (
+              props.children
+            )}
+      </Box> */}
+    </>
   );
 }
+
+
 StyleBox.propTypes = {
   /**
    * The content of the box.
    */
   children: PropTypes.node,
+
+  clone: PropTypes.bool,
+
+  /**
+   * Color of text
+   */
+
+  color: PropTypes.oneOf(['primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
+
+  bgcolor: PropTypes.oneOf(['primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
+
+
 
   /**
    * All Padding.
@@ -111,8 +143,6 @@ StyleBox.propTypes = {
    */
   borderBottom: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
 
-  // borderColor: PropTypes.oneOf(["palette.primary.main", "secondary", "grey.500"]),
-
   /**
    * Border margin.
    * Each unit equals 8dp. Example:
@@ -120,5 +150,9 @@ StyleBox.propTypes = {
    */
   borderLeft: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
 
-  textAlign: PropTypes.oneOf(["left", "center", "right"])
+  borderColor: PropTypes.oneOf(['primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
+  borderRadius: PropTypes.string,
+
+  textAlign: PropTypes.oneOf(["left", "center", "right"]),
+  // textOverflow: PropTypes.oneOf(["clip", "ellipsis"]),
 };
