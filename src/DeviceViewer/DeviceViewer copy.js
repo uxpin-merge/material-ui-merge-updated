@@ -11,14 +11,6 @@ import FormControl from "@material-ui/core/FormControl";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 
-const devices = [
-  {
-    label: "Desktop",
-    width: 1280,
-    height: 100
-  }
-];
-
 const useStyles = makeStyles(theme => ({
   root: {
     // flexGrow: 1,
@@ -52,11 +44,9 @@ function DeviceViewer(props, uxpinRef) {
     //Check if component is in UXPin editor or UXP previewer
     if (document.querySelector("#simplified")) {
       // If in UXPin editor ... remove icon from drop-down
-      const selectIcon = document.querySelector(
-        "#deviceSelector .MuiSelect-icon"
-      );
+      const selectIcon = document.querySelector("#deviceSelector .MuiSelect-icon");
       selectIcon.style.display = "none";
-    } else if (document.querySelector(".canvas-container")) {
+    } else if (document.querySelector(".canvas-container")){
       // If in UXPin editor ... top margin from uxp preview canvas
       const uxpContainer = document.querySelector(".canvas-container");
       uxpContainer.style.marginTop = "0";
@@ -65,15 +55,6 @@ function DeviceViewer(props, uxpinRef) {
 
   const handleChange = event => {
     setdeviceView(event.target.value);
-  };
-
-  const handleChange2 = event => {
-    // setdeviceView(event.target.value);
-    console.log(event.target.value);
-    // const selectedView = event.target.value;
-    // selectedView.map((item, key) => {
-    //   return console.log(item.device);
-    // });
   };
 
   const setViewportDimensions = () => {
@@ -108,14 +89,14 @@ function DeviceViewer(props, uxpinRef) {
 
     if (deviceView === "desktop") {
       iframeElement.style.height =
-        iframeElement.contentWindow.document.body.scrollHeight + 2 + "px";
+        (iframeElement.contentWindow.document.body.scrollHeight+2) + "px";
     } else {
       iframeElement.style.removeProperty("height");
     }
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <Grid
         container
         direction="row"
@@ -127,30 +108,13 @@ function DeviceViewer(props, uxpinRef) {
           <FormControl className={classes.formControl} id="deviceSelector">
             <Select
               value={deviceView}
-              onChange={handleChange2}
+              onChange={handleChange}
               framewidth={frameWidth}
               frameheight={frameHeight}
               className={classes.deviceSelect}
-              disableUnderline
+              disableUnderline              
             >
-              {devices.map((item, key) => {
-                return (
-                  <MenuItem
-                    value={[{
-                      device: item.label,
-                      width: item.width,
-                      height: item.height
-                    }]}
-                    frameheight={item.height}
-                  >
-                    <Typography variant="caption">
-                      {item.label} ( {item.width} x {item.height})
-                    </Typography>
-                  </MenuItem>
-                );
-              })}
-
-              {/* {props.desktopOption && (
+              {props.desktopOption && (
                 <MenuItem value={"desktop"}>
                   <Typography variant="caption">Desktop ( 1280 x Auto )</Typography>
                 </MenuItem>
@@ -178,7 +142,7 @@ function DeviceViewer(props, uxpinRef) {
                     Mobile Landscape (667x375)
                   </Typography>
                 </MenuItem>
-              )} */}
+              )}
             </Select>
           </FormControl>
         </Grid>

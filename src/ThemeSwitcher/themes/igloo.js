@@ -19,6 +19,12 @@ const igloo = createMuiTheme({
     headerBadges: {
       main: "red",
     },
+    text: {
+      primary: '#000000',
+      secondary: "#eeeeee",
+      disabled: "rgba(0, 0, 0, 0.38)",
+      hint: "rgba(0, 0, 0, 0.38)"
+    },
   },
   typography: {
     useNextVariants: true,
