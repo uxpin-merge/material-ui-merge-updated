@@ -1,16 +1,34 @@
 import * as React from "react";
 import RadioGroup from "../RadioGroup";
 import Radio from "../../Radio/Radio";
-import FormControl from "../../FormControl/FormControl";
-import RadioWithLabel from "../../RadioWithLabel/RadioWithLabel";
-import FormLabel from "../../FormLabel/FormLabel";
+import FormControlLabel from "../../FormControlLabel/FormControlLabel";
 
 export default (
-
-    <RadioGroup value="toys" uxpId="3">
-      <RadioWithLabel value="1" value="toys" label="Toys" uxpId="4" />
-      <RadioWithLabel value="2" value="electronics" label="Electronics" uxpId="5" />
-      <RadioWithLabel value="3" value="furniture" label="Furniture" uxpId="6" />
-    </RadioGroup>
-
+  <RadioGroup uxpId="3">
+    <FormControlLabel
+      value="female"
+      control={<Radio uxpId="radio1" />}
+      label="Female"
+      uxpId="FormControlLabel1"
+    />
+    <FormControlLabel
+      value="male"
+      control={<Radio uxpId="radio2" />}
+      label="Male"
+      uxpId="FormControlLabel2"
+    />
+    <FormControlLabel
+      value="other"
+      control={<Radio uxpId="radio3" />}
+      label="Other"
+      uxpId="FormControlLabel3"
+    />
+    <FormControlLabel
+      value="disabled"
+      disabled={true}
+      control={<Radio uxpId="radio4" />}
+      label="(Disabled option)"
+      uxpId="FormControlLabel4"
+    />
+  </RadioGroup>
 );

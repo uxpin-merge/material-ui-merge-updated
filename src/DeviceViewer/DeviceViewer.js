@@ -11,14 +11,6 @@ import FormControl from "@material-ui/core/FormControl";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 
-const devices = [
-  {
-    label: "Desktop",
-    width: 1280,
-    height: 100
-  }
-];
-
 const useStyles = makeStyles(theme => ({
   root: {
     // flexGrow: 1,
@@ -40,7 +32,7 @@ const useStyles = makeStyles(theme => ({
  * @uxpinwrappers
  * NonResizableWrapper
  */
-function DeviceViewer(props, uxpinRef) {
+function DeviceViewer(props) {
   const classes = useStyles(props);
   const [frameWidth, setframeWidth] = React.useState(0);
   const [frameHeight, setframeHeight] = React.useState(0);
@@ -52,11 +44,9 @@ function DeviceViewer(props, uxpinRef) {
     //Check if component is in UXPin editor or UXP previewer
     if (document.querySelector("#simplified")) {
       // If in UXPin editor ... remove icon from drop-down
-      const selectIcon = document.querySelector(
-        "#deviceSelector .MuiSelect-icon"
-      );
+      const selectIcon = document.querySelector("#deviceSelector .MuiSelect-icon");
       selectIcon.style.display = "none";
-    } else if (document.querySelector(".canvas-container")) {
+    } else if (document.querySelector(".canvas-container")){
       // If in UXPin editor ... top margin from uxp preview canvas
       const uxpContainer = document.querySelector(".canvas-container");
       uxpContainer.style.marginTop = "0";
@@ -65,15 +55,7 @@ function DeviceViewer(props, uxpinRef) {
 
   const handleChange = event => {
     setdeviceView(event.target.value);
-  };
-
-  const handleChange2 = event => {
-    // setdeviceView(event.target.value);
-    console.log(event.target.value);
-    // const selectedView = event.target.value;
-    // selectedView.map((item, key) => {
-    //   return console.log(item.device);
-    // });
+    alert("works");
   };
 
   const setViewportDimensions = () => {
@@ -108,14 +90,14 @@ function DeviceViewer(props, uxpinRef) {
 
     if (deviceView === "desktop") {
       iframeElement.style.height =
-        iframeElement.contentWindow.document.body.scrollHeight + 2 + "px";
+        (iframeElement.contentWindow.document.body.scrollHeight+2) + "px";
     } else {
       iframeElement.style.removeProperty("height");
     }
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} {...props}>
       <Grid
         container
         direction="row"
@@ -127,30 +109,13 @@ function DeviceViewer(props, uxpinRef) {
           <FormControl className={classes.formControl} id="deviceSelector">
             <Select
               value={deviceView}
-              onChange={handleChange2}
+              onChange={handleChange}
               framewidth={frameWidth}
               frameheight={frameHeight}
               className={classes.deviceSelect}
-              disableUnderline
+              disableUnderline              
             >
-              {devices.map((item, key) => {
-                return (
-                  <MenuItem
-                    value={[{
-                      device: item.label,
-                      width: item.width,
-                      height: item.height
-                    }]}
-                    frameheight={item.height}
-                  >
-                    <Typography variant="caption">
-                      {item.label} ( {item.width} x {item.height})
-                    </Typography>
-                  </MenuItem>
-                );
-              })}
-
-              {/* {props.desktopOption && (
+              {props.desktopOption && (
                 <MenuItem value={"desktop"}>
                   <Typography variant="caption">Desktop ( 1280 x Auto )</Typography>
                 </MenuItem>
@@ -178,7 +143,7 @@ function DeviceViewer(props, uxpinRef) {
                     Mobile Landscape (667x375)
                   </Typography>
                 </MenuItem>
-              )} */}
+              )}
             </Select>
           </FormControl>
         </Grid>
@@ -212,10 +177,11 @@ function DeviceViewer(props, uxpinRef) {
 DeviceViewer.propTypes = {
   children: PropTypes.node,
   active: PropTypes.bool,
+
   defaultView: PropTypes.oneOf(["desktop", "tablet", "mobile"]),
   desktopOption: PropTypes.bool,
   tabletOption: PropTypes.bool,
-  mobileOption: PropTypes.bool
+  mobileOption: PropTypes.bool,
 };
 
 DeviceViewer.defaultProps = {
@@ -223,7 +189,7 @@ DeviceViewer.defaultProps = {
   desktopOption: true,
   tabletOption: true,
   mobileOption: true,
-  active: true
+  active: true,
 };
 
 export default DeviceViewer;

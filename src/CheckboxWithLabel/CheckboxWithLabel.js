@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import FormControlLabelM from "@material-ui/core/FormControlLabel";
-import Checkbox from "../Checkbox/Checkbox";
+import Checkbox from "@material-ui/core/Checkbox";
 import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
@@ -26,6 +26,7 @@ function CheckboxWithLabel(props) {
 CheckboxWithLabel.propTypes = {
   /**
    * If `true`, the checkbox is checked.
+   * @uxpinbind onChange 1
    */
   checked: PropTypes.bool,
 
@@ -51,15 +52,21 @@ CheckboxWithLabel.propTypes = {
 
   /**
    * The position of the label.
-   * @uxpinignoreprop
    */
-  labelPlacement: PropTypes.oneOf(["end", "start"]),
+  labelPlacement: PropTypes.oneOf(["end", "start", "top", "bottom"]),
 
   /**
    * A control element. For instance, it can be be a `Radio`, a `Switch` or a `Checkbox`.
    * @uxpinignoreprop
    */
   control: PropTypes.element
+};
+
+CheckboxWithLabel.defaultProps = {
+  // NOTE: Checked must be controlled state from the outset, otherwise changing state in the app will trigger an error
+  // see: https://fb.me/react-controlled-components
+  checked: false,
+  onChange: () => undefined
 };
 
 export { CheckboxWithLabel as default };

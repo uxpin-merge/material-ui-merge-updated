@@ -9,6 +9,7 @@ function Switch(props) {
 Switch.propTypes = {
   /**
    * If `true`, the switch is checked.
+   * @uxpinbind onChange 1
    */
   checked: PropTypes.bool,
 
@@ -27,6 +28,13 @@ Switch.propTypes = {
   */
   onChange: PropTypes.func,
 
+};
+
+Switch.defaultProps = {
+  // NOTE: Checked must be controlled state from the outset, otherwise changing state in the app will trigger an error
+  // see: https://fb.me/react-controlled-components
+  checked: false,
+  onChange: () => undefined
 };
 
 export { Switch as default };

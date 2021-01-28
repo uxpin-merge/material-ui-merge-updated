@@ -1,23 +1,39 @@
 import React from "react";
-import PropTypes from "prop-types";
+import Radio from "@material-ui/core/Checkbox";
 import RadioGroupM from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
+import PropTypes from "prop-types";
 
-function RadioGroup(props) {
-  return <RadioGroupM {...props}>{props.children}</RadioGroupM>;
+export default function RadioGroup(props) {
+
+  return (
+    <FormControl component="fieldset" >
+      <FormLabel component="legend">{props.grouplabel}</FormLabel>
+      <RadioGroupM  {...props}>
+        {React.Children.map(props.children, (child) => (
+          <FormControlLabel
+            value={child.props.value}
+            checked={child.props.checked}
+            control={<Checkbox />}
+            label={child.props.label}
+            labelPlacement={child.props.labelPlacement}
+            disabled={child.props.disabled}
+          />
+        ))}
+      </RadioGroupM>
+    </FormControl>
+  );
 }
 
 RadioGroup.propTypes = {
-
-    /**
-   * Value of the selected radio. This is the value specified in nested RadioWithLabel components.
+  /**
+   * The value of the initially selected radio button.
+   * @uxpinbind onChange 1
    * @uxpinpropname  Selected Value
    */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
-
-  /**
-  * Change event to use with UXPin interactions.
-  */
- onChange: PropTypes.func,
+  value: PropTypes.string,
 
   /**
    * The content of the component.
@@ -32,12 +48,35 @@ RadioGroup.propTypes = {
   name: PropTypes.string,
 
   /**
-   * @ignore
    * @uxpinignoreprop
    */
   onKeyDown: PropTypes.func,
 
+  /**
+   * Display text over the radio group.
+   */
+  grouplabel: PropTypes.string,
+
+  /**
+   * display selection controls in a single row.
+   */
+  row: PropTypes.bool,
+
+  /**
+   * Aria-label text for accessibility.
+   */
+  'aria-label': PropTypes.string,
+
+    /**
+   * Change event to use with UXPin interactions.
+   */
+  onChange: PropTypes.func,
 
 };
 
-export { RadioGroup as default };
+RadioGroup.defaultProps = {
+  value: "male",
+  name: "radio-group",
+  onChange: () => undefined,
+  grouplabel: "Group Label",
+};

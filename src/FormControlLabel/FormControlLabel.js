@@ -1,22 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
 import FormControlLabelM from "@material-ui/core/FormControlLabel";
+import Radio from "@material-ui/core/Radio";
 
 function FormControlLabel(props) {
-  return <FormControlLabelM {...props}>{props.children}</FormControlLabelM>;
+  return (
+  <FormControlLabelM
+    {...props}
+  />
+  )
 }
 
 FormControlLabel.propTypes = {
-/**
-   * If `true`, the component appears selected.
+  /**
+   * If `true`, the component is checked.
+   * @uxpinbind onChange 1
    */
-  checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  checked: PropTypes.bool,
 
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
    */
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object,
 
   /**
    * @ignore
@@ -71,6 +77,15 @@ FormControlLabel.propTypes = {
    * The value of the component.
    */
   value: PropTypes.string
+};
+
+FormControlLabel.defaultProps = {
+  // NOTE: Checked must be controlled state from the outset, otherwise changing state in the app will trigger an error
+  // see: https://fb.me/react-controlled-components
+  checked: false,
+  onChange: () => undefined,
+  control: <Radio value="checkbox" />,
+  label: "Control Label"
 };
 
 export { FormControlLabel as default };
