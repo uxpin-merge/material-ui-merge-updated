@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import FormControlLabelM from "@material-ui/core/FormControlLabel";
-import Switch from "../Switch/Switch";
+import Switch from "@material-ui/core/Switch";
 import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
@@ -26,6 +26,7 @@ function SwitchWithLabel(props) {
 SwitchWithLabel.propTypes = {
   /**
    * If `true`, the checkbox appears selected.
+   * @uxpinbind onChange 1
    */
   checked: PropTypes.bool,
 
@@ -38,17 +39,16 @@ SwitchWithLabel.propTypes = {
    * The label text.
    */
   label: PropTypes.string,
+  
+  /**
+  * The value of the component.
+  */
+ value: PropTypes.string,
 
   /**
    * The position of the label.
-   * @uxpinignoreprop
    */
-  labelPlacement: PropTypes.oneOf(["end", "start"]),
-  
-  /**
-   * The value of the component.
-   */
-  value: PropTypes.string,
+  labelPlacement: PropTypes.oneOf(["end", "start", "top", "bottom"]),
 
   /**
    * Change event to use with UXPin interactions.
@@ -60,6 +60,13 @@ SwitchWithLabel.propTypes = {
    * @uxpinignoreprop
    */
   control: PropTypes.element
+};
+
+SwitchWithLabel.defaultProps = {
+  // NOTE: Checked must be controlled state from the outset, otherwise changing state in the app will trigger an error
+  // see: https://fb.me/react-controlled-components
+  checked: false,
+  onChange: () => undefined
 };
 
 export { SwitchWithLabel as default };
