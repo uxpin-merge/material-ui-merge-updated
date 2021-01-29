@@ -1,5 +1,5 @@
 import React from "react";
-import Radio from "@material-ui/core/Checkbox";
+import Radio from "@material-ui/core/Radio";
 import RadioGroupM from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
@@ -16,7 +16,7 @@ export default function RadioGroup(props) {
           <FormControlLabel
             value={child.props.value}
             checked={child.props.checked}
-            control={<Checkbox />}
+            control={<Radio />}
             label={child.props.label}
             labelPlacement={child.props.labelPlacement}
             disabled={child.props.disabled}
