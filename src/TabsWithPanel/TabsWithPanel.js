@@ -100,20 +100,19 @@ export default function TabsWithPanel(props) {
         value={value}
         onChange={handleChange}
         aria-label="full width tabs example"
-        {...props}
         className={classes.root}
+        textColor="primary"
+        indicatorColor="primary"
       >
         {props.tabs.map((item, index) => {
           return (
             <Tab
               label={item.label}
               key={index}
-              // textColor="primary"
-              // indicatorColor="primary"
               {...(item.disabled && { disabled: true })}
               {...(item.icon && { icon: <Icon> {item.icon} </Icon> })}
               {...a11yProps(index)}
-              {...props}
+              // {...props}
               className={classes.tab}
             />
           );
