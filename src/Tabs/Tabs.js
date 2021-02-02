@@ -108,6 +108,7 @@ Tabs.propTypes = {
   /**
    * The value of the currently selected `Tabs`.
    * If you don't want any selected `Tabs`, you can set this property to `false`.
+   * @uxpinbind onChange 1
    */
   value: PropTypes.number,
 
@@ -122,5 +123,10 @@ Tabs.propTypes = {
    */
   variant: PropTypes.oneOf(['standard', 'scrollable', 'fullWidth'])
 };
+Tabs.defaultProps = {
+  value: 0,
+  onChange: () => undefined
+};
+
 
 export { Tabs as default };
