@@ -1,4 +1,3 @@
-
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -7,6 +6,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "../Box/Box";
+import TabContent from '../TabContent/TabContent';
+import { values } from "lodash";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -55,18 +56,17 @@ const useStyles = makeStyles(theme => ({
   }
   },
   tab: {
-    // color: "inherit",
     fontSize: "0.95rem",
     textTransform: "none",
     marginRight: theme.spacing(1),
     fontWeight: theme.typography.fontWeightRegular,
     minWidth: 100,
     "&:hover": {
-      color: theme.palette.text.primary,
+      // color: theme.palette.secondary.dark,
     },
     "&.Mui-selected:hover": {
       // color: "inherit",
-    },
+    }
   },
   tabPanel:{
     [theme.breakpoints.up("sm")]: {
@@ -87,11 +87,9 @@ export default function TabsWithPanel(props) {
   const theme = useTheme();
   const [value, setValue] = React.useState(props.defaultValue);
 
-  React.useEffect(() => setValue(props.defaultValue), [props.defaultValue]);
-
-
   function handleChange(event, newValue) {
     setValue(newValue);
+    alert(newValue);
   }
 
   return (
@@ -108,23 +106,31 @@ export default function TabsWithPanel(props) {
             <Tab
               label={item.label}
               key={index}
-              // textColor="primary"
-              // indicatorColor="primary"
+              textColor="primary"
+              indicatorColor="primary"
               {...(item.disabled && { disabled: true })}
               {...(item.icon && { icon: <Icon> {item.icon} </Icon> })}
               {...a11yProps(index)}
               {...props}
               className={classes.tab}
+              value={item.value}
             />
           );
         })}
       </Tabs>
 
-      {React.Children.map(props.children, (child, index) => (
+      {/* {React.Children.map(props.children, (child, index) => (
         <TabPanel value={value} index={index} dir={theme.direction} className={classes.tabPanel}>
           {React.cloneElement(child, { value: value })}
         </TabPanel>
-      ))}
+      ))} */}
+
+<TabPanel value={value} className={classes.tabPanel}>
+    <TabContent  value={0} dir="x">Tab Content 1</TabContent>
+    <TabContent  value={1} dir="x">Tab Content 2</TabContent>
+    <TabContent  value={2} dir="x">Tab Content 3</TabContent>
+    </TabPanel>
+
     </div>
   );
 }
@@ -160,6 +166,13 @@ TabsWithPanel.propTypes = {
    */
   defaultValue: PropTypes.number,
 
+
+    /**
+   * Number of the tab that supposed to be active. Starts with 0.
+   */
+  value: PropTypes.number,
+
+
   /**
    *  Determines additional display behavior of the Tabss:
    *  - `scrollable` will display scroll arrows if tabs do not fit the container
@@ -172,7 +185,7 @@ TabsWithPanel.propTypes = {
    * The content of the component.
    * @uxpinignoreprop
    */
-  // children: PropTypes.node,
+  children: PropTypes.node,
 
   /**
    * Determines the color of the `Tabs`.
@@ -184,7 +197,7 @@ TabsWithPanel.propTypes = {
    * Determines the color of the indicator.
    * @uxpinignoreprop
    */
-  // indicatorColor: PropTypes.oneOf(["secondary", "primary"]),
+  indicatorColor: PropTypes.oneOf(["secondary", "primary"]),
 
   /**
    * Determine behavior of scroll buttons when Tabss are set to scroll
@@ -193,89 +206,16 @@ TabsWithPanel.propTypes = {
    * `off` will never present them
    */
   /** @uxpinignoreprop */
-  // scrollButtons: PropTypes.oneOf(["auto", "on", "off"])
+  scrollButtons: PropTypes.oneOf(["auto", "on", "off"])
 };
 
 TabsWithPanel.defaultProps = {
-  tabs: [{ label: "Tab 1" }, { label: "Tab 2" }, { label: "Tab 3" }],
+  tabs: [{ label: "Tab 1222", value:0 }, { label: "Tab 2", value:1 }, { label: "Tab 3", value:2 }],
   defaultValue: 0,
+  value: 0,
   indicatorColor: "primary",
   textColor: "primary",
   variant: "standard",
   scrollButtons: "auto"
+  
 };
-
-
-
-
-// import React from "react";
-// import AppBar from "@material-ui/core/AppBar";
-// import Tabs from "@material-ui/core/Tabs";
-// import Tab from "@material-ui/core/Tab";
-// import Box from "@material-ui/core/Box";
-// import PropTypes from "prop-types";
-
-// function TabPanel(props) {
-//   const { children, value, index, ...other } = props;
-//   return (
-//     <div {...other}>
-//       {value === index && <Box p={3}>{children}</Box>}
-//     </div>
-//   );
-// }
-// export default function TabsWithPanel(props) {
-//   const [value, setValue] = React.useState(props.value);
-
-//   React.useEffect(() => setValue(props.value), [props.value]);
-
-//   const handleChange = (event, newValue) => {
-//     setValue(newValue);
-//   };
-
-//   return (
-//     <>
-//     {/* <p>value: {props.value}</p> */}
-//       <AppBar position="static">
-//         <Tabs value={value} onChange={handleChange}>
-//           <Tab label="Item One" />
-//           <Tab label="Item Two" />
-//           <Tab label="Item Three" />
-//         </Tabs>
-//       </AppBar>
-//       <TabPanel value={value} index={0}>
-//         Item One
-//       </TabPanel>
-//       <TabPanel value={value} index={1}>
-//         Item Two
-//       </TabPanel>
-//       <TabPanel value={value} index={2}>
-//         Item Three
-//       </TabPanel>
-//     </>
-//   );
-// }
-
-// TabsWithPanel.propTypes = {
-//   /**
-//    * The value of the initially selected radio button.
-//    * @uxpinbind onChange 1
-//    */
-//   value: PropTypes.number,
-
-//   /**
-//   * The value of the initially selected radio button.
-//   */
-//   // activeTab: PropTypes.number,
-
-
-//   /**
-//   * Change event to use with UXPin interactions.
-//   */
-//   onChange: PropTypes.func,
-// };
-
-// TabsWithPanel.defaultProps = {
-//   value: 0,
-//   onChange: () => undefined,
-// };
-
