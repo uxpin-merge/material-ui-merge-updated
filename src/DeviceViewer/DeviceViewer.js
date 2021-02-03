@@ -11,12 +11,12 @@ import FormControl from "@material-ui/core/FormControl";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     // flexGrow: 1,
     minWidth: "1280px",
     minHeight: "667px",
-    background: "#eeeeee"
+    background: "#eeeeee",
   },
   // deviceSelect: {
   //   border: "none"
@@ -24,8 +24,8 @@ const useStyles = makeStyles(theme => ({
   formControl: {
     margin: 0,
     minWidth: 120,
-    border: "none"
-  }
+    border: "none",
+  },
 }));
 
 /**
@@ -38,24 +38,25 @@ function DeviceViewer(props) {
   const [frameHeight, setframeHeight] = React.useState(0);
   const [deviceView, setdeviceView] = React.useState(props.defaultView);
 
-  React.useEffect(() => {
-    setViewportDimensions();
 
-    //Check if component is in UXPin editor or UXP previewer
+  React.useEffect(() => {
+    setdeviceView(props.defaultView);
+
+    //   //Check if component is in UXPin editor or UXP previewer
     if (document.querySelector("#simplified")) {
-      // If in UXPin editor ... remove icon from drop-down
-      const selectIcon = document.querySelector("#deviceSelector .MuiSelect-icon");
+      const selectIcon = document.querySelector(
+        "#deviceSelector .MuiSelect-icon"
+      );
       selectIcon.style.display = "none";
-    } else if (document.querySelector(".canvas-container")){
+    } else if (document.querySelector(".canvas-container")) {
       // If in UXPin editor ... top margin from uxp preview canvas
       const uxpContainer = document.querySelector(".canvas-container");
       uxpContainer.style.marginTop = "0";
     }
-  });
+  }, [props]);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setdeviceView(event.target.value);
-    alert("works");
   };
 
   const setViewportDimensions = () => {
@@ -90,14 +91,14 @@ function DeviceViewer(props) {
 
     if (deviceView === "desktop") {
       iframeElement.style.height =
-        (iframeElement.contentWindow.document.body.scrollHeight+2) + "px";
+        iframeElement.contentWindow.document.body.scrollHeight + 2 + "px";
     } else {
       iframeElement.style.removeProperty("height");
     }
   };
 
   return (
-    <div className={classes.root} {...props}>
+    <div className={classes.root} >
       <Grid
         container
         direction="row"
@@ -113,16 +114,20 @@ function DeviceViewer(props) {
               framewidth={frameWidth}
               frameheight={frameHeight}
               className={classes.deviceSelect}
-              disableUnderline              
+              disableUnderline
             >
               {props.desktopOption && (
                 <MenuItem value={"desktop"}>
-                  <Typography variant="caption">Desktop ( 1280 x Auto )</Typography>
+                  <Typography variant="caption">
+                    Desktop ( 1280 x Auto )
+                  </Typography>
                 </MenuItem>
               )}
               {props.tabletOption && (
                 <MenuItem value={"tablet"}>
-                  <Typography variant="caption">Tablet ( 668 x 1024 )</Typography>
+                  <Typography variant="caption">
+                    Tablet ( 668 x 1024 )
+                  </Typography>
                 </MenuItem>
               )}
               {props.tabletOption && (
