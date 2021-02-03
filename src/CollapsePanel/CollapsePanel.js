@@ -22,6 +22,11 @@ function CollapsePanel(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(props.collapsed);
 
+  React.useEffect(() => {
+    setOpen(props.collapsed);
+  }, [props]);
+
+
   function handleClick() {
     setOpen(!open);
   }
