@@ -4,13 +4,25 @@ import { ThemeProvider } from '@material-ui/styles';
 import igloo from "../ThemeSwitcher/themes/igloo";
 import Paper from "@material-ui/core/Paper";
 import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 
 let theme = createMuiTheme(igloo);
 
 theme = responsiveFontSizes(theme);
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    background: "transparent"
+  },
+}));
+
+
 export default function UXPinWrapper({ children }) {
+
+  const classes = useStyles();
+  const theme = useTheme();
+
 
   if (!document.getElementById("mui-merge-font")) {
     let lato = document.createElement("link");
@@ -34,5 +46,5 @@ export default function UXPinWrapper({ children }) {
     document.head.appendChild(icons);
   }
   
-  return <ThemeProvider theme={theme}><Paper elevation={0}>{children}</Paper></ThemeProvider>;
+  return <ThemeProvider theme={theme}><Paper elevation={0} className={classes.root}>{children}</Paper></ThemeProvider>;
 }
