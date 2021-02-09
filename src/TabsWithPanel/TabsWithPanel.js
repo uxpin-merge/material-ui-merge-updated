@@ -99,11 +99,12 @@ export default function TabsWithPanel(props) {
       <Tabs
         value={value}
         onChange={handleChange}
-        aria-label="full width tabs example"
+        aria-label={props.ariaLabel}
         className={classes.root}
         textColor="primary"
         indicatorColor="primary"
         variant={props.variant}
+        centered={props.centered}
       >
         {props.tabs.map((item, index) => {
           return (
@@ -194,6 +195,17 @@ TabsWithPanel.propTypes = {
    */
   /** @uxpinignoreprop */
   // scrollButtons: PropTypes.oneOf(["auto", "on", "off"])
+
+  /**
+  * If `true`, the Tabss will be centered.
+  * This property is intended for large views.
+  */
+  centered: PropTypes.bool,
+  /**
+  * Aria-label tag for accessibility
+  */
+ ariaLabel: PropTypes.string,
+
 };
 
 TabsWithPanel.defaultProps = {
@@ -202,7 +214,9 @@ TabsWithPanel.defaultProps = {
   indicatorColor: "primary",
   textColor: "primary",
   variant: "standard",
-  scrollButtons: "auto"
+  centered: false,
+  scrollButtons: "auto",
+  ariaLabel: "Tabs with panel"
 };
 
 
