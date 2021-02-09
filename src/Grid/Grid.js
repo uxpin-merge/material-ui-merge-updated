@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import GridM from "@material-ui/core/Grid";
 
 function Grid(props) {
-  const space = Number(props.spacing);
+  // const space = Number(props.spacing);
   return (
-    <GridM {...props} spacing={space}>
+    <GridM {...props} spacing={props.spacing}>
       {props.children}
     </GridM>
   );
