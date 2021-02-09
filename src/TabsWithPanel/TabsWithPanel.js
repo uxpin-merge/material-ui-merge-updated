@@ -33,8 +33,8 @@ TabPanel.propTypes = {
 
 function a11yProps(index) {
   return {
-    id: `full-width-tab-${index}`,
-    "aria-controls": `full-width-tabpanel-${index}`
+    id: `tabs-with-panel-${index}`,
+    "aria-controls": `tab-panel-${index}`
   };
 }
 
@@ -103,6 +103,7 @@ export default function TabsWithPanel(props) {
         className={classes.root}
         textColor="primary"
         indicatorColor="primary"
+        variant={props.variant}
       >
         {props.tabs.map((item, index) => {
           return (
