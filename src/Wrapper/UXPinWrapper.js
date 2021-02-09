@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 export default function UXPinWrapper({ children }) {
 
   const classes = useStyles();
-  const theme = useTheme();
+  // const theme = useTheme();
 
 
   if (!document.getElementById("mui-merge-font")) {
