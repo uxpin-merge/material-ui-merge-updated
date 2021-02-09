@@ -38,7 +38,6 @@ function DeviceViewer(props) {
   const [frameHeight, setframeHeight] = React.useState(0);
   const [deviceView, setdeviceView] = React.useState(props.defaultView);
 
-
   React.useEffect(() => {
     setdeviceView(props.defaultView);
 
@@ -98,7 +97,7 @@ function DeviceViewer(props) {
   };
 
   return (
-    <div className={classes.root} >
+    <div className={classes.root}>
       <Grid
         container
         direction="row"
@@ -182,7 +181,6 @@ function DeviceViewer(props) {
 DeviceViewer.propTypes = {
   children: PropTypes.node,
   active: PropTypes.bool,
-
   defaultView: PropTypes.oneOf(["desktop", "tablet", "mobile"]),
   desktopOption: PropTypes.bool,
   tabletOption: PropTypes.bool,
