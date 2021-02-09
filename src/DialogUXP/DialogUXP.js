@@ -42,6 +42,7 @@ const useStyles = makeStyles(theme => ({
     container={drawerContainer}
     disableEnforceFocus
     keepMounted
+    disablePortal={true}
     {...props}
   >
     {props.children}
