@@ -2,31 +2,12 @@ import ButtonM from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
 import PropTypes from "prop-types";
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
 
-// const styles = theme => ({
-//   startIcon: {
-//     marginRight: theme.spacing.unit,
-//     marginLeft: -theme.spacing.unit / 2,
-//     fontSize: 18
-//   },
-//   buttonMargin: {
-//     margin: theme.spacing(1 / 2)
-//   }
-// });
-
-const useStyles = makeStyles(theme => ({
-  startIcon: {
-    // marginRight: theme.spacing(1),
-    // marginLeft: -theme.spacing(1/2),
-    // fontSize: 18
-  },
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(1 / 2),
-    // width: "fit-content",
-    // border: "1px solid #000000"
-  }
+  },
 }));
 
 /**
@@ -34,31 +15,22 @@ const useStyles = makeStyles(theme => ({
  * SkipContainerWrapper
  */
 function ButtonUXP(props) {
-  
   const classes = useStyles(props);
   const { uxpinRef, ...other } = props;
 
   return (
-    <div >
-    <ButtonM {...other}
-    ref={uxpinRef}
-    className={classes.root}
-    startIcon={
-      props.startIcon && (
-        <Icon >{props.startIcon}</Icon>
-      ) 
-    }
-    endIcon={
-      props.endIcon && (
-        <Icon >{props.endIcon}</Icon>
-      ) 
-    }
-    >
-      
-      {props.children}
-    </ButtonM>
+    <div>
+      <ButtonM
+        {...other}
+        ref={uxpinRef}
+        className={classes.root}
+        startIcon={props.startIcon && <Icon>{props.startIcon}</Icon>}
+        endIcon={props.endIcon && <Icon>{props.endIcon}</Icon>}
+      >
+        {props.children}
+      </ButtonM>
     </div>
-  )
+  );
 }
 
 // *********************
@@ -105,12 +77,12 @@ ButtonUXP.propTypes = {
    */
   fullWidth: PropTypes.bool,
 
-    /**
+  /**
    * If `true`, the button will have no elevation.
    */
 
   disableElevation: PropTypes.bool,
-  
+
   /**
    * If `true`, the button will be disabled.
    */
@@ -119,7 +91,12 @@ ButtonUXP.propTypes = {
   /**
    * On click event to use with UXPin interactions.
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+
+  /**
+   * Aria-label text for accessibility.
+   */
+  "aria-label": PropTypes.string,
 };
 
 export default ButtonUXP;
