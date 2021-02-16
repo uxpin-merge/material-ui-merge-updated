@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: theme.spacing(1 / 2),
+    // margin: theme.spacing(1 / 2),
   },
 }));
 
@@ -19,7 +19,7 @@ function ButtonUXP(props) {
   const { uxpinRef, ...other } = props;
 
   return (
-    <div>
+    <div >
       <ButtonM
         {...other}
         ref={uxpinRef}

@@ -13,14 +13,10 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // flexGrow: 1,
     minWidth: "1280px",
     minHeight: "667px",
     background: "#eeeeee",
   },
-  // deviceSelect: {
-  //   border: "none"
-  // },
   formControl: {
     margin: 0,
     minWidth: 120,

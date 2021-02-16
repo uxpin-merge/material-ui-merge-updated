@@ -7,7 +7,8 @@ export default (
     uxpId="action1" 
     size="medium" 
     variant="contained" 
-    color="primary" 
+    color="primary"
+    aria-label="button"
     >
     Button
   </ButtonUXP>
