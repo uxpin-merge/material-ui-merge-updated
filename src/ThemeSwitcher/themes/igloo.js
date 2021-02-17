@@ -25,6 +25,9 @@ const igloo = createMuiTheme({
       disabled: "rgba(0, 0, 0, 0.38)",
       hint: "rgba(0, 0, 0, 0.38)"
     },
+    error:{
+      main: "#e72400"
+    }
   },
   typography: {
     useNextVariants: true,

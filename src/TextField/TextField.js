@@ -6,6 +6,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
 import { Paper } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
+import lodash from "lodash";
 
 const useStyles = makeStyles(theme => ({
   textField: {
@@ -24,9 +25,14 @@ function TextField(props) {
   const classes = useStyles();
   console.log(props.uxpinRef);
   const { uxpinRef, disableTransformation, iconPosition, ...other } = props;
+  
+  // Unique Id created by lodash
+  const id= _.uniqueId("textfield-");
+
   return (
     <Box ref={props.uxpinRef}>
       <TextFieldM
+        id={id}
         margin="dense"
         {...other}
         InputProps={
