@@ -6,17 +6,21 @@ import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
   root: {
-    width: "100%"
-  }
+    width: "100%",
+  },
 });
 
 function CheckboxWithLabel(props) {
   const classes = useStyles();
 
+  // Unique Id created by lodash
+  const id = _.uniqueId("checkboxWithLabel-");
+
   return (
     <FormControlLabelM
       {...props}
-      control={<Checkbox />}
+      for={id}
+      control={<Checkbox id={id} />}
       label={props.label}
       className={classes.root}
     />
@@ -30,24 +34,24 @@ CheckboxWithLabel.propTypes = {
    */
   checked: PropTypes.bool,
 
-    /**
+  /**
    * If `true`, the checkbox will be disabled.
    */
   disabled: PropTypes.bool,
-  
+
   /**
    * The label text.
    */
   label: PropTypes.string,
 
   /**
-  * The value of the component.
-  */
+   * The value of the component.
+   */
   value: PropTypes.string,
 
   /**
-  * Change event to use with UXPin interactions.
-  */
+   * Change event to use with UXPin interactions.
+   */
   onChange: PropTypes.func,
 
   /**
@@ -59,14 +63,14 @@ CheckboxWithLabel.propTypes = {
    * A control element. For instance, it can be be a `Radio`, a `Switch` or a `Checkbox`.
    * @uxpinignoreprop
    */
-  control: PropTypes.element
+  control: PropTypes.element,
 };
 
 CheckboxWithLabel.defaultProps = {
   // NOTE: Checked must be controlled state from the outset, otherwise changing state in the app will trigger an error
   // see: https://fb.me/react-controlled-components
   checked: false,
-  onChange: () => undefined
+  onChange: () => undefined,
 };
 
 export { CheckboxWithLabel as default };
