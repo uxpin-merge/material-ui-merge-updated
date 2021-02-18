@@ -19,8 +19,13 @@ function CheckboxWithLabel(props) {
   return (
     <FormControlLabelM
       {...props}
-      for={id}
-      control={<Checkbox id={id} />}
+      htmlFor={id}
+      control={
+        <Checkbox
+          id={id}
+          inputProps={{ role: "switch", "aria-checked": props.checked }}
+        />
+      }
       label={props.label}
       className={classes.root}
     />

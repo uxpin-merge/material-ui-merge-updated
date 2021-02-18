@@ -6,17 +6,26 @@ import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
   root: {
-    width: "100%"
-  }
+    width: "100%",
+  },
 });
 
 function SwitchWithLabel(props) {
   const classes = useStyles();
 
+  // Unique Id created by lodash
+  const id = _.uniqueId("switchWithLabel-");
+
   return (
     <FormControlLabelM
       {...props}
-      control={<Switch />}
+      htmlFor={id}
+      control={
+        <Switch
+          id={id}
+          inputProps={{ role: "switch", "aria-checked": props.checked }}
+        />
+      }
       label={props.label}
       className={classes.root}
     />
@@ -39,11 +48,11 @@ SwitchWithLabel.propTypes = {
    * The label text.
    */
   label: PropTypes.string,
-  
+
   /**
-  * The value of the component.
-  */
- value: PropTypes.string,
+   * The value of the component.
+   */
+  value: PropTypes.string,
 
   /**
    * The position of the label.
@@ -59,14 +68,14 @@ SwitchWithLabel.propTypes = {
    * A control element. For instance, it can be be a `Radio`, a `Switch` or a `Checkbox`.
    * @uxpinignoreprop
    */
-  control: PropTypes.element
+  control: PropTypes.element,
 };
 
 SwitchWithLabel.defaultProps = {
   // NOTE: Checked must be controlled state from the outset, otherwise changing state in the app will trigger an error
   // see: https://fb.me/react-controlled-components
   checked: false,
-  onChange: () => undefined
+  onChange: () => undefined,
 };
 
 export { SwitchWithLabel as default };

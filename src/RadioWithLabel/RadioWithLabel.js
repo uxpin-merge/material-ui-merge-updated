@@ -19,8 +19,13 @@ function RadioWithLabel(props) {
   return (
     <FormControlLabelM
       {...props}
-      for={id}
-      control={<Radio id={id} />}
+      htmlFor={id}
+      control={
+        <Radio
+          id={id}
+          inputProps={{ role: "radio", "aria-checked": props.checked }}
+        />
+      }
       label={props.label}
       className={classes.root}
     />
