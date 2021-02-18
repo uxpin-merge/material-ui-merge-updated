@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import FormControlLabelM from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import { makeStyles } from "@material-ui/styles";
-import lodash from "lodash";
 
 const useStyles = makeStyles({
   root: {
@@ -13,8 +12,10 @@ const useStyles = makeStyles({
 
 function RadioWithLabel(props) {
   const classes = useStyles();
+
   // Unique Id created by lodash
   const id= _.uniqueId("radiowithlabel-");
+
   return (
 
     <FormControlLabelM
