@@ -7,21 +7,34 @@ import FormLabel from "@material-ui/core/FormLabel";
 import PropTypes from "prop-types";
 
 export default function RadioGroup(props) {
-
   return (
-    <FormControl component="fieldset" >
+    <FormControl component="fieldset">
       <FormLabel component="legend">{props.grouplabel}</FormLabel>
-      <RadioGroupM  {...props}>
-        {React.Children.map(props.children, (child) => (
-          <FormControlLabel
-            value={child.props.value}
-            checked={child.props.checked}
-            control={<Radio />}
-            label={child.props.label}
-            labelPlacement={child.props.labelPlacement}
-            disabled={child.props.disabled}
-          />
-        ))}
+      <RadioGroupM {...props}>
+        {React.Children.map(props.children, (child, index) => {
+          // Unique Id created by lodash
+          let id = _.uniqueId("radio-with-label-");
+          
+          return (
+            <FormControlLabel
+              value={child.props.value}
+              checked={child.props.checked}
+              control={
+                <Radio
+                  id={id}
+                  inputProps={{
+                    role: "radio",
+                    "aria-checked": props.checked,
+                  }}
+                />
+              }
+              htmlFor={id}
+              label={child.props.label}
+              labelPlacement={props.labelPlacement}
+              disabled={child.props.disabled}
+            />
+          );
+        })}
       </RadioGroupM>
     </FormControl>
   );
@@ -63,20 +76,17 @@ RadioGroup.propTypes = {
   row: PropTypes.bool,
 
   /**
-   * Aria-label text for accessibility.
-   */
-  'aria-label': PropTypes.string,
-
-    /**
    * Change event to use with UXPin interactions.
    */
   onChange: PropTypes.func,
 
+    /**
+   * The position of the label.
+   */
+  labelPlacement: PropTypes.oneOf(["end", "start", "top", "bottom"]),
+
 };
 
 RadioGroup.defaultProps = {
-  value: "male",
-  name: "radio-group",
   onChange: () => undefined,
-  grouplabel: "Group Label",
 };
