@@ -14,7 +14,6 @@ const theme1 = createMuiTheme({
     }
   },
   overrides: {
-    // Name of the component
     MuiTabs: {
       root: {
         width: "100%",

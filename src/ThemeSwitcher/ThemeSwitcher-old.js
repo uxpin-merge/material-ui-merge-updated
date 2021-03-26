@@ -1,11 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {MuiThemeProvider, createMuiTheme, useTheme} from "@material-ui/core/styles"
+// import _ from "lodash";
+import {
+  MuiThemeProvider,
+  createMuiTheme,
+  useTheme,
+} from "@material-ui/core/styles";
+// import igloo from "./themes/igloo";
 import theme2 from "./themes/theme2";
 import theme1 from "./themes/theme1";
 
 function ThemeSwitcher(props) {
   let selectedTheme = useTheme();
+  // console.log("selected theme: ", selectedTheme);
 
   function makeCustomTheme() {
     const customTheme = createMuiTheme({
@@ -50,6 +57,7 @@ function ThemeSwitcher(props) {
       default:
         selectedTheme = selectedTheme;
     }
+    // console.log(selectedTheme);
     return selectedTheme;
   }
 
