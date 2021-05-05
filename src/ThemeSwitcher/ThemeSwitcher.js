@@ -67,7 +67,7 @@ function ThemeSwitcher(props) {
     </MuiThemeProvider>
   );
 }
-
+ 
 ThemeSwitcher.propTypes = {
   themeProfile: PropTypes.oneOf(["theme1", "theme2", "custom"]),
   primaryColor: PropTypes.string,
