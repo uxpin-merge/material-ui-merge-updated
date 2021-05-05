@@ -1,13 +1,15 @@
 import * as React from "react";
+
 import Button from "../Button";
 
 export default (
   <Button 
     uxpId="action1" 
-    size="small" 
+    size="medium" 
     variant="contained" 
-    color="primary" 
-    fullWidth>
-    Sign Up
+    color="primary"
+    aria-label="button"
+    >
+    Button
   </Button>
 );

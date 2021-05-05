@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import Button from "../../ButtonUXP/ButtonUXP";
+import Button from "../../Button/Button";
 import DialogActions from "../../DialogActions/DialogActions"
 import DialogContent from "../../DialogContent/DialogContent";
 import DialogContentText from "../../DialogContentText/DialogContentText";

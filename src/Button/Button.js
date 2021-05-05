@@ -1,98 +1,102 @@
-import React from "react";
-import PropTypes from "prop-types";
 import ButtonM from "@material-ui/core/Button";
-import {
-  makeStyles,
-  createMuiTheme,
-  MuiThemeProvider
-} from "@material-ui/core/styles";
-const useStyles = makeStyles(theme => ({
-  button: {
-    textTransform: "uppercase",
-    fontSize: "1rem"
+import Icon from "@material-ui/core/Icon";
+import PropTypes from "prop-types";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    // margin: theme.spacing(1 / 2),
   },
-  buttonMargin: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-  }
 }));
 
-
+/**
+ * @uxpinwrappers
+ * SkipContainerWrapper
+ */
 function Button(props) {
-  const classes = useStyles();
+  const classes = useStyles(props);
+  const { uxpinRef, ...other } = props;
+
   return (
-    <ButtonM {...props} onClick={props.onClick} className={`${classes.button} ${classes.buttonMargin}`}>
-      {props.children}
-    </ButtonM>
+    <div >
+      <ButtonM
+        {...other}
+        ref={uxpinRef}
+        className={classes.root}
+        startIcon={props.startIcon && <Icon>{props.startIcon}</Icon>}
+        endIcon={props.endIcon && <Icon>{props.endIcon}</Icon>}
+      >
+        {props.children}
+      </ButtonM>
+    </div>
   );
 }
 
+// *********************
+// ** Designer specific parameters exposed in UXPin. See MUI component documentation for additional parameters
+// *********************
+
 Button.propTypes = {
-  onClick: PropTypes.func,
   /**
-   * The content of the button.
-   */
-  children: PropTypes.node,
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: PropTypes.object,
-  className: PropTypes.string,
+   * The label of the button.
+   * @uxpinpropname  Label
+   * */
+  children: PropTypes.string,
 
   /**
-   * The color of the component. It supports those theme colors that make sense for this component.
+   * The type of button.
    */
-  color: PropTypes.oneOf(["default", "inherit", "primary", "secondary"]),
+  variant: PropTypes.oneOf(["text", "outlined", "contained"]),
+
   /**
-   * If `true`, the button will be disabled.
+   * The color of the button.
    */
-  disabled: PropTypes.bool,
+
+  color: PropTypes.oneOf(["primary", "secondary", "inherit"]),
+
   /**
-   * If `true`, the  keyboard focus ripple will be disabled.
-   * `disableRipple` must also be true.
+   * The size of the button.
    */
-  disableFocusRipple: PropTypes.bool,
+  size: PropTypes.oneOf(["small", "medium", "large"]),
+
   /**
-   * If `true`, the ripple effect will be disabled.
+   * If set, icon will display to the left.
+   * Use the name of the icon from https://material.io/tools/icons.
    */
-  disableRipple: PropTypes.bool,
-  focusVisibleClassName: PropTypes.string,
+  startIcon: PropTypes.string,
+
+  /**
+   * If set, icon will display to the right.
+   * Use the name of the icon from https://material.io/tools/icons.
+   */
+  endIcon: PropTypes.string,
+
   /**
    * If `true`, the button will take up the full width of its container.
    */
   fullWidth: PropTypes.bool,
-  /**
-   * The URL to link to when the button is clicked.
-   * If defined, an `a` element will be used as the root node.
-   */
-  href: PropTypes.string,
-  /**
-   * If `true`, and `variant` is `'fab'`, will use mini floating action button styling.
-   */
-  mini: PropTypes.bool,
-  /**
-   * The size of the button.
-   * `small` is equivalent to the dense button styling.
-   */
-  size: PropTypes.oneOf(["small", "medium", "large"]),
-  type: PropTypes.string,
 
   /**
-   * The variant to use.
-   * __WARNING__: `flat` and `raised` are deprecated.
-   * Instead use `text` and `contained` respectively.
-   * `fab` and `extendedFab` are deprecated.
-   * Instead use `<Fab>` and `<Fab variant="extended">`
+   * If `true`, the button will have no elevation.
    */
-  variant: PropTypes.oneOf([
-    "text",
-    "outlined",
-    "contained",
-    "fab",
-    "extendedFab",
-    "flat",
-    "raised"
-  ])
+
+  disableElevation: PropTypes.bool,
+
+  /**
+   * If `true`, the button will be disabled.
+   */
+
+  disabled: PropTypes.bool,
+  /**
+   * On click event to use with UXPin interactions.
+   */
+  onClick: PropTypes.func,
+
+  /**
+   * Aria-label text for accessibility.
+   */
+  "aria-label": PropTypes.string,
 };
 
-export { Button as default };
+export default Button;

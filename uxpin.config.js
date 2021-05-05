@@ -13,7 +13,7 @@ module.exports = {
       {
         name: "Inputs",
         include: [
-          "src/ButtonUXP/ButtonUXP.js",
+          "src/Button/Button.js",
           "src/IconButton/IconButton.js",
           "src/Checkbox/Checkbox.js",
           "src/CheckboxWithLabel/CheckboxWithLabel.js",

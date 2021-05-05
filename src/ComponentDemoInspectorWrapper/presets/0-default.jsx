@@ -1,7 +1,7 @@
 import * as React from "react";
 import ComponentDemoInspectorWrapper from "../ComponentDemoInspectorWrapper";
 import ComponentDemoInspector from "../../ComponentDemoInspector/ComponentDemoInspector";
-import Button from "../../ButtonUXP/ButtonUXP";
+import Button from "../../Button/Button";
 import CollapsePanel from "../../CollapsePanel/CollapsePanel";
 
 export default (
