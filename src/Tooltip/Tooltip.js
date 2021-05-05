@@ -2,13 +2,14 @@ import PropTypes from "prop-types";
 import React from "react";
 import TooltipM from "@material-ui/core/Tooltip";
 
-function TooltipUXP(props) {
+
+function Tooltip(props) {
   return <TooltipM {...props} PopperProps={{ keepMounted: true, disablePortal: true }}>{props.children}</TooltipM>;
 }
 
-export default TooltipUXP;
+export default Tooltip;
 
-TooltipUXP.propTypes = {
+Tooltip.propTypes = {
   /**
    * Text to display in the Tooltip.
    * @uxpinpropname  Tooltip Text

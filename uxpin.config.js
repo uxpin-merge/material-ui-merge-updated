@@ -69,7 +69,7 @@ module.exports = {
           "src/Image/Image.js",
           "src/List/List.js",
           "src/TableUXP/TableUXP.js",
-          "src/TooltipUXP/TooltipUXP.js",
+          "src/Tooltip/Tooltip.js",
           "src/Typography/Typography.js",
         ]
       },
