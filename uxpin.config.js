@@ -4,7 +4,7 @@ module.exports = {
       {
         name: "Layout",
         include: [
-          "src/StyleBox/StyleBox.js",
+          "src/Box/Box.js",
           "src/Grid/Grid.js",
           "src/GridList/GridList.js",
           "src/Hidden/Hidden.js"
@@ -46,7 +46,6 @@ module.exports = {
           "src/IglooHeader/IglooHeader.js",
           "src/Paper/Paper.js",
           "src/Card/Card.js",
-          "src/Box/Box.js",
         ]
       },
 
