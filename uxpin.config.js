@@ -21,7 +21,7 @@ module.exports = {
           "src/Radio/Radio.js",
           "src/RadioWithLabel/RadioWithLabel.js",
           "src/RadioGroup/RadioGroup.js",
-          "src/SelectUXP/SelectUXP.js",
+          "src/Select/Select.js",
           "src/TextField/TextField.js",
           "src/Switch/Switch.js",
           "src/SwitchWithLabel/SwitchWithLabel.js",

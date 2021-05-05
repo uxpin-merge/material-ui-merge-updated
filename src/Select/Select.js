@@ -1,123 +1,175 @@
-import React from "react";
+import Icon from "@material-ui/core/Icon";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import MenuItem from "@material-ui/core/MenuItem";
 import PropTypes from "prop-types";
-import SelectM from "@material-ui/core/Select";
-import Input from "../Input/Input";
+import React from "react";
+import TextField from "../TextField/TextField";
 
-export default class Select extends React.Component {
+class Select extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      selected: ''
-    }
-    this.handleChange = this.handleChange.bind(this);
+      selectedValue: "",
+      userAction: false
+    };
   }
 
-  handleChange(e) {
-    this.setState({selected: e.target.value});
+  componentDidMount() {
+    if (this.state.userAction === false) {
+      this.setState({
+        selectedValue: this.props.defaultValue,
+        userAction: true
+      });
+    }
   }
+
+  handleChange = () => event => {
+    this.setState({ selectedValue: event.target.value });
+  };
+
+  renderAdornment = () => {
+    if (this.props.adornmentText || this.props.adornmentIcon) {
+      return (
+        <InputAdornment variant={this.props.variant} position={"start"}>
+          {this.props.adornmentText ? (
+            this.props.adornmentText
+          ) : (
+            <Icon>{this.props.adornmentIcon}</Icon>
+          )}
+        </InputAdornment>
+      );
+    } else {
+      return null;
+    }
+  };
 
   render() {
     return (
-    <SelectM {...this.props} input={!this.props.input ? <Input /> : this.props.input} onChange={(e) => this.handleChange(e)} value={this.state.selected}>
-      {this.props.children}
-    </SelectM>);
+      <div>
+        <TextField
+          {...this.props}
+          select
+          value={this.state.selectedValue}
+          onChange={this.handleChange()}
+          InputProps={{
+            startAdornment: this.renderAdornment()
+          }}
+          disablePortal={true}
+          variant="outlined"
+          keepMounted
+        >
+          {this.props.menuItems.map(option => (
+            <MenuItem
+              key={option.value}
+              value={option.value}
+              divider={option.hasDivider}
+            >
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+      </div>
+    );
   }
 }
 
 Select.propTypes = {
+
   /**
-   * If true, the width of the popover will automatically be set according to the items inside the
-   * menu, otherwise it will be at least the width of the select input.
+   * List of menu items.
+   * Required: label, value (must be unique)
+   * Optional: hasDivider
+   * Format:
+  [
+       { label: "Home", value: "1", },
+       { label: "Mobile", value: "2", hasDivider: "true"},
+       { label: "Office", value: "3" },
+   ]
+  */
+  menuItems: PropTypes.array,
+
+  /**
+   * The label text.
    */
-  autoWidth: PropTypes.bool,
+  label: PropTypes.string,
 
   /**
-   * The option elements to populate the select with.
-   * Can be some `MenuItem` when `native` is false and `option` when `native` is true.
+   * The default value of the textfield.
    */
-  children: PropTypes.node,
+  defaultValue: PropTypes.string,
 
   /**
-   * Override or extend the styles applied to the component.
+   * The helper text.
    */
-  classes: PropTypes.object,
+  helperText: PropTypes.string,
 
   /**
-   * If `true`, the selected item is displayed even if its value is empty.
-   * You can only use it when the `native` property is `false` (default).
+   * The short hint displayed in the input before the user enters a value.
    */
-  displayEmpty: PropTypes.bool,
+  placeholder: PropTypes.string,
 
   /**
-   * The icon that displays the arrow.
+   * If set, icon will display. Use the name of the icon from https://material.io/tools/icons.
    */
-  IconComponent: PropTypes.node,
+  icon: PropTypes.string,
 
   /**
-   * An `Input` element; does not have to be a material-ui specific `Input`.
+   * Where to display the icon within the textfield.
    */
-  input: PropTypes.node,
+  iconPosition: PropTypes.oneOf(["start", "end"]),
 
   /**
-   * Attributes applied to the `input` element.
-   * When `native` is `true`, the attributes are applied on the `select` element.
+   * If `true`, the textfield will take up the full width of its container.
    */
-  inputProps: PropTypes.object,
-
-  MenuProps: PropTypes.object,
+  fullWidth: PropTypes.bool,
 
   /**
-   * If true, `value` must be an array and the menu will support multiple selections.
+   * If `true`, the textfield will be disabled.
    */
-  multiple: PropTypes.bool,
+  disabled: PropTypes.bool,
 
   /**
-   * If `true`, the component will be using a native `select` element.
+   * If `true`, the label is displayed as required.
    */
-  native: PropTypes.bool,
+  required: PropTypes.bool,
 
   /**
-   * Callback function fired when a menu item is selected.
+   * If `true`, the textfield will be displayed in an error state.
+   */
+  error: PropTypes.bool,
+
+  /**
+   * If `true`, the textfield will be focused during the first mount.
+   */
+  autoFocus: PropTypes.bool,
+
+
+  /**
+   * Focus event to use with UXPin interactions.
+   */
+  onFocus: PropTypes.func,
+
+  /**
+   * Blur event to use with UXPin interactions.
+   */
+  onBlur: PropTypes.func,
+
+  /**
+   * Change event to use with UXPin interactions.
    */
   onChange: PropTypes.func,
-
-  /**
-   * Callback fired when the component requests to be closed.
-   * Use in controlled mode (see open).
-   */
-  onClose: PropTypes.func,
-
-  /**
-   * Callback fired when the component requests to be opened.
-   * Use in controlled mode (see open).
-   */
-  onOpen: PropTypes.func,
-
-  /**
-   * Control `select` open state.
-   * You can only use it when the `native` property is `false` (default).
-   */
-  open: PropTypes.bool,
-
-  /**
-   * Render the selected value.
-   * You can only use it when the `native` property is `false` (default).
-   */
-  renderValue: PropTypes.func,
-
-  /**
-   * Properties applied to the clickable div element.
-   */
-  SelectDisplayProps: PropTypes.object,
-
-  /**
-   * The input value.
-   * This property is required when the `native` property is `false` (default).
-   */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.object, PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.object]))]),
+ 
 };
 
-SelectM.defaultProps = {
-  input: <Input />
-}
+Select.defaultProps = {
+  menuItems: [
+    { label: "Home", value: "1" },
+    { label: "Mobile", value: "2" },
+    { label: "Office", value: "3", hasDivider: "true" },
+    { label: "Emergency", value: "4" }
+  ],
+  fullWidth: "true",
+  label: "Phone Type",
+};
+
+export default Select;
