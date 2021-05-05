@@ -4,7 +4,7 @@ import ListItemM from "@material-ui/core/ListItem";
 import ListItemIcon from "../ListItemIcon/ListItemIcon";
 import ListItemText from "../ListItemText/ListItemText";
 import ListItemSecondaryAction from "../ListItemSecondaryAction/ListItemSecondaryAction";
-import Divider from "../DividerUXP/DividerUXP";
+import Divider from "../Divider/Divider";
 
 function ListItem(props) {
   return (

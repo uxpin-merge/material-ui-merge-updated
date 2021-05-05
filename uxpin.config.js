@@ -64,7 +64,7 @@ module.exports = {
           "src/Avatar/Avatar.js",
           "src/Badge/Badge.js",
           "src/Chip/Chip.js",
-          "src/DividerUXP/DividerUXP.js",
+          "src/Divider/Divider.js",
           "src/Icon/Icon.js",
           "src/Image/Image.js",
           "src/List/List.js",

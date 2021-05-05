@@ -102,7 +102,7 @@
 		"COMPONENT": "Divider",
 		"VERSION": "1.0.0",
 		"TYPE": "Atom",
-		"UXP NAME": "DividerUXP",
+		"UXP NAME": "Divider",
 		"UXP STATUS": "Beta",
 		"CODE": "In Progress",
 		"id": "Divider"
