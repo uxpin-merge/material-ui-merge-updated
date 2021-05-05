@@ -58,6 +58,7 @@ function DeviceViewer(props) {
     switch (deviceView) {
       case "desktop":
         setframeWidth(1280);
+        setframeHeight(1024);
         return;
       case "tablet":
         setframeWidth(768);
@@ -114,7 +115,7 @@ function DeviceViewer(props) {
               {props.desktopOption && (
                 <MenuItem value={"desktop"}>
                   <Typography variant="caption">
-                    Desktop ( 1280 x Auto )
+                    Desktop ( 1280 x 1024 )
                   </Typography>
                 </MenuItem>
               )}

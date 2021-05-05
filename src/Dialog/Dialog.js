@@ -1,58 +1,60 @@
-import Dialog from "@material-ui/core/Dialog";
+import DialogM from "@material-ui/core/Dialog";
 import PropTypes from "prop-types";
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   scrollPaper: {
-    alignItems: "flex-start"
-  }
-});
+        alignItems: "flex-start"
+      }
+}));
 
-class DialogUXP extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { open: this.props.open };
-  }
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
+  export default function Dialog(props){
+    const classes = useStyles();
+    const theme = useTheme();
+    const [open, setOpen] = React.useState(props.open);
 
-  handleClose = () => {
-    this.setState({ open: false });
-  };
+    React.useEffect(() => setOpen(props.open), [props]);
 
-  render() {
+    const handleClose = () => {
+      setOpen(false);
+    };
+
+    
+
     const uxpContainer = document.querySelector("[data-id='canvas']");
     let drawerContainer = null;
-    const { classes } = this.props;
 
     if (document.querySelector("#iframeContainer iframe")) {
       drawerContainer = document.querySelector("#iframeContainer iframe").contentWindow.document.body;
     } else if (document.querySelector("[data-id='canvas']")) {
       drawerContainer = document.querySelector("[data-id='canvas']");
     }
-    return (
-      
-        <Dialog      
-          TransitionProps={uxpContainer ? { tabIndex: "null" } : null}
-          classes={{
-            scrollPaper: classes.scrollPaper
-          }}
-          open={this.state.open}
-          onClose={this.handleClose}
-          container={drawerContainer}
-          disableEnforceFocus
-          keepMounted      
-        >
-          {this.props.children}
-        </Dialog>
-      
-    );
-  }
-}
 
-DialogUXP.propTypes = {
+  return(
+    <DialogM      
+    TransitionProps={uxpContainer ? { tabIndex: "null" } : null}
+    classes={{
+      scrollPaper: classes.scrollPaper
+    }}
+    open={open}
+    onClose={handleClose} 
+    container={drawerContainer}
+    disableEnforceFocus
+    keepMounted
+    disablePortal={true}
+    {...props}
+  >
+    {props.children}
+  </DialogM>
+
+  )
+  }
+
+  
+ 
+
+  Dialog.propTypes = {
   /**
    * If `true`, the Dialog is open.
    */
@@ -66,7 +68,6 @@ DialogUXP.propTypes = {
 
   /**
    * If `true`, the dialog will be full-screen
-   * @uxpinignoreprop
    */
   fullScreen: PropTypes.bool,
 
@@ -76,18 +77,13 @@ DialogUXP.propTypes = {
    */
   disableBackdropClick: PropTypes.bool,
 
-  /**
-   * If `true`, the dialog stretches to `maxWidth`.
-   * @uxpinignoreprop
-   */
-  fullWidth: PropTypes.bool,
+
 
   /**
    * Determine the max width of the dialog.
    * The dialog width grows with the size of the screen, this property is useful
    * on the desktop where you might need some coherent different width size across your
    * application. Set to `false` to disable `maxWidth`.
-   * @uxpinignoreprop
    */
   maxWidth: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl", false]),
 
@@ -104,8 +100,20 @@ DialogUXP.propTypes = {
   /**
    * @uxpinignoreprop
    */
-  children: PropTypes.node
+  children: PropTypes.node,
+
+  onClose: PropTypes.func,
+
+    /**
+   * If `true`, the dialog stretches to `maxWidth`.
+   * @uxpinignoreprop
+   */
+  fullWidth: PropTypes.bool,
 };
 
-export default withStyles(styles)(DialogUXP);
 
+Dialog.defaultProps = {
+open: false,
+onClose: () => undefined,
+maxWidth: false
+};

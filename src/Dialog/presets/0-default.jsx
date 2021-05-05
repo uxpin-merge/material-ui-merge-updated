@@ -5,10 +5,10 @@ import DialogActions from "../../DialogActions/DialogActions"
 import DialogContent from "../../DialogContent/DialogContent";
 import DialogContentText from "../../DialogContentText/DialogContentText";
 import DialogTitle from "../../DialogTitle/DialogTitle";
-import DialogUXP from "../DialogUXP";
+import Dialog from "../Dialog";
 
 export default (
-  <DialogUXP  height={400} uxpId="1">
+  <Dialog  height={400} uxpId="1">
     <DialogTitle uxpId="2">Dialog Title</DialogTitle>
     <DialogContent uxpId="3">
       <DialogContentText uxpId="4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend viverra urna non lacinia. Curabitur sed euismod tortor. Vestibulum ultricies enim at quam finibus ultricies ut non lorem.</DialogContentText>
@@ -21,5 +21,5 @@ export default (
       Agree
     </Button>
   </DialogActions>
-  </DialogUXP>
+  </Dialog>
 );

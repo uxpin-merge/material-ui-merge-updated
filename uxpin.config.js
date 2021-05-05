@@ -54,7 +54,7 @@ module.exports = {
         include: [
           "src/CircularProgress/CircularProgress.js",
           "src/LinearProgress/LinearProgress.js",
-          "src/DialogUXP/DialogUXP.js",
+          "src/Dialog/Dialog.js",
           "src/Banner/Banner.js",
         ]
       },
