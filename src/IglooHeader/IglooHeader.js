@@ -15,7 +15,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import Icon from "@material-ui/core/Icon";
 import Badge from "@material-ui/core/Badge";
-import MenuUXP from "../MenuUXP/MenuUXP";
+import Menu from "../Menu/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import Image from "../Image/Image";
 import Tabs from "../Tabs/Tabs";
@@ -220,7 +220,7 @@ function IglooHeader(props) {
               </Box>
             )}
             {props.hasAccountIcon && (
-              <MenuUXP
+              <Menu
                 trigger="icon"
                 label="My Account"
                 icon="account_circle"
