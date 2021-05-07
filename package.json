@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "uxpin-merge --disable-tunneling --webpack-config ./webpack.config.js --wrapper ./src/Wrapper/UXPinWrapper.js",
-    "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "publishDevelopment":"uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/Wrapper/UXPinWrapper.js --token '99d99f564278a175ccb0be94ab1f27847f3ea513'",
+    "publishProduction":"uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/Wrapper/UXPinWrapper.js --token '5e23721c739eb699ec2a8ce3d882cac0cf4c7503'"
   },
   "author": "",
   "license": "ISC",
