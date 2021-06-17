@@ -45,7 +45,8 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
     borderTop: "3px solid",
-    borderTopColor: theme.palette.decoration.main
+    borderTopColor: theme.palette.decoration.main,
+    minWidth: "550px"
   },
   menuButton: {
     // marginRight: theme.spacing(1),
