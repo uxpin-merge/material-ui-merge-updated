@@ -4,17 +4,17 @@ const igloo = createMuiTheme({
   palette: {
     primary: {
       light: "#5da2fa",
-      main: "#0a74c7",
+      main: "#d4001c",
       contrastText: "#ffffff"
     },
     secondary: {
       light: "#4e4f51",
-      main: "#262729",
+      main: "#393d41",
       dark: "#000000",
       contrastText: "#ffffff"
     },
     decoration: {
-      main: "#1EAEED"
+      main: "#d4001c"
     },
     headerBadges: {
       main: "red",
@@ -31,7 +31,7 @@ const igloo = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: '"Lato", sans-serif',
+    fontFamily: '"arial", sans-serif',
     h1: {
       fontSize: "5rem"
     },

@@ -225,7 +225,7 @@ function IglooHeader(props) {
                 label="My Account"
                 icon="account_circle"
                 menuItems={props.accountMenu}
-                color="primary"
+                color="secondary"
                 open={false}
               />
             )}

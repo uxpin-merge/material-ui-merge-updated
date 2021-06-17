@@ -73,8 +73,8 @@ let accountMenu = [
 export default (
   <IglooHeader uxpId="1"
   menus={menus}
-  logoSrc = "https://uc.uxpin.com/files/732773/730600/image-6d6f68.png"
-  logoAlt = "IGLOO Design System"
+  logoSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Logo_acme.svg/1200px-Logo_acme.svg.png"
+  logoAlt = "Acme Corporation"
   desktopNavigationVariant = "vertical"
   hasAccountIcon = {true}
   accountMenu= {accountMenu}
@@ -84,13 +84,12 @@ export default (
   >
     <IconButton
       arialabel="Notifications"
-      color="primary"
       uxpId="1.1"
-      color="primary"
+      color="secondary"
     >
-      <Icon uxpId="1.1.1">notifications</Icon>
+      <Icon uxpId="1.1.1" color="secondary">notifications</Icon>
     </IconButton>
-    <IconButton arialabel="Shopping Cart" color="primary" uxpId="1.2" >
+    <IconButton arialabel="Shopping Cart" color="secondary" uxpId="1.2" >
       <Badge badgeContent="3" max="9" uxpId="1.2.1">
         <Icon uxpId="1.2.1.1">shopping_cart</Icon>
       </Badge>
