@@ -145,7 +145,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function IglooHeader(props) {
+function Header(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -317,7 +317,7 @@ function IglooHeader(props) {
     </>
   );
 }
-IglooHeader.propTypes = {
+Header.propTypes = {
   /**
    * the URL of the logo
    */
@@ -370,4 +370,4 @@ IglooHeader.propTypes = {
 };
 
 
-export default IglooHeader;
+export default Header;
