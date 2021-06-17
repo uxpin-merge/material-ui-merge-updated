@@ -224,7 +224,6 @@ TextField.propTypes = {
 
   /**
    * The value of the `Input` element, required for a controlled component.
-   * @uxpinignoreprop
    */
   value: PropTypes.oneOfType([
     PropTypes.string,
