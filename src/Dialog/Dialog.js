@@ -1,4 +1,6 @@
 import DialogM from "@material-ui/core/Dialog";
+import BoxM from "@material-ui/core/Box";
+
 import PropTypes from "prop-types";
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -8,6 +10,9 @@ const useStyles = makeStyles(theme => ({
         alignItems: "flex-start"
       }
 }));
+
+
+
 
   export default function Dialog(props){
     const classes = useStyles();
@@ -32,6 +37,7 @@ const useStyles = makeStyles(theme => ({
     }
 
   return(
+    <>
     <DialogM      
     TransitionProps={uxpContainer ? { tabIndex: "null" } : null}
     classes={{
@@ -42,12 +48,13 @@ const useStyles = makeStyles(theme => ({
     container={drawerContainer}
     disableEnforceFocus
     keepMounted
-    disablePortal={true}
+    disablePortal={false}
     {...props}
   >
     {props.children}
   </DialogM>
-
+  <BoxM>please move me</BoxM>
+</>
   )
   }
 

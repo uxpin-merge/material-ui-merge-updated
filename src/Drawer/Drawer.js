@@ -47,7 +47,7 @@ class Drawer extends React.Component {
           paper: drawerWidth
         }}
         disableEnforceFocus
-        disablePortal={true}
+        disablePortal={false}
       >
         <div style={{minWidth: this.props.width}}>
         {this.props.children}
