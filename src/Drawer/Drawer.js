@@ -1,9 +1,12 @@
 import DrawerM from "@material-ui/core/Drawer";
 import PropTypes from "prop-types";
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
+  scrollPaper: {
+    alignItems: "flex-start"
+  },
   root: {
     display: "flex"
   },
@@ -15,59 +18,73 @@ const styles = theme => ({
     width: "100%",
     flexShrink: 0
   }
-});
+}));
 
-class Drawer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { open: this.props.open };
-  }
+export default function Drawer(props) {
+  const classes = useStyles();
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(props.open);
 
-  toggleDrawer = () => () => {
-    this.setState({
-      open: false
-    });
+  React.useEffect(() => setOpen(props.open), [props]);
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
-  render() {
-    const { classes } = this.props;
-
-    const drawerWidth =
-      this.props.anchor === "bottom" || this.props.anchor === "top"
-        ? classes.drawerPaperBottom
-        : classes.drawerPaperSide;
 
 
-    return (
-      <DrawerM
-        {...this.props}
-        onClose={this.toggleDrawer()}
-        open={this.state.open}
-        classes={{
-          paper: drawerWidth
-        }}
-        disableEnforceFocus
-        disablePortal={false}
-      >
-        <div style={{minWidth: this.props.width}}>
-        {this.props.children}
-        </div>
-      </DrawerM>
-    );
+  const uxpContainer = document.querySelector("[data-id='canvas']");
+  let drawerContainer = null;
+
+  if (document.querySelector("#iframeContainer iframe")) {
+    drawerContainer = document.querySelector("#iframeContainer iframe").contentWindow.document.body;
+  } else if (document.querySelector("[data-id='canvas']")) {
+    drawerContainer = document.querySelector("[data-id='canvas']");
   }
+
+  const drawerWidth =
+    props.anchor === "bottom" || props.anchor === "top"
+      ? classes.drawerPaperBottom
+      : classes.drawerPaperSide;
+
+  return (
+    <DrawerM
+      // TransitionProps={uxpContainer ? { tabIndex: "null" } : null}
+      classes={{
+        scrollPaper: classes.scrollPaper
+      }}
+      open={open}
+      onClose={handleClose}
+      container={drawerContainer}
+      disableEnforceFocus
+      keepMounted
+      disablePortal={false}
+      {...props}
+    >
+      <div style={{ minWidth: props.width }}>
+        {props.children}
+      </div>
+    </DrawerM>
+
+  )
 }
+
+
+
 
 Drawer.propTypes = {
   /**
-   * if `true` shows the drawer.
-   */
+  * if `true` shows the drawer.
+  */
   open: PropTypes.bool,
 
   /**
    * The variant to use.
    * 
    */
-  variant: PropTypes.oneOf(["permanent", "persistent", "temporary"]),
+  variant: PropTypes.oneOf(["temporary"]),
+  // variant: PropTypes.oneOf(["permanent", "persistent", "temporary"]),
+
 
   /**
    * Side from which the drawer will appear.
@@ -93,9 +110,14 @@ Drawer.propTypes = {
 
   /**
    * Needed to display in UXP editor if variant is `permanent` or `persistent`
-   * @uxpinignoreprop
+  //  * @uxpinignoreprop
    */
   // minHeight: PropTypes.number,
 };
 
-export default withStyles(styles)(Drawer);
+
+// Drawer.defaultProps = {
+// open: false,
+// onClose: () => undefined,
+// maxWidth: false
+// };
