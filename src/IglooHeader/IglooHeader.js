@@ -96,10 +96,11 @@ const useStyles = makeStyles(theme => ({
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade("#cccccc", 0.15),
-    "&:hover": {
-      backgroundColor: fade("#cccccc", 0.25)
-    },
+    backgroundColor: "#ffffff3d",
+    color:"#ffffff",
+    // "&:hover": {
+    //   backgroundColor: fade("#ffffff", 0.95)
+    // },
     height: "40px",
     marginLeft: 0,
     // marginTop: theme.spacing(1)/2,
@@ -132,7 +133,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1, 5, 1, 2),
     fontSize: ".875em",
     transition: theme.transitions.create("width"),
-    width: "100%",
+    width: "#ffffff",
     [theme.breakpoints.down("xs")]: {
       height: "-webkit-fill-available"
     },
@@ -174,7 +175,7 @@ function Header(props) {
       >
         <Toolbar>
           <IconButton
-            color="inherit"
+            color="#ffffff"
             aria-label="Open drawer"
             edge="start"
             onClick={handleDrawerToggle}

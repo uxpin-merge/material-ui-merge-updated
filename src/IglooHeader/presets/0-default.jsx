@@ -85,11 +85,10 @@ export default (
     <IconButton
       arialabel="Notifications"
       uxpId="1.1"
-      color="secondary"
     >
       <Icon uxpId="1.1.1" color="secondary">notifications</Icon>
     </IconButton>
-    <IconButton arialabel="Shopping Cart" color="secondary" uxpId="1.2" >
+    <IconButton arialabel="Shopping Cart" uxpId="1.2" >
       <Badge badgeContent="3" max="9" uxpId="1.2.1">
         <Icon uxpId="1.2.1.1">shopping_cart</Icon>
       </Badge>
