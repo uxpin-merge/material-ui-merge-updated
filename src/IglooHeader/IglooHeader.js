@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     borderTop: "5px solid",
     borderTopColor: theme.palette.decoration.main,
     minWidth: "550px",
-    "& .MuiIcon-root": {
+    "& .MuiIconButton-root": {
       color: "#ffffff"
     }
   },

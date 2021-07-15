@@ -73,8 +73,8 @@ let accountMenu = [
 export default (
   <IglooHeader uxpId="1"
   menus={menus}
-  logoSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Logo_acme.svg/1200px-Logo_acme.svg.png"
-  logoAlt = "Acme Corporation"
+  logoSrc = "https://uc.uxpin.com/files/1206445/1163114/UXPinMerge_Logo_WhiteFill_x2-9ca6d5c0d7210e31cb6c17e797466b7d-f7dc09.png"
+  logoAlt = "UXPin Merge"
   desktopNavigationVariant = "vertical"
   hasAccountIcon = {true}
   accountMenu= {accountMenu}
