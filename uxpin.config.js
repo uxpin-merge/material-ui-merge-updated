@@ -120,6 +120,11 @@ module.exports = {
         name: "Templates",
         include: [
           "src/IglooSimpleLayout/IglooSimpleLayout.js",
+          "src/MergeBasicLayout/MergeBasicLayout.js",
+          "src/MergeHeader/MergeHeader.js",
+          "src/MergeSideNavigation/MergeSideNavigation.js",
+          "src/MergeTopNavigation/MergeTopNavigation.js",
+          "src/MergeMainContent/MergeMainContent.js",
         ]
       },
       {
@@ -143,5 +148,5 @@ module.exports = {
       }
     ]
   },
-  name: "IGLOO DESIGN SYSTEM"
+  name: "Merge Design System"
 };
