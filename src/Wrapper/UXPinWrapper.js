@@ -39,7 +39,7 @@ export default function UXPinWrapper({ children }) {
     let icons = document.createElement("link");
     icons.setAttribute(
       "href",
-      "https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      "https://fonts.googleapis.com/icon?family=Material+Icons+Outlined&display=swap"
     );
     icons.setAttribute("rel", "stylesheet");
     icons.setAttribute("id", "mui-merge-icons");

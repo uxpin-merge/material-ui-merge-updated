@@ -20,7 +20,7 @@ const igloo = createMuiTheme({
       main: "#2684FF",
     },
     text: {
-      // primary: '#000000',
+      primary: '#172b4d',
       // secondary: "#eeeeee",
       disabled: "rgba(0, 0, 0, 0.38)",
       hint: "rgba(0, 0, 0, 0.38)"
@@ -63,29 +63,11 @@ const igloo = createMuiTheme({
     },
     MuiIcon:{
       root:{
-        fontFamily: "Material Icons Outlined"
+        fontFamily: 'Material Icons Outlined'
       },
     },
-    MuiAppBar:{
-      root:{
-        background: "#000000"
-      },
-    }
   }
 });
 
 export default igloo;
 
-// font-family: 'Material Icons Outlined';
-// font-weight: normal;
-// font-style: normal;
-// font-size: 24px;
-// line-height: 1;
-// letter-spacing: normal;
-// text-transform: none;
-// display: inline-block;
-// white-space: nowrap;
-// word-wrap: normal;
-// direction: ltr;
-// -webkit-font-feature-settings: 'liga';
-// -webkit-font-smoothing: antialiased;

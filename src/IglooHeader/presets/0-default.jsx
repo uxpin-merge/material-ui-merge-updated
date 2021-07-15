@@ -86,7 +86,7 @@ export default (
       arialabel="Notifications"
       uxpId="1.1"
     >
-      <Icon uxpId="1.1.1" color="secondary">notifications</Icon>
+      <Icon uxpId="1.1.1" color="inherit">notifications</Icon>
     </IconButton>
     <IconButton arialabel="Shopping Cart" uxpId="1.2" >
       <Badge badgeContent="3" max="9" uxpId="1.2.1">

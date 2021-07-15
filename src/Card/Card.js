@@ -19,7 +19,12 @@ Card.propTypes = {
   /**
    * If `true`, the card will use raised styling.
    */
-  raised: PropTypes.bool
+  raised: PropTypes.bool,
+
+  onClick: PropTypes.func,
+
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
 };
 
 export { Card as default };

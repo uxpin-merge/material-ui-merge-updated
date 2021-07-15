@@ -10,7 +10,11 @@ import Box from "@material-ui/core/Box";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    width: "100%"
+    width: "100%",
+    "& .MuiTab-wrapper": {
+      color: "#ffffff",
+      
+    }
   }
 }));
 
@@ -37,7 +41,7 @@ export default function IglooTopNavigation(props) {
           <>
             {/* {menus.active == true ? handleActive("3") : null} */}
 
-            <Tab label={menus.label} />
+            <Tab label={menus.label} color="primary"/>
           </>
         ))}
         {/* <Tab label="Item One" {...a11yProps(0)} />

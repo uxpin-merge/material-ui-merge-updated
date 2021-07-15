@@ -51,107 +51,97 @@ Box.propTypes = {
    * Color of text
    */
 
-  color: PropTypes.oneOf(['primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
+  color: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey.500', 'primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
 
-  bgcolor: PropTypes.oneOf(['primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
+  bgcolor: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey500', 'primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
 
 
 
   /**
    * All Padding.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  padding: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  padding: PropTypes.string,
 
   /**
    * Top Padding.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  paddingTop: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  paddingTop: PropTypes.string,
   /**
    * Right Padding.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  paddingRight: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  paddingRight: PropTypes.string,
   /**
    * Bottom Padding.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  paddingBottom: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  paddingBottom: PropTypes.string,
   /**
    * Left Padding.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels  
    */
-  paddingLeft: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
-
+  paddingLeft: PropTypes.string,
+  /**
+   * All Margin.
+   * In pixels
+   */
+   margin: PropTypes.string,
   /**
    * Top margin.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  marginTop: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  marginTop: PropTypes.string,
   /**
    * Right margin.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  marginRight: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  marginRight: PropTypes.string,
   /**
    * Bottom margin.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  marginBottom: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  marginBottom: PropTypes.string,
   /**
    * Left margin.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  marginLeft: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  marginLeft: PropTypes.string,
 
   /**
    * Border margin.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  border: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  border: PropTypes.number,
 
   /**
    * Border Top.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  borderTop: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  borderTop: PropTypes.number,
 
   /**
    * Border margin.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  borderRight: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  borderRight: PropTypes.number,
 
   /**
    * Border margin.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  borderBottom: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  borderBottom: PropTypes.number,
 
   /**
    * Border margin.
-   * Each unit equals 8dp. Example:
-   * 0=px, 1=8px, 2=16px, 3=24px ...
+   * In pixels
    */
-  borderLeft: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  borderLeft: PropTypes.number,
 
-  borderColor: PropTypes.oneOf(['primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
+  borderColor: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey500', 'primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
   
-  borderRadius: PropTypes.number,
+  borderRadius: PropTypes.string,
 
   textAlign: PropTypes.oneOf(["left", "center", "right"]),
   // textOverflow: PropTypes.oneOf(["clip", "ellipsis"]),

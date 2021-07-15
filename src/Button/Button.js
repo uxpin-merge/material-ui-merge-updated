@@ -24,8 +24,8 @@ function Button(props) {
         {...other}
         ref={uxpinRef}
         className={classes.root}
-        startIcon={props.startIcon && <Icon>{props.startIcon}</Icon>}
-        endIcon={props.endIcon && <Icon>{props.endIcon}</Icon>}
+        startIcon={props.startIcon && <Icon className='material-icons-outlined'>{props.startIcon}</Icon>}
+        endIcon={props.endIcon && <Icon className='material-icons-outlined'>{props.endIcon}</Icon>}
       >
         {props.children}
       </ButtonM>

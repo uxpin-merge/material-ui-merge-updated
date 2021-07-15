@@ -2,12 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import TypographyM from "@material-ui/core/Typography";
 import ReactHtmlParser from "react-html-parser";
+import BoxM from "@material-ui/core/Box";
 
 function Typography(props) {
   return (
-    <TypographyM {...props} component={props.component}>
+    <BoxM {...props}>
+    <TypographyM  {...props} component={props.component} >
       {ReactHtmlParser(props.children)}{" "}
     </TypographyM>
+    </BoxM>
   );
 }
 
@@ -95,7 +98,93 @@ Typography.propTypes = {
    * Override or extend the styles applied to the component.
    * @uxpinignoreprop
    */
-  classes: PropTypes.object
+  classes: PropTypes.object,
+
+  /**
+   * All Padding.
+   * In pixels
+   */
+   padding: PropTypes.string,
+
+   /**
+    * Top Padding.
+    * In pixels
+    */
+   paddingTop: PropTypes.string,
+   /**
+    * Right Padding.
+    * In pixels
+    */
+   paddingRight: PropTypes.string,
+   /**
+    * Bottom Padding.
+    * In pixels
+    */
+   paddingBottom: PropTypes.string,
+   /**
+    * Left Padding.
+    * In pixels  
+    */
+   paddingLeft: PropTypes.string,
+   /**
+    * All Margin.
+    * In pixels
+    */
+    margin: PropTypes.string,
+   /**
+    * Top margin.
+    * In pixels
+    */
+   marginTop: PropTypes.string,
+   /**
+    * Right margin.
+    * In pixels
+    */
+   marginRight: PropTypes.string,
+   /**
+    * Bottom margin.
+    * In pixels
+    */
+   marginBottom: PropTypes.string,
+   /**
+    * Left margin.
+    * In pixels
+    */
+   marginLeft: PropTypes.string,
+ 
+   /**
+    * Border margin.
+    * In pixels
+    */
+   border: PropTypes.number,
+ 
+   /**
+    * Border Top.
+    * In pixels
+    */
+   borderTop: PropTypes.number,
+ 
+   /**
+    * Border margin.
+    * In pixels
+    */
+   borderRight: PropTypes.number,
+ 
+   /**
+    * Border margin.
+    * In pixels
+    */
+   borderBottom: PropTypes.number,
+ 
+   /**
+    * Border margin.
+    * In pixels
+    */
+   borderLeft: PropTypes.number,
+ 
+   borderColor: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey500', 'primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
+   
+   borderRadius: PropTypes.string,
 };
 
 export { Typography as default };

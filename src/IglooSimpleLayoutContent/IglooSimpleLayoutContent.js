@@ -31,6 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
+    background: "#FAFBFC",
     [theme.breakpoints.up("sm")]: {
       padding: theme.spacing(4),
     },

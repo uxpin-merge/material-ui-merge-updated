@@ -39,19 +39,24 @@ const useStyles = makeStyles(theme => ({
       flexShrink: 0
     },
     "& .MuiDrawer-paper": {
-      backgroundColor: "#f9fafc"
+      backgroundColor: "#ffffff"
     }
   },
   appBar: {
+    background: "#000000",
     zIndex: theme.zIndex.drawer + 1,
-    borderTop: "3px solid",
+    borderTop: "5px solid",
     borderTopColor: theme.palette.decoration.main,
-    minWidth: "550px"
+    minWidth: "550px",
+    "& .MuiIcon-root": {
+      color: "#ffffff"
+    }
   },
   menuButton: {
     // marginRight: theme.spacing(1),
     [theme.breakpoints.up("md")]: {
-      display: "none"
+      display: "none",
+      color: "#ffffff"
     }
   },
   toolbar: theme.mixins.toolbar,
@@ -78,18 +83,23 @@ const useStyles = makeStyles(theme => ({
     marginRight: -theme.spacing(2),
     "& .MuiBadge-badge": {
       backgroundColor: theme.palette.headerBadges.main,
-      color: theme.palette.common.white,
+      color: "#ffffff",
       right: -3,
       top: 2,
-      border: "1px solid #fff"
+      // border: "1px solid #fff"
     }
   },
 
+  icons:{
+    color:"#ffffff"
+  },
+
   logo: {
-    height: "36px",
+    height: "32px",
+    // marginLeft: "-24px",
     [theme.breakpoints.down("sm")]: {
-      maxHeight: "36px",
-      maxWidth: "100px"
+      maxHeight: "32px",
+      // maxWidth: "100px"
     }
   },
 
@@ -189,7 +199,7 @@ function Header(props) {
               alt={classes.logoAlt}
               height="100%"
               width="auto"
-              objectFit="scale-down"
+              // objectFit="scale-down"
             />
           </div>
           <div className={classes.grow} />
@@ -215,7 +225,7 @@ function Header(props) {
           )}
           <div className={classes.iconSection}>
             {props.children && (
-              <Box>
+              <Box >
                 {React.Children.map(props.children, child =>
                   React.cloneElement(child, {})
                 )}
@@ -227,8 +237,10 @@ function Header(props) {
                 label="My Account"
                 icon="account_circle"
                 menuItems={props.accountMenu}
-                color="secondary"
+                color="#ffffff"
                 open={false}
+                className={classes.icons}
+                placement="bottom-end"
               />
             )}
           </div>

@@ -69,8 +69,8 @@ export default (
   <IglooSimpleLayout uxpId="1">
     <IglooHeader uxpId="2"
     menus={menus}
-    logoSrc = "https://uc.uxpin.com/files/732773/730600/image-6d6f68.png"
-    logoAlt = "IGLOO Design System"
+    logoSrc = "https://uc.uxpin.com/files/1206445/1163114/UXPinMerge_Logo_WhiteFill_x2-9ca6d5c0d7210e31cb6c17e797466b7d-f7dc09.png"
+    logoAlt = "UXPin Merge"
     desktopNavigationVariant = "vertical"
     hasAccountIcon = {true}
     accountMenu= {accountMenu}

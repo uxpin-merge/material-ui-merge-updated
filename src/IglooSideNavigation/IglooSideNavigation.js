@@ -38,8 +38,9 @@ const useStyles = makeStyles(theme => ({
   },
 
   icon:{
-    marginLeft: "-8px",
-    marginRight: "16px"
+    // marginLeft: "-8px",
+    marginRight: "16px",
+    color: "#2684FF"
   },
   listItemText: {
     letterSpacing: "1px",
@@ -50,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     "& .MuiButtonBase-root":{
       color: "#5f6368",
       "&.Mui-selected":{
-        color: "#000000"
+        color: "#2684FF"
       }
     },
 
