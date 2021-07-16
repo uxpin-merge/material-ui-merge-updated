@@ -23,7 +23,7 @@ import IglooHeader from "../IglooHeader/IglooHeader";
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    minHeight: "667px"
+    minHeight: "667px",
   },
   toolbar: theme.mixins.toolbar,
   content: {

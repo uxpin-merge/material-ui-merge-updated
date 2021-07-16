@@ -8,57 +8,57 @@ import Badge from "../../Badge/Badge";
 
 
 let menus = 
-  [
+[
     {
         "active": true,
         "opened": true,
-        "label": "Marketing Services",
+        "label": "Level 1",
         "submenu": [
             {
-                "label": "Branding",
+                "label": "Level 2",
                 "submenu": [
                     {
-                        "label": "Brochures"
+                        "active": true,
+                        "label": "level 3"
                     },
                     {
-                        "label": "Business Cards"
+                        "label": "level 3"
                     },
                     {
-                        "label": "Logos"
+                        "label": "level 3"
                     }
                 ]
             },
             {
-                "label": "Variable Printing",
+                "label": "Level 2",
                 "submenu": [
                     {
-                        "label": "Igen"
+                        "label": "level 3"
                     },
                     {
-                        "label": "1-to-1"
+                        "label": "level 3"
                     }
                 ]
             },
             {
-                "label": "Loyalty",
-                "active": true,
+                "label": "Level 2",
             },
             {
-                "label": "Social Media"
+                "label": "Level 2"
             }
         ]
     },
     {
         "icon": "data_usage",
-        "label": "Data Solutions"
+        "label": "Level 1"
     },
     {
         "icon": "widgets",
-        "label": "Technology"
+        "label": "Level 1"
     },
     {
         "icon": "bookmarkss",
-        "label": "From Side"
+        "label": "Level 1"
     }
 ]
 

@@ -8,53 +8,59 @@ import IconButton from "../../IconButton/IconButton";
 import Badge from "../../Badge/Badge";
 
 let menus = 
-  [
-    {
-        "active": true,
-        "opened": true,
-        "label": "Marketing Services",
-        "submenu": [
-            {
-                "label": "Branding",
-                "submenu": [
-                    {
-                        "label": "Brochures"
-                    },
-                    {
-                        "label": "Business Cards"
-                    },
-                    {
-                        "label": "Logos"
-                    }
-                ]
-            },
-            {
-                "label": "Variable Printing"
-            },
-            {
-                "label": "Loyalty",
-                "active": true
-            },
-            {
-                "label": "Social Media"
-            }
-        ]
-    },
-    {
-        "icon": "data_usage",
-        "label": "Data Solutions",
-        "url": "http://www.google.com",
-    },
-    {
-        "icon": "widgets",
-        "label": "Technology",
-        "url": "http://www.google.com",
-    },
-    {
-        "icon": "bar_chart",
-        "label": "Analysis",
-        "url": "http://www.google.com",
-    }
+[
+  {
+      "active": true,
+      "opened": true,
+      "icon": "home",
+      "label": "Level 1",
+      "submenu": [
+          {
+              "label": "Level 2",
+              "submenu": [
+                  {
+                      "active": true,
+                      "label": "level 3"
+                  },
+                  {
+                      "label": "level 3"
+                  },
+                  {
+                      "label": "level 3"
+                  }
+              ]
+          },
+          {
+              "label": "Level 2",
+              "submenu": [
+                  {
+                      "label": "level 3"
+                  },
+                  {
+                      "label": "level 3"
+                  }
+              ]
+          },
+          {
+              "label": "Level 2",
+          },
+          {
+              "label": "Level 2"
+          }
+      ]
+  },
+  {
+      "icon": "data_usage",
+      "label": "Level 1"
+  },
+  {
+      "icon": "widgets",
+      "label": "Level 1"
+  },
+  {
+      "icon": "bookmarkss",
+      "label": "Level 1"
+  }
 ]
 
 let accountMenu = [
