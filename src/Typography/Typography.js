@@ -51,12 +51,15 @@ Typography.propTypes = {
    */
   color: PropTypes.oneOf([
     "default",
-    "error",
     "inherit",
     "primary",
     "secondary",
     "textPrimary",
-    "textSecondary"
+    "textSecondary",
+    "error",
+    "success.main",
+    "warning.main",
+    "info.main"
   ]),
 
   /**
