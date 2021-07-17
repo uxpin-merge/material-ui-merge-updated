@@ -5,13 +5,16 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 const TabContent = (props) => {
     return(
-    <Typography component="div" style={props.style}>
+    <Typography component="div" style={{padding: "24px", paddingTop:"8px"}}>
         {props.children}
     </Typography>);
 }
 
 TabContent.propTypes = {
     children: PropTypes.node,
+  /**
+  * @uxpinignoreprop
+  */
     style: PropTypes.object
 };
 
