@@ -61,7 +61,7 @@ export default function Drawer(props) {
       disablePortal={false}
       {...props}
     >
-      <div style={{ minWidth: props.width }}>
+      <div style={{ width: props.width }}>
         {props.children}
       </div>
     </DrawerM>
