@@ -1,15 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import BoxM from "@material-ui/core/Box";
-
+/**
+ * @uxpinwrappers
+ * SkipContainerWrapper
+ */
 export default function Box(props) {
+  const { uxpinRef, ...other } = props;
   return (
-    <>
+<div style={{width: "100%", display: "table"}} ref={uxpinRef} >
   <BoxM
- 
-          {...props}
+  
+
+          {...other}
         >
-          
+       
           {!props.children ? (
               <span>
                 <center>
@@ -19,20 +24,9 @@ export default function Box(props) {
             ) : (
               props.children
             )}
+           
         </BoxM>
-
-      {/* <Box {...props} >
-        {!props.children ? (
-              <span>
-                <center>
-                  <p>Drag components into this wrapper</p>
-                </center>
-              </span>
-            ) : (
-              props.children
-            )}
-      </Box> */}
-    </>
+       </div>
   );
 }
 
@@ -51,9 +45,9 @@ Box.propTypes = {
    * Color of text
    */
 
-  color: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey.500', 'primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
+  color: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey.500', 'primary.main', 'primary.light', 'primary.dark', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
 
-  bgcolor: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey500', 'primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
+  bgcolor: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey500', 'primary.main', 'primary.light', 'primary.dark', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
 
 
 
