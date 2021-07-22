@@ -52,6 +52,13 @@ const igloo = createMuiTheme({
       fontWeight: "700"
     }
   },
+  // props: {
+  //   // Name of the component ⚛️
+  //   MuiCard: {
+  //     // The default props to change
+  //     raised: true, // No more ripple, on the whole application 💣!
+  //   },
+  // },
   overrides: {
     // Name of the component
     MuiOutlinedInput: {

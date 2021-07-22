@@ -3,14 +3,20 @@ import PropTypes from "prop-types";
 import TypographyM from "@material-ui/core/Typography";
 import ReactHtmlParser from "react-html-parser";
 import BoxM from "@material-ui/core/Box";
-
+/**
+ * @uxpinwrappers
+ * SkipContainerWrapper
+ */
 function Typography(props) {
+  const { uxpinRef, ...other } = props;
   return (
-    <BoxM {...props}>
-    <TypographyM  {...props} component={props.component} >
+    <div style={{ width: "100%", display: "table" }} ref={uxpinRef} key="wwwww">
+    <BoxM {...other}>
+    <TypographyM  {...other} >
       {ReactHtmlParser(props.children)}{" "}
     </TypographyM>
     </BoxM>
+    </div>
   );
 }
 
@@ -47,21 +53,12 @@ Typography.propTypes = {
   align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
 
   /**
-   * The color of the component. It supports those theme colors that make sense for this component.
+   * Color of text
    */
-  color: PropTypes.oneOf([
-    "default",
-    "inherit",
-    "primary",
-    "secondary",
-    "textPrimary",
-    "textSecondary",
-    "error",
-    "success.main",
-    "warning.main",
-    "info.main"
-  ]),
 
+   color: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey.500', 'primary.main', 'primary.light', 'primary.dark', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
+
+   bgcolor: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey500', 'primary.main', 'primary.light', 'primary.dark', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
   /**
    *  Controls if typography is inline or block level.
    */
@@ -84,6 +81,7 @@ Typography.propTypes = {
 
   /**
    * Map typography to another html tag. 
+   * @uxpinignoreprop
    */
   component: PropTypes.string,
 

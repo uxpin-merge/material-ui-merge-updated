@@ -54,7 +54,7 @@ export default function Drawer(props) {
         scrollPaper: classes.scrollPaper
       }}
       open={open}
-      onClose={handleClose}
+      onClose={() => {setOpen(false)}}
       container={drawerContainer}
       disableEnforceFocus
       keepMounted
@@ -116,8 +116,8 @@ Drawer.propTypes = {
 };
 
 
-// Drawer.defaultProps = {
-// open: false,
-// onClose: () => undefined,
-// maxWidth: false
-// };
+Drawer.defaultProps = {
+open: false,
+onClose: () => {setOpen(false)},
+maxWidth: false
+};
