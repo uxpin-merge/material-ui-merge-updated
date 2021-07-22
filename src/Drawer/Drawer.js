@@ -19,7 +19,10 @@ const useStyles = makeStyles(theme => ({
     flexShrink: 0
   }
 }));
-
+/**
+ * @uxpinwrappers
+ * SkipContainerWrapper
+ */
 export default function Drawer(props) {
   const classes = useStyles();
   const theme = useTheme();
