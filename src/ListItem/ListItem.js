@@ -1,27 +1,134 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ListItemM from "@material-ui/core/ListItem";
+import IconM from "@material-ui/core/Icon";
+import Collapse from '@material-ui/core/Collapse';
+import { makeStyles } from '@material-ui/core/styles';
+
 import ListItemIcon from "../ListItemIcon/ListItemIcon";
 import ListItemText from "../ListItemText/ListItemText";
 import ListItemSecondaryAction from "../ListItemSecondaryAction/ListItemSecondaryAction";
 import Divider from "../Divider/Divider";
+import { ArrowLeftTwoTone, DevicesOtherOutlined, SignalCellularNullRounded } from "@material-ui/icons";
+
+
+
+
 
 function ListItem(props) {
+
+  const useStyles = makeStyles(theme => ({
+    collapsedListItem: {
+      borderLeft: "3px solid",
+      borderLeftColor: theme.palette.decoration.main,
+      backgroundColor: "#f9f9f9",
+      // backgroundColor: "#ffffff",
+      // color: theme.palette.decoration.main
+      '&.Mui-selected': {
+        backgroundColor: "#f9f9f9",
+        
+      },
+      '& .MuiIcon-root': {
+          marginLeft:"-3px"
+        },
+    },
+      
+    listItem:{
+        '&.Mui-selected': {
+          borderLeft: "3px solid",
+          borderLeftColor: theme.palette.decoration.main,
+          backgroundColor: "#f9f9f9",
+          color: theme.palette.primary,
+          '& .MuiIcon-root': {
+            marginLeft:"-3px"
+          },
+          // marginLeft:"-3px"
+        },
+
+      },
+
+    collapseContainer:{
+      paddingLeft: "36px",
+      paddingBottom: "24px",
+      paddingTop: "20px",
+      borderBottom: "1px solid #0000001f",
+      
+      '& .MuiListItem-root':{
+        paddingTop:0,
+        paddingBottom:0,
+        '&.Mui-selected': {
+          border:0,
+          color: theme.palette.primary.main,
+          background: "#ffffff",
+          '&.MuiListItem-button:hover':{
+            color: theme.palette.primary.main,
+           opacity: "1",
+          },
+          // '&.MuiIcon-root': {
+          //   marginLeft:"-3px"
+          // },
+        },
+        '&.MuiListItem-button:hover':{
+          background: "#ffffff",
+          // color: theme.palette.primary.light,
+          opacity:".5",
+        },
+      },
+
+      '& .MuiListItem-divider':{
+        border:0,
+      },
+       },
+
+    icon: {
+      width:"36px"
+    }
+  }));
+  
+
+  const classes = useStyles(props);
+  const [open, setOpen] = React.useState(props.collapsed);
+
+  React.useEffect(() => {
+    setOpen(props.collapsed);
+  }, [props]);
+
+
+  function handleClick() {
+    setOpen(!open);
+  }
+  const { uxpinRef, isCollapsible, button, onClick, ...other } = props;
+
   return (
-    <>
-      <ListItemM {...props}>
-        {props.icon ? <ListItemIcon>{props.icon}</ListItemIcon> : null}
+
+    <React.Fragment key={`some-unique-id`}>
+      <ListItemM
+      button={isCollapsible ? true : button}
+      onClick={isCollapsible ? handleClick : onClick}
+      // selected={open ? true : props.selected}
+      className={open ? classes.collapsedListItem : classes.listItem}      
+      {...other} >
+        {props.icon ? <IconM color={props.iconColor} fontSize="small" className={classes.icon}>{props.icon}</IconM> : null}
         <ListItemText
           primary={props.primary}
           secondary={props.secondary}
           inset={props.inset}
         />
-        {props.children ? (
+      
+        {isCollapsible ?
+          open ? <IconM>expand_less</IconM> : <IconM>expand_more</IconM>
+          :
           <ListItemSecondaryAction>{props.children}</ListItemSecondaryAction>
-        ) : null}
+        }
+
       </ListItemM>
-      {props.hasDivider ? <Divider marginTop={1} marginBottom={1} /> : null}
-    </>
+      {isCollapsible ?
+        <Collapse in={open} timeout="auto" unmountOnExit className={classes.collapseContainer}>
+          {props.children}
+        </Collapse>
+        : null
+      }
+    </React.Fragment>
   );
 }
 
@@ -44,6 +151,17 @@ ListItem.propTypes = {
    */
   icon: PropTypes.string,
 
+    /**
+   * The color of the icon.
+   */
+     iconColor: PropTypes.oneOf([
+      "inherit",
+      "primary",
+      "secondary",
+      "action",
+      "error",
+      "disabled"
+    ]),
   /**
    * If `true`, the list item will be clickable.
    */
@@ -62,7 +180,7 @@ ListItem.propTypes = {
   /**
    * If `true`, a border is added to the bottom of the list item.
    */
-  hasDivider: PropTypes.bool,
+  // hasDivider: PropTypes.bool,
 
   /**
    * If `true`, the left and right padding is removed.
@@ -80,26 +198,25 @@ ListItem.propTypes = {
    */
   onClick: PropTypes.func,
 
+  isCollapsible: PropTypes.bool,
 
   /**
    * PROPS BELOW NOT USED
    */
-  
-   /**
-   * The content of the component.
-   * @uxpinignoreprop
-   */
+
+  /**
+  * The content of the component.
+  * @uxpinignoreprop
+  */
   children: PropTypes.node,
 
   /**
    * If `true`, a 1px light border is added to the bottom of the list item.
-   * @uxpinignoreprop
    */
   divider: PropTypes.bool,
 
   /**
    * Defines the `align-items` style property.
-   * @uxpinignoreprop
    */
   alignItems: PropTypes.oneOf(["flex-start", "center"]),
 
@@ -111,7 +228,6 @@ ListItem.propTypes = {
   classes: PropTypes.object,
 
   /**
-   * @ignore
    *  @uxpinignoreprop
    */
   className: PropTypes.string,
@@ -120,7 +236,7 @@ ListItem.propTypes = {
    * The component used for the root node.
    * Either a string to use a DOM element or a component.
    * By default, it's a `li` when `button` is `false` and a `div` when `button` is `true`.
-   *  @uxpinignoreprop
+   * @uxpinignoreprop
    */
   component: PropTypes.string,
 
@@ -139,7 +255,7 @@ ListItem.propTypes = {
 
   /**
    * If `true`, compact vertical padding designed for keyboard and mouse input will be used.
-   *  @uxpinignoreprop
+
    */
   dense: PropTypes.bool,
 
@@ -147,7 +263,13 @@ ListItem.propTypes = {
    * @ignore
    *  @uxpinignoreprop
    */
-  focusVisibleClassName: PropTypes.string
+  focusVisibleClassName: PropTypes.string,
+
+  collapsed: PropTypes.bool,
 };
 
+ListItem.defaultProps = {
+  iconColor:"primary",
+  divider: true
+}
 export { ListItem as default };

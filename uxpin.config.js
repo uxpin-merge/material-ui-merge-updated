@@ -110,6 +110,7 @@ module.exports = {
           "src/FormGroup/FormGroup.js",
           "src/FormControlLabel/FormControlLabel.js",
           "src/FormLabel/FormLabel.js",
+          "src/ExpansionPanel/ExpansionPanel.js",
           "src/ExpansionPanelActions/ExpansionPanelActions.js",
           "src/ExpansionPanelDetails/ExpansionPanelDetails.js",
           "src/ExpansionPanelSummary/ExpansionPanelSummary.js",

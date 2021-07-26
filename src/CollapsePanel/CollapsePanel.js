@@ -7,6 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import Paper from '@material-ui/core/Paper';
 import Icon from '@material-ui/core/Icon';
+import ListItemIcon from "../ListItemIcon/ListItemIcon";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,6 +42,7 @@ function CollapsePanel(props) {
     >
 
       <ListItem button onClick={handleClick}>
+      {props.icon ? <ListItemIcon>{props.icon}</ListItemIcon> : null}
         <ListItemText primary={props.toggleText}/>
         {open ? <Icon>expand_less</Icon> : <Icon>expand_more</Icon> }
       </ListItem>
@@ -73,6 +75,16 @@ CollapsePanel.propTypes = {
   * @uxpinignoreprop
   */
   children: PropTypes.node,
+
+
+
+
+
+    /**
+   * if set, Icon will display.
+   * Use the name of the icon from https://material.io/tools/icons.
+   */
+     icon: PropTypes.string,
 };
 
 CollapsePanel.defaultProps = {

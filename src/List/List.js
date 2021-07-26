@@ -46,7 +46,7 @@ List.propTypes = {
   /**
    * The component used for the root node.
    * Either a string to use a DOM element or a component.
-   * @uxpinignoreprop
+
    */
 
   component: PropTypes.string,
@@ -55,7 +55,6 @@ List.propTypes = {
    * If `true`, compact vertical padding designed for keyboard and mouse input will be used for
    * the list and list items. The property is available to descendant components as the
    * `dense` context.
-   * @uxpinignoreprop
    */
   dense: PropTypes.bool,
 

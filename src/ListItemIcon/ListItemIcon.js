@@ -4,7 +4,7 @@ import ListItemIconM from "@material-ui/core/ListItemIcon";
 import Icon from "../icon/Icon"
 
 function ListItemIcon(props) {
-  return <ListItemIconM {...props}><Icon>{props.children}</Icon></ListItemIconM>;
+  return <ListItemIconM {...props}><Icon color={props.color}>{props.children}</Icon></ListItemIconM>;
 }
 
 ListItemIcon.propTypes = {
@@ -28,7 +28,19 @@ ListItemIcon.propTypes = {
    * @ignore
    * @uxpinignoreprop
    */
-  className: PropTypes.string
+  className: PropTypes.string,
+
+      /**
+   * The color of the icon.
+   */
+       color: PropTypes.oneOf([
+        "inherit",
+        "primary",
+        "secondary",
+        "action",
+        "error",
+        "disabled"
+      ]),
 };
 
 export { ListItemIcon as default };
