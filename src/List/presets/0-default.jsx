@@ -10,7 +10,18 @@ export default (
     <ListItem primary="Wi-Fi" icon="wifi" hasDivider uxpId="ListItem.2">
       <Switch uxpId="ListItem.2.1" />
     </ListItem>
-    <ListItem primary="Single Line Item" uxpId="ListItem.3" />
+    <ListItem primary="With Submenu" icon="settings" selected isCollapsible={true} collapsed={true} uxpId="ListItem.3"
+    >
+      <ListItem
+        primary="First Sublink" uxpId="ListItem.3.1" divider={false} selected
+      ></ListItem>
+        <ListItem
+        primary="Second Sublink" divider={false} uxpId="ListItem.3.2"
+      ></ListItem>
+      
+    </ListItem>
+
+
     <ListItem
       primary="Double Line Item"
       secondary="Secondary text"

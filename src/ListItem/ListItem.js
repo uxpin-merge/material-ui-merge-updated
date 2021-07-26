@@ -163,6 +163,15 @@ ListItem.propTypes = {
       "disabled"
     ]),
   /**
+   * Defines the `align-items` style property.
+   */
+   alignItems: PropTypes.oneOf(["flex-start", "center"]),
+    isCollapsible: PropTypes.bool,
+
+
+    collapsed: PropTypes.bool,
+
+  /**
    * If `true`, the list item will be clickable.
    */
   button: PropTypes.bool,
@@ -192,14 +201,17 @@ ListItem.propTypes = {
    * This should be used on an item without icon when siblings have icon.
    */
   inset: PropTypes.bool,
+  /**
+   * If `true`, a 1px light border is added to the bottom of the list item.
+   */
+  divider: PropTypes.bool,
 
   /**
    * Click event to use with UXPin interactions.
    */
   onClick: PropTypes.func,
 
-  isCollapsible: PropTypes.bool,
-
+  
   /**
    * PROPS BELOW NOT USED
    */
@@ -210,15 +222,6 @@ ListItem.propTypes = {
   */
   children: PropTypes.node,
 
-  /**
-   * If `true`, a 1px light border is added to the bottom of the list item.
-   */
-  divider: PropTypes.bool,
-
-  /**
-   * Defines the `align-items` style property.
-   */
-  alignItems: PropTypes.oneOf(["flex-start", "center"]),
 
   /**
    * Override or extend the styles applied to the component.
@@ -265,7 +268,6 @@ ListItem.propTypes = {
    */
   focusVisibleClassName: PropTypes.string,
 
-  collapsed: PropTypes.bool,
 };
 
 ListItem.defaultProps = {
