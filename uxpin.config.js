@@ -128,25 +128,25 @@ module.exports = {
           "src/MergeMainContent/MergeMainContent.js",
         ]
       },
-      {
-        name: "Misc",
-        include: [
-          "src/DeviceViewer/DeviceViewer.js",
-          "src/TestComponent/TestComponent.js",
-          "src/ThemeSwitcher/ThemeSwitcher.js",
-          "src/ComponentInspectorUXP/ComponentInspectorUXP.js",
+      // {
+        // name: "Misc",
+        // include: [
+          // "src/DeviceViewer/DeviceViewer.js",
+          // "src/TestComponent/TestComponent.js",
+          // "src/ThemeSwitcher/ThemeSwitcher.js",
+          // "src/ComponentInspectorUXP/ComponentInspectorUXP.js",
           // "src/IglooDemoLayout/IglooDemoLayout.js",
           // "src/IglooDemoHeader/IglooDemoHeader.js",
-          "src/ComponentDemoInspector/ComponentDemoInspector.js",
-          "src/ComponentDemoInspectorWrapper/ComponentDemoInspectorWrapper.js",
+          // "src/ComponentDemoInspector/ComponentDemoInspector.js",
+          // "src/ComponentDemoInspectorWrapper/ComponentDemoInspectorWrapper.js",
           // "src/IglooDemoSideNavigation/IglooDemoSideNavigation.js",
-          "src/ComponentDemoUXP/ComponentDemoUXP.js",
-          "src/ComponentDemoPropsTable/ComponentDemoPropsTable.js",
-          "src/TestComponent/TestComponent.js",
-          "src/TypographyResponsiveChart/TypographyResponsiveChart.js",
-          "src/IFrame/IFrame.js"
-        ]
-      }
+          // "src/ComponentDemoUXP/ComponentDemoUXP.js",
+          // "src/ComponentDemoPropsTable/ComponentDemoPropsTable.js",
+          // "src/TestComponent/TestComponent.js",
+          // "src/TypographyResponsiveChart/TypographyResponsiveChart.js",
+          // "src/IFrame/IFrame.js"
+        // ]
+      // }
     ]
   },
   name: "Merge Design System"
