@@ -221,10 +221,11 @@ function MergeSideNavigation(props) {
       </>
     );
   };
-  return <div className={classes.root}>{props.menus.map(renderItem(0))}</div>;
+  return <div className={classes.root}>{props.children}</div>;
 }
 
 MergeSideNavigation.propTypes = {
+  children: PropTypes.node,
   /**
    * Array of navigation items to display. See below for array structure and information.
    */
@@ -234,7 +235,8 @@ MergeSideNavigation.propTypes = {
       label: PropTypes.string,
       url: PropTypes.string,
       active: PropTypes.bool,
-      submenu: PropTypes.arrayOf(PropTypes.shape({}))
+      submenu: PropTypes.arrayOf(PropTypes.shape({})),
+      
     })
   )
 };

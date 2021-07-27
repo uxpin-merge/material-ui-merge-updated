@@ -28,7 +28,8 @@ const drawerWidth = 275;
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    minHeight: "667px"
+    minHeight: "667px",
+    minWidth: "550px"
   },
   grow: {
     flexGrow: 1
@@ -155,7 +156,10 @@ const useStyles = makeStyles(theme => ({
     }
   }
 }));
-
+/**
+ * @uxpinwrappers
+ * SkipContainerWrapper
+ */
 function MergeHeader(props) {
   const classes = useStyles();
   const theme = useTheme();
@@ -182,6 +186,7 @@ function MergeHeader(props) {
         className={classes.appBar}
         color="inherit"
         elevation={2}
+        ref={props.uxpinRef}
       >
         <Toolbar>
           <IconButton
@@ -358,21 +363,25 @@ MergeHeader.propTypes = {
 
   /**
   * If `true` will show navigation
+   * @uxpinignoreprop
   */
   hasNavigation: PropTypes.bool,
 
   /**
   * Menu array if "Navigation" = `true`
+   * @uxpinignoreprop
   */
   menus: PropTypes.array,
   
   /**
    * The type of navigation to render at desktop breakpoint. Horizontal currently only supports one level
+    * @uxpinignoreprop
    */
   desktopNavigationVariant: PropTypes.oneOf(["horizontal", "vertical"]),
   
   /**
    * Changes the placement of the header
+   * @uxpinignoreprop
    */
   inline: PropTypes.bool,
   

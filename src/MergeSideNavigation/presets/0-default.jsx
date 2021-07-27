@@ -2,61 +2,34 @@ import * as React from 'react';
 
 import MergeSideNavigation from '../MergeSideNavigation';
 
-var menus = 
-  [
-    {
-        "active": true,
-        "opened": true,
-        "label": "Level 1",
-        "submenu": [
-            {
-                "label": "Level 2",
-                "submenu": [
-                    {
-                        "active": true,
-                        "label": "level 3"
-                    },
-                    {
-                        "label": "level 3"
-                    },
-                    {
-                        "label": "level 3"
-                    }
-                ]
-            },
-            {
-                "label": "Level 2",
-                "submenu": [
-                    {
-                        "label": "level 3"
-                    },
-                    {
-                        "label": "level 3"
-                    }
-                ]
-            },
-            {
-                "label": "Level 2",
-            },
-            {
-                "label": "Level 2"
-            }
-        ]
-    },
-    {
-        "icon": "data_usage",
-        "label": "Level 1"
-    },
-    {
-        "icon": "widgets",
-        "label": "Level 1"
-    },
-    {
-        "icon": "bookmarkss",
-        "label": "Level 1"
-    }
-]
+import List from '../../List/List';
+import ListItem from '../../ListItem/ListItem';
+import Switch from '../../Switch/Switch';
 
 export default (
-  <MergeSideNavigation menus={menus} uxpId="1" />
+  <MergeSideNavigation uxpId="1">
+       <List subheadText="List Item Examples" uxpId="2">
+    <ListItem primary="Inbox" icon="inbox" uxpId="ListItem.1" />
+    <ListItem primary="Wi-Fi" icon="wifi" hasDivider uxpId="ListItem.2">
+      <Switch uxpId="ListItem.2.1" />
+    </ListItem>
+    <ListItem primary="With Submenu" icon="settings" selected isCollapsible={true} collapsed={true} uxpId="ListItem.3"
+    >
+      <ListItem
+        primary="First Sublink" uxpId="ListItem.3.1" divider={false} selected
+      ></ListItem>
+        <ListItem
+        primary="Second Sublink" divider={false} uxpId="ListItem.3.2"
+      ></ListItem>
+      
+    </ListItem>
+
+
+    <ListItem
+      primary="Double Line Item"
+      secondary="Secondary text"
+      uxpId="ListItem.4"
+    />
+  </List>
+  </MergeSideNavigation>
 );

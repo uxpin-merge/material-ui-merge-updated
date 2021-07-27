@@ -24,6 +24,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     flexGrow: 1,
+    borderLeft: "#eeeeee 1px solid",
+    minHeight: "667px",
   },
   toolbar: theme.mixins.toolbar,
   toolbarMargin:{
@@ -48,16 +50,7 @@ function MergeMainContent(props) {
     <div className={classes.root}>
       
       <div className={classes.content}>
-        <div className={classes.toolbar} />
-        <Hidden smUp implementation="css">
-            <div className={classes.toolbar} >2</div>
-        </Hidden>
-
-        {props.desktopNavigationVariant == "horizontal" && (
-          <Hidden smDown implementation="css">
-            <div className={classes.toolbar} />
-          </Hidden>
-        )}
+       
 
         {/* {props.hasSearch && (
           <Hidden smUp implementation="css">
