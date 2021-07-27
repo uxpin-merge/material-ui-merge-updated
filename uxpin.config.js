@@ -121,10 +121,10 @@ module.exports = {
         name: "Templates",
         include: [
           // "src/IglooSimpleLayout/IglooSimpleLayout.js",
-          "src/MergeBasicLayout/MergeBasicLayout.js",
+          // "src/MergeBasicLayout/MergeBasicLayout.js",
           "src/MergeHeader/MergeHeader.js",
           "src/MergeSideNavigation/MergeSideNavigation.js",
-          "src/MergeTopNavigation/MergeTopNavigation.js",
+          // "src/MergeTopNavigation/MergeTopNavigation.js",
           "src/MergeMainContent/MergeMainContent.js",
         ]
       },
