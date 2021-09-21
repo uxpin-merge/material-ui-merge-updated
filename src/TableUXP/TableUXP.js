@@ -263,6 +263,10 @@ class TableUXP extends React.Component {
 
   isSelected = id => this.state.selected.indexOf(id) !== -1;
 
+  componentDidUpdate() {
+    
+  }
+
   render() {
     const { classes } = this.props;
     const {
