@@ -160,7 +160,7 @@ let EnhancedTableToolbar = props => {
       </div>
       <div className={classes.spacer} />
       <div className={classes.actions}>
-        {numSelected > 0 ? (
+        {/* {numSelected > 0 ? (
           <Tooltip title="Delete">
             <Icon aria-label="Delete">delete</Icon>
           </Tooltip>
@@ -168,7 +168,7 @@ let EnhancedTableToolbar = props => {
           <Tooltip title="Filter list">
             <Icon aria-label="Filter list">filter_list</Icon>
           </Tooltip>
-        )}
+        )} */}
       </div>
     </Toolbar>
   );
@@ -212,6 +212,18 @@ class TableUXP extends React.Component {
     hasSorting: this.props.hasSorting,
     elevation: this.props.elevation,
   };
+
+  
+  componentDidMount() {
+    console.log("mounted");
+  }
+  
+  componentDidUpdate() {
+    console.log("updated");
+    
+    
+  } 
+
 
   handleRequestSort = (event, property) => {
     const orderBy = property;
@@ -284,14 +296,14 @@ class TableUXP extends React.Component {
  
 
     return (
-      <Paper className={classes.root} elevation={elevation}>
-        {hasHeader && <EnhancedTableToolbar numSelected={selected.length} headerText={headerText} />}
+      <Paper className={classes.root} elevation={this.props.elevation}>
+        {this.props.hasHeader && <EnhancedTableToolbar numSelected={selected.length} headerText={this.props.headerText} />}
         <div className={classes.tableWrapper}>
           <Table className={classes.table} aria-labelledby="tableTitle">
             <EnhancedTableHead
               numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
+              order={this.props.order}
+              orderBy={this.props.orderBy}
               onSelectAllClick={this.handleSelectAllClick}
               onRequestSort={this.handleRequestSort}
               rowCount={this.props.rows.length}
@@ -316,7 +328,7 @@ class TableUXP extends React.Component {
                       key={item.id}
                       selected={isSelected}
                     >
-                      {hasSelection &&
+                      {this.props.hasSelection &&
                       <TableCell padding="checkbox">
                         <Checkbox checked={isSelected} />
                       </TableCell>
@@ -335,7 +347,7 @@ class TableUXP extends React.Component {
             </TableBody>
           </Table>
         </div>
-        {hasPagination && (
+        {this.props.hasPagination && (
           <TablePagination
             rowsPerPageOptions={rowsPerPageOptions}
             component="div"
@@ -442,16 +454,18 @@ TableUXP.propTypes = {
 
     /**
    * Show/Hide the action header
-   * @uxpinignoreprop
+  
   */
  hasHeader: PropTypes.bool,
 
  /**
   * Title of table displaid in action header
-  * @uxpinignoreprop
+  
  */
  headerText: PropTypes.string,
   
 };
+
+
 
 export default withStyles(styles)(TableUXP);
