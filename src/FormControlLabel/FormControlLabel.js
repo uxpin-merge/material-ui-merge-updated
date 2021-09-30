@@ -32,7 +32,7 @@ FormControlLabel.propTypes = {
   /**
    * A control element. For instance, it can be be a `Radio`, a `Switch` or a `Checkbox`.
    */
-  control: PropTypes.element,
+  control: PropTypes.node,
 
   /**
    * If `true`, the control will be disabled.

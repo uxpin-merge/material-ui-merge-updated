@@ -185,7 +185,7 @@ TabsWithPanel.propTypes = {
    * Determines the color of the indicator.
    * @uxpinignoreprop
    */
-  // indicatorColor: PropTypes.oneOf(["secondary", "primary"]),
+  indicatorColor: PropTypes.oneOf(["secondary", "primary"]),
 
   /**
    * Determine behavior of scroll buttons when Tabss are set to scroll
@@ -194,13 +194,13 @@ TabsWithPanel.propTypes = {
    * `off` will never present them
    */
   /** @uxpinignoreprop */
-  // scrollButtons: PropTypes.oneOf(["auto", "on", "off"])
+  scrollButtons: PropTypes.oneOf(["auto", "on", "off"]),
 
   /**
   * If `true`, the Tabss will be centered.
   * This property is intended for large views.
   */
-  centered: PropTypes.bool,
+   centered: PropTypes.bool,
   /**
   * Aria-label tag for accessibility
   */
