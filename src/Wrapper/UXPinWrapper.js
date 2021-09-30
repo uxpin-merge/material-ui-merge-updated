@@ -1,13 +1,12 @@
 import React from "react";
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import igloo from "../ThemeSwitcher/themes/igloo";
+import boilerplateTheme from "./boilerplate-theme";
 import Paper from "@material-ui/core/Paper";
-import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 
-let theme = createMuiTheme(igloo);
+let theme = createMuiTheme(boilerplateTheme);
 
 theme = responsiveFontSizes(theme);
 

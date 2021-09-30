@@ -2,23 +2,13 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/styles";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import AppBar from "@material-ui/core/AppBar";
-import Box from "@material-ui/core/Box";
-import Drawer from "@material-ui/core/Drawer";
 import Divider from "@material-ui/core/Divider";
 import Collapse from "@material-ui/core/Collapse";
-import Toolbar from "@material-ui/core/Toolbar";
-import Grid from "@material-ui/core/Grid";
-import Slide from "@material-ui/core/Slide";
-import InputBase from "@material-ui/core/InputBase";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Icon from "@material-ui/core/icon";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import Image from "../Image/Image";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -101,7 +91,6 @@ function MergeSideNavigation(props) {
       collapsedIndex.map((item, i) => (i === level ? val : item))
     );
   };
-  console.log("iglooSideProps: ", props.menus);
 
   // eslint-disable-next-line react/prop-types
   const renderItem = (level = 0) => (
@@ -240,52 +229,5 @@ MergeSideNavigation.propTypes = {
     })
   )
 };
-// IglooSideNavigation.defaultProps = {
-//   menus: [
-//     {
-//       label: "Marketing Services",
-//       active: true,
-//       opened: true,
-//       submenu: [
-//         {
-//           label: "Branding",
-//           submenu: [
-//             {
-//               label: "Brochures",
-//               active: true
-//             },
-//             {
-//               label: "Business Cards"
-//             },
-//             {
-//               label: "Logos"
-//             }
-//           ]
-//         },
-//         {
-//           label: "Variable Printing",
-//           submenu: [
-//             {
-//               label: "Igen"
-//             },
-//             {
-//               label: "1-to-1"
-//             }
-//           ]
-//         },
-//         {
-//           label: "Loyalty",
-//           active: "true"
-//         },
-//         {
-//           label: "Social Media"
-//         }
-//       ]
-//     },
-//     { label: "Data Solutions", icon: "data_usage", active: true },
-//     { label: "Technology", icon: "widgets" },
-//     { label: "From Side", icon: "bookmark" }
-//   ]
-// };
 
 export default MergeSideNavigation;

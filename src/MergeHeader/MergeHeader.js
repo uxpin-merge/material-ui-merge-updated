@@ -1,26 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
-import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
 import MenuIcon from "@material-ui/icons/Menu";
-import CloseIcon from "@material-ui/icons/Close";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
-import MergeSideNavigation from "../MergeSideNavigation/MergeSideNavigation";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import Icon from "@material-ui/core/Icon";
-import Badge from "@material-ui/core/Badge";
 import Menu from "../Menu/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import Image from "../Image/Image";
-import Tabs from "../Tabs/Tabs";
-import Tab from "../Tab/Tab";
-import { withStyles } from "@material-ui/core/styles";
 import Box from "../Box/Box";
 import MergeTopNavigation from "../MergeTopNavigation/MergeTopNavigation";
 
@@ -60,7 +49,7 @@ const useStyles = makeStyles(theme => ({
       color: "#ffffff"
     }
   },
-  toolbar: theme.mixins.toolbar,
+  // toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
     backgroundColor: "#f9fafc"
@@ -75,6 +64,7 @@ const useStyles = makeStyles(theme => ({
   },
   sectionDesktop: {
     display: "none",
+    display: "flex",
     [theme.breakpoints.up("sm")]: {
       display: "flex"
     }
@@ -182,7 +172,8 @@ function MergeHeader(props) {
   return (
     <>
       <AppBar
-        {...(props.inline ? { position: "static" } : { position: "fixed" } )}
+        // {...(props.inline ? { position: "static" } : { position: "fixed" } )}
+        position = "fixed"
         className={classes.appBar}
         color="inherit"
         elevation={2}
@@ -280,58 +271,6 @@ function MergeHeader(props) {
         ) : null }
       </AppBar>
 
-{props.hasNavigation ? 
-
-      <Hidden smUp implementation="css">
-        <nav className={classes.drawer}>
-          <Drawer
-            variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper
-            }}
-            ModalProps={{
-              keepMounted: true // Better open performance on mobile.
-            }}
-            container={drawerContainer}
-          >
-            <IconButton
-              onClick={handleDrawerToggle}
-              className={classes.closeMenuButton}
-            >
-              <CloseIcon />
-            </IconButton>
-
-            <MergeSideNavigation menus={props.menus} {...props} />
-          </Drawer>
-        </nav>  
-      </Hidden>
-      : null }
-
-
-
-      { props.hasNavigation ?
-      props.desktopNavigationVariant == "vertical" && (
-        <Hidden smDown implementation="css">
-          <nav className={classes.drawer}>
-            <Drawer
-              className={classes.drawer}
-              variant="permanent"
-              classes={{
-                paper: classes.drawerPaper
-              }}
-            >
-              <div className={classes.toolbar} />
-              <Box paddingTop={2}>
-                <MergeSideNavigation {...props} />
-              </Box>
-            </Drawer>
-          </nav>
-        </Hidden>
-      )
-      : null }
     </>
   );
 }
