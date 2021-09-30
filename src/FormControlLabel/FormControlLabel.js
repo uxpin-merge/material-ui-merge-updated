@@ -84,7 +84,6 @@ FormControlLabel.defaultProps = {
   // see: https://fb.me/react-controlled-components
   checked: false,
   onChange: () => undefined,
-  control: <Radio value="checkbox" />,
   label: "Control Label"
 };
 
