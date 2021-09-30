@@ -43,7 +43,6 @@ module.exports = {
       {
         name: "Surfaces",
         include: [
-          // "src/IglooHeader/IglooHeader.js",
           "src/Paper/Paper.js",
           "src/Card/Card.js",
         ]
@@ -78,8 +77,6 @@ module.exports = {
         include: [
           "src/GridListTile/GridListTile.js",
           "src/GridListTileBar/GridListTileBar.js",
-          // "src/IglooSideNavigation/IglooSideNavigation.js",
-          // "src/IglooTopNavigation/IglooTopNavigation.js",
           "src/CardActions/CardActions.js",
           "src/CardContent/CardContent.js",
           "src/CardHeader/CardHeader.js",
@@ -95,7 +92,6 @@ module.exports = {
           "src/ListItemPrimaryAction/ListItemPrimaryAction.js",
           "src/ListItemText/ListItemText.js",
           "src/ListSubheader/ListSubheader.js",
-          // "src/IglooSimpleLayoutContent/IglooSimpleLayoutContent.js",
           "src/BottomNavigationAction/BottomNavigationAction.js",
           "src/Tabs/Tabs.js",
           "src/Tab/Tab.js",
@@ -120,34 +116,14 @@ module.exports = {
       {
         name: "Templates",
         include: [
-          // "src/IglooSimpleLayout/IglooSimpleLayout.js",
-          // "src/MergeBasicLayout/MergeBasicLayout.js",
           "src/MergeHeader/MergeHeader.js",
           "src/MergeSideNavigation/MergeSideNavigation.js",
-          // "src/MergeTopNavigation/MergeTopNavigation.js",
           "src/MergeMainContent/MergeMainContent.js",
         ]
-      },
-      // {
-        // name: "Misc",
-        // include: [
-          // "src/DeviceViewer/DeviceViewer.js",
-          // "src/TestComponent/TestComponent.js",
-          // "src/ThemeSwitcher/ThemeSwitcher.js",
-          // "src/ComponentInspectorUXP/ComponentInspectorUXP.js",
-          // "src/IglooDemoLayout/IglooDemoLayout.js",
-          // "src/IglooDemoHeader/IglooDemoHeader.js",
-          // "src/ComponentDemoInspector/ComponentDemoInspector.js",
-          // "src/ComponentDemoInspectorWrapper/ComponentDemoInspectorWrapper.js",
-          // "src/IglooDemoSideNavigation/IglooDemoSideNavigation.js",
-          // "src/ComponentDemoUXP/ComponentDemoUXP.js",
-          // "src/ComponentDemoPropsTable/ComponentDemoPropsTable.js",
-          // "src/TestComponent/TestComponent.js",
-          // "src/TypographyResponsiveChart/TypographyResponsiveChart.js",
-          // "src/IFrame/IFrame.js"
-        // ]
-      // }
-    ]
+      }
+    ],
+    wrapper: './src/Wrapper/UXPinWrapper.js',
+    webpackConfig: './webpack.config.js',
   },
   name: "Merge Design System"
 };
