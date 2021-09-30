@@ -122,5 +122,4 @@ Drawer.propTypes = {
 Drawer.defaultProps = {
 open: false,
 onClose: () => {setOpen(false)},
-maxWidth: false
 };
