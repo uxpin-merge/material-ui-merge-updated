@@ -7,7 +7,8 @@ module.exports = {
             "src/Box/Box.js",
             "src/Grid/Grid.js",
             "src/GridList/GridList.js",
-            "src/Hidden/Hidden.js"
+            "src/Hidden/Hidden.js",
+            "src/DeviceViewer/DeviceViewer.js",
           ]
         },
         {

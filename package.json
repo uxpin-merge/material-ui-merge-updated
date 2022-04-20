@@ -13,7 +13,7 @@
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "@uxpin/merge-cli": "^2.7.8",
+    "@uxpin/merge-cli": "^2.7.10",
     "babel-loader": "^8.0.4",
     "docz-theme-default": "1.2.0",
     "prop-types": "^15.6.2",
